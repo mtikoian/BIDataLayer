@@ -1,0 +1,2228 @@
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="caac7be0-3cc8-4890-99d7-6b162dbab7c3" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Receipts</ID>
+  <Name>Spend</Name>
+  <CreatedTimestamp>2017-07-31T14:44:16.73Z</CreatedTimestamp>
+  <LastSchemaUpdate>2017-07-31T14:44:16.73Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+      <Value>
+        <dds xmlns="">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="64" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-12869" scrolltop="-6407" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="13317" y="12453" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+            <font>
+              <ddsxmlobjectstreamwrapper binary="01000000900180380100065461686f6d61" />
+            </font>
+            <mouseicon>
+              <ddsxmlobjectstreamwrapper binary="6c74000000000000" />
+            </mouseicon>
+          </diagram>
+          <layoutmanager>
+            <ddsxmlobj />
+          </layoutmanager>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="Dim_Buyer_Merge" left="-2388" top="-3898" logicalid="32" controlid="1" masterid="0" hint1="0" hint2="0" width="5106" height="1879" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000a0000f213000057070000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="Dim_Buyer_Merge" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="TimeMaster" left="8267" top="0" logicalid="33" controlid="2" masterid="0" hint1="0" hint2="0" width="5953" height="5000" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000a00004117000088130000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_TimeMaster" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="Fact_INVOICE_MERGE" left="20" top="0" logicalid="34" controlid="3" masterid="0" hint1="0" hint2="0" width="5847" height="5000" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000a0000d716000088130000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_Fact_RECEIPTS_MERGE" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+          <ddscontrol controlprogid="MSDDS.Polyline" left="-234" top="-2518" logicalid="35" controlid="4" masterid="0" hint1="0" hint2="0" width="799" height="2818" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobj>
+                <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+              </ddsxmlobj>
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dataSet.Relations[Fact_RECEIPTS_MERGE-Dim_Buyer_Merge]" vartype="8" />
+                <property name="Virtual" value="0" vartype="11" />
+                <property name="VisibleAP" value="0" vartype="3" />
+              </ddsxmlobj>
+            </layoutobject>
+            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="1" destid="3" sourceattachpoint="9" destattachpoint="0" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+              <point x="165" y="-2019" />
+              <point x="165" y="-705" />
+              <point x="193" y="-705" />
+              <point x="193" y="0" />
+            </connector>
+          </ddscontrol>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="Dim_System_Source" left="-6281" top="2044" logicalid="36" controlid="5" masterid="0" hint1="0" hint2="0" width="4392" height="1879" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000a00002811000057070000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_Dim_System_Source" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+          <ddscontrol controlprogid="MSDDS.Polyline" left="-2189" top="2034" logicalid="37" controlid="6" masterid="0" hint1="0" hint2="0" width="2509" height="799" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobj>
+                <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+              </ddsxmlobj>
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dataSet.Relations[Fact_RECEIPTS_MERGE-Dim_System_Source]" vartype="8" />
+                <property name="Virtual" value="0" vartype="11" />
+                <property name="VisibleAP" value="0" vartype="3" />
+              </ddsxmlobj>
+            </layoutobject>
+            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="5" destid="3" sourceattachpoint="15" destattachpoint="30" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+              <point x="-1889" y="2433" />
+              <point x="-935" y="2433" />
+              <point x="-935" y="2500" />
+              <point x="20" y="2500" />
+            </connector>
+          </ddscontrol>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="Dim_PRODUCTION_PO_OR_NOT" left="-6468" top="5800" logicalid="38" controlid="7" masterid="0" hint1="0" hint2="0" width="4313" height="1879" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000a0000d910000057070000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_Dim_PRODUCTION_PO_OR_NOT" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+          <ddscontrol controlprogid="MSDDS.Polyline" left="-2455" top="4700" logicalid="39" controlid="8" masterid="0" hint1="0" hint2="0" width="5148" height="1889" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobj>
+                <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+              </ddsxmlobj>
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dataSet.Relations[Fact_RECEIPTS_MERGE-Dim_PRODUCTION_PO_OR_NOT]" vartype="8" />
+                <property name="Virtual" value="0" vartype="11" />
+                <property name="VisibleAP" value="0" vartype="3" />
+              </ddsxmlobj>
+            </layoutobject>
+            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="7" destid="3" sourceattachpoint="15" destattachpoint="9" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+              <point x="-2155" y="6189" />
+              <point x="2393" y="6189" />
+              <point x="2393" y="5000" />
+            </connector>
+          </ddscontrol>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="Dim_PUR_ORG" left="3614" top="-5074" logicalid="40" controlid="9" masterid="0" hint1="0" hint2="0" width="3704" height="1879" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000a0000780e000057070000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_Dim_PUR_ORG" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+          <ddscontrol controlprogid="MSDDS.Polyline" left="3417" top="-3694" logicalid="41" controlid="10" masterid="0" hint1="0" hint2="0" width="926" height="3994" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobj>
+                <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+              </ddsxmlobj>
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dataSet.Relations[Fact_RECEIPTS_MERGE-Dim_PUR_ORG]" vartype="8" />
+                <property name="Virtual" value="0" vartype="11" />
+                <property name="VisibleAP" value="0" vartype="3" />
+              </ddsxmlobj>
+            </layoutobject>
+            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="9" destid="3" sourceattachpoint="1" destattachpoint="14" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+              <point x="3816" y="-3195" />
+              <point x="3816" y="-1598" />
+              <point x="4043" y="-1598" />
+              <point x="4043" y="0" />
+            </connector>
+          </ddscontrol>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="dim_PO_HEADER" left="11095" top="5800" logicalid="42" controlid="11" masterid="0" hint1="0" hint2="0" width="3995" height="1879" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000a00009b0f000057070000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_dim_PO_HEADER" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="Dim_ReceiptPartNum" left="5651" top="6847" logicalid="43" controlid="12" masterid="0" hint1="0" hint2="0" width="4630" height="4419" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000a00001612000043110000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_Dim_ReceiptPartNum" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="SELECT        Dim_VENDOR_KEYDim_AP_ManManVendorKey" left="-7434" top="-1816" logicalid="44" controlid="13" masterid="0" hint1="0" hint2="0" width="3519" height="2302" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000a0000bf0d0000fe080000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_Dim_AP_ManManVendorKey" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+          <ddscontrol controlprogid="MSDDS.Polyline" left="-4215" top="-1614" logicalid="45" controlid="14" masterid="0" hint1="0" hint2="0" width="6285" height="2764" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobj>
+                <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+              </ddsxmlobj>
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dataSet.Relations[Fact_RECEIPTS_MERGE-Dim_AP_ManManVendorKey]" vartype="8" />
+                <property name="Virtual" value="0" vartype="11" />
+                <property name="VisibleAP" value="0" vartype="3" />
+              </ddsxmlobj>
+            </layoutobject>
+            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="13" destid="3" sourceattachpoint="15" destattachpoint="24" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+              <point x="-3915" y="-1215" />
+              <point x="1770" y="-1215" />
+              <point x="1770" y="850" />
+              <point x="20" y="850" />
+            </connector>
+          </ddscontrol>
+          <ddscontrol controlprogid="MSDDS.Polyline" left="5567" top="4400" logicalid="46" controlid="15" masterid="0" hint1="0" hint2="0" width="5828" height="2189" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobj>
+                <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+              </ddsxmlobj>
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dataSet.Relations[Fact_INVOICE_MERGE-dim_PO_HEADER]" vartype="8" />
+                <property name="Virtual" value="0" vartype="11" />
+                <property name="VisibleAP" value="0" vartype="3" />
+              </ddsxmlobj>
+            </layoutobject>
+            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="11" destid="3" sourceattachpoint="14" destattachpoint="39" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+              <point x="11095" y="6189" />
+              <point x="8481" y="6189" />
+              <point x="8481" y="4700" />
+              <point x="5867" y="4700" />
+            </connector>
+          </ddscontrol>
+          <ddscontrol controlprogid="MSDDS.Polyline" left="5567" top="-99" logicalid="47" controlid="16" masterid="0" hint1="0" hint2="0" width="3000" height="799" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobj>
+                <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+              </ddsxmlobj>
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dataSet.Relations[Fact_INVOICE_MERGE-TimeMaster]" vartype="8" />
+                <property name="Virtual" value="0" vartype="11" />
+                <property name="VisibleAP" value="0" vartype="3" />
+              </ddsxmlobj>
+            </layoutobject>
+            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="2" destid="3" sourceattachpoint="22" destattachpoint="23" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+              <point x="8267" y="300" />
+              <point x="5867" y="300" />
+            </connector>
+          </ddscontrol>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="Dim_APVoucherNumber_key" left="346" top="9266" logicalid="48" controlid="17" masterid="0" hint1="0" hint2="0" width="4048" height="1879" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000a0000d00f000057070000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="Dim_APVoucherNumber_key" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+          <ddscontrol controlprogid="MSDDS.Polyline" left="321" top="4700" logicalid="49" controlid="18" masterid="0" hint1="0" hint2="0" width="1822" height="5066" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobj>
+                <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+              </ddsxmlobj>
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dataSet.Relations[Fact_INVOICE_MERGE-Dim_APVoucherNumber_key]" vartype="8" />
+                <property name="Virtual" value="0" vartype="11" />
+                <property name="VisibleAP" value="0" vartype="3" />
+              </ddsxmlobj>
+            </layoutobject>
+            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="17" destid="3" sourceattachpoint="0" destattachpoint="7" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+              <point x="720" y="9266" />
+              <point x="720" y="5400" />
+              <point x="1843" y="5400" />
+              <point x="1843" y="5000" />
+            </connector>
+          </ddscontrol>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="Dim_LINE_NUMBER" left="14275" top="-773" logicalid="50" controlid="19" masterid="0" hint1="0" hint2="0" width="3016" height="1879" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000a0000c80b000057070000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_Dim_LINE_NUMBER" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+          <ddscontrol controlprogid="MSDDS.Polyline" left="5567" top="-783" logicalid="51" controlid="20" masterid="0" hint1="0" hint2="0" width="9008" height="1933" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobj>
+                <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+              </ddsxmlobj>
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dataSet.Relations[Fact_INVOICE_MERGE-Dim_LINE_NUMBER]" vartype="8" />
+                <property name="Virtual" value="0" vartype="11" />
+                <property name="VisibleAP" value="0" vartype="3" />
+              </ddsxmlobj>
+            </layoutobject>
+            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="19" destid="3" sourceattachpoint="10" destattachpoint="25" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+              <point x="14275" y="-384" />
+              <point x="10071" y="-384" />
+              <point x="10071" y="850" />
+              <point x="5867" y="850" />
+            </connector>
+          </ddscontrol>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="AP_GROUP_ManManVendors" left="14431" top="2044" logicalid="52" controlid="21" masterid="0" hint1="0" hint2="0" width="4551" height="1879" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000a0000c711000057070000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="AP_GROUP_ManManVendors" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+          <ddscontrol controlprogid="MSDDS.Polyline" left="5567" top="1650" logicalid="53" controlid="22" masterid="0" hint1="0" hint2="0" width="9164" height="1183" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobj>
+                <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+              </ddsxmlobj>
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dataSet.Relations[Fact_INVOICE_MERGE-AP_GROUP_ManManVendors]" vartype="8" />
+                <property name="Virtual" value="0" vartype="11" />
+                <property name="VisibleAP" value="0" vartype="3" />
+              </ddsxmlobj>
+            </layoutobject>
+            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="21" destid="3" sourceattachpoint="14" destattachpoint="29" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+              <point x="14431" y="2433" />
+              <point x="10149" y="2433" />
+              <point x="10149" y="1950" />
+              <point x="5867" y="1950" />
+            </connector>
+          </ddscontrol>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="Dim_ManMan_Commodity_Code" left="16099" top="9204" logicalid="54" controlid="23" masterid="0" hint1="0" hint2="0" width="5821" height="3572" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000a0000bd160000f40d0000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_Dim_ManMan_Commodity_Code" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="Dim_Oracle_Commodity_Code" left="14028" top="-5574" logicalid="55" controlid="24" masterid="0" hint1="0" hint2="0" width="5636" height="3572" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000a000004160000f40d0000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_Dim_Oracle_Commodity_Code" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+          <ddscontrol controlprogid="MSDDS.Polyline" left="5567" top="3850" logicalid="56" controlid="25" masterid="0" hint1="0" hint2="0" width="10832" height="5890" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobj>
+                <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+              </ddsxmlobj>
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dataSet.Relations[Dim_ManMan_Commodity_Code-Fact_INVOICE_MERGE]" vartype="8" />
+                <property name="Virtual" value="0" vartype="11" />
+                <property name="VisibleAP" value="0" vartype="3" />
+              </ddsxmlobj>
+            </layoutobject>
+            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="23" destid="3" sourceattachpoint="22" destattachpoint="37" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+              <point x="16099" y="9340" />
+              <point x="10983" y="9340" />
+              <point x="10983" y="4150" />
+              <point x="5867" y="4150" />
+            </connector>
+          </ddscontrol>
+          <ddscontrol controlprogid="MSDDS.Polyline" left="5567" top="-2537" logicalid="57" controlid="26" masterid="0" hint1="0" hint2="0" width="8761" height="3137" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobj>
+                <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+              </ddsxmlobj>
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dataSet.Relations[Dim_Oracle_Commodity_Code-Fact_INVOICE_MERGE]" vartype="8" />
+                <property name="Virtual" value="0" vartype="11" />
+                <property name="VisibleAP" value="0" vartype="3" />
+              </ddsxmlobj>
+            </layoutobject>
+            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="24" destid="3" sourceattachpoint="30" destattachpoint="23" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+              <point x="14028" y="-2138" />
+              <point x="9948" y="-2138" />
+              <point x="9948" y="300" />
+              <point x="5867" y="300" />
+            </connector>
+          </ddscontrol>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="Dim_Vendor_Pur_Group" left="-11" top="5800" logicalid="58" controlid="27" masterid="0" hint1="0" hint2="0" width="4286" height="1879" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000a0000be10000057070000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_Dim_Vendor_Pur_Group" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+          <ddscontrol controlprogid="MSDDS.Polyline" left="83" top="4700" logicalid="59" controlid="28" masterid="0" hint1="0" hint2="0" width="960" height="1600" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobj>
+                <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+              </ddsxmlobj>
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dataSet.Relations[Dim_Vendor_Pur_Group-Fact_INVOICE_MERGE]" vartype="8" />
+                <property name="Virtual" value="0" vartype="11" />
+                <property name="VisibleAP" value="0" vartype="3" />
+              </ddsxmlobj>
+            </layoutobject>
+            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="27" destid="3" sourceattachpoint="0" destattachpoint="3" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+              <point x="482" y="5800" />
+              <point x="482" y="5400" />
+              <point x="743" y="5400" />
+              <point x="743" y="5000" />
+            </connector>
+          </ddscontrol>
+          <ddscontrol controlprogid="MSDDS.Polyline" left="5367" top="4700" logicalid="60" controlid="29" masterid="0" hint1="0" hint2="0" width="799" height="2647" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobj>
+                <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+              </ddsxmlobj>
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dataSet.Relations[Fact_INVOICE_MERGE-Dim_Product_Combined_Invoice]" vartype="8" />
+                <property name="Virtual" value="0" vartype="11" />
+                <property name="VisibleAP" value="0" vartype="3" />
+              </ddsxmlobj>
+            </layoutobject>
+            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="12" destid="3" sourceattachpoint="0" destattachpoint="21" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+              <point x="5766" y="6847" />
+              <point x="5766" y="5924" />
+              <point x="5693" y="5924" />
+              <point x="5693" y="5000" />
+            </connector>
+          </ddscontrol>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="Dim_OPERATING_UNIT" left="-1017" top="-1196" logicalid="61" controlid="30" masterid="0" hint1="0" hint2="0" width="5927" height="3475" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000a000027170000930d0000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_Dim_OPERATING_UNIT" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+          <ddscontrol controlprogid="MSDDS.Polyline" left="4610" top="-958" logicalid="62" controlid="31" masterid="0" hint1="0" hint2="0" width="2017" height="2108" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobj>
+                <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+              </ddsxmlobj>
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dataSet.Relations[Fact_INVOICE_MERGE-Dim_OPERATING_UNIT]" vartype="8" />
+                <property name="Virtual" value="0" vartype="11" />
+                <property name="VisibleAP" value="0" vartype="3" />
+              </ddsxmlobj>
+            </layoutobject>
+            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="30" destid="3" sourceattachpoint="23" destattachpoint="25" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+              <point x="4910" y="-559" />
+              <point x="6327" y="-559" />
+              <point x="6327" y="850" />
+              <point x="5867" y="850" />
+            </connector>
+          </ddscontrol>
+        </dds>
+      </Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>-12869</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>-6407</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>-7434</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>-5574</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>2018-01-30T13:37:19.31Z</LastProcessed>
+  <State>Processed</State>
+  <Language>1033</Language>
+  <Collation>Latin1_General_CI_AS</Collation>
+  <Dimensions>
+    <Dimension dwd:design-time-name="c3667284-2dbe-4350-94a2-8aac3e4ecc12">
+      <ID>Buyer</ID>
+      <Name>Buyer</Name>
+      <DimensionID>Buyer</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="ede8ba1b-f463-4fb7-9695-242c3f74d725">
+          <AttributeID>Dim Man Man Buyer Code Key</AttributeID>
+          <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+        </Attribute>
+        <Attribute dwd:design-time-name="f3bfcadc-6e91-47b7-975b-5e2f896d8902">
+          <AttributeID>Full Name</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="2410ab5e-e4a5-4e52-86e0-6797c04dd507">
+          <AttributeID>Man Man Buyer Code</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="6cdbbb46-9d8e-4eee-a475-6467de0ceaa7">
+      <ID>Dim System Source</ID>
+      <Name>System Source</Name>
+      <DimensionID>System</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="76999b2e-8034-4a51-89d2-5fa69dbb2bb5">
+          <AttributeID>Dim System Source Key</AttributeID>
+          <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+        </Attribute>
+        <Attribute dwd:design-time-name="85d4164c-09eb-4ec6-adfd-38b07eb92c41">
+          <AttributeID>Desc</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="b6bb272d-f927-48d8-9ebb-214534365897">
+      <ID>Dim  PO_TYPE</ID>
+      <Name>PO Type</Name>
+      <DimensionID>Dim PRODUCTION PO OR NOT</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="fc4cbc09-c435-4b6d-94c9-cabd5c5e8520">
+          <AttributeID>Dim Production PO Key</AttributeID>
+          <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+        </Attribute>
+        <Attribute dwd:design-time-name="f2771a6d-01ea-427a-9e4e-e9543ab8c482">
+          <AttributeID>PROD OR NONPROD</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="2fdb42d8-afbf-4b55-b3ff-7063d9d4464a">
+      <ID>Dim Pur Org</ID>
+      <Name>Pur Org</Name>
+      <DimensionID>Dim PUR ORG</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="31b9e355-6c1f-44ad-8686-ae7aa3b298ce">
+          <AttributeID>Dim PUR ORG KEY</AttributeID>
+          <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+        </Attribute>
+        <Attribute dwd:design-time-name="1479ed4d-1a54-4e4e-a100-4b020d8eaf8b">
+          <AttributeID>PUR ORG DESC</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="a40a34c0-19ab-4bcf-86ae-2408ef5c6e60">
+          <AttributeID>PUR ORG SITE</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="c1db4d54-a4dc-4c42-b67c-217bca61d19a">
+      <ID>AP Vendor</ID>
+      <Name>AP Vendor</Name>
+      <DimensionID>AP Man Man Vendor</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="c6210953-5aa8-4451-9deb-1b05e67c7059">
+          <AttributeID>Dim VENDOR KEY</AttributeID>
+          <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+        </Attribute>
+        <Attribute dwd:design-time-name="aa3bdf22-4ced-445f-ba18-01c745207cf5">
+          <AttributeID>Vendor Lookup</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="5e2992d1-3948-4996-b968-c6f00922a8d9">
+          <AttributeID>VENDOR NAME</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="136a6ee4-b1d2-42d7-94bf-f39aca75a566">
+          <AttributeID>SUPPLIER TYPE</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="a209bf69-55a4-4efe-b3ba-c3538076a99d">
+      <ID>GL Invoice Date</ID>
+      <Name>GL Invoice Date</Name>
+      <DimensionID>Time Master</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="8b89e82c-c78a-4465-a4e1-100f4b761b67">
+          <AttributeID>Day ID</AttributeID>
+          <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+        </Attribute>
+        <Attribute dwd:design-time-name="59d2892d-5a90-4755-b4e9-94d185a08986">
+          <AttributeID>Date String</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="7e14769c-5ef5-40b2-95b3-b27f3e161123">
+          <AttributeID>Month Short Name With Year</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="8c8ea3bf-7c20-4287-8d4f-413fb2823c53">
+          <AttributeID>Quarter Short Name With Year</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="211dca86-0157-4b60-9e69-7f6d087dcde1">
+          <AttributeID>Year Name</AttributeID>
+        </Attribute>
+      </Attributes>
+      <Hierarchies>
+        <Hierarchy dwd:design-time-name="b73cc963-4cc9-4116-9b8e-f636bfe50a7c">
+          <HierarchyID>Hierarchy</HierarchyID>
+        </Hierarchy>
+      </Hierarchies>
+    </Dimension>
+    <Dimension dwd:design-time-name="344302a6-8c90-4adf-991a-44550f0436a9">
+      <ID>Line Number</ID>
+      <Name>Line Number</Name>
+      <DimensionID>Line Number</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="03ae969e-98e6-4f51-b4b2-089edf83a692">
+          <AttributeID>Dim LINE KEY</AttributeID>
+          <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+        </Attribute>
+        <Attribute dwd:design-time-name="ab0239e5-53c9-49a0-908e-38493cb4d890">
+          <AttributeID>Line Number</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="90f20ed7-704e-4e02-a7b2-10fe9cacd50d">
+      <ID>PO Header</ID>
+      <Name>PO Header</Name>
+      <DimensionID>PO Header</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="8a7fb14c-b664-4ed9-a5d9-ec8b01b25aa5">
+          <AttributeID>Dim PO HEADER KEY</AttributeID>
+          <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+        </Attribute>
+        <Attribute dwd:design-time-name="f1e6fa4f-e6da-4962-ad79-2c754f23dc64">
+          <AttributeID>Segment1</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="7e78110c-2e84-43f5-aff1-f2b2f7d8f631">
+      <ID>Dim Oracle Commodity Code</ID>
+      <Name>Combined Commodity</Name>
+      <DimensionID>Dim Oracle Commodity Code</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="56160085-c434-4099-b132-72bf2f870cec">
+          <AttributeID>Dim Oracle Commodity Code Key</AttributeID>
+          <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+        </Attribute>
+        <Attribute dwd:design-time-name="0d1dc837-c646-48de-8b7c-95a4d6f2b2b0">
+          <AttributeID>Comm Code</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="a8ad80b6-4f72-4ec0-84f6-8eee0c66bad7">
+          <AttributeID>Comm Description</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="38f6dcfb-e673-4903-bbc0-e5d37e5a6b2f">
+          <AttributeID>Comm Group</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="d5c4fe94-d5ed-45c7-b1bd-c0637420be73">
+          <AttributeID>Man Man Code</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="b9e2a015-254b-417b-8d68-a7c36b9d9f84">
+          <AttributeID>Corporate CA</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="d7e12302-0e82-4906-991a-84315d04ff50">
+          <AttributeID>Dim Oracle Commodity Code - Dim Oracle Commodity Code Key</AttributeID>
+          <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="a496d5a7-2e7a-4ab7-a6a3-666f0e35c1bd">
+      <ID>Dim Vendor Pur Group</ID>
+      <Name>Dim Vendor Pur Group</Name>
+      <DimensionID>Dim Vendor Pur Group</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="456198e1-3c88-473f-a521-810f93243bdc">
+          <AttributeID>Dim Vendor Group Key</AttributeID>
+          <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+        </Attribute>
+        <Attribute dwd:design-time-name="fe815903-199a-4f0c-b326-5301311951ef">
+          <AttributeID>Vendor Group ID Desc</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="dee2dbdc-e22a-4e27-bd4e-6e568c78bdf6">
+      <ID>AP Voucher Number</ID>
+      <Name>AP Voucher Number</Name>
+      <DimensionID>AP Voucher Number</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="bc17a6d4-12eb-4567-aa5b-220b3803b48f">
+          <AttributeID>Dim AP INVOICE KEY</AttributeID>
+          <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+        </Attribute>
+        <Attribute dwd:design-time-name="186e9b64-86b0-457b-9c4a-ea9cfaae6756">
+          <AttributeID>Invoice Num</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="99f9b492-8299-4f17-a502-13797a2c2809">
+      <ID>Dim INVENTORY ORGANIZATION</ID>
+      <Name>Inventory Organziation</Name>
+      <DimensionID>Dim INVENTORY ORGANIZATION</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="19d2aaa3-5332-490b-b8ef-0368ff3e76a6">
+          <AttributeID>Dim INVENTORY ORGANIZATION KEY</AttributeID>
+          <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+        </Attribute>
+        <Attribute dwd:design-time-name="ef288bb7-490f-40d9-b0fa-85f5d9e7d910">
+          <AttributeID>NAME</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="e097368a-9208-4825-b038-9b3d1628bebe">
+          <AttributeID>ORGANIZATION CODE</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="dc3069c9-f6ac-44f5-bac4-fd086e7f8c62">
+      <ID>Dim Receipt Part Num</ID>
+      <Name>Dim Receipt Part Num</Name>
+      <DimensionID>Dim Receipt Part Num</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="a1ef0e28-2259-4873-b5b0-4bff3a5b75c8">
+          <AttributeID>Dim PRODUCT KEY</AttributeID>
+          <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+        </Attribute>
+        <Attribute dwd:design-time-name="ff4b7213-0a24-4476-8b2f-388e01d003ee">
+          <AttributeID>PLANNER CODE</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="ce0b7eb4-c098-4845-a727-2357337592d6">
+          <AttributeID>ITEM NUMBER DESC</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="822dd050-afde-4814-b2ec-f58304c32f0d">
+          <AttributeID>ITEM NUMBER</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="9e15c208-9470-48a8-8ae0-ba46f7407ce7">
+          <AttributeID>DESCRIPTION</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="a3ac43e4-2678-4a47-9a11-997276fb30e1">
+          <AttributeID>PLANNING MAKE BUY CODE</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="2e781160-2e87-47eb-850d-24af1efd06a6">
+          <AttributeID>Revision</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="e8084f7f-6979-49ed-b8f7-756861ad608c">
+          <AttributeID>CYCLE ABC CLASS NAME</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="cb8b2e0a-b960-48fc-aabe-56334d2909f1">
+          <AttributeID>Org</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="267e6d44-68ec-44af-b3ce-48dac848adee">
+          <AttributeID>Actual Usage</AttributeID>
+          <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+        </Attribute>
+        <Attribute dwd:design-time-name="5d3fe8ea-73c2-455f-82ef-81679522e266">
+          <AttributeID>Gross Requirement Quantity</AttributeID>
+          <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+        </Attribute>
+        <Attribute dwd:design-time-name="2b3d8d6d-0461-4103-a048-f41cab595c15">
+          <AttributeID>On Hand Quantity</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="0e4cc90d-2591-4b5e-8dcd-391377070463">
+          <AttributeID>Planned Order Quantity</AttributeID>
+          <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+        </Attribute>
+        <Attribute dwd:design-time-name="b15e92b8-d4cb-42c4-80cb-2a5a89343591">
+          <AttributeID>FIXED LEAD TIME</AttributeID>
+          <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+        </Attribute>
+        <Attribute dwd:design-time-name="611704ad-5696-4db6-8a46-5343129d5667">
+          <AttributeID>ACTUAL ORDER QUANTITY</AttributeID>
+          <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+        </Attribute>
+        <Attribute dwd:design-time-name="4f0a4579-14c8-4387-a954-ae028beadae1">
+          <AttributeID>SAFETY STOCK QUANTITY</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="929d94e5-b1a9-4491-9c4f-0d9f9410b5b6">
+          <AttributeID>Last PO Unit Price</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="a7676a92-6245-4213-bebd-87a12799a302">
+          <AttributeID>UNIT PRICE</AttributeID>
+          <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+        </Attribute>
+        <Attribute dwd:design-time-name="db21f37f-33d3-4de4-a30c-25d741195cb3">
+          <AttributeID>Material Cost</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="3e1da1df-0e68-41d9-94f0-9f8a1baec89d">
+          <AttributeID>GROSS REQUIREMENT Material Value Local</AttributeID>
+          <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+        </Attribute>
+        <Attribute dwd:design-time-name="a05e91e0-1c3f-485e-a450-20326459956e">
+          <AttributeID>GROSS REQUIREMENT PO Unit Price Value Local</AttributeID>
+          <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+        </Attribute>
+        <Attribute dwd:design-time-name="0397105d-7af0-4d8e-a985-91652b9023e2">
+          <AttributeID>GROSS REQUIREMENT Unit Value Local</AttributeID>
+          <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+        </Attribute>
+        <Attribute dwd:design-time-name="29e931bc-2b5a-4b51-ad11-a9d58ec63b65">
+          <AttributeID>Planned Order Material Value Local</AttributeID>
+          <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+        </Attribute>
+        <Attribute dwd:design-time-name="fdce5edd-77db-457b-a2f2-ad60948282ae">
+          <AttributeID>Planned Order PO Unit Price Value Local</AttributeID>
+          <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+        </Attribute>
+        <Attribute dwd:design-time-name="1f187df1-7d1a-4f39-ae1f-390d67cf1dd0">
+          <AttributeID>Planned Order Unit Value Local</AttributeID>
+          <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+        </Attribute>
+        <Attribute dwd:design-time-name="16e7fe24-10a6-4c53-971b-3fe424579e06">
+          <AttributeID>FULL LEAD TIME</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="6905ae59-1312-459c-84d1-927f259119b2">
+          <AttributeID>Manman Intercompany Item</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="9f6291ca-44ee-4f37-8a62-b5701cdcf26b">
+      <ID>Dim Po Release</ID>
+      <Name>PO Release</Name>
+      <DimensionID>Dim PO RELEASE</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="c0c18cd1-37fe-466f-977c-4d953b2dce79">
+          <AttributeID>Dim PO RELEASE KEY</AttributeID>
+          <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+        </Attribute>
+        <Attribute dwd:design-time-name="0c5fc4e7-5dcc-4079-a786-fa5ef1ccfc1e">
+          <AttributeID>Release Num</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="0b266488-be2e-4c25-9892-06af1f915acd">
+      <ID>Dim Man Man Commodity Code</ID>
+      <Name>Man Man Commodity</Name>
+      <DimensionID>Dim Man Man Commodity Code</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="a6a12772-ee1f-4b82-afbb-dc64fdc7739e">
+          <AttributeID>Dim Man Man Commodity Code Key</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="a10b3dab-fd78-45b7-8453-99cbc5de0cb4">
+          <AttributeID>Man Man Code</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="d7e1ac1d-164d-436d-b447-6539ce3d943e">
+          <AttributeID>Man Man Descriptions</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="7657fe16-7f9a-47b2-b8db-423f95de85ec">
+          <AttributeID>GROUP</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="714b81c3-aca7-4dd2-91cc-53cdc14d112e">
+          <AttributeID>Corporate CA</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="911d54f0-b690-44ad-8e1b-5915b3d72bde">
+          <AttributeID>Oracle Man Man Code</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="7c320b2c-dd26-42e3-ae8e-5722e08a2277">
+          <AttributeID>Dashboard Header</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="ec743200-9929-413d-a919-a3569ff59b9b">
+          <AttributeID>Summary Page Header</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="f645dbba-d8b5-4e71-b30d-4b31cd95d541">
+      <ID>Dim Po Type</ID>
+      <Name>PO Type Detail</Name>
+      <DimensionID>Dim PO TYPE</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="bb468f60-3a1d-4b6b-a44a-8308d6573433">
+          <AttributeID>Dim PO TYPE KEY</AttributeID>
+          <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+        </Attribute>
+        <Attribute dwd:design-time-name="c0ffb158-f8ef-4cb2-ad13-542f207e4236">
+          <AttributeID>Type Lookup Code</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="a94da840-f398-4409-8968-b29ed01e3edd">
+      <ID>Dim Operating Unit</ID>
+      <Name>Operating Unit</Name>
+      <DimensionID>Dim OPERATING UNIT</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="c3f8ab63-3066-4eae-9abe-cfc6a86e9fba">
+          <AttributeID>Dim OPERATING UNIT KEY</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="ce225b13-94bf-4e73-9bed-1840538c2497">
+          <AttributeID>NAME</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="a4151069-12ee-4026-8af8-8ab137c2cdc6">
+          <AttributeID>CURRENCY CODE</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+  </Dimensions>
+  <CubePermissions>
+    <CubePermission dwd:design-time-name="5f71bd30-0ba7-4f72-a5a0-4702624ac2c6">
+      <ID>CubePermission 2</ID>
+      <Name>CubePermission 2</Name>
+      <CreatedTimestamp>2017-08-18T12:15:25.686667Z</CreatedTimestamp>
+      <LastSchemaUpdate>2017-08-18T12:15:25.686667Z</LastSchemaUpdate>
+      <RoleID>Role 2</RoleID>
+      <Read>Allowed</Read>
+      <ReadSourceData>Allowed</ReadSourceData>
+    </CubePermission>
+  </CubePermissions>
+  <MeasureGroups>
+    <MeasureGroup dwd:design-time-name="5fd7cada-393b-42f8-bf4e-c5b9fbd9a6ad">
+      <ID>Fact RECEIPTS MERGE</ID>
+      <Name>AP SPEND  MERGE</Name>
+      <CreatedTimestamp>2017-07-31T14:44:16.76Z</CreatedTimestamp>
+      <LastSchemaUpdate>2017-07-31T14:44:16.76Z</LastSchemaUpdate>
+      <LastProcessed>2018-01-30T13:37:19.296667Z</LastProcessed>
+      <State>Processed</State>
+      <Measures>
+        <Measure dwd:design-time-name="2a3b8d49-01e8-4a1e-a6cc-eebfd092b54c">
+          <ID>S PO Qty</ID>
+          <Name>S PO Qty</Name>
+          <DataType>Double</DataType>
+          <Source dwd:design-time-name="e3b57c58-1b4a-4d74-b2b1-b289ce11a986">
+            <DataType>Double</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="f33c7514-5f43-469a-904f-a018de54b411">
+              <TableID>dbo_Fact_RECEIPTS_MERGE</TableID>
+              <ColumnID>S_POQty</ColumnID>
+            </Source>
+          </Source>
+          <FormatString>#,##0;-#,##0</FormatString>
+        </Measure>
+        <Measure dwd:design-time-name="50c02e40-eb8a-42cc-8d1f-f361d80cd3e9">
+          <ID>S PO Unit Price</ID>
+          <Name>S PO Unit Price</Name>
+          <AggregateFunction>Max</AggregateFunction>
+          <DataType>Double</DataType>
+          <Source dwd:design-time-name="fcce4f49-08a6-4d81-b7e2-6b16898279dd">
+            <DataType>Double</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="7d6920c8-20a6-4521-bc6f-729a12a88c70">
+              <TableID>dbo_Fact_RECEIPTS_MERGE</TableID>
+              <ColumnID>S_POUnitPrice</ColumnID>
+            </Source>
+          </Source>
+          <FormatString>$#,##0.00;($#,##0.00)</FormatString>
+        </Measure>
+        <Measure dwd:design-time-name="d8e7ffa3-d424-43e4-8e66-29e88c72ce06">
+          <ID>S Invoice Price</ID>
+          <Name>S Inv Unit Price</Name>
+          <AggregateFunction>Max</AggregateFunction>
+          <DataType>Double</DataType>
+          <Source dwd:design-time-name="ad4e1d1a-c335-4741-b25d-63cea994135a">
+            <DataType>Double</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="cfe50537-cef6-48e1-b36d-4db23febc401">
+              <TableID>dbo_Fact_RECEIPTS_MERGE</TableID>
+              <ColumnID>S_InvoicePrice</ColumnID>
+            </Source>
+          </Source>
+          <FormatString>$#,##0.00;($#,##0.00)</FormatString>
+        </Measure>
+        <Measure dwd:design-time-name="3b7bd2c4-7714-4b3d-9d13-86cf2fa4b6bf">
+          <ID>S Ext Invoice Std Matl Cost</ID>
+          <Name>S Ext Invoice Std Matl Cost</Name>
+          <DataType>Double</DataType>
+          <Source dwd:design-time-name="65b8bc19-ad25-4f43-a02c-bbd347308dc2">
+            <DataType>Double</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="6ffe0851-2971-4060-803d-e0f493fa62c8">
+              <TableID>dbo_Fact_RECEIPTS_MERGE</TableID>
+              <ColumnID>S_ExtInvoiceStdMatlCost</ColumnID>
+            </Source>
+          </Source>
+          <Visible>false</Visible>
+          <FormatString>$#,##0.00;($#,##0.00)</FormatString>
+        </Measure>
+        <Measure dwd:design-time-name="1d1ffced-f6de-4253-b8de-5e7c5448b1db">
+          <ID>S Ext Invoice Current Std Matl Cost</ID>
+          <Name>Extended material standard cost</Name>
+          <DataType>Double</DataType>
+          <Source dwd:design-time-name="6b113b43-1b7c-4660-b3ab-085e9a61fc0d">
+            <DataType>Double</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="694aa38a-6cb1-4619-8924-868bddd96c5e">
+              <TableID>dbo_Fact_RECEIPTS_MERGE</TableID>
+              <ColumnID>S_ExtInvoiceCurrentStdMatlCost</ColumnID>
+            </Source>
+          </Source>
+          <FormatString>$#,##0.00;($#,##0.00)</FormatString>
+        </Measure>
+        <Measure dwd:design-time-name="f54e95c4-4188-422c-915c-1be097ceed36">
+          <ID>S Ext Invoice PO Price</ID>
+          <Name>Extended PO price</Name>
+          <DataType>Double</DataType>
+          <Source dwd:design-time-name="7e1b6098-c7ad-4cd9-9cf5-a29e2f2bd262">
+            <DataType>Double</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="1b52dae6-9955-4909-b48a-1a0b160d4e80">
+              <TableID>dbo_Fact_RECEIPTS_MERGE</TableID>
+              <ColumnID>S_ExtInvoicePOPrice</ColumnID>
+            </Source>
+          </Source>
+          <FormatString>$#,##0.00;($#,##0.00)</FormatString>
+        </Measure>
+        <Measure dwd:design-time-name="6ff5d068-4db2-4f8e-b8a6-a85ded49e42f">
+          <ID>S Invoice Qty</ID>
+          <Name>S Invoice Qty</Name>
+          <DataType>Double</DataType>
+          <Source dwd:design-time-name="74561d15-4629-4cd1-bf56-c21d0738d9f6">
+            <DataType>Double</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="bda1ad9d-b4eb-4529-8781-36fbd3e224d2">
+              <TableID>dbo_Fact_RECEIPTS_MERGE</TableID>
+              <ColumnID>S_InvoiceQty</ColumnID>
+            </Source>
+          </Source>
+          <FormatString>#,##0.00;-#,##0.00</FormatString>
+        </Measure>
+        <Measure dwd:design-time-name="9ac79bcf-e8e1-46b2-8a47-15b81821f02a">
+          <ID>S Ext Inv Price</ID>
+          <Name>S Ext Inv Price</Name>
+          <DataType>Double</DataType>
+          <Source dwd:design-time-name="25a9b2c9-2d84-47d4-bc25-d3cc23094481">
+            <DataType>Double</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="2f96b600-ceaa-406f-af17-603b20b0b3f1">
+              <TableID>dbo_Fact_RECEIPTS_MERGE</TableID>
+              <ColumnID>S_ExtInvPrice</ColumnID>
+            </Source>
+          </Source>
+          <FormatString>$#,##0.00;($#,##0.00)</FormatString>
+        </Measure>
+        <Measure dwd:design-time-name="7dad972d-11a2-482b-8f66-9e6b50ae7c1c">
+          <ID>AP SPEND  MERGE Count</ID>
+          <Name>Row Count</Name>
+          <AggregateFunction>Count</AggregateFunction>
+          <DataType>Integer</DataType>
+          <Source dwd:design-time-name="0cff6ce9-6ebf-4948-9487-7cac1058e355">
+            <DataType>Integer</DataType>
+            <DataSize>4</DataSize>
+            <Source xsi:type="RowBinding" dwd:design-time-name="128c10f8-e7d4-42f9-8743-31aeef435d14">
+              <TableID>dbo_Fact_RECEIPTS_MERGE</TableID>
+            </Source>
+          </Source>
+          <FormatString>#,##0.00;-#,##0.00</FormatString>
+        </Measure>
+        <Measure dwd:design-time-name="d47ee604-7ec5-44a6-89e2-e2df5a765ceb">
+          <ID>Material Cost</ID>
+          <Name>Material Cost</Name>
+          <AggregateFunction>Max</AggregateFunction>
+          <DataType>Double</DataType>
+          <Source dwd:design-time-name="10e71c84-a637-4cc5-83a2-43f15550151d">
+            <DataType>Double</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="4e84a9bf-2da4-4b7b-a2ed-02a08b7ef845">
+              <TableID>dbo_Fact_RECEIPTS_MERGE</TableID>
+              <ColumnID>material_cost</ColumnID>
+            </Source>
+          </Source>
+          <Visible>false</Visible>
+        </Measure>
+        <Measure dwd:design-time-name="e76af073-4a94-49cb-b25b-9e9f8c8c6745">
+          <ID>Ppv</ID>
+          <Name>Purchase Price Variance - PPV</Name>
+          <AggregateFunction>Max</AggregateFunction>
+          <DataType>Double</DataType>
+          <Source dwd:design-time-name="46232317-74d4-4979-a225-64013dff64b7">
+            <DataType>Double</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="e975d5ea-7cd0-4e74-b49f-9639e0f82077">
+              <TableID>dbo_Fact_RECEIPTS_MERGE</TableID>
+              <ColumnID>ppv</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="de5cbd12-d828-4226-8232-e198462278d1">
+          <ID>Ipv</ID>
+          <Name>Invoice Price Variance - IPV</Name>
+          <AggregateFunction>Max</AggregateFunction>
+          <DataType>Double</DataType>
+          <Source dwd:design-time-name="1f80b2fb-79bb-4e62-b7d2-d4357b2d69d6">
+            <DataType>Double</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="728fa7e5-f218-4e47-a504-27a11d7175b0">
+              <TableID>dbo_Fact_RECEIPTS_MERGE</TableID>
+              <ColumnID>ipv</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="d69e11aa-44fd-41f8-ade3-2fb82f4c1992">
+          <ID>Eppv</ID>
+          <Name>Extended Purchase Price Variance - EPPV</Name>
+          <DataType>Double</DataType>
+          <Source dwd:design-time-name="07c8ad26-b396-421f-ae08-8c16782ea1aa">
+            <DataType>Double</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="1fcb90ca-912e-4532-8879-60b23ebd73fd">
+              <TableID>dbo_Fact_RECEIPTS_MERGE</TableID>
+              <ColumnID>eppv</ColumnID>
+            </Source>
+          </Source>
+          <Visible>false</Visible>
+        </Measure>
+        <Measure dwd:design-time-name="6bc0bef9-9331-4201-9015-134a3869ed47">
+          <ID>Eipv</ID>
+          <Name>Extended Invoice Price Variance - EIPV</Name>
+          <DataType>Double</DataType>
+          <Source dwd:design-time-name="6f2dd895-a167-4cad-b998-707b428bd045">
+            <DataType>Double</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="d456625e-3c68-4816-ba9a-7143950f5a95">
+              <TableID>dbo_Fact_RECEIPTS_MERGE</TableID>
+              <ColumnID>eipv</ColumnID>
+            </Source>
+          </Source>
+          <Visible>false</Visible>
+        </Measure>
+        <Measure dwd:design-time-name="0dbffa68-b343-4365-a46f-a37a7d61cb8d">
+          <ID>S Ext Inv Price LC</ID>
+          <Name>S Ext Inv Price Local Currency</Name>
+          <Source dwd:design-time-name="073842a3-620a-4407-a521-69c1ddcf6b63">
+            <DataType>Double</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="2eaf5913-14e3-4e39-a740-f2cb468ca93a">
+              <TableID>dbo_Fact_RECEIPTS_MERGE</TableID>
+              <ColumnID>S_ExtInvPriceLC</ColumnID>
+            </Source>
+          </Source>
+          <FormatString>#,##0.00;-#,##0.00</FormatString>
+        </Measure>
+      </Measures>
+      <StorageMode>Molap</StorageMode>
+      <EstimatedSize>146677469</EstimatedSize>
+      <ProcessingMode>Regular</ProcessingMode>
+      <Dimensions>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="931457d5-1d2a-40e0-acd9-0f879f0bad4d">
+          <CubeDimensionID>Buyer</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="638a50c0-f3fa-4194-80a0-47a5f46fc3cd">
+              <AttributeID>Dim Man Man Buyer Code Key</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="347bfba2-91dd-44de-be3c-2ba92c61df3f">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="c80008fd-ec8e-40c0-a812-8a56b0351dbc">
+                    <TableID>dbo_Fact_RECEIPTS_MERGE</TableID>
+                    <ColumnID>DimManMan_Buyer_Code_Key</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+            <Attribute dwd:design-time-name="8562ad1e-48f0-476f-8025-f212eee2f8f6">
+              <AttributeID>Full Name</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="0c1e4a28-0ca7-4d0f-b55d-90df98a32a4d">
+                  <DataType>WChar</DataType>
+                  <DataSize>240</DataSize>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="4248a5f8-2274-4cd4-91c4-84e78b4c592d">
+                    <TableID>Dim_Buyer_Merge</TableID>
+                    <ColumnID>Full_Name</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="36388064-8d3d-44ab-9326-4dc0f7758685">
+              <AttributeID>Man Man Buyer Code</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="b373eb91-948f-4c8f-bd61-147bfd11a8d6">
+                  <DataType>WChar</DataType>
+                  <DataSize>5</DataSize>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="8f560d2b-5b6a-4b3c-a248-e537b724376e">
+                    <TableID>Dim_Buyer_Merge</TableID>
+                    <ColumnID>ManMan_Buyer_Code</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="e9444030-bea0-4167-994a-977e01c103d5">
+          <CubeDimensionID>Dim System Source</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="97b2a530-95b1-4707-bda2-fc6d1df49a23">
+              <AttributeID>Dim System Source Key</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="76dcb282-118e-411a-af05-4e133ee8a658">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="5e5d8e4b-e2c7-4073-a601-bd8841551c19">
+                    <TableID>dbo_Fact_RECEIPTS_MERGE</TableID>
+                    <ColumnID>Dim_System_Source_key</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+            <Attribute dwd:design-time-name="a768cfde-aa9e-433e-b403-84eb2e19341e">
+              <AttributeID>Desc</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="71c267d7-e7fe-47e5-9260-2f0dedb848c3">
+                  <DataType>WChar</DataType>
+                  <DataSize>10</DataSize>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="11ddc2f0-0cd5-489c-801b-3eab33e4de87">
+                    <TableID>dbo_Dim_System_Source</TableID>
+                    <ColumnID>Desc</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="f17fda14-f0cd-4126-bb92-8610b3f9f95d">
+          <CubeDimensionID>Dim  PO_TYPE</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="743afefb-0ce5-4594-9d39-9e088199879b">
+              <AttributeID>Dim Production PO Key</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="f23bc401-8e88-4501-9f82-3ed001d445b0">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="a0307611-a511-4fa7-bab9-7e69a228b0e0">
+                    <TableID>dbo_Fact_RECEIPTS_MERGE</TableID>
+                    <ColumnID>Dim_Production_PO_Key</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+            <Attribute dwd:design-time-name="b3d9df11-5e83-41bd-93b8-681eb12721e3">
+              <AttributeID>PROD OR NONPROD</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="6f72c9e3-9829-4154-892f-557dba795db5">
+                  <DataType>WChar</DataType>
+                  <DataSize>50</DataSize>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="026377c2-9b90-45c9-b529-e61b9fd098ec">
+                    <TableID>dbo_Dim_PRODUCTION_PO_OR_NOT</TableID>
+                    <ColumnID>PROD_OR_NONPROD</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="1027dc69-c129-4e04-afbc-e0e4ec703b43">
+          <CubeDimensionID>Dim Pur Org</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="ba78b5ea-0c73-4b5f-9caf-f24959a4a56e">
+              <AttributeID>Dim PUR ORG KEY</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="a37564ab-c102-4277-a4bc-173b5d8caf89">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="cc8d5e98-7f0e-4657-9f0f-ce3d986b1f82">
+                    <TableID>dbo_Fact_RECEIPTS_MERGE</TableID>
+                    <ColumnID>dim_pur_org_key</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+            <Attribute dwd:design-time-name="bed65112-f577-40ab-9634-293ff92757bc">
+              <AttributeID>PUR ORG DESC</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="bb0a91ea-e6c2-44ae-9a69-0d967ff31ff8">
+                  <DataType>WChar</DataType>
+                  <DataSize>50</DataSize>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="321a7ac8-4720-43d8-b73a-878b723974da">
+                    <TableID>dbo_Dim_PUR_ORG</TableID>
+                    <ColumnID>PUR_ORG_DESC</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="8814120e-3e5e-4759-aa82-9ceffb2e1b43">
+              <AttributeID>PUR ORG SITE</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="d4193fbf-2769-4cdc-a0fa-c2f191fcb19a">
+                  <DataType>WChar</DataType>
+                  <DataSize>50</DataSize>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="0c4cd255-7e26-4c57-966e-be9d80345623">
+                    <TableID>dbo_Dim_PUR_ORG</TableID>
+                    <ColumnID>PUR_ORG_SITE</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="2d9e7bd6-8b48-4f5f-8758-4b9af4554cdb">
+          <CubeDimensionID>AP Vendor</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="ef96fb67-ce2a-4672-825f-055d22a8c155">
+              <AttributeID>Dim VENDOR KEY</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="40625098-90ff-4ca1-8c97-4b794e4ee927">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="7b294530-fbab-4683-a471-0609131bd7c1">
+                    <TableID>dbo_Fact_RECEIPTS_MERGE</TableID>
+                    <ColumnID>Dim_AP_ManManVendor_key</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+            <Attribute dwd:design-time-name="61493493-097b-49b3-a04e-e30c5ba775ed">
+              <AttributeID>Vendor Lookup</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="2c41a63e-b840-45fc-b9e5-dac222eefa14">
+                  <DataType>WChar</DataType>
+                  <DataSize>32</DataSize>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="9af8edf8-589c-4e51-8acb-d7ce010c2fe3">
+                    <TableID>dbo_Dim_AP_ManManVendorKey</TableID>
+                    <ColumnID>Vendor_Lookup</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="1ab24d10-11f2-4b62-9132-05a717362b3e">
+              <AttributeID>VENDOR NAME</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="ec020678-f69a-472b-80f6-d85d841a45fc">
+                  <DataType>WChar</DataType>
+                  <DataSize>240</DataSize>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="06c33e9a-d271-4769-ba62-c61d6ad4570e">
+                    <TableID>dbo_Dim_AP_ManManVendorKey</TableID>
+                    <ColumnID>VENDOR_NAME</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="bd27710a-ead5-4e2a-9067-416e6bbbf55f">
+              <AttributeID>SUPPLIER TYPE</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="2e583faa-9a8e-46a7-9df6-c9b0cb4408e9">
+                  <DataType>WChar</DataType>
+                  <DataSize>80</DataSize>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="494e3316-7155-4813-98c5-d755ab9f056a">
+                    <TableID>dbo_Dim_AP_ManManVendorKey</TableID>
+                    <ColumnID>SUPPLIER_TYPE</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="ed22ccfc-ae95-43e9-85a1-de0c06b2cf04">
+          <CubeDimensionID>GL Invoice Date</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="0b0ea5a8-6f4e-4ab3-99a3-28d4b2e909b5">
+              <AttributeID>Day ID</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="84ddb153-5db5-4b9d-8e5c-32e2dddac64f">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="221359e6-abfc-4827-90aa-8dca677b8565">
+                    <TableID>dbo_Fact_RECEIPTS_MERGE</TableID>
+                    <ColumnID>dim_VoucherDate_key</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+            <Attribute dwd:design-time-name="ca572364-2925-447d-9a1d-f055cd320a40">
+              <AttributeID>Date String</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="b2e7b2f6-c5a2-4f73-8458-4f66f57f0293">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="d90e257f-38ea-4bd7-ad14-fde48c6d7903">
+                    <TableID>dbo_TimeMaster</TableID>
+                    <ColumnID>DayID</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="ffb33a7b-7603-4b66-8111-e70cd6e91507">
+              <AttributeID>Month Short Name With Year</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="2a0f4158-83c0-43ad-ad80-9f426f56203e">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="f546dca2-a698-4696-b77f-b1981140fbd6">
+                    <TableID>dbo_TimeMaster</TableID>
+                    <ColumnID>MonthID</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="f386eff9-c6e0-42bb-bd8a-635f526a8dc1">
+              <AttributeID>Quarter Short Name With Year</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="026f2cbb-7b06-47ca-b929-1668dc5a09a2">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="148aa82b-3a3b-49be-a607-5e7dbf47a515">
+                    <TableID>dbo_TimeMaster</TableID>
+                    <ColumnID>QuarterID</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="ea954dae-b3fe-48f3-99dc-4503ad4269ad">
+              <AttributeID>Year Name</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="14d86d5e-ff62-4142-a31f-b36c13ca8c08">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="10981843-2692-41fe-9d41-16073f3dc615">
+                    <TableID>dbo_TimeMaster</TableID>
+                    <ColumnID>YearID</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="337d612c-4b91-4da0-a6d6-782d086554e4">
+          <CubeDimensionID>Line Number</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="78fcce49-d8a0-4922-9dc8-f4f2ea1e5347">
+              <AttributeID>Dim LINE KEY</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="4671dfbf-a302-4a36-bcdb-818c6e808250">
+                  <DataType>BigInt</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="87e8ddc0-10d7-4ae2-ace3-81232844ce27">
+                    <TableID>dbo_Fact_RECEIPTS_MERGE</TableID>
+                    <ColumnID>dim_po_line_num_key</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+            <Attribute dwd:design-time-name="162e51fb-3673-46dc-9c18-9ec2c2c26887">
+              <AttributeID>Line Number</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="631e59ff-f77d-4d91-af9c-6274a5da2f5a">
+                  <DataType>BigInt</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="261070dc-b58f-4fcc-9a81-3235d677a65e">
+                    <TableID>dbo_Dim_LINE_NUMBER</TableID>
+                    <ColumnID>Line_Number</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="25f048e0-49df-4c0b-97d2-dd3db420772e">
+          <CubeDimensionID>PO Header</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="87fff047-9e9b-45ee-8dbe-67192b680644">
+              <AttributeID>Dim PO HEADER KEY</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="017fc95c-be4d-49ae-9986-827971ca4693">
+                  <DataType>BigInt</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="b049464d-ab44-4549-92cd-ad92cad3eb30">
+                    <TableID>dbo_Fact_RECEIPTS_MERGE</TableID>
+                    <ColumnID>Dim_PONumber_key</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+            <Attribute dwd:design-time-name="24d40abb-c18e-4aab-a97f-192320d21f18">
+              <AttributeID>Segment1</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="23242d1c-249e-4c32-9ea1-9dbbfa89b983">
+                  <DataType>WChar</DataType>
+                  <DataSize>20</DataSize>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="e2e6252a-5a6f-4635-928c-1d428a97d982">
+                    <TableID>dbo_dim_PO_HEADER</TableID>
+                    <ColumnID>segment1</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="42211685-90a9-48d1-bdcc-18fec8e3b150">
+          <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="c6b02b73-7c1a-4f0e-a772-c15b205ef14c">
+              <AttributeID>Dim Oracle Commodity Code Key</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="9df9053d-91e7-496c-a7a6-cc454ffb1505">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="22b324bd-012f-4dfc-a5c6-50be47cca3fb">
+                    <TableID>dbo_Fact_RECEIPTS_MERGE</TableID>
+                    <ColumnID>Dim_Oracle_Commodity_Code_key</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+            <Attribute dwd:design-time-name="0539dbea-ba7d-4b6e-a4a2-a0058be2a9ae">
+              <AttributeID>Comm Code</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="483c4dd7-9151-4478-8ebf-71a21777bfe0">
+                  <DataType>WChar</DataType>
+                  <DataSize>50</DataSize>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="7bdfbada-5bf3-42c1-9c31-e38b1fec208d">
+                    <TableID>dbo_Dim_Oracle_Commodity_Code</TableID>
+                    <ColumnID>comm_code</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="40af7877-dcd7-499e-b378-9310a715ac6c">
+              <AttributeID>Comm Description</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="c6b1c154-1e7e-4058-811c-2017d0a35683">
+                  <DataType>WChar</DataType>
+                  <DataSize>240</DataSize>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="a0b02689-ee4a-410a-85a6-87bdcc322e6b">
+                    <TableID>dbo_Dim_Oracle_Commodity_Code</TableID>
+                    <ColumnID>comm_description</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="c42d815e-51d8-4970-a95b-147142b9965c">
+              <AttributeID>Comm Group</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="f94ec8b0-6969-4c8a-ae11-04f8552eb7a6">
+                  <DataType>WChar</DataType>
+                  <DataSize>50</DataSize>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="218e8418-df72-4cfb-a500-5c53f0bbc56f">
+                    <TableID>dbo_Dim_Oracle_Commodity_Code</TableID>
+                    <ColumnID>comm_group</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="157fe3e3-5d07-4ba0-ab6f-108db2aaa710">
+              <AttributeID>Man Man Code</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="6d1c0696-1b9c-4bca-926f-5c1b1c8dabf8">
+                  <DataType>WChar</DataType>
+                  <DataSize>50</DataSize>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="3681a1ab-b37e-42db-a758-f353d5147015">
+                    <TableID>dbo_Dim_Oracle_Commodity_Code</TableID>
+                    <ColumnID>ManMan_Code</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="5e19b27a-cfd8-4933-8c71-79f7837c8dbe">
+              <AttributeID>Corporate CA</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="b306e4b3-1560-46da-8e61-76693e3b5f2c">
+                  <DataType>WChar</DataType>
+                  <DataSize>255</DataSize>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="5490947f-17d4-4d6e-b496-31f59ed374e9">
+                    <TableID>dbo_Dim_Oracle_Commodity_Code</TableID>
+                    <ColumnID>Corporate_CA</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="7139dc03-d75c-4f05-98ba-3b17f9293f41">
+              <AttributeID>Dim Oracle Commodity Code - Dim Oracle Commodity Code Key</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="a55e6648-f4a7-4a05-b8f5-63112485d0e4">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="bf27fdff-f458-433c-b61a-4daffc27b837">
+                    <TableID>dbo_Dim_Oracle_Commodity_Code</TableID>
+                    <ColumnID>Dim_Oracle_Commodity_Code_key</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="75edbd4c-fc80-441c-b755-b745da289e43">
+          <CubeDimensionID>Dim Vendor Pur Group</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="21179838-0abe-4921-97c6-6e484dc0c300">
+              <AttributeID>Dim Vendor Group Key</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="ff25b30d-38c6-4047-91e7-32f473141fb2">
+                  <DataType>WChar</DataType>
+                  <DataSize>32</DataSize>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="d8ae358f-aab7-4e20-9142-5ff2ca4dc68a">
+                    <TableID>dbo_Fact_RECEIPTS_MERGE</TableID>
+                    <ColumnID>Vendor_Group_ID</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+            <Attribute dwd:design-time-name="735f6de2-49d2-4570-9dd5-95f7531de305">
+              <AttributeID>Vendor Group ID Desc</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="043ba1bf-8c78-4e08-bb4e-eb6427ea2840">
+                  <DataType>WChar</DataType>
+                  <DataSize>255</DataSize>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="03705528-288f-4f0f-9f21-785b39c4a075">
+                    <TableID>dbo_Dim_Vendor_Pur_Group</TableID>
+                    <ColumnID>Vendor_Group_ID_Desc</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="1ca60c80-d891-4ff0-af51-ee21e465e15a">
+          <CubeDimensionID>AP Voucher Number</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="449ffecd-a3b2-4593-a284-2a1ddad1c61b">
+              <AttributeID>Dim AP INVOICE KEY</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="0761b3bd-139e-41a2-8ed2-91e889df8925">
+                  <DataType>BigInt</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="44193dc6-b9ba-4f5f-a8de-bcc116ba196e">
+                    <TableID>dbo_Fact_RECEIPTS_MERGE</TableID>
+                    <ColumnID>Dim_APVoucherNumber_key</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+            <Attribute dwd:design-time-name="ddf5b9d9-809f-4666-852d-81fe838f7e8f">
+              <AttributeID>Invoice Num</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="a7d4b6ec-e30b-4ab5-8242-1785bb73aa09">
+                  <DataType>BigInt</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="36dc3b45-cc05-49ac-bafa-6cdecaa210e7">
+                    <TableID>Dim_APVoucherNumber_key</TableID>
+                    <ColumnID>Dim_AP_INVOICE_KEY</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="0c5c0d09-2bd0-480d-88aa-1dc7fb7e3885">
+          <CubeDimensionID>Dim INVENTORY ORGANIZATION</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="5d507d26-713a-4356-8e13-0f864cfbc92c">
+              <AttributeID>Dim INVENTORY ORGANIZATION KEY</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="5f72358e-679f-4742-bd76-3d2c600237e3">
+                  <DataType>Integer</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="f7851b1b-c20f-4c49-999a-93045dafe220">
+                    <TableID>dbo_Fact_RECEIPTS_MERGE</TableID>
+                    <ColumnID>Dim_INVENTORY_ORGANIZATION_KEY</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+            <Attribute dwd:design-time-name="5a89ede8-6547-4f1e-ba89-ff4cd43673ab">
+              <AttributeID>NAME</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="1c6b2771-e308-48aa-926d-06405297b8f6">
+                  <DataType>WChar</DataType>
+                  <DataSize>240</DataSize>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="3c1359d8-7e8a-432c-a695-a7dfc81eb9c1">
+                    <TableID>dbo_Dim_INVENTORY_ORGANIZATION</TableID>
+                    <ColumnID>NAME</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="6c401c7a-cb9d-412e-9bd4-a329a4887525">
+              <AttributeID>ORGANIZATION CODE</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="2855ba58-6be8-4f5d-829f-3db3fc352e6d">
+                  <DataType>WChar</DataType>
+                  <DataSize>10</DataSize>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="d0f51e1e-f8b4-4e22-9704-21324ba1368c">
+                    <TableID>dbo_Dim_INVENTORY_ORGANIZATION</TableID>
+                    <ColumnID>ORGANIZATION_CODE</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="86d847db-0985-4747-ad93-f0702d282ed7">
+          <CubeDimensionID>Dim Receipt Part Num</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="65150efd-3565-4867-81ec-6c681c3afa2c">
+              <AttributeID>Dim PRODUCT KEY</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="887b43d2-d5da-4f83-8204-93ab88a56b29">
+                  <DataType>BigInt</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="be788f08-2074-43c4-a3d4-44f0473ee04b">
+                    <TableID>dbo_Fact_RECEIPTS_MERGE</TableID>
+                    <ColumnID>Dim_Receipt_PartNum_Key</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+            <Attribute dwd:design-time-name="2e9af121-3382-4b46-88d5-575cabf54e2f">
+              <AttributeID>PLANNER CODE</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="941e7b21-ea9e-4520-ac39-a348bc9bb94a">
+                  <DataType>WChar</DataType>
+                  <DataSize>10</DataSize>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="d1f5637e-6628-4bc9-ae33-8f77f9af2bda">
+                    <TableID>dbo_Dim_ReceiptPartNum</TableID>
+                    <ColumnID>PLANNER_CODE</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="356fdb1b-2d47-4ab5-b1d2-f60f3629235f">
+              <AttributeID>ITEM NUMBER DESC</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="9117fff4-c4be-4593-9915-39e2cfda79b7">
+                  <DataType>WChar</DataType>
+                  <DataSize>280</DataSize>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="9574ce65-e650-4636-965c-cca2fa02cee9">
+                    <TableID>dbo_Dim_ReceiptPartNum</TableID>
+                    <ColumnID>ITEM_NUMBER_DESC</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="d1857928-09a8-4069-a36d-ff33d85cd59b">
+              <AttributeID>ITEM NUMBER</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="f453220e-ab10-4af4-b342-9f056e7ffd6a">
+                  <DataType>WChar</DataType>
+                  <DataSize>40</DataSize>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="caa39799-2095-4313-960c-896ae6ac7905">
+                    <TableID>dbo_Dim_ReceiptPartNum</TableID>
+                    <ColumnID>ITEM_NUMBER</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="e98c8394-ca07-449e-a535-25325b455f24">
+              <AttributeID>DESCRIPTION</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="1ac9fa3d-04ae-47df-8d66-a3992e343f53">
+                  <DataType>WChar</DataType>
+                  <DataSize>240</DataSize>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="db9acdcd-fe1c-4172-8000-c5c356ef553c">
+                    <TableID>dbo_Dim_ReceiptPartNum</TableID>
+                    <ColumnID>DESCRIPTION</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="4fd2ddb4-25bb-466b-baf6-a238f1197229">
+              <AttributeID>PLANNING MAKE BUY CODE</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="915254f6-3d9c-4c8a-b5ca-8646fd2a3605">
+                  <DataType>WChar</DataType>
+                  <DataSize>10</DataSize>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="6e70afb2-f4de-4825-a887-cc38818b76a0">
+                    <TableID>dbo_Dim_ReceiptPartNum</TableID>
+                    <ColumnID>PLANNING_MAKE_BUY_CODE</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="83bae7bc-fd04-4477-9fe3-5ca0937ed68b">
+              <AttributeID>Revision</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="b30a196e-615c-4ef0-acbb-af46b9467e6d">
+                  <DataType>WChar</DataType>
+                  <DataSize>3</DataSize>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="71a8c77b-09d9-4046-8a7c-356f936bb99c">
+                    <TableID>dbo_Dim_ReceiptPartNum</TableID>
+                    <ColumnID>Revision</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="c3023750-7ed7-44c8-8b46-0085648d9829">
+              <AttributeID>CYCLE ABC CLASS NAME</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="7cf6d5e1-2271-4109-87f0-1c8e09bb0c9b">
+                  <DataType>WChar</DataType>
+                  <DataSize>40</DataSize>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="1192d9ed-5c62-4823-9c77-fffa4df03101">
+                    <TableID>dbo_Dim_ReceiptPartNum</TableID>
+                    <ColumnID>CYCLE_ABC_CLASS_NAME</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="4818b48d-335e-4e2c-b94b-24ce6657f861">
+              <AttributeID>Org</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="ba47aac2-1b2a-46d6-ade2-0f76f2af9b5b">
+                  <DataType>WChar</DataType>
+                  <DataSize>8</DataSize>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="d808329b-9b76-4d6b-93d2-2049d3ac7e00">
+                    <TableID>dbo_Dim_ReceiptPartNum</TableID>
+                    <ColumnID>org</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="093b4fdb-5682-4a3a-9064-22012969ecc5">
+              <AttributeID>Actual Usage</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="b4ee1aa1-af63-4bd8-ae60-f48d9ee272e1">
+                  <DataType>BigInt</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="a12690ec-ea95-4332-b098-3cdbcfb15fc0">
+                    <TableID>dbo_Dim_ReceiptPartNum</TableID>
+                    <ColumnID>Dim_PRODUCT_KEY</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="75fcd35d-e129-47a3-9444-3df51983aaad">
+              <AttributeID>Gross Requirement Quantity</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="228bc219-6998-47da-9f1c-99a3ea42bd3d">
+                  <DataType>BigInt</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="f9ef7dac-a1e8-4e46-b609-3b5207e6ddc9">
+                    <TableID>dbo_Dim_ReceiptPartNum</TableID>
+                    <ColumnID>Dim_PRODUCT_KEY</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="f40a0284-e1f5-41c5-a611-8e54f4e69ebc">
+              <AttributeID>On Hand Quantity</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="2f5c6373-baa9-43fa-b842-634bfe8d925c">
+                  <DataType>BigInt</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="16f61085-cbe7-44f9-97f7-602c183ee66d">
+                    <TableID>dbo_Dim_ReceiptPartNum</TableID>
+                    <ColumnID>Dim_PRODUCT_KEY</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="84ce293d-78af-454a-80fe-3b156739a2bf">
+              <AttributeID>Planned Order Quantity</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="41a36629-bc9a-4ff4-80f5-145a724dc0f0">
+                  <DataType>BigInt</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="6a6e0b39-014d-4b15-aabe-db437b69ae1c">
+                    <TableID>dbo_Dim_ReceiptPartNum</TableID>
+                    <ColumnID>Dim_PRODUCT_KEY</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="bc261b91-2df7-497e-961a-ae69c09705d2">
+              <AttributeID>FIXED LEAD TIME</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="c2275db4-1a24-4742-a160-ca6f75dcad65">
+                  <DataType>BigInt</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="7ba70c64-55c0-41d8-a110-7ededebfdcc0">
+                    <TableID>dbo_Dim_ReceiptPartNum</TableID>
+                    <ColumnID>FIXED_LEAD_TIME</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="3d366116-25a1-498d-973f-7d333460ef84">
+              <AttributeID>ACTUAL ORDER QUANTITY</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="2791b4cf-fc00-4468-a84b-32745fdc7a86">
+                  <DataType>BigInt</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="a82b198a-5e56-49cc-89c4-5d7e730c9b10">
+                    <TableID>dbo_Dim_ReceiptPartNum</TableID>
+                    <ColumnID>Dim_PRODUCT_KEY</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="3a2f1bc1-086d-445d-bdea-3aa020f8eb69">
+              <AttributeID>SAFETY STOCK QUANTITY</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="0bee5a99-1631-4044-a793-c2cbca770d0f">
+                  <DataType>BigInt</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="37aaeafe-3f09-43cd-99a8-30a641237ff4">
+                    <TableID>dbo_Dim_ReceiptPartNum</TableID>
+                    <ColumnID>SAFETY_STOCK_QUANTITY</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="c7b737a9-748b-4726-b77b-e6cec3552a04">
+              <AttributeID>Last PO Unit Price</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="dee552ce-ba51-43d5-ad14-040aaa555f23">
+                  <DataType>BigInt</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="66d346f3-c35d-43e3-8927-accb7a12df70">
+                    <TableID>dbo_Dim_ReceiptPartNum</TableID>
+                    <ColumnID>Dim_PRODUCT_KEY</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="76b280ca-6024-4e63-8c80-256566c92d3c">
+              <AttributeID>UNIT PRICE</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="ec002aab-c1f4-475c-a72f-588b80179af7">
+                  <DataType>BigInt</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="771dc3b9-4607-4186-b97a-c1123435a8a3">
+                    <TableID>dbo_Dim_ReceiptPartNum</TableID>
+                    <ColumnID>Dim_PRODUCT_KEY</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="8489bd08-a875-44ce-8d04-1c338e61bdb1">
+              <AttributeID>Material Cost</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="20f676ea-5dbc-4f5c-a361-fbe05746fa49">
+                  <DataType>BigInt</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="d129a667-5c82-4f80-90ba-f3e774951b2d">
+                    <TableID>dbo_Dim_ReceiptPartNum</TableID>
+                    <ColumnID>Dim_PRODUCT_KEY</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="57ecdd82-95b6-4411-bc25-47500e7750bf">
+              <AttributeID>GROSS REQUIREMENT Material Value Local</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="e028e454-df7d-4b2d-8ead-8a20cf96f85c">
+                  <DataType>BigInt</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="09bd4e66-003b-46d8-b329-c49fe208ff0c">
+                    <TableID>dbo_Dim_ReceiptPartNum</TableID>
+                    <ColumnID>Dim_PRODUCT_KEY</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="48db1e34-5298-46bd-a18c-d1806774b8c3">
+              <AttributeID>GROSS REQUIREMENT PO Unit Price Value Local</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="0c2d9379-2f6f-480b-8662-2fc93462f419">
+                  <DataType>BigInt</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="1fcae714-a9b2-4b4e-9ba9-b45544e5a9b9">
+                    <TableID>dbo_Dim_ReceiptPartNum</TableID>
+                    <ColumnID>Dim_PRODUCT_KEY</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="0552e3d5-6629-4e83-ad44-1edf880774ae">
+              <AttributeID>GROSS REQUIREMENT Unit Value Local</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="69d3ff0e-8a76-49d1-a519-09186e2b6795">
+                  <DataType>BigInt</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="b8b91d46-abc3-453d-bc3b-65dc93efded0">
+                    <TableID>dbo_Dim_ReceiptPartNum</TableID>
+                    <ColumnID>Dim_PRODUCT_KEY</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="22640b7f-1161-4f56-bfbf-39c05f31500b">
+              <AttributeID>Planned Order Material Value Local</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="a6a33462-3d1a-46a8-8d33-7771bb52def5">
+                  <DataType>BigInt</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="01c92340-bf93-4d0b-8cfe-52a138a75619">
+                    <TableID>dbo_Dim_ReceiptPartNum</TableID>
+                    <ColumnID>Dim_PRODUCT_KEY</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="04953a2f-7e3e-4643-b71f-902632813455">
+              <AttributeID>Planned Order PO Unit Price Value Local</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="63e768a0-f7b7-4544-9e8b-bf682aca83eb">
+                  <DataType>BigInt</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="cc8edf05-2e03-4156-a679-7ba7cd80b7da">
+                    <TableID>dbo_Dim_ReceiptPartNum</TableID>
+                    <ColumnID>Dim_PRODUCT_KEY</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="b9a05bbb-fef7-46d1-8cfc-57f991b64359">
+              <AttributeID>Planned Order Unit Value Local</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="1c1af256-3e01-4e3d-b1a8-69554df888d4">
+                  <DataType>BigInt</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="f74dd7cd-1bd7-481c-b5da-9bb9ca8181cb">
+                    <TableID>dbo_Dim_ReceiptPartNum</TableID>
+                    <ColumnID>Dim_PRODUCT_KEY</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="a55cbce3-c792-4dd1-a87b-65894f579ad4">
+              <AttributeID>FULL LEAD TIME</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="013c21b2-b30a-41f5-a06d-8a639f983d1b">
+                  <DataType>BigInt</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="5f670d11-652a-4ca0-b178-ec9b89dd6999">
+                    <TableID>dbo_Dim_ReceiptPartNum</TableID>
+                    <ColumnID>FULL_LEAD_TIME</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="4ed680e7-a499-4859-b9f4-936324e68dd6">
+          <CubeDimensionID>Dim Po Release</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="a10ae9b1-37fe-489c-a1cd-1209c82b3b74">
+              <AttributeID>Dim PO RELEASE KEY</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="63f0b8f4-2abe-4232-9d6f-e1b444819bcf">
+                  <DataType>BigInt</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="c398a285-508d-470d-973a-966f6a90b242">
+                    <TableID>dbo_Fact_RECEIPTS_MERGE</TableID>
+                    <ColumnID>dim_po_release_key</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+            <Attribute dwd:design-time-name="194cdefa-7cd4-4ae9-ac32-ea77ab929f42">
+              <AttributeID>Release Num</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="769b2496-ae98-4749-9461-0dd7e36691e8">
+                  <DataType>WChar</DataType>
+                  <DataSize>60</DataSize>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="f064cf18-89c2-458c-b80d-122927c4011c">
+                    <TableID>dbo_dim_PO_RELEASE</TableID>
+                    <ColumnID>release_num</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="7aa6fbc8-2fad-41b7-ab5c-83046b05756f">
+          <CubeDimensionID>Dim Man Man Commodity Code</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="6b8b4f5f-f2f6-488f-8d5d-5215e2567ba6">
+              <AttributeID>Dim Man Man Commodity Code Key</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="2cf316af-d377-4da3-9954-16e7b45a85fe">
+                  <DataType>Integer</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="6078225a-258b-4765-8da8-84dc52079613">
+                    <TableID>dbo_Fact_RECEIPTS_MERGE</TableID>
+                    <ColumnID>Dim_ManMan_Commodity_Code_key</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+            <Attribute dwd:design-time-name="990fa537-3c6e-44ad-800b-1d13e753c6e8">
+              <AttributeID>Man Man Code</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="06712fde-a40b-4b32-823e-b1a6c2f93cf0">
+                  <DataType>WChar</DataType>
+                  <DataSize>50</DataSize>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="4c464c4c-4c96-47e4-8b6a-3f8de01f6c5f">
+                    <TableID>dbo_Dim_ManMan_Commodity_Code</TableID>
+                    <ColumnID>ManMan_Code</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="0ca86362-1a08-4bcd-bee6-7a95823eb084">
+              <AttributeID>Man Man Descriptions</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="9500ab9f-7dea-4c73-bba1-2b49165dc418">
+                  <DataType>WChar</DataType>
+                  <DataSize>255</DataSize>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="c4ffe9cb-141c-4f3b-8578-331eed1fe827">
+                    <TableID>dbo_Dim_ManMan_Commodity_Code</TableID>
+                    <ColumnID>ManMan_Descriptions</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="c781f73e-a6f1-403d-964f-0eb378ad32d2">
+              <AttributeID>GROUP</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="8ecd0aef-7dd9-430a-86ef-e7aa1e6dc21d">
+                  <DataType>WChar</DataType>
+                  <DataSize>255</DataSize>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="5fb61116-d2c3-4c8f-8450-79c57d36975a">
+                    <TableID>dbo_Dim_ManMan_Commodity_Code</TableID>
+                    <ColumnID>GROUP</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="97eb974a-3e45-4609-b29a-cc9d979ef292">
+              <AttributeID>Corporate CA</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="cc09e9dd-2ed5-47e9-b11c-b7eee1815f7b">
+                  <DataType>WChar</DataType>
+                  <DataSize>255</DataSize>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="8ad20ad9-b8dc-4b79-bc99-7b3cfc07bdd0">
+                    <TableID>dbo_Dim_ManMan_Commodity_Code</TableID>
+                    <ColumnID>Corporate_CA</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="38e64158-35c9-4cdc-8165-aa890aab2f1c">
+              <AttributeID>Oracle Man Man Code</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="85323bd3-97bf-4dd1-8ff7-4b06bc6f5329">
+                  <DataType>WChar</DataType>
+                  <DataSize>50</DataSize>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="96334258-8542-45ba-bcb1-82c6e27bb8ca">
+                    <TableID>dbo_Dim_ManMan_Commodity_Code</TableID>
+                    <ColumnID>Oracle_ManMan_Code</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="ff9f945f-0cc8-48af-9e58-4fa593a0a946">
+              <AttributeID>Dashboard Header</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="26219ed5-bf0c-479a-a5e9-f2074d6c6938">
+                  <DataType>WChar</DataType>
+                  <DataSize>255</DataSize>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="9a8a9f57-2486-45e2-8c44-5c906cd1104c">
+                    <TableID>dbo_Dim_ManMan_Commodity_Code</TableID>
+                    <ColumnID>Dashboard_Header</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="424a7cd7-6ac3-46df-bf3b-07bf6601cb6d">
+              <AttributeID>Summary Page Header</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="30b4dea0-b6c9-48b9-aa06-243ed496464b">
+                  <DataType>WChar</DataType>
+                  <DataSize>255</DataSize>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="6ca8f74f-103d-4605-bdc4-45c16ab7644e">
+                    <TableID>dbo_Dim_ManMan_Commodity_Code</TableID>
+                    <ColumnID>Summary_Page_Header</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="150d2b60-b91c-4c9a-8ffd-aeddd8e7ff35">
+          <CubeDimensionID>Dim Po Type</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="2aaeabc4-8ce8-4ce6-81c8-38c0cff37680">
+              <AttributeID>Dim PO TYPE KEY</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="2f0b4663-0256-4d08-8e7f-4fbe6bd33fe2">
+                  <DataType>Integer</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="66fd433e-bd83-43fe-abbc-b9c72b299de7">
+                    <TableID>dbo_Fact_RECEIPTS_MERGE</TableID>
+                    <ColumnID>dim_po_type_key</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+            <Attribute dwd:design-time-name="95fb5c92-f819-49fb-8d5d-4c139dde8dd7">
+              <AttributeID>Type Lookup Code</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="9092fc30-8072-4b9b-9117-a86896478c87">
+                  <DataType>WChar</DataType>
+                  <DataSize>21</DataSize>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="9dbc5c40-6a0c-4fb1-8f9d-521ad5b4f771">
+                    <TableID>dbo_Dim_PO_TYPE</TableID>
+                    <ColumnID>type_lookup_code</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="c0e6c535-31a6-4ae9-96db-ebe570b8a8a7">
+          <CubeDimensionID>Dim Operating Unit</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="07ea4ef8-e492-42ae-bb13-405ddf6f25e6">
+              <AttributeID>Dim OPERATING UNIT KEY</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="8a955ae7-935d-4732-83a0-43351c46977b">
+                  <DataType>Integer</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="2068dbbd-260b-437d-91f3-95eb46d71992">
+                    <TableID>dbo_Fact_RECEIPTS_MERGE</TableID>
+                    <ColumnID>dim_operating_unit_key</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+      </Dimensions>
+      <Partitions />
+      <ProactiveCaching dwd:design-time-name="a42a9231-b43e-44fa-a560-58d536c3bf7a">
+        <SilenceInterval>-PT1S</SilenceInterval>
+        <Latency>-PT1S</Latency>
+        <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+        <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+        <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="ab837a94-b37c-400f-bbec-56f1e64fd726" />
+      </ProactiveCaching>
+    </MeasureGroup>
+  </MeasureGroups>
+  <Source dwd:design-time-name="86189b27-dd65-4441-989d-3a666088f166">
+    <DataSourceViewID>AS DWH</DataSourceViewID>
+  </Source>
+  <ProactiveCaching dwd:design-time-name="8bc461e5-476e-4835-91d8-bb8ee6abf5bf">
+    <SilenceInterval>-PT1S</SilenceInterval>
+    <Latency>-PT1S</Latency>
+    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+    <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="4e7db87f-3ee9-48a8-85ec-a8b274a1ee2a" />
+  </ProactiveCaching>
+</Cube>

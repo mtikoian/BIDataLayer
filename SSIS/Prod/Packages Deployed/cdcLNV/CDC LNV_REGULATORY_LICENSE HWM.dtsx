@@ -1,0 +1,1620 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/30/2010 4:11:38 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LARGOBI1"
+  DTS:CreatorName="LVTBI\developer"
+  DTS:DTSID="{465D0340-2BC1-4F9A-88D0-7C0F4E970102}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.2430.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="CDC LNV_REGULATORY_LICENSE HWM"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="97"
+  DTS:VersionGUID="{B8CC205E-BD16-44FD-AEF5-2710EC24D9C1}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ETL_STAGE]"
+      DTS:CreationName="OLEDB"
+      DTS:DelayValidation="True"
+      DTS:DTSID="{3C6C0DC8-EBEA-421B-95A5-C13D5CA93767}"
+      DTS:ObjectName="ETL_STAGE">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=BI-PROD;Initial Catalog=DW_STAGE;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Package-{E72C44D9-F795-4B0F-ACDE-ED0AB3B2E6B4}LARGOBI1\BISQLDEV.ETL;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LARGOBI1.DW_MAIN]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{A0446593-E326-4AB9-8388-51EE54CDE681}"
+      DTS:ObjectName="LARGOBI1.DW_MAIN">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=BI-PROD;Initial Catalog=DW_MAIN;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Package-{A0446593-E326-4AB9-8388-51EE54CDE681}LARGOBI1.DW_MAIN;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[prod.appsread]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{011161D0-3AF0-47AB-BC82-E7DB27917D54}"
+      DTS:ObjectName="prod.appsread">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=prod;User ID=appsread;Provider=MSDAORA.1;Persist Security Info=True;">
+          <EncryptedData
+            Type="http://www.w3.org/2001/04/xmlenc#Element"
+            Salt="jw/m9vrYRg=="
+            IV="PLONAgbTygk=" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            <EncryptionMethod
+              Algorithm="http://www.w3.org/2001/04/xmlenc#tripledes-cbc" />
+            <CipherData>
+              <CipherValue>PLONAgbTygmMA3odykwDwvkK+etoXds6Kt1DLENk34XCdJ+Ft/VIDJVuwAOZbFGNw9fXU6wBCpNe428qwTtO7AjMgBXx1D31hGJUMjUiLkzYzK04qq9cbh3/ZczXObVKKgdTuDnyccKUH/RQsL6M5OQAZi4tMzbtNVD5QPwkYU4=</CipherValue>
+            </CipherData>
+          </EncryptedData>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{6C256C06-E170-4A00-8075-64483912C651}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="sSelect">
+      <DTS:VariableValue
+        DTS:DataType="8">Select * From LNV_REGULATORY_LICENSE</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4983CE79-B369-461E-AEC3-FA1AD88A0CAC}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="sStageTable">
+      <DTS:VariableValue
+        DTS:DataType="8">dbo.STAGE_LNV_REGULATORY_LICENSE</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{453B29A8-B98E-407C-9203-E8AA8D9A39BB}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="sTargetTable">
+      <DTS:VariableValue
+        DTS:DataType="8">dbo.LNV_REGULATORY_LICENSE</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{EE1DF364-A3E5-4736-A977-0E4EAC4CD6A1}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="sTruncate">
+      <DTS:VariableValue
+        DTS:DataType="8">truncate table  dbo.STAGE_LNV_REGULATORY_LICENSE</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Add Data to Target"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{5BD588C7-725A-4144-A356-9DF88347A996}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Add Data to Target"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{A0446593-E326-4AB9-8388-51EE54CDE681}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="exec  usp_LNV_REGULATORY_LICENSE" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Select Statement"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{2C482590-51E7-4A5C-869B-0AB7BDDC256C}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Select Statement"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{3C6C0DC8-EBEA-421B-95A5-C13D5CA93767}"
+          SQLTask:SqlStatementSource="Select 'Select * From LNV_REGULATORY_LICENSE '&#xA; + 'Where to_Char(Last_Update_Date, ''yyyy-mm-dd hh24:mi:ss'') &gt; ''' &#xA; + (SELECT Convert(varchar, last_modified_date, 20)&#xA;  FROM [DW_STAGE].[dbo].[INCREMENTAL_EXTRACTION]&#xA;  Where [source_table] = 'LNV_REGULATORY_LICENSE')&#xA; + ''''&#xA; sSelect"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="sSelect"
+            SQLTask:DtsVariableName="User::sSelect" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Stage Incr Rows"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{F73DEF32-5261-4C53-8C28-FA50A14B782F}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Stage Incr Rows"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          BLOBTempStoragePath=""
+          bufferTempStoragePath=""
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Stage Incr Rows\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Data Flow Stage Incr Rows\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Stage Incr Rows\Data Conversion.Inputs[Data Conversion Input].Columns[LAST_UPDATE_DATE]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="LAST_UPDATE_DATE"
+                      lineageId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].Columns[LAST_UPDATE_DATE]" />
+                    <inputColumn
+                      refId="Package\Data Flow Stage Incr Rows\Data Conversion.Inputs[Data Conversion Input].Columns[LAST_UPDATED_BY]"
+                      cachedDataType="r8"
+                      cachedName="LAST_UPDATED_BY"
+                      lineageId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].Columns[LAST_UPDATED_BY]" />
+                    <inputColumn
+                      refId="Package\Data Flow Stage Incr Rows\Data Conversion.Inputs[Data Conversion Input].Columns[CREATION_DATE]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="CREATION_DATE"
+                      lineageId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].Columns[CREATION_DATE]" />
+                    <inputColumn
+                      refId="Package\Data Flow Stage Incr Rows\Data Conversion.Inputs[Data Conversion Input].Columns[CREATED_BY]"
+                      cachedDataType="r8"
+                      cachedName="CREATED_BY"
+                      lineageId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].Columns[CREATED_BY]" />
+                    <inputColumn
+                      refId="Package\Data Flow Stage Incr Rows\Data Conversion.Inputs[Data Conversion Input].Columns[IS_NEW]"
+                      cachedDataType="i4"
+                      cachedName="IS_NEW"
+                      lineageId="Package\Data Flow Stage Incr Rows\Derived Column Is New.Outputs[Derived Column Output].Columns[IS_NEW]" />
+                    <inputColumn
+                      refId="Package\Data Flow Stage Incr Rows\Data Conversion.Inputs[Data Conversion Input].Columns[LICENSE_ID]"
+                      cachedDataType="r8"
+                      cachedName="LICENSE_ID"
+                      lineageId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].Columns[LICENSE_ID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Stage Incr Rows\Data Conversion.Inputs[Data Conversion Input].Columns[LICENSE_NO]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="80"
+                      cachedName="LICENSE_NO"
+                      lineageId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].Columns[LICENSE_NO]" />
+                    <inputColumn
+                      refId="Package\Data Flow Stage Incr Rows\Data Conversion.Inputs[Data Conversion Input].Columns[LICENSE_EXP_DATE]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="LICENSE_EXP_DATE"
+                      lineageId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].Columns[LICENSE_EXP_DATE]" />
+                    <inputColumn
+                      refId="Package\Data Flow Stage Incr Rows\Data Conversion.Inputs[Data Conversion Input].Columns[REASON]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="80"
+                      cachedName="REASON"
+                      lineageId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].Columns[REASON]" />
+                    <inputColumn
+                      refId="Package\Data Flow Stage Incr Rows\Data Conversion.Inputs[Data Conversion Input].Columns[REGULATORY_COMMENTS]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2000"
+                      cachedName="REGULATORY_COMMENTS"
+                      lineageId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].Columns[REGULATORY_COMMENTS]" />
+                    <inputColumn
+                      refId="Package\Data Flow Stage Incr Rows\Data Conversion.Inputs[Data Conversion Input].Columns[COUNTRY_CODE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="5"
+                      cachedName="COUNTRY_CODE"
+                      lineageId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].Columns[COUNTRY_CODE]" />
+                    <inputColumn
+                      refId="Package\Data Flow Stage Incr Rows\Data Conversion.Inputs[Data Conversion Input].Columns[ITEM_ID]"
+                      cachedDataType="r8"
+                      cachedName="ITEM_ID"
+                      lineageId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].Columns[ITEM_ID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Stage Incr Rows\Data Conversion.Inputs[Data Conversion Input].Columns[COPY_LIC_SOURCE]"
+                      cachedDataType="r8"
+                      cachedName="COPY_LIC_SOURCE"
+                      lineageId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].Columns[COPY_LIC_SOURCE]" />
+                    <inputColumn
+                      refId="Package\Data Flow Stage Incr Rows\Data Conversion.Inputs[Data Conversion Input].Columns[COPY_OVN_SOURCE]"
+                      cachedDataType="r8"
+                      cachedName="COPY_OVN_SOURCE"
+                      lineageId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].Columns[COPY_OVN_SOURCE]" />
+                    <inputColumn
+                      refId="Package\Data Flow Stage Incr Rows\Data Conversion.Inputs[Data Conversion Input].Columns[LAST_UPDATE_REASON]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2000"
+                      cachedName="LAST_UPDATE_REASON"
+                      lineageId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].Columns[LAST_UPDATE_REASON]" />
+                    <inputColumn
+                      refId="Package\Data Flow Stage Incr Rows\Data Conversion.Inputs[Data Conversion Input].Columns[OVN]"
+                      cachedDataType="r8"
+                      cachedName="OVN"
+                      lineageId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].Columns[OVN]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Stage Incr Rows\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Data Flow Stage Incr Rows\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Stage Incr Rows\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of LAST_UPDATE_DATE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Stage Incr Rows\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of LAST_UPDATE_DATE]"
+                      name="Copy of LAST_UPDATE_DATE"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].Columns[LAST_UPDATE_DATE]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Stage Incr Rows\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of LAST_UPDATED_BY]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Stage Incr Rows\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of LAST_UPDATED_BY]"
+                      name="Copy of LAST_UPDATED_BY"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].Columns[LAST_UPDATED_BY]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Stage Incr Rows\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of CREATION_DATE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Stage Incr Rows\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of CREATION_DATE]"
+                      name="Copy of CREATION_DATE"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].Columns[CREATION_DATE]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Stage Incr Rows\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of CREATED_BY]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Stage Incr Rows\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of CREATED_BY]"
+                      name="Copy of CREATED_BY"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].Columns[CREATED_BY]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Stage Incr Rows\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of IS_NEW]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Stage Incr Rows\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of IS_NEW]"
+                      name="Copy of IS_NEW"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Stage Incr Rows\Derived Column Is New.Outputs[Derived Column Output].Columns[IS_NEW]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Stage Incr Rows\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of LICENSE_ID]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Stage Incr Rows\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of LICENSE_ID]"
+                      name="Copy of LICENSE_ID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].Columns[LICENSE_ID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Stage Incr Rows\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of LICENSE_NO]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="80"
+                      lineageId="Package\Data Flow Stage Incr Rows\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of LICENSE_NO]"
+                      name="Copy of LICENSE_NO"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].Columns[LICENSE_NO]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Stage Incr Rows\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of LICENSE_EXP_DATE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Stage Incr Rows\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of LICENSE_EXP_DATE]"
+                      name="Copy of LICENSE_EXP_DATE"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].Columns[LICENSE_EXP_DATE]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Stage Incr Rows\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of REASON]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="80"
+                      lineageId="Package\Data Flow Stage Incr Rows\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of REASON]"
+                      name="Copy of REASON"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].Columns[REASON]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Stage Incr Rows\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of REGULATORY_COMMENTS]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="2000"
+                      lineageId="Package\Data Flow Stage Incr Rows\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of REGULATORY_COMMENTS]"
+                      name="Copy of REGULATORY_COMMENTS"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].Columns[REGULATORY_COMMENTS]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Stage Incr Rows\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of COUNTRY_CODE]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="5"
+                      lineageId="Package\Data Flow Stage Incr Rows\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of COUNTRY_CODE]"
+                      name="Copy of COUNTRY_CODE"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].Columns[COUNTRY_CODE]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Stage Incr Rows\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ITEM_ID]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Stage Incr Rows\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ITEM_ID]"
+                      name="Copy of ITEM_ID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].Columns[ITEM_ID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Stage Incr Rows\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of COPY_LIC_SOURCE]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Stage Incr Rows\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of COPY_LIC_SOURCE]"
+                      name="Copy of COPY_LIC_SOURCE"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].Columns[COPY_LIC_SOURCE]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Stage Incr Rows\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of COPY_OVN_SOURCE]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Stage Incr Rows\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of COPY_OVN_SOURCE]"
+                      name="Copy of COPY_OVN_SOURCE"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].Columns[COPY_OVN_SOURCE]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Stage Incr Rows\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of LAST_UPDATE_REASON]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="2000"
+                      lineageId="Package\Data Flow Stage Incr Rows\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of LAST_UPDATE_REASON]"
+                      name="Copy of LAST_UPDATE_REASON"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].Columns[LAST_UPDATE_REASON]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Stage Incr Rows\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of OVN]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Stage Incr Rows\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of OVN]"
+                      name="Copy of OVN"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].Columns[OVN]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Stage Incr Rows\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Data Flow Stage Incr Rows\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Stage Incr Rows\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Stage Incr Rows\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Stage Incr Rows\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Stage Incr Rows\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Stage Incr Rows\Derived Column Is New"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Updates column values using expressions"
+              localeId="1033"
+              name="Derived Column Is New"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Data Flow Stage Incr Rows\Derived Column Is New.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Stage Incr Rows\Derived Column Is New.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Data Flow Stage Incr Rows\Derived Column Is New.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Stage Incr Rows\Derived Column Is New.Outputs[Derived Column Output].Columns[IS_NEW]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Stage Incr Rows\Derived Column Is New.Outputs[Derived Column Output].Columns[IS_NEW]"
+                      name="IS_NEW"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">1</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">1</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Stage Incr Rows\Derived Column Is New.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Data Flow Stage Incr Rows\Derived Column Is New.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Stage Incr Rows\Derived Column Is New.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Stage Incr Rows\Derived Column Is New.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Stage Incr Rows\Derived Column Is New.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Stage Incr Rows\Derived Column Is New.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Stage Incr Rows\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
+     rowidtochar(rowid)
+     , MTSTAGE.TRANSACTION_ID
+     , MTSTAGE.REFERENCE_ACCOUNT
+     , MTSTAGE.ACCOUNTING_LINE_TYPE
+     , MTSTAGE.RESOURCE_ID
+     , MTSTAGE.PRIMARY_QUANTITY
+     , MTSTAGE.BASE_TRANSACTION_VALUE
+    , MTSTAGE.LAST_UPDATE_DATE
+  , MTSTAGE. COST_ELEMENT_ID
+,  MTSTAGE.TRANSACTION_VALUE
+, MTSTAGE.CURRENCY_CODE
+, MTSTAGE.TRANSACTION_SOURCE_TYPE_ID
+, MTSTAGE.CREATION_DATE
+FROM inv.MTL_TRANSACTION_ACCOUNTS MTSTAGE
+--where transaction_id = 86912</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable">User::sSelect</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Stage Incr Rows\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[prod.appsread]"
+                  connectionManagerRefId="Package.ConnectionManagers[prod.appsread]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].Columns[LAST_UPDATE_DATE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LAST_UPDATE_DATE]"
+                      lineageId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].Columns[LAST_UPDATE_DATE]"
+                      name="LAST_UPDATE_DATE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].Columns[LAST_UPDATED_BY]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LAST_UPDATED_BY]"
+                      lineageId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].Columns[LAST_UPDATED_BY]"
+                      name="LAST_UPDATED_BY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].Columns[CREATION_DATE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CREATION_DATE]"
+                      lineageId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].Columns[CREATION_DATE]"
+                      name="CREATION_DATE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].Columns[CREATED_BY]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CREATED_BY]"
+                      lineageId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].Columns[CREATED_BY]"
+                      name="CREATED_BY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].Columns[LICENSE_ID]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LICENSE_ID]"
+                      lineageId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].Columns[LICENSE_ID]"
+                      name="LICENSE_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].Columns[LICENSE_NO]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LICENSE_NO]"
+                      length="80"
+                      lineageId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].Columns[LICENSE_NO]"
+                      name="LICENSE_NO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].Columns[LICENSE_EXP_DATE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LICENSE_EXP_DATE]"
+                      lineageId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].Columns[LICENSE_EXP_DATE]"
+                      name="LICENSE_EXP_DATE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].Columns[REASON]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[REASON]"
+                      length="80"
+                      lineageId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].Columns[REASON]"
+                      name="REASON"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].Columns[REGULATORY_COMMENTS]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[REGULATORY_COMMENTS]"
+                      length="2000"
+                      lineageId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].Columns[REGULATORY_COMMENTS]"
+                      name="REGULATORY_COMMENTS"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].Columns[COUNTRY_CODE]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[COUNTRY_CODE]"
+                      length="5"
+                      lineageId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].Columns[COUNTRY_CODE]"
+                      name="COUNTRY_CODE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].Columns[ITEM_ID]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ITEM_ID]"
+                      lineageId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].Columns[ITEM_ID]"
+                      name="ITEM_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].Columns[COPY_LIC_SOURCE]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[COPY_LIC_SOURCE]"
+                      lineageId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].Columns[COPY_LIC_SOURCE]"
+                      name="COPY_LIC_SOURCE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].Columns[COPY_OVN_SOURCE]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[COPY_OVN_SOURCE]"
+                      lineageId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].Columns[COPY_OVN_SOURCE]"
+                      name="COPY_OVN_SOURCE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].Columns[LAST_UPDATE_REASON]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LAST_UPDATE_REASON]"
+                      length="2000"
+                      lineageId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].Columns[LAST_UPDATE_REASON]"
+                      name="LAST_UPDATE_REASON"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].Columns[OVN]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OVN]"
+                      lineageId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].Columns[OVN]"
+                      name="OVN"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LAST_UPDATE_DATE]"
+                      dataType="dbTimeStamp"
+                      name="LAST_UPDATE_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LAST_UPDATED_BY]"
+                      dataType="r8"
+                      name="LAST_UPDATED_BY" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CREATION_DATE]"
+                      dataType="dbTimeStamp"
+                      name="CREATION_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CREATED_BY]"
+                      dataType="r8"
+                      name="CREATED_BY" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LICENSE_ID]"
+                      dataType="r8"
+                      name="LICENSE_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LICENSE_NO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="80"
+                      name="LICENSE_NO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LICENSE_EXP_DATE]"
+                      dataType="dbTimeStamp"
+                      name="LICENSE_EXP_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[REASON]"
+                      codePage="1252"
+                      dataType="str"
+                      length="80"
+                      name="REASON" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[REGULATORY_COMMENTS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2000"
+                      name="REGULATORY_COMMENTS" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[COUNTRY_CODE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="COUNTRY_CODE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ITEM_ID]"
+                      dataType="r8"
+                      name="ITEM_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[COPY_LIC_SOURCE]"
+                      dataType="r8"
+                      name="COPY_LIC_SOURCE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[COPY_OVN_SOURCE]"
+                      dataType="r8"
+                      name="COPY_OVN_SOURCE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LAST_UPDATE_REASON]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2000"
+                      name="LAST_UPDATE_REASON" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OVN]"
+                      dataType="r8"
+                      name="OVN" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LICENSE_ID]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LICENSE_ID]"
+                      name="LICENSE_ID" />
+                    <outputColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LICENSE_NO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="80"
+                      lineageId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LICENSE_NO]"
+                      name="LICENSE_NO" />
+                    <outputColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LICENSE_EXP_DATE]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LICENSE_EXP_DATE]"
+                      name="LICENSE_EXP_DATE" />
+                    <outputColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[REASON]"
+                      codePage="1252"
+                      dataType="str"
+                      length="80"
+                      lineageId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[REASON]"
+                      name="REASON" />
+                    <outputColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[REGULATORY_COMMENTS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2000"
+                      lineageId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[REGULATORY_COMMENTS]"
+                      name="REGULATORY_COMMENTS" />
+                    <outputColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[COUNTRY_CODE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      lineageId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[COUNTRY_CODE]"
+                      name="COUNTRY_CODE" />
+                    <outputColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ITEM_ID]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ITEM_ID]"
+                      name="ITEM_ID" />
+                    <outputColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[COPY_LIC_SOURCE]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[COPY_LIC_SOURCE]"
+                      name="COPY_LIC_SOURCE" />
+                    <outputColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[COPY_OVN_SOURCE]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[COPY_OVN_SOURCE]"
+                      name="COPY_OVN_SOURCE" />
+                    <outputColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LAST_UPDATE_DATE]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LAST_UPDATE_DATE]"
+                      name="LAST_UPDATE_DATE" />
+                    <outputColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LAST_UPDATED_BY]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LAST_UPDATED_BY]"
+                      name="LAST_UPDATED_BY" />
+                    <outputColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CREATION_DATE]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CREATION_DATE]"
+                      name="CREATION_DATE" />
+                    <outputColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CREATED_BY]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CREATED_BY]"
+                      name="CREATED_BY" />
+                    <outputColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LAST_UPDATE_REASON]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2000"
+                      lineageId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LAST_UPDATE_REASON]"
+                      name="LAST_UPDATE_REASON" />
+                    <outputColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OVN]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OVN]"
+                      name="OVN" />
+                    <outputColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Stage Incr Rows\OLE DB Stage"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Stage"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[MTL_TRANSACTION_ACCOUNTS]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable">User::sStageTable</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Stage Incr Rows\OLE DB Stage.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[ETL_STAGE]"
+                  connectionManagerRefId="Package.ConnectionManagers[ETL_STAGE]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Stage Incr Rows\OLE DB Stage.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Stage.Inputs[OLE DB Destination Input].Columns[LAST_UPDATE_DATE]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="LAST_UPDATE_DATE"
+                      externalMetadataColumnId="Package\Data Flow Stage Incr Rows\OLE DB Stage.Inputs[OLE DB Destination Input].ExternalColumns[LAST_UPDATE_DATE]"
+                      lineageId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].Columns[LAST_UPDATE_DATE]" />
+                    <inputColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Stage.Inputs[OLE DB Destination Input].Columns[LAST_UPDATED_BY]"
+                      cachedDataType="r8"
+                      cachedName="LAST_UPDATED_BY"
+                      externalMetadataColumnId="Package\Data Flow Stage Incr Rows\OLE DB Stage.Inputs[OLE DB Destination Input].ExternalColumns[LAST_UPDATED_BY]"
+                      lineageId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].Columns[LAST_UPDATED_BY]" />
+                    <inputColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Stage.Inputs[OLE DB Destination Input].Columns[CREATION_DATE]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="CREATION_DATE"
+                      externalMetadataColumnId="Package\Data Flow Stage Incr Rows\OLE DB Stage.Inputs[OLE DB Destination Input].ExternalColumns[CREATION_DATE]"
+                      lineageId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].Columns[CREATION_DATE]" />
+                    <inputColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Stage.Inputs[OLE DB Destination Input].Columns[CREATED_BY]"
+                      cachedDataType="r8"
+                      cachedName="CREATED_BY"
+                      externalMetadataColumnId="Package\Data Flow Stage Incr Rows\OLE DB Stage.Inputs[OLE DB Destination Input].ExternalColumns[CREATED_BY]"
+                      lineageId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].Columns[CREATED_BY]" />
+                    <inputColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Stage.Inputs[OLE DB Destination Input].Columns[IS_NEW]"
+                      cachedDataType="i4"
+                      cachedName="IS_NEW"
+                      externalMetadataColumnId="Package\Data Flow Stage Incr Rows\OLE DB Stage.Inputs[OLE DB Destination Input].ExternalColumns[IS_NEW]"
+                      lineageId="Package\Data Flow Stage Incr Rows\Derived Column Is New.Outputs[Derived Column Output].Columns[IS_NEW]" />
+                    <inputColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Stage.Inputs[OLE DB Destination Input].Columns[LICENSE_ID]"
+                      cachedDataType="r8"
+                      cachedName="LICENSE_ID"
+                      externalMetadataColumnId="Package\Data Flow Stage Incr Rows\OLE DB Stage.Inputs[OLE DB Destination Input].ExternalColumns[LICENSE_ID]"
+                      lineageId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].Columns[LICENSE_ID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Stage.Inputs[OLE DB Destination Input].Columns[LICENSE_NO]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="80"
+                      cachedName="LICENSE_NO"
+                      externalMetadataColumnId="Package\Data Flow Stage Incr Rows\OLE DB Stage.Inputs[OLE DB Destination Input].ExternalColumns[LICENSE_NO]"
+                      lineageId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].Columns[LICENSE_NO]" />
+                    <inputColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Stage.Inputs[OLE DB Destination Input].Columns[LICENSE_EXP_DATE]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="LICENSE_EXP_DATE"
+                      externalMetadataColumnId="Package\Data Flow Stage Incr Rows\OLE DB Stage.Inputs[OLE DB Destination Input].ExternalColumns[LICENSE_EXP_DATE]"
+                      lineageId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].Columns[LICENSE_EXP_DATE]" />
+                    <inputColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Stage.Inputs[OLE DB Destination Input].Columns[REASON]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="80"
+                      cachedName="REASON"
+                      externalMetadataColumnId="Package\Data Flow Stage Incr Rows\OLE DB Stage.Inputs[OLE DB Destination Input].ExternalColumns[REASON]"
+                      lineageId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].Columns[REASON]" />
+                    <inputColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Stage.Inputs[OLE DB Destination Input].Columns[REGULATORY_COMMENTS]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2000"
+                      cachedName="REGULATORY_COMMENTS"
+                      externalMetadataColumnId="Package\Data Flow Stage Incr Rows\OLE DB Stage.Inputs[OLE DB Destination Input].ExternalColumns[REGULATORY_COMMENTS]"
+                      lineageId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].Columns[REGULATORY_COMMENTS]" />
+                    <inputColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Stage.Inputs[OLE DB Destination Input].Columns[COUNTRY_CODE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="5"
+                      cachedName="COUNTRY_CODE"
+                      externalMetadataColumnId="Package\Data Flow Stage Incr Rows\OLE DB Stage.Inputs[OLE DB Destination Input].ExternalColumns[COUNTRY_CODE]"
+                      lineageId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].Columns[COUNTRY_CODE]" />
+                    <inputColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Stage.Inputs[OLE DB Destination Input].Columns[ITEM_ID]"
+                      cachedDataType="r8"
+                      cachedName="ITEM_ID"
+                      externalMetadataColumnId="Package\Data Flow Stage Incr Rows\OLE DB Stage.Inputs[OLE DB Destination Input].ExternalColumns[ITEM_ID]"
+                      lineageId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].Columns[ITEM_ID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Stage.Inputs[OLE DB Destination Input].Columns[COPY_LIC_SOURCE]"
+                      cachedDataType="r8"
+                      cachedName="COPY_LIC_SOURCE"
+                      externalMetadataColumnId="Package\Data Flow Stage Incr Rows\OLE DB Stage.Inputs[OLE DB Destination Input].ExternalColumns[COPY_LIC_SOURCE]"
+                      lineageId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].Columns[COPY_LIC_SOURCE]" />
+                    <inputColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Stage.Inputs[OLE DB Destination Input].Columns[COPY_OVN_SOURCE]"
+                      cachedDataType="r8"
+                      cachedName="COPY_OVN_SOURCE"
+                      externalMetadataColumnId="Package\Data Flow Stage Incr Rows\OLE DB Stage.Inputs[OLE DB Destination Input].ExternalColumns[COPY_OVN_SOURCE]"
+                      lineageId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].Columns[COPY_OVN_SOURCE]" />
+                    <inputColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Stage.Inputs[OLE DB Destination Input].Columns[LAST_UPDATE_REASON]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2000"
+                      cachedName="LAST_UPDATE_REASON"
+                      externalMetadataColumnId="Package\Data Flow Stage Incr Rows\OLE DB Stage.Inputs[OLE DB Destination Input].ExternalColumns[LAST_UPDATE_REASON]"
+                      lineageId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].Columns[LAST_UPDATE_REASON]" />
+                    <inputColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Stage.Inputs[OLE DB Destination Input].Columns[OVN]"
+                      cachedDataType="r8"
+                      cachedName="OVN"
+                      externalMetadataColumnId="Package\Data Flow Stage Incr Rows\OLE DB Stage.Inputs[OLE DB Destination Input].ExternalColumns[OVN]"
+                      lineageId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output].Columns[OVN]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Stage.Inputs[OLE DB Destination Input].ExternalColumns[LAST_UPDATE_DATE]"
+                      dataType="dbTimeStamp"
+                      name="LAST_UPDATE_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Stage.Inputs[OLE DB Destination Input].ExternalColumns[LAST_UPDATED_BY]"
+                      dataType="r8"
+                      name="LAST_UPDATED_BY" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Stage.Inputs[OLE DB Destination Input].ExternalColumns[CREATED_BY]"
+                      dataType="r8"
+                      name="CREATED_BY" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Stage.Inputs[OLE DB Destination Input].ExternalColumns[CREATION_DATE]"
+                      dataType="dbTimeStamp"
+                      name="CREATION_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Stage.Inputs[OLE DB Destination Input].ExternalColumns[IS_NEW]"
+                      dataType="i4"
+                      name="IS_NEW" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Stage.Inputs[OLE DB Destination Input].ExternalColumns[LICENSE_ID]"
+                      dataType="r8"
+                      name="LICENSE_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Stage.Inputs[OLE DB Destination Input].ExternalColumns[LICENSE_NO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="80"
+                      name="LICENSE_NO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Stage.Inputs[OLE DB Destination Input].ExternalColumns[LICENSE_EXP_DATE]"
+                      dataType="dbTimeStamp2"
+                      name="LICENSE_EXP_DATE"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Stage.Inputs[OLE DB Destination Input].ExternalColumns[REASON]"
+                      codePage="1252"
+                      dataType="str"
+                      length="80"
+                      name="REASON" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Stage.Inputs[OLE DB Destination Input].ExternalColumns[REGULATORY_COMMENTS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2000"
+                      name="REGULATORY_COMMENTS" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Stage.Inputs[OLE DB Destination Input].ExternalColumns[COUNTRY_CODE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="COUNTRY_CODE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Stage.Inputs[OLE DB Destination Input].ExternalColumns[ITEM_ID]"
+                      dataType="r8"
+                      name="ITEM_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Stage.Inputs[OLE DB Destination Input].ExternalColumns[COPY_LIC_SOURCE]"
+                      dataType="r8"
+                      name="COPY_LIC_SOURCE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Stage.Inputs[OLE DB Destination Input].ExternalColumns[COPY_OVN_SOURCE]"
+                      dataType="r8"
+                      name="COPY_OVN_SOURCE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Stage.Inputs[OLE DB Destination Input].ExternalColumns[LAST_UPDATE_REASON]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2000"
+                      name="LAST_UPDATE_REASON" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Stage.Inputs[OLE DB Destination Input].ExternalColumns[OVN]"
+                      dataType="r8"
+                      name="OVN" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Stage Incr Rows\OLE DB Stage.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Stage Incr Rows\OLE DB Stage.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Stage.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Stage Incr Rows\OLE DB Stage.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Stage Incr Rows\OLE DB Stage.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Stage Incr Rows\OLE DB Stage.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Stage Incr Rows.Paths[Data Conversion Output]"
+              endId="Package\Data Flow Stage Incr Rows\OLE DB Stage.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\Data Flow Stage Incr Rows\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Data Flow Stage Incr Rows.Paths[Derived Column Output]"
+              endId="Package\Data Flow Stage Incr Rows\Data Conversion.Inputs[Data Conversion Input]"
+              name="Derived Column Output"
+              startId="Package\Data Flow Stage Incr Rows\Derived Column Is New.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Data Flow Stage Incr Rows.Paths[OLE DB Source Output]"
+              endId="Package\Data Flow Stage Incr Rows\Derived Column Is New.Inputs[Derived Column Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Stage Incr Rows\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate Stage"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{E97EAD09-D9CD-4F9D-ABE6-41F6B87FEDB4}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate Stage"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{3C6C0DC8-EBEA-421B-95A5-C13D5CA93767}"
+          SQLTask:SqlStmtSourceType="Variable"
+          SQLTask:SqlStatementSource="User::sTruncate" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Update Last Modified Date"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{DEA517A7-2E0C-4B23-8C5B-07BBBDACEE5E}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Update Last Modified Date"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{3C6C0DC8-EBEA-421B-95A5-C13D5CA93767}"
+          SQLTask:SqlStatementSource="Update [DW_STAGE].[dbo].[INCREMENTAL_EXTRACTION]&#xA; Set [last_modified_date] = &#xA;   (Select MAX(last_Update_Date) &#xA;   from dw_main.dbo.LNV_REGULATORY_LICENSE)&#xA;  Where [source_table] = 'LNV_REGULATORY_LICENSE'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{3E3FA544-0067-4FE5-A8A4-6D0F324C4D22}"
+      DTS:From="Package\Truncate Stage"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Create Select Statement" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{98419142-1DD8-4E2B-81A5-F8E6B1CFEB5D}"
+      DTS:From="Package\Create Select Statement"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Data Flow Stage Incr Rows" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{4BBCF4D6-8F81-4683-9B6C-7BFB1238D1E3}"
+      DTS:From="Package\Data Flow Stage Incr Rows"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Add Data to Target" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{1DAC5CFF-E8CC-492F-BEBE-2E67EA6E510E}"
+      DTS:From="Package\Add Data to Target"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Update Last Modified Date" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="139,44"
+          Id="Package\Add Data to Target"
+          TopLeft="5.5,266.443396226415" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Create Select Statement"
+          TopLeft="5.53773584905662,90.7075471698113" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Data Flow Stage Incr Rows"
+          TopLeft="6.10377358490575,182.179245283019" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Truncate Stage"
+          TopLeft="6.06603773584914,5.5" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Update Last Modified Date"
+          TopLeft="5.57547169811323,354.216981132075" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="73.9528301886793,49.4245283018868">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-0.528301886792462,41.2830188679246"
+              Start="0,0"
+              End="-0.528301886792462,33.7830188679246">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.6415094339623" />
+                  <mssgle:LineSegment
+                    End="-0.528301886792462,20.6415094339623" />
+                  <mssgle:LineSegment
+                    End="-0.528301886792462,33.7830188679246" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="73.4245283018868,134.632075471698">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0.566037735849079,47.5471698113207"
+              Start="0,0"
+              End="0.566037735849079,40.0471698113207">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.7735849056604" />
+                  <mssgle:LineSegment
+                    End="0.566037735849079,23.7735849056604" />
+                  <mssgle:LineSegment
+                    End="0.566037735849079,40.0471698113207" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="73.9905660377359,226.103773584906">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0.905660377358515,40.3396226415094"
+              Start="0,0"
+              End="0.905660377358515,32.8396226415094">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.188679245283" />
+                  <mssgle:LineSegment
+                    End="0.905660377358515,20.188679245283" />
+                  <mssgle:LineSegment
+                    End="0.905660377358515,32.8396226415094" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="74.8962264150944,310.367924528302">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-1.43396226415098,43.8490566037736"
+              Start="0,0"
+              End="-1.43396226415098,36.3490566037736">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.9245283018868" />
+                  <mssgle:LineSegment
+                    End="-1.43396226415098,21.9245283018868" />
+                  <mssgle:LineSegment
+                    End="-1.43396226415098,36.3490566037736" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

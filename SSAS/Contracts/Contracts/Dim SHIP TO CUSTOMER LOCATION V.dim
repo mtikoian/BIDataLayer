@@ -1,0 +1,359 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="3c4fa1f8-3e46-4fc2-a626-cc7ce992770b" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Dim SHIP TO CUSTOMER LOCATION V</ID>
+  <Name>Dim SHIP TO CUSTOMER LOCATION V</Name>
+  <CreatedTimestamp>2018-03-11T17:31:10.06Z</CreatedTimestamp>
+  <LastSchemaUpdate>2018-03-29T14:24:45.65Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+      <Value>
+        <dds xmlns="">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="3" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="20" scrolltop="-5615" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="7867" y="12453" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+            <font>
+              <ddsxmlobjectstreamwrapper binary="01000000900180380100065461686f6d61" />
+            </font>
+            <mouseicon>
+              <ddsxmlobjectstreamwrapper binary="6c74000000000000" />
+            </mouseicon>
+          </diagram>
+          <layoutmanager>
+            <ddsxmlobj />
+          </layoutmanager>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="Dim_SHIP_TO_CUSTOMER_LOCATION_V" left="20" top="0" logicalid="2" controlid="1" masterid="0" hint1="0" hint2="0" width="6950" height="5000" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000a0000261b000088130000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="EDW_Dim_SHIP_TO_CUSTOMER_LOCATION_V" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+        </dds>
+      </Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>20</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>-5615</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>20</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>2018-04-04T20:03:45.74Z</LastProcessed>
+  <State>Processed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="19ccd18d-36f6-451a-981f-6f5a347f348d">
+    <DataSourceViewID>AS DWH</DataSourceViewID>
+  </Source>
+  <UnknownMember>Visible</UnknownMember>
+  <ErrorConfiguration dwd:design-time-name="ae1ac543-93ae-4623-8b43-ed59e1b20a59">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Language>1033</Language>
+  <Collation>Latin1_General_CI_AS</Collation>
+  <UnknownMemberName>Unknown</UnknownMemberName>
+  <Attributes>
+    <Attribute dwd:design-time-name="e668b8f1-6a41-46fa-a2f9-d0eea2e38a8c">
+      <ID>Dim CUSTOMER LOCATION KEY</ID>
+      <Name>Dim CUSTOMER LOCATION KEY</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="7ae695b3-0dcd-477b-9f2f-18af1ac3ba53">
+          <DataType>BigInt</DataType>
+          <NullProcessing>UnknownMember</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="99b3ecd4-2379-4dae-a28d-b310228a8931">
+            <TableID>EDW_Dim_SHIP_TO_CUSTOMER_LOCATION_V</TableID>
+            <ColumnID>Dim_CUSTOMER_LOCATION_KEY</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="3afb93a5-cb32-411c-9f37-a8730c7557d4">
+        <DataType>WChar</DataType>
+        <NullProcessing>ZeroOrBlank</NullProcessing>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="247058a2-fb98-4dd6-ba3d-f4085193450e">
+          <TableID>EDW_Dim_SHIP_TO_CUSTOMER_LOCATION_V</TableID>
+          <ColumnID>Dim_CUSTOMER_LOCATION_KEY</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="67aacfb5-43a8-4dcc-b135-0a745c7b8236">
+          <AttributeID>LOCATION</AttributeID>
+          <Name>Location</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="b2f3af6c-2d6d-4084-897b-5706771e9ea7">
+          <AttributeID>ACCOUNT NUMBER</AttributeID>
+          <Name>Account Number</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="c5ac69f4-27ee-449b-811b-df6c1a2bfa6b">
+          <AttributeID>PROFILE CLASS NAME</AttributeID>
+          <Name>Profile Status</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="09cf329c-a0d4-42cd-97ac-11cadfa8da2a">
+          <AttributeID>CUSTOMER CLASS CODE</AttributeID>
+          <Name>Customer Class</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="e7ab66eb-5104-4ae7-a21a-8a3ae7793fe3">
+          <AttributeID>ACCOUNT NAME</AttributeID>
+          <Name>Account Name</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="d258e2ed-f309-4339-a689-660681bfdbdf">
+          <AttributeID>STATE PROVINCE</AttributeID>
+          <Name>State</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="db270e21-4d63-48c4-8d93-682fb59218c8">
+          <AttributeID>COUNTRY NAME</AttributeID>
+          <Name>Country</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="d758ca4b-60c4-44e2-b46d-6e504b4d2be2">
+          <AttributeID>Location Name</AttributeID>
+          <Name>Location Number Name</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="30a9feb8-df97-40d9-adb1-68321df845fe">
+          <AttributeID>Location Number</AttributeID>
+          <Name>Location Number</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="0a6dc0be-1009-42a3-82c5-abf0513b11c9">
+      <ID>LOCATION</ID>
+      <Name>Location</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="466bfec7-8b79-4f94-8b00-4cf013348407">
+          <DataType>WChar</DataType>
+          <DataSize>40</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="edf35bfd-86e0-4653-8c42-8f1bd801e618">
+            <TableID>EDW_Dim_SHIP_TO_CUSTOMER_LOCATION_V</TableID>
+            <ColumnID>LOCATION</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="cf6e6852-7efc-4d9c-ba92-2c0b5d7d2e35">
+        <DataType>WChar</DataType>
+        <DataSize>40</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="1839fd75-478a-4d0c-a5ad-f28081e94252">
+          <TableID>EDW_Dim_SHIP_TO_CUSTOMER_LOCATION_V</TableID>
+          <ColumnID>LOCATION</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="3365519f-6e6c-45af-8616-0f8e40ed055b">
+      <ID>ACCOUNT NUMBER</ID>
+      <Name>Account Number</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="32561e41-4e27-4850-9ec6-b981f2671308">
+          <DataType>WChar</DataType>
+          <DataSize>150</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="6bd2550b-4f40-4938-b040-5c4ca99c14a0">
+            <TableID>EDW_Dim_SHIP_TO_CUSTOMER_LOCATION_V</TableID>
+            <ColumnID>ACCOUNT_NUMBER</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="8baee5bc-2ce5-4da7-b3ba-854a359f6de9">
+        <DataType>WChar</DataType>
+        <DataSize>150</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="59cf6f3d-ffe2-49a7-bb47-463a54758871">
+          <TableID>EDW_Dim_SHIP_TO_CUSTOMER_LOCATION_V</TableID>
+          <ColumnID>ACCOUNT_NUMBER</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="53988f93-690e-4ae8-8e28-8235485cf132">
+      <ID>PROFILE CLASS NAME</ID>
+      <Name>Profile Status</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="2e1e1fa5-a36e-4f68-8775-0ef68f7590c7">
+          <DataType>WChar</DataType>
+          <DataSize>30</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="4506e088-dd2b-4211-9cd9-2b90fdc9d2da">
+            <TableID>EDW_Dim_SHIP_TO_CUSTOMER_LOCATION_V</TableID>
+            <ColumnID>PROFILE_CLASS_NAME</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="67a75e15-147d-4634-a8d9-fe8663817639">
+        <DataType>WChar</DataType>
+        <DataSize>30</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="5970f7de-a28d-4920-8c97-06426e4b4a6f">
+          <TableID>EDW_Dim_SHIP_TO_CUSTOMER_LOCATION_V</TableID>
+          <ColumnID>PROFILE_CLASS_NAME</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="d8712e8f-6d50-4fa5-b9d4-54687be49080">
+      <ID>CUSTOMER CLASS CODE</ID>
+      <Name>Customer Class</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="9d79d96e-eafb-4595-b647-e3ad90045534">
+          <DataType>WChar</DataType>
+          <DataSize>30</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="29e8a5bc-04ea-4806-bf31-4ddc7eb8f7ab">
+            <TableID>EDW_Dim_SHIP_TO_CUSTOMER_LOCATION_V</TableID>
+            <ColumnID>CUSTOMER_CLASS_CODE</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="c665abeb-e61e-41ef-8c36-c23fa6f0356a">
+        <DataType>WChar</DataType>
+        <DataSize>30</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="2485cba0-249b-40c7-aa9b-394d8c56ac42">
+          <TableID>EDW_Dim_SHIP_TO_CUSTOMER_LOCATION_V</TableID>
+          <ColumnID>CUSTOMER_CLASS_CODE</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="901aa2d9-098d-4b42-b937-a10cc0aeb360">
+      <ID>ACCOUNT NAME</ID>
+      <Name>Account Name</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="46415892-0bd2-4024-8bf4-3aa2a4db512c">
+          <DataType>WChar</DataType>
+          <DataSize>240</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="f337d152-b107-4dac-9839-ae78ca685aac">
+            <TableID>EDW_Dim_SHIP_TO_CUSTOMER_LOCATION_V</TableID>
+            <ColumnID>ACCOUNT_NAME</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="16eb95b9-00cf-4ffd-ade8-b0255c7b1818">
+        <DataType>WChar</DataType>
+        <DataSize>240</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="1b842840-5b63-4089-a74b-4f89aba9e6c4">
+          <TableID>EDW_Dim_SHIP_TO_CUSTOMER_LOCATION_V</TableID>
+          <ColumnID>ACCOUNT_NAME</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="47d9310a-3b1e-460b-abee-6a9fa976fa04">
+      <ID>STATE PROVINCE</ID>
+      <Name>State</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="66f813fd-1d7e-4aba-95e4-bada0d3996d0">
+          <DataType>WChar</DataType>
+          <DataSize>60</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="9dfefe77-fd25-4698-9cfe-4692f623214b">
+            <TableID>EDW_Dim_SHIP_TO_CUSTOMER_LOCATION_V</TableID>
+            <ColumnID>STATE_PROVINCE</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="35ad7987-f7fc-410d-8437-4e66bcf73789">
+        <DataType>WChar</DataType>
+        <DataSize>60</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="23202c3f-03e5-4dd3-88e9-413b6594a8df">
+          <TableID>EDW_Dim_SHIP_TO_CUSTOMER_LOCATION_V</TableID>
+          <ColumnID>STATE_PROVINCE</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="93c63f4e-5501-42c4-9a12-515b56e2ea73">
+      <ID>COUNTRY NAME</ID>
+      <Name>Country</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="b5873b05-a8ac-4d10-b271-7accf5fc2298">
+          <DataType>WChar</DataType>
+          <DataSize>80</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="3d9e8d99-fdd5-4980-8073-bae39f8cbb9b">
+            <TableID>EDW_Dim_SHIP_TO_CUSTOMER_LOCATION_V</TableID>
+            <ColumnID>COUNTRY_NAME</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="d0ddc1bf-9e22-40b2-88ea-880cc0859da0">
+        <DataType>WChar</DataType>
+        <DataSize>80</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="d00f2b99-1e32-40a0-9b4f-629bdd3a0cf3">
+          <TableID>EDW_Dim_SHIP_TO_CUSTOMER_LOCATION_V</TableID>
+          <ColumnID>COUNTRY_NAME</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="30734aa0-2a54-4211-a660-cdb6fc0e0b35">
+      <ID>Location Name</ID>
+      <Name>Location Number Name</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="7959dbbc-40d6-4e47-adee-be8951affe8d">
+          <DataType>WChar</DataType>
+          <DataSize>224</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="92c2e72d-e1b3-4258-b723-34e868bdb444">
+            <TableID>EDW_Dim_SHIP_TO_CUSTOMER_LOCATION_V</TableID>
+            <ColumnID>Location_Name</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="2a0ef431-89b4-48d6-9ee4-17a37349b051">
+      <ID>Location Number</ID>
+      <Name>Location Number</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="296c30ee-b85a-49ad-b290-3617b414804e">
+          <DataType>WChar</DataType>
+          <DataSize>181</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="52f60b37-fcb4-4480-84fc-6f320eb48020">
+            <TableID>EDW_Dim_SHIP_TO_CUSTOMER_LOCATION_V</TableID>
+            <ColumnID>Location_Number</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <ProactiveCaching dwd:design-time-name="f9d9fa90-3ccf-4a75-84aa-63ed12359a16">
+    <SilenceInterval>-PT1S</SilenceInterval>
+    <Latency>-PT1S</Latency>
+    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+    <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="921739a2-34cd-474e-8b23-1339622d7c4f" />
+  </ProactiveCaching>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

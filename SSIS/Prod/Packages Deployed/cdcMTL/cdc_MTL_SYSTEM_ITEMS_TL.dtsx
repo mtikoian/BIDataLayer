@@ -1,0 +1,2543 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/14/2009 3:24:01 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LARGOBI1"
+  DTS:CreatorName="LVTBI\developer"
+  DTS:DTSID="{056FE712-BE84-4790-90B5-534FF21FD9A5}"
+  DTS:EnableConfig="True"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.4100.1"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="cdc_MTL_SYSTEM_ITEMS_TL"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="351"
+  DTS:VersionGUID="{0740EDD7-5354-41DA-ACAD-F6E472465215}"
+  DTS:VersionMinor="1">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[AUDIT]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{94F985BA-BAFA-41E8-9127-27C8FF170901}"
+      DTS:ObjectName="AUDIT">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=bi-prod;Initial Catalog=SSISRunTimeMetrics;Provider=SQLNCLI11.1;Integrated Security=SSPI;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[CDC]"
+      DTS:CreationName="OLEDB"
+      DTS:DelayValidation="True"
+      DTS:DTSID="{94E436DF-FE44-4E1E-9D02-926D012E18F6}"
+      DTS:ObjectName="CDC">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=PROD;User ID=cdcuser;Provider=OraOLEDB.Oracle.1;Persist Security Info=True;">
+          <EncryptedData
+            Type="http://www.w3.org/2001/04/xmlenc#Element"
+            Salt="U3JTVPnn2g=="
+            IV="O8pbGI84hzo=" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            <EncryptionMethod
+              Algorithm="http://www.w3.org/2001/04/xmlenc#tripledes-cbc" />
+            <CipherData>
+              <CipherValue>O8pbGI84hzoRIzFPoLSKPkcRBBC4lqzR29AEIprMHt2kqQsOT4dU+K2T4dT8MpIax4ODAS3C5gvGjpponW2dz6MvvfElFt5Jzo6KeyRoN30QedCrQ5KbS2dRJvBVFlGqTQny8tGT+Vg2QPJ2JFDbKxA/AeH8jx/xKWQVEs8oR2+pc/Bi2JSfMw==</CipherValue>
+            </CipherData>
+          </EncryptedData>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[MAIN]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{449B2A3F-62A2-40A5-8FD2-E148C92E4B51}"
+      DTS:ObjectName="MAIN">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=bi-prod;Initial Catalog=DW_MAIN;Provider=SQLNCLI11.1;Integrated Security=SSPI;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SOURCE]"
+      DTS:CreationName="OLEDB"
+      DTS:DelayValidation="True"
+      DTS:DTSID="{5DD7F1B9-EC71-409D-8FC1-123BB99A2C21}"
+      DTS:ObjectName="SOURCE">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=PROD;User ID=appsread;Provider=OraOLEDB.Oracle.1;Persist Security Info=True;">
+          <EncryptedData
+            Type="http://www.w3.org/2001/04/xmlenc#Element"
+            Salt="Xx+xG9e4qA=="
+            IV="vqsjMwqtHH8=" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            <EncryptionMethod
+              Algorithm="http://www.w3.org/2001/04/xmlenc#tripledes-cbc" />
+            <CipherData>
+              <CipherValue>vqsjMwqtHH+YAEPzvvGCA7l3JqDnWnQqdgKwL/zfyfK+tbSlRP9HFpKWngktNzV3jW9k77VrMjk1VnOxhu4STeMpIyi+ucqN822jRY8wy3DxUIDDU/pVBP4+pD6BUB7slkpUcJ6yTTFf0dnu3ocGUIuGFSksW5lMob/Mb5kBERc=</CipherValue>
+            </CipherData>
+          </EncryptedData>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[STAGE]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{B9A5561F-C06A-4305-AB6F-B7A8683D97E9}"
+      DTS:ObjectName="STAGE">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=bi-prod;Initial Catalog=DW_STAGE;Provider=SQLNCLI11.1;Integrated Security=SSPI;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{EEB14675-47BB-4190-80D0-21850CEB9FEA}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="connAuditOLEDB">
+      <DTS:VariableValue
+        DTS:DataType="8">Data Source=LARGOBI1;Initial Catalog=SSISRunTimeMetrics;Provider=SQLNCLI10.1;Integrated Security=SSPI;</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F78F2E08-9ACD-4FF6-A708-40FA027B7A7A}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="connCdcOLEDB">
+      <DTS:VariableValue
+        DTS:DataType="8">Provider=OraOLEDB.Oracle;User ID=cdcuser;Password=123sqldeveloper;Data Source=PROD</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C866395A-B3B0-4CDA-97B9-60D588795DE7}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="connMainOLEDB">
+      <DTS:VariableValue
+        DTS:DataType="8">Data Source=LARGOBI1;Initial Catalog=DW_MAIN;Provider=SQLNCLI10.1;Integrated Security=SSPI;</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0865847D-EDCB-4D34-B50E-BF7CBA8AA415}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="connSourceOLEDB">
+      <DTS:VariableValue
+        DTS:DataType="8">Provider=OraOLEDB.Oracle;User ID=appsread;Password=sn0wman;Data Source=PROD</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{CA64A11A-BF89-4599-907B-76A3827ABE48}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="connStageOLEDB">
+      <DTS:VariableValue
+        DTS:DataType="8">Data Source=LARGOBI1;Initial Catalog=DW_STAGE;Provider=SQLNCLI10.1;Integrated Security=SSPI;</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1B2204D5-5FD4-46C0-A571-101A9616DC32}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="(DT_DBTIMESTAMP) (&quot;1800-01-01&quot;)"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="dtDateMatch">
+      <DTS:VariableValue
+        DTS:DataType="7">1/1/1800</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{85EB4536-CE55-4EAD-AF3B-014CFB4E39F9}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="dtLastModifiedDateTime">
+      <DTS:VariableValue
+        DTS:DataType="7">9/9/2009 12:56:18 PM</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C40C870E-EF9D-4E6D-8A5A-221ED7D6B65A}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intCdcRowCount">
+      <DTS:VariableValue
+        DTS:DataType="20">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C4489EA4-4CE2-4B10-AA18-D8605A1B554E}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intNoOfRowsInserted">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{FBDD1B6B-6E7F-4468-8448-024E2F4DCA7A}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intNoOfRowsRead">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{37F1CB44-5AC5-4D1A-842F-4CCCB8174214}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intNoOfRowsUpdated">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{68AD41D2-CF37-45B7-8870-6996E1D863A9}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="iPackageLoadID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A1D5FED8-C737-4756-A58F-AA095CC11B92}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="iTaskLoadID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4F4512C4-11FD-447E-820E-0DA5ECB5AF09}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;exec usp_CDC_&quot;+ @[User::sSourceTable]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="sCDCStoredProcedure">
+      <DTS:VariableValue
+        DTS:DataType="8">exec usp_CDC_MTL_SYSTEM_ITEMS_TL</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{DB183AA3-3368-4158-9474-6EC3444469E1}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;cdc_&quot; + @[User::sSourceTable]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="sCdcTable">
+      <DTS:VariableValue
+        DTS:DataType="8">cdc_MTL_SYSTEM_ITEMS_TL</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D039262B-000A-42F8-AE94-1C879C168096}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="sDeleteSQL">
+      <DTS:VariableValue
+        DTS:DataType="8">Delete from CDC_MTL_SYSTEM_ITEMS_TL where  to_char(TIMESTAMP$, 'yyyymmdd') &lt; to_char(sysdate, 'yyyymmdd')</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1A9D51F6-7CC6-4BF6-8144-A75552F33337}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::sRawFilePath]+&quot;\\stage_&quot;+ @[User::sSourceTable]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="sRawFileLocation">
+      <DTS:VariableValue
+        DTS:DataType="8">\\bi-prod\raw_prod\stage_MTL_SYSTEM_ITEMS_TL</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{717D8587-A58F-4D8A-A725-6BF78ECB98B9}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="sRawFilePath">
+      <DTS:VariableValue
+        DTS:DataType="8">\\bi-prod\raw_prod</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9092BAC6-5C95-45AE-BAC8-E8FF769C4235}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="sSourceTable">
+      <DTS:VariableValue
+        DTS:DataType="8">MTL_SYSTEM_ITEMS_TL</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3E6C46B8-CB54-41AA-A084-0BF78AD1201F}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;stage_&quot; +  @[User::sSourceTable]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="sTargetStageSQL">
+      <DTS:VariableValue
+        DTS:DataType="8">stage_MTL_SYSTEM_ITEMS_TL</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B4E595CC-7146-449A-BA78-A03034110300}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;truncate table stage_&quot; +  @[User::sSourceTable]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="sTargetStageTruncateSQL">
+      <DTS:VariableValue
+        DTS:DataType="8">truncate table stage_MTL_SYSTEM_ITEMS_TL</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7B62C72B-70A8-4B4F-B22C-77FC001906AF}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="(DT_WSTR,3)  @[System::VersionMajor] + &quot; .&quot;+ (DT_WSTR, 3) @[System::VersionMinor]+&quot; .&quot;+ (DT_WSTR, 3)  @[System::VersionBuild]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="sVersion">
+      <DTS:VariableValue
+        DTS:DataType="8">1 .1 .351</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Step 1 - Load Raw File"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{8110D17F-B7E9-4F5F-9384-D8628F742F03}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Step 1 - Load Raw File">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Step 1 - Load Raw File\Truncate Stage Table"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{B300B0CA-C8A7-4A34-8DA6-6B14014A10A6}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Truncate Stage Table"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{B9A5561F-C06A-4305-AB6F-B7A8683D97E9}"
+              SQLTask:SqlStmtSourceType="Variable"
+              SQLTask:SqlStatementSource="User::sTargetStageTruncateSQL" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Step 2 CDC - Read Raw File 1"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{7304060B-F3FA-4053-ACE4-84E988008DAF}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Step 2 CDC - Read Raw File 1">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Step 2 CDC - Read Raw File 1\Delete CDC Rows 2"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{95E9696D-EF5E-498A-AF37-42F0421D4AB8}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Delete CDC Rows 2"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{94E436DF-FE44-4E1E-9D02-926D012E18F6}"
+              SQLTask:SqlStmtSourceType="Variable"
+              SQLTask:SqlStatementSource="User::sDeleteSQL" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Step 2 CDC - Read Raw File 1\Execute CDC Stored Procedure"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{B1300CAA-9325-47FE-9560-407AA2C1CACF}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Execute CDC Stored Procedure"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{449B2A3F-62A2-40A5-8FD2-E148C92E4B51}"
+              SQLTask:BypassPrepare="False"
+              SQLTask:SqlStmtSourceType="Variable"
+              SQLTask:SqlStatementSource="User::sCDCStoredProcedure" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:DelayValidation="True"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{65A83451-38F0-423A-8D7D-F68F3197AA67}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Raw File  To Relational  (SQL Server)                OPEN"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              BLOBTempStoragePath=""
+              bufferTempStoragePath=""
+              version="1">
+              <components>
+                <component
+                  refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Data Conversion EDIT 1 2 1"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  localeId="1033"
+                  name="Data Conversion EDIT 1 2 1"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Data Conversion EDIT 1 2 1.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Data Conversion EDIT 1 2 1.Inputs[Data Conversion Input].Columns[LAST_UPDATE_LOGIN]"
+                          cachedDataType="wstr"
+                          cachedLength="38"
+                          cachedName="LAST_UPDATE_LOGIN"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].Columns[LAST_UPDATE_LOGIN]"
+                          name="LAST_UPDATE_LOGIN" />
+                        <inputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Data Conversion EDIT 1 2 1.Inputs[Data Conversion Input].Columns[CREATED_BY]"
+                          cachedDataType="wstr"
+                          cachedLength="38"
+                          cachedName="CREATED_BY"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].Columns[CREATED_BY]"
+                          name="CREATED_BY" />
+                        <inputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Data Conversion EDIT 1 2 1.Inputs[Data Conversion Input].Columns[LAST_UPDATED_BY]"
+                          cachedDataType="wstr"
+                          cachedLength="38"
+                          cachedName="LAST_UPDATED_BY"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].Columns[LAST_UPDATED_BY]"
+                          name="LAST_UPDATED_BY" />
+                        <inputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Data Conversion EDIT 1 2 1.Inputs[Data Conversion Input].Columns[LAST_UPDATE_DATE]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="LAST_UPDATE_DATE"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].Columns[LAST_UPDATE_DATE]"
+                          name="LAST_UPDATE_DATE" />
+                        <inputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Data Conversion EDIT 1 2 1.Inputs[Data Conversion Input].Columns[CREATION_DATE]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="CREATION_DATE"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].Columns[CREATION_DATE]"
+                          name="CREATION_DATE" />
+                        <inputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Data Conversion EDIT 1 2 1.Inputs[Data Conversion Input].Columns[DESCRIPTION]"
+                          cachedDataType="wstr"
+                          cachedLength="240"
+                          cachedName="DESCRIPTION"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].Columns[DESCRIPTION]"
+                          name="DESCRIPTION" />
+                        <inputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Data Conversion EDIT 1 2 1.Inputs[Data Conversion Input].Columns[INVENTORY_ITEM_ID]"
+                          cachedDataType="wstr"
+                          cachedLength="38"
+                          cachedName="INVENTORY_ITEM_ID"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].Columns[INVENTORY_ITEM_ID]"
+                          name="INVENTORY_ITEM_ID" />
+                        <inputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Data Conversion EDIT 1 2 1.Inputs[Data Conversion Input].Columns[LANGUAGE]"
+                          cachedDataType="wstr"
+                          cachedLength="4"
+                          cachedName="LANGUAGE"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].Columns[LANGUAGE]"
+                          name="LANGUAGE" />
+                        <inputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Data Conversion EDIT 1 2 1.Inputs[Data Conversion Input].Columns[LONG_DESCRIPTION]"
+                          cachedDataType="wstr"
+                          cachedLength="4000"
+                          cachedName="LONG_DESCRIPTION"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].Columns[LONG_DESCRIPTION]"
+                          name="LONG_DESCRIPTION" />
+                        <inputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Data Conversion EDIT 1 2 1.Inputs[Data Conversion Input].Columns[ORGANIZATION_ID]"
+                          cachedDataType="wstr"
+                          cachedLength="38"
+                          cachedName="ORGANIZATION_ID"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].Columns[ORGANIZATION_ID]"
+                          name="ORGANIZATION_ID" />
+                        <inputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Data Conversion EDIT 1 2 1.Inputs[Data Conversion Input].Columns[SOURCE_LANG]"
+                          cachedDataType="wstr"
+                          cachedLength="4"
+                          cachedName="SOURCE_LANG"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].Columns[SOURCE_LANG]"
+                          name="SOURCE_LANG" />
+                        <inputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Data Conversion EDIT 1 2 1.Inputs[Data Conversion Input].Columns[COMMIT_TIMESTAMP$]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="COMMIT_TIMESTAMP$"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].Columns[COMMIT_TIMESTAMP$]"
+                          name="COMMIT_TIMESTAMP$" />
+                        <inputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Data Conversion EDIT 1 2 1.Inputs[Data Conversion Input].Columns[TIMESTAMP$]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="TIMESTAMP$"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].Columns[TIMESTAMP$]"
+                          name="TIMESTAMP$" />
+                        <inputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Data Conversion EDIT 1 2 1.Inputs[Data Conversion Input].Columns[CSCN$]"
+                          cachedDataType="wstr"
+                          cachedLength="38"
+                          cachedName="CSCN$"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].Columns[CSCN$]"
+                          name="CSCN$" />
+                        <inputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Data Conversion EDIT 1 2 1.Inputs[Data Conversion Input].Columns[USERNAME$]"
+                          cachedDataType="wstr"
+                          cachedLength="30"
+                          cachedName="USERNAME$"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].Columns[USERNAME$]"
+                          name="USERNAME$" />
+                        <inputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Data Conversion EDIT 1 2 1.Inputs[Data Conversion Input].Columns[OPERATION$]"
+                          cachedDataType="wstr"
+                          cachedLength="2"
+                          cachedName="OPERATION$"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].Columns[OPERATION$]"
+                          name="OPERATION$" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Data Conversion EDIT 1 2 1.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Data Conversion EDIT 1 2 1.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Data Conversion EDIT 1 2 1.Outputs[Data Conversion Output].Columns[Copy of CSCN$]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="38"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Data Conversion EDIT 1 2 1.Outputs[Data Conversion Output].Columns[Copy of CSCN$]"
+                          name="Copy of CSCN$"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].Columns[CSCN$]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Data Conversion EDIT 1 2 1.Outputs[Data Conversion Output].Columns[Copy of OPERATION$]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="2"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Data Conversion EDIT 1 2 1.Outputs[Data Conversion Output].Columns[Copy of OPERATION$]"
+                          name="Copy of OPERATION$"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].Columns[OPERATION$]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Data Conversion EDIT 1 2 1.Outputs[Data Conversion Output].Columns[Copy of LONG_DESCRIPTION]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="4000"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Data Conversion EDIT 1 2 1.Outputs[Data Conversion Output].Columns[Copy of LONG_DESCRIPTION]"
+                          name="Copy of LONG_DESCRIPTION"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].Columns[LONG_DESCRIPTION]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Data Conversion EDIT 1 2 1.Outputs[Data Conversion Output].Columns[Copy of DESCRIPTION]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="240"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Data Conversion EDIT 1 2 1.Outputs[Data Conversion Output].Columns[Copy of DESCRIPTION]"
+                          name="Copy of DESCRIPTION"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].Columns[DESCRIPTION]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Data Conversion EDIT 1 2 1.Outputs[Data Conversion Output].Columns[Copy of USERNAME$]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="30"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Data Conversion EDIT 1 2 1.Outputs[Data Conversion Output].Columns[Copy of USERNAME$]"
+                          name="Copy of USERNAME$"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].Columns[USERNAME$]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Data Conversion EDIT 1 2 1.Outputs[Data Conversion Output].Columns[Copy of INVENTORY_ITEM_ID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="38"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Data Conversion EDIT 1 2 1.Outputs[Data Conversion Output].Columns[Copy of INVENTORY_ITEM_ID]"
+                          name="Copy of INVENTORY_ITEM_ID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].Columns[INVENTORY_ITEM_ID]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Data Conversion EDIT 1 2 1.Outputs[Data Conversion Output].Columns[Copy of SOURCE_LANG]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="4"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Data Conversion EDIT 1 2 1.Outputs[Data Conversion Output].Columns[Copy of SOURCE_LANG]"
+                          name="Copy of SOURCE_LANG"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].Columns[SOURCE_LANG]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Data Conversion EDIT 1 2 1.Outputs[Data Conversion Output].Columns[Copy of LANGUAGE]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="4"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Data Conversion EDIT 1 2 1.Outputs[Data Conversion Output].Columns[Copy of LANGUAGE]"
+                          name="Copy of LANGUAGE"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].Columns[LANGUAGE]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Data Conversion EDIT 1 2 1.Outputs[Data Conversion Output].Columns[Copy of LAST_UPDATED_BY]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Data Conversion EDIT 1 2 1.Outputs[Data Conversion Output].Columns[Copy of LAST_UPDATED_BY]"
+                          name="Copy of LAST_UPDATED_BY"
+                          precision="15"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].Columns[LAST_UPDATED_BY]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Data Conversion EDIT 1 2 1.Outputs[Data Conversion Output].Columns[Copy of LAST_UPDATE_LOGIN]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Data Conversion EDIT 1 2 1.Outputs[Data Conversion Output].Columns[Copy of LAST_UPDATE_LOGIN]"
+                          name="Copy of LAST_UPDATE_LOGIN"
+                          precision="15"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].Columns[LAST_UPDATE_LOGIN]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Data Conversion EDIT 1 2 1.Outputs[Data Conversion Output].Columns[Copy of CREATED_BY]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Data Conversion EDIT 1 2 1.Outputs[Data Conversion Output].Columns[Copy of CREATED_BY]"
+                          name="Copy of CREATED_BY"
+                          precision="15"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].Columns[CREATED_BY]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Data Conversion EDIT 1 2 1.Outputs[Data Conversion Output].Columns[Copy of ORGANIZATION_ID]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Data Conversion EDIT 1 2 1.Outputs[Data Conversion Output].Columns[Copy of ORGANIZATION_ID]"
+                          name="Copy of ORGANIZATION_ID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].Columns[ORGANIZATION_ID]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Data Conversion EDIT 1 2 1.Outputs[Data Conversion Output].Columns[Copy of CREATION_DATE]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Data Conversion EDIT 1 2 1.Outputs[Data Conversion Output].Columns[Copy of CREATION_DATE]"
+                          name="Copy of CREATION_DATE"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].Columns[CREATION_DATE]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Data Conversion EDIT 1 2 1.Outputs[Data Conversion Output].Columns[Copy of TIMESTAMP$]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Data Conversion EDIT 1 2 1.Outputs[Data Conversion Output].Columns[Copy of TIMESTAMP$]"
+                          name="Copy of TIMESTAMP$"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].Columns[TIMESTAMP$]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Data Conversion EDIT 1 2 1.Outputs[Data Conversion Output].Columns[Copy of COMMIT_TIMESTAMP$]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Data Conversion EDIT 1 2 1.Outputs[Data Conversion Output].Columns[Copy of COMMIT_TIMESTAMP$]"
+                          name="Copy of COMMIT_TIMESTAMP$"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].Columns[COMMIT_TIMESTAMP$]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Data Conversion EDIT 1 2 1.Outputs[Data Conversion Output].Columns[Copy of LAST_UPDATE_DATE]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Data Conversion EDIT 1 2 1.Outputs[Data Conversion Output].Columns[Copy of LAST_UPDATE_DATE]"
+                          name="Copy of LAST_UPDATE_DATE"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].Columns[LAST_UPDATE_DATE]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Data Conversion EDIT 1 2 1.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Data Conversion EDIT 1 2 1.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Data Conversion EDIT 1 2 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Data Conversion EDIT 1 2 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Data Conversion EDIT 1 2 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Data Conversion EDIT 1 2 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\OLE DB Destination 2 1"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  localeId="1033"
+                  name="OLE DB Destination 2 1"
+                  usesDispositions="true"
+                  validateExternalMetadata="False"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[stage_CSD_REPAIRS]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable">User::sTargetStageSQL</property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">4</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\OLE DB Destination 2 1.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[STAGE]"
+                      connectionManagerRefId="Package.ConnectionManagers[STAGE]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\OLE DB Destination 2 1.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\OLE DB Destination 2 1.Inputs[OLE DB Destination Input].Columns[Copy of LAST_UPDATED_BY]"
+                          cachedDataType="numeric"
+                          cachedName="Copy of LAST_UPDATED_BY"
+                          cachedPrecision="15"
+                          externalMetadataColumnId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\OLE DB Destination 2 1.Inputs[OLE DB Destination Input].ExternalColumns[LAST_UPDATED_BY]"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Data Conversion EDIT 1 2 1.Outputs[Data Conversion Output].Columns[Copy of LAST_UPDATED_BY]"
+                          name="Copy of LAST_UPDATED_BY" />
+                        <inputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\OLE DB Destination 2 1.Inputs[OLE DB Destination Input].Columns[Copy of LAST_UPDATE_LOGIN]"
+                          cachedDataType="numeric"
+                          cachedName="Copy of LAST_UPDATE_LOGIN"
+                          cachedPrecision="15"
+                          externalMetadataColumnId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\OLE DB Destination 2 1.Inputs[OLE DB Destination Input].ExternalColumns[LAST_UPDATE_LOGIN]"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Data Conversion EDIT 1 2 1.Outputs[Data Conversion Output].Columns[Copy of LAST_UPDATE_LOGIN]"
+                          name="Copy of LAST_UPDATE_LOGIN" />
+                        <inputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\OLE DB Destination 2 1.Inputs[OLE DB Destination Input].Columns[Copy of LAST_UPDATE_DATE]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="Copy of LAST_UPDATE_DATE"
+                          externalMetadataColumnId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\OLE DB Destination 2 1.Inputs[OLE DB Destination Input].ExternalColumns[LAST_UPDATE_DATE]"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Data Conversion EDIT 1 2 1.Outputs[Data Conversion Output].Columns[Copy of LAST_UPDATE_DATE]"
+                          name="Copy of LAST_UPDATE_DATE" />
+                        <inputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\OLE DB Destination 2 1.Inputs[OLE DB Destination Input].Columns[Copy of CREATION_DATE]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="Copy of CREATION_DATE"
+                          externalMetadataColumnId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\OLE DB Destination 2 1.Inputs[OLE DB Destination Input].ExternalColumns[CREATION_DATE]"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Data Conversion EDIT 1 2 1.Outputs[Data Conversion Output].Columns[Copy of CREATION_DATE]"
+                          name="Copy of CREATION_DATE" />
+                        <inputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\OLE DB Destination 2 1.Inputs[OLE DB Destination Input].Columns[Copy of CREATED_BY]"
+                          cachedDataType="numeric"
+                          cachedName="Copy of CREATED_BY"
+                          cachedPrecision="15"
+                          externalMetadataColumnId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\OLE DB Destination 2 1.Inputs[OLE DB Destination Input].ExternalColumns[CREATED_BY]"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Data Conversion EDIT 1 2 1.Outputs[Data Conversion Output].Columns[Copy of CREATED_BY]"
+                          name="Copy of CREATED_BY" />
+                        <inputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\OLE DB Destination 2 1.Inputs[OLE DB Destination Input].Columns[Copy of CSCN$]"
+                          cachedDataType="wstr"
+                          cachedLength="38"
+                          cachedName="Copy of CSCN$"
+                          externalMetadataColumnId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\OLE DB Destination 2 1.Inputs[OLE DB Destination Input].ExternalColumns[CSCN$]"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Data Conversion EDIT 1 2 1.Outputs[Data Conversion Output].Columns[Copy of CSCN$]"
+                          name="Copy of CSCN$" />
+                        <inputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\OLE DB Destination 2 1.Inputs[OLE DB Destination Input].Columns[Copy of USERNAME$]"
+                          cachedDataType="wstr"
+                          cachedLength="30"
+                          cachedName="Copy of USERNAME$"
+                          externalMetadataColumnId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\OLE DB Destination 2 1.Inputs[OLE DB Destination Input].ExternalColumns[USERNAME$]"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Data Conversion EDIT 1 2 1.Outputs[Data Conversion Output].Columns[Copy of USERNAME$]"
+                          name="Copy of USERNAME$" />
+                        <inputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\OLE DB Destination 2 1.Inputs[OLE DB Destination Input].Columns[Copy of OPERATION$]"
+                          cachedDataType="wstr"
+                          cachedLength="2"
+                          cachedName="Copy of OPERATION$"
+                          externalMetadataColumnId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\OLE DB Destination 2 1.Inputs[OLE DB Destination Input].ExternalColumns[OPERATION$]"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Data Conversion EDIT 1 2 1.Outputs[Data Conversion Output].Columns[Copy of OPERATION$]"
+                          name="Copy of OPERATION$" />
+                        <inputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\OLE DB Destination 2 1.Inputs[OLE DB Destination Input].Columns[Copy of TIMESTAMP$]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="Copy of TIMESTAMP$"
+                          externalMetadataColumnId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\OLE DB Destination 2 1.Inputs[OLE DB Destination Input].ExternalColumns[TIMESTAMP$]"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Data Conversion EDIT 1 2 1.Outputs[Data Conversion Output].Columns[Copy of TIMESTAMP$]"
+                          name="Copy of TIMESTAMP$" />
+                        <inputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\OLE DB Destination 2 1.Inputs[OLE DB Destination Input].Columns[Copy of COMMIT_TIMESTAMP$]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="Copy of COMMIT_TIMESTAMP$"
+                          externalMetadataColumnId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\OLE DB Destination 2 1.Inputs[OLE DB Destination Input].ExternalColumns[COMMIT_TIMESTAMP$]"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Data Conversion EDIT 1 2 1.Outputs[Data Conversion Output].Columns[Copy of COMMIT_TIMESTAMP$]"
+                          name="Copy of COMMIT_TIMESTAMP$" />
+                        <inputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\OLE DB Destination 2 1.Inputs[OLE DB Destination Input].Columns[Copy of LANGUAGE]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="4"
+                          cachedName="Copy of LANGUAGE"
+                          externalMetadataColumnId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\OLE DB Destination 2 1.Inputs[OLE DB Destination Input].ExternalColumns[LANGUAGE]"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Data Conversion EDIT 1 2 1.Outputs[Data Conversion Output].Columns[Copy of LANGUAGE]"
+                          name="Copy of LANGUAGE" />
+                        <inputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\OLE DB Destination 2 1.Inputs[OLE DB Destination Input].Columns[Copy of ORGANIZATION_ID]"
+                          cachedDataType="r8"
+                          cachedName="Copy of ORGANIZATION_ID"
+                          externalMetadataColumnId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\OLE DB Destination 2 1.Inputs[OLE DB Destination Input].ExternalColumns[ORGANIZATION_ID]"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Data Conversion EDIT 1 2 1.Outputs[Data Conversion Output].Columns[Copy of ORGANIZATION_ID]"
+                          name="Copy of ORGANIZATION_ID" />
+                        <inputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\OLE DB Destination 2 1.Inputs[OLE DB Destination Input].Columns[Copy of INVENTORY_ITEM_ID]"
+                          cachedDataType="wstr"
+                          cachedLength="38"
+                          cachedName="Copy of INVENTORY_ITEM_ID"
+                          externalMetadataColumnId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\OLE DB Destination 2 1.Inputs[OLE DB Destination Input].ExternalColumns[INVENTORY_ITEM_ID]"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Data Conversion EDIT 1 2 1.Outputs[Data Conversion Output].Columns[Copy of INVENTORY_ITEM_ID]"
+                          name="Copy of INVENTORY_ITEM_ID" />
+                        <inputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\OLE DB Destination 2 1.Inputs[OLE DB Destination Input].Columns[Copy of SOURCE_LANG]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="4"
+                          cachedName="Copy of SOURCE_LANG"
+                          externalMetadataColumnId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\OLE DB Destination 2 1.Inputs[OLE DB Destination Input].ExternalColumns[SOURCE_LANG]"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Data Conversion EDIT 1 2 1.Outputs[Data Conversion Output].Columns[Copy of SOURCE_LANG]"
+                          name="Copy of SOURCE_LANG" />
+                        <inputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\OLE DB Destination 2 1.Inputs[OLE DB Destination Input].Columns[Copy of LONG_DESCRIPTION]"
+                          cachedDataType="wstr"
+                          cachedLength="4000"
+                          cachedName="Copy of LONG_DESCRIPTION"
+                          externalMetadataColumnId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\OLE DB Destination 2 1.Inputs[OLE DB Destination Input].ExternalColumns[LONG_DESCRIPTION]"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Data Conversion EDIT 1 2 1.Outputs[Data Conversion Output].Columns[Copy of LONG_DESCRIPTION]"
+                          name="Copy of LONG_DESCRIPTION" />
+                        <inputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\OLE DB Destination 2 1.Inputs[OLE DB Destination Input].Columns[Copy of DESCRIPTION]"
+                          cachedDataType="wstr"
+                          cachedLength="240"
+                          cachedName="Copy of DESCRIPTION"
+                          externalMetadataColumnId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\OLE DB Destination 2 1.Inputs[OLE DB Destination Input].ExternalColumns[DESCRIPTION]"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Data Conversion EDIT 1 2 1.Outputs[Data Conversion Output].Columns[Copy of DESCRIPTION]"
+                          name="Copy of DESCRIPTION" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\OLE DB Destination 2 1.Inputs[OLE DB Destination Input].ExternalColumns[CREATED_BY]"
+                          dataType="r8"
+                          name="CREATED_BY" />
+                        <externalMetadataColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\OLE DB Destination 2 1.Inputs[OLE DB Destination Input].ExternalColumns[CREATION_DATE]"
+                          dataType="dbTimeStamp"
+                          name="CREATION_DATE" />
+                        <externalMetadataColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\OLE DB Destination 2 1.Inputs[OLE DB Destination Input].ExternalColumns[LAST_UPDATED_BY]"
+                          dataType="r8"
+                          name="LAST_UPDATED_BY" />
+                        <externalMetadataColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\OLE DB Destination 2 1.Inputs[OLE DB Destination Input].ExternalColumns[LAST_UPDATE_DATE]"
+                          dataType="dbTimeStamp"
+                          name="LAST_UPDATE_DATE" />
+                        <externalMetadataColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\OLE DB Destination 2 1.Inputs[OLE DB Destination Input].ExternalColumns[LAST_UPDATE_LOGIN]"
+                          dataType="r8"
+                          name="LAST_UPDATE_LOGIN" />
+                        <externalMetadataColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\OLE DB Destination 2 1.Inputs[OLE DB Destination Input].ExternalColumns[USERNAME$]"
+                          dataType="wstr"
+                          length="30"
+                          name="USERNAME$" />
+                        <externalMetadataColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\OLE DB Destination 2 1.Inputs[OLE DB Destination Input].ExternalColumns[CSCN$]"
+                          dataType="wstr"
+                          length="38"
+                          name="CSCN$" />
+                        <externalMetadataColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\OLE DB Destination 2 1.Inputs[OLE DB Destination Input].ExternalColumns[OPERATION$]"
+                          dataType="wstr"
+                          length="2"
+                          name="OPERATION$" />
+                        <externalMetadataColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\OLE DB Destination 2 1.Inputs[OLE DB Destination Input].ExternalColumns[COMMIT_TIMESTAMP$]"
+                          dataType="dbTimeStamp2"
+                          name="COMMIT_TIMESTAMP$"
+                          scale="7" />
+                        <externalMetadataColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\OLE DB Destination 2 1.Inputs[OLE DB Destination Input].ExternalColumns[TIMESTAMP$]"
+                          dataType="dbTimeStamp2"
+                          name="TIMESTAMP$"
+                          scale="7" />
+                        <externalMetadataColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\OLE DB Destination 2 1.Inputs[OLE DB Destination Input].ExternalColumns[INVENTORY_ITEM_ID]"
+                          dataType="r8"
+                          name="INVENTORY_ITEM_ID" />
+                        <externalMetadataColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\OLE DB Destination 2 1.Inputs[OLE DB Destination Input].ExternalColumns[ORGANIZATION_ID]"
+                          dataType="r8"
+                          name="ORGANIZATION_ID" />
+                        <externalMetadataColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\OLE DB Destination 2 1.Inputs[OLE DB Destination Input].ExternalColumns[LANGUAGE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="4"
+                          name="LANGUAGE" />
+                        <externalMetadataColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\OLE DB Destination 2 1.Inputs[OLE DB Destination Input].ExternalColumns[SOURCE_LANG]"
+                          codePage="1252"
+                          dataType="str"
+                          length="4"
+                          name="SOURCE_LANG" />
+                        <externalMetadataColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\OLE DB Destination 2 1.Inputs[OLE DB Destination Input].ExternalColumns[DESCRIPTION]"
+                          dataType="wstr"
+                          length="240"
+                          name="DESCRIPTION" />
+                        <externalMetadataColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\OLE DB Destination 2 1.Inputs[OLE DB Destination Input].ExternalColumns[LONG_DESCRIPTION]"
+                          dataType="wstr"
+                          length="4000"
+                          name="LONG_DESCRIPTION" />
+                        <externalMetadataColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\OLE DB Destination 2 1.Inputs[OLE DB Destination Input].ExternalColumns[IS_NEW]"
+                          dataType="i4"
+                          name="IS_NEW" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\OLE DB Destination 2 1.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\OLE DB Destination 2 1.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\OLE DB Destination 2 1.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\OLE DB Destination 2 1.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\OLE DB Destination 2 1.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\OLE DB Destination 2 1.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1"
+                  componentClassID="Microsoft.RawSource"
+                  contactInfo="Extracts data from a raw file.;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Extracts data from a raw file."
+                  localeId="1033"
+                  name="Raw File Source 2 1"
+                  validateExternalMetadata="False"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the file."
+                      name="AccessMode"
+                      typeConverter="AccessMode">1</property>
+                    <property
+                      dataType="System.Null"
+                      description="Output file name"
+                      name="FileName"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.NonValidatingFileNameEditor" />
+                    <property
+                      dataType="System.String"
+                      description="Name of the variable that contains the file name"
+                      name="FileNameVariable">User::sRawFileLocation</property>
+                  </properties>
+                  <outputs>
+                    <output
+                      refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output]"
+                      name="Raw File Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].Columns[LAST_UPDATE_DATE]"
+                          dataType="dbTimeStamp"
+                          externalMetadataColumnId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].ExternalColumns[LAST_UPDATE_DATE]"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].Columns[LAST_UPDATE_DATE]"
+                          name="LAST_UPDATE_DATE" />
+                        <outputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].Columns[LAST_UPDATED_BY]"
+                          dataType="wstr"
+                          externalMetadataColumnId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].ExternalColumns[LAST_UPDATED_BY]"
+                          length="38"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].Columns[LAST_UPDATED_BY]"
+                          name="LAST_UPDATED_BY" />
+                        <outputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].Columns[CREATION_DATE]"
+                          dataType="dbTimeStamp"
+                          externalMetadataColumnId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].ExternalColumns[CREATION_DATE]"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].Columns[CREATION_DATE]"
+                          name="CREATION_DATE" />
+                        <outputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].Columns[CREATED_BY]"
+                          dataType="wstr"
+                          externalMetadataColumnId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].ExternalColumns[CREATED_BY]"
+                          length="38"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].Columns[CREATED_BY]"
+                          name="CREATED_BY" />
+                        <outputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].Columns[LAST_UPDATE_LOGIN]"
+                          dataType="wstr"
+                          externalMetadataColumnId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].ExternalColumns[LAST_UPDATE_LOGIN]"
+                          length="38"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].Columns[LAST_UPDATE_LOGIN]"
+                          name="LAST_UPDATE_LOGIN" />
+                        <outputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].Columns[INVENTORY_ITEM_ID]"
+                          dataType="wstr"
+                          externalMetadataColumnId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].ExternalColumns[INVENTORY_ITEM_ID]"
+                          length="38"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].Columns[INVENTORY_ITEM_ID]"
+                          name="INVENTORY_ITEM_ID" />
+                        <outputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].Columns[ORGANIZATION_ID]"
+                          dataType="wstr"
+                          externalMetadataColumnId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].ExternalColumns[ORGANIZATION_ID]"
+                          length="38"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].Columns[ORGANIZATION_ID]"
+                          name="ORGANIZATION_ID" />
+                        <outputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].Columns[LANGUAGE]"
+                          dataType="wstr"
+                          externalMetadataColumnId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].ExternalColumns[LANGUAGE]"
+                          length="4"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].Columns[LANGUAGE]"
+                          name="LANGUAGE" />
+                        <outputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].Columns[SOURCE_LANG]"
+                          dataType="wstr"
+                          externalMetadataColumnId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].ExternalColumns[SOURCE_LANG]"
+                          length="4"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].Columns[SOURCE_LANG]"
+                          name="SOURCE_LANG" />
+                        <outputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].Columns[DESCRIPTION]"
+                          dataType="wstr"
+                          externalMetadataColumnId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].ExternalColumns[DESCRIPTION]"
+                          length="240"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].Columns[DESCRIPTION]"
+                          name="DESCRIPTION" />
+                        <outputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].Columns[LONG_DESCRIPTION]"
+                          dataType="wstr"
+                          externalMetadataColumnId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].ExternalColumns[LONG_DESCRIPTION]"
+                          length="4000"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].Columns[LONG_DESCRIPTION]"
+                          name="LONG_DESCRIPTION" />
+                        <outputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].Columns[OPERATION$]"
+                          dataType="wstr"
+                          externalMetadataColumnId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].ExternalColumns[OPERATION$]"
+                          length="2"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].Columns[OPERATION$]"
+                          name="OPERATION$" />
+                        <outputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].Columns[CSCN$]"
+                          dataType="wstr"
+                          externalMetadataColumnId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].ExternalColumns[CSCN$]"
+                          length="38"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].Columns[CSCN$]"
+                          name="CSCN$" />
+                        <outputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].Columns[COMMIT_TIMESTAMP$]"
+                          dataType="dbTimeStamp"
+                          externalMetadataColumnId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].ExternalColumns[COMMIT_TIMESTAMP$]"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].Columns[COMMIT_TIMESTAMP$]"
+                          name="COMMIT_TIMESTAMP$" />
+                        <outputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].Columns[USERNAME$]"
+                          dataType="wstr"
+                          externalMetadataColumnId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].ExternalColumns[USERNAME$]"
+                          length="30"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].Columns[USERNAME$]"
+                          name="USERNAME$" />
+                        <outputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].Columns[TIMESTAMP$]"
+                          dataType="dbTimeStamp"
+                          externalMetadataColumnId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].ExternalColumns[TIMESTAMP$]"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].Columns[TIMESTAMP$]"
+                          name="TIMESTAMP$" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].ExternalColumns[LAST_UPDATE_DATE]"
+                          dataType="dbTimeStamp"
+                          name="LAST_UPDATE_DATE" />
+                        <externalMetadataColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].ExternalColumns[LAST_UPDATED_BY]"
+                          dataType="wstr"
+                          length="38"
+                          name="LAST_UPDATED_BY" />
+                        <externalMetadataColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].ExternalColumns[CREATION_DATE]"
+                          dataType="dbTimeStamp"
+                          name="CREATION_DATE" />
+                        <externalMetadataColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].ExternalColumns[CREATED_BY]"
+                          dataType="wstr"
+                          length="38"
+                          name="CREATED_BY" />
+                        <externalMetadataColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].ExternalColumns[LAST_UPDATE_LOGIN]"
+                          dataType="wstr"
+                          length="38"
+                          name="LAST_UPDATE_LOGIN" />
+                        <externalMetadataColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].ExternalColumns[INVENTORY_ITEM_ID]"
+                          dataType="wstr"
+                          length="38"
+                          name="INVENTORY_ITEM_ID" />
+                        <externalMetadataColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].ExternalColumns[ORGANIZATION_ID]"
+                          dataType="wstr"
+                          length="38"
+                          name="ORGANIZATION_ID" />
+                        <externalMetadataColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].ExternalColumns[LANGUAGE]"
+                          dataType="wstr"
+                          length="4"
+                          name="LANGUAGE" />
+                        <externalMetadataColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].ExternalColumns[SOURCE_LANG]"
+                          dataType="wstr"
+                          length="4"
+                          name="SOURCE_LANG" />
+                        <externalMetadataColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].ExternalColumns[DESCRIPTION]"
+                          dataType="wstr"
+                          length="240"
+                          name="DESCRIPTION" />
+                        <externalMetadataColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].ExternalColumns[LONG_DESCRIPTION]"
+                          dataType="wstr"
+                          length="4000"
+                          name="LONG_DESCRIPTION" />
+                        <externalMetadataColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].ExternalColumns[OPERATION$]"
+                          dataType="wstr"
+                          length="2"
+                          name="OPERATION$" />
+                        <externalMetadataColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].ExternalColumns[CSCN$]"
+                          dataType="wstr"
+                          length="38"
+                          name="CSCN$" />
+                        <externalMetadataColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].ExternalColumns[COMMIT_TIMESTAMP$]"
+                          dataType="dbTimeStamp"
+                          name="COMMIT_TIMESTAMP$" />
+                        <externalMetadataColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].ExternalColumns[USERNAME$]"
+                          dataType="wstr"
+                          length="30"
+                          name="USERNAME$" />
+                        <externalMetadataColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output].ExternalColumns[TIMESTAMP$]"
+                          dataType="dbTimeStamp"
+                          name="TIMESTAMP$" />
+                      </externalMetadataColumns>
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN.Paths[Data Conversion Output]"
+                  endId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\OLE DB Destination 2 1.Inputs[OLE DB Destination Input]"
+                  name="Data Conversion Output"
+                  startId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Data Conversion EDIT 1 2 1.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN.Paths[Raw File Source Output]"
+                  endId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Data Conversion EDIT 1 2 1.Inputs[Data Conversion Input]"
+                  name="Raw File Source Output"
+                  startId="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1.Outputs[Raw File Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:DelayValidation="True"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{6349B0CF-71C1-4D55-9D12-0820662E063B}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Source (Oracle) To Raw File"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              BLOBTempStoragePath=""
+              bufferTempStoragePath=""
+              version="1">
+              <components>
+                <component
+                  refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  localeId="1033"
+                  name="OLE DB Source 1"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable">User::sCdcTable</property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable">User::sCdcTable</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">1</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[CDC]"
+                      connectionManagerRefId="Package.ConnectionManagers[CDC]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[CREATED_BY]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[CREATED_BY]"
+                          length="38"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[CREATED_BY]"
+                          name="CREATED_BY"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[CREATION_DATE]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[CREATION_DATE]"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[CREATION_DATE]"
+                          name="CREATION_DATE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[LAST_UPDATED_BY]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[LAST_UPDATED_BY]"
+                          length="38"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[LAST_UPDATED_BY]"
+                          name="LAST_UPDATED_BY"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[LAST_UPDATE_DATE]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[LAST_UPDATE_DATE]"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[LAST_UPDATE_DATE]"
+                          name="LAST_UPDATE_DATE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[LAST_UPDATE_LOGIN]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[LAST_UPDATE_LOGIN]"
+                          length="38"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[LAST_UPDATE_LOGIN]"
+                          name="LAST_UPDATE_LOGIN"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[ORGANIZATION_ID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[ORGANIZATION_ID]"
+                          length="38"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[ORGANIZATION_ID]"
+                          name="ORGANIZATION_ID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[INVENTORY_ITEM_ID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[INVENTORY_ITEM_ID]"
+                          length="38"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[INVENTORY_ITEM_ID]"
+                          name="INVENTORY_ITEM_ID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[OPERATION$]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[OPERATION$]"
+                          length="2"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[OPERATION$]"
+                          name="OPERATION$"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[CSCN$]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[CSCN$]"
+                          length="38"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[CSCN$]"
+                          name="CSCN$"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[COMMIT_TIMESTAMP$]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[COMMIT_TIMESTAMP$]"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[COMMIT_TIMESTAMP$]"
+                          name="COMMIT_TIMESTAMP$"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[USERNAME$]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[USERNAME$]"
+                          length="30"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[USERNAME$]"
+                          name="USERNAME$"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[TIMESTAMP$]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[TIMESTAMP$]"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[TIMESTAMP$]"
+                          name="TIMESTAMP$"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[LANGUAGE]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[LANGUAGE]"
+                          length="4"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[LANGUAGE]"
+                          name="LANGUAGE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[SOURCE_LANG]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[SOURCE_LANG]"
+                          length="4"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[SOURCE_LANG]"
+                          name="SOURCE_LANG"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[DESCRIPTION]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[DESCRIPTION]"
+                          length="240"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[DESCRIPTION]"
+                          name="DESCRIPTION"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[LONG_DESCRIPTION]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[LONG_DESCRIPTION]"
+                          length="4000"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[LONG_DESCRIPTION]"
+                          name="LONG_DESCRIPTION"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[CREATED_BY]"
+                          dataType="wstr"
+                          length="38"
+                          name="CREATED_BY" />
+                        <externalMetadataColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[CREATION_DATE]"
+                          dataType="dbTimeStamp"
+                          name="CREATION_DATE" />
+                        <externalMetadataColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[LAST_UPDATED_BY]"
+                          dataType="wstr"
+                          length="38"
+                          name="LAST_UPDATED_BY" />
+                        <externalMetadataColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[LAST_UPDATE_DATE]"
+                          dataType="dbTimeStamp"
+                          name="LAST_UPDATE_DATE" />
+                        <externalMetadataColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[LAST_UPDATE_LOGIN]"
+                          dataType="wstr"
+                          length="38"
+                          name="LAST_UPDATE_LOGIN" />
+                        <externalMetadataColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[ORGANIZATION_ID]"
+                          dataType="wstr"
+                          length="38"
+                          name="ORGANIZATION_ID" />
+                        <externalMetadataColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[INVENTORY_ITEM_ID]"
+                          dataType="wstr"
+                          length="38"
+                          name="INVENTORY_ITEM_ID" />
+                        <externalMetadataColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[OPERATION$]"
+                          dataType="wstr"
+                          length="2"
+                          name="OPERATION$" />
+                        <externalMetadataColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[CSCN$]"
+                          dataType="wstr"
+                          length="38"
+                          name="CSCN$" />
+                        <externalMetadataColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[COMMIT_TIMESTAMP$]"
+                          dataType="dbTimeStamp"
+                          name="COMMIT_TIMESTAMP$" />
+                        <externalMetadataColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[USERNAME$]"
+                          dataType="wstr"
+                          length="30"
+                          name="USERNAME$" />
+                        <externalMetadataColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[TIMESTAMP$]"
+                          dataType="dbTimeStamp"
+                          name="TIMESTAMP$" />
+                        <externalMetadataColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[LANGUAGE]"
+                          dataType="wstr"
+                          length="4"
+                          name="LANGUAGE" />
+                        <externalMetadataColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[SOURCE_LANG]"
+                          dataType="wstr"
+                          length="4"
+                          name="SOURCE_LANG" />
+                        <externalMetadataColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[DESCRIPTION]"
+                          dataType="wstr"
+                          length="240"
+                          name="DESCRIPTION" />
+                        <externalMetadataColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[LONG_DESCRIPTION]"
+                          dataType="wstr"
+                          length="4000"
+                          name="LONG_DESCRIPTION" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[OPERATION$]"
+                          dataType="wstr"
+                          length="2"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[OPERATION$]"
+                          name="OPERATION$" />
+                        <outputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[CSCN$]"
+                          dataType="wstr"
+                          length="38"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[CSCN$]"
+                          name="CSCN$" />
+                        <outputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[COMMIT_TIMESTAMP$]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[COMMIT_TIMESTAMP$]"
+                          name="COMMIT_TIMESTAMP$" />
+                        <outputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[USERNAME$]"
+                          dataType="wstr"
+                          length="30"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[USERNAME$]"
+                          name="USERNAME$" />
+                        <outputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[TIMESTAMP$]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[TIMESTAMP$]"
+                          name="TIMESTAMP$" />
+                        <outputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                        <outputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[LANGUAGE]"
+                          dataType="wstr"
+                          length="4"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[LANGUAGE]"
+                          name="LANGUAGE" />
+                        <outputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[SOURCE_LANG]"
+                          dataType="wstr"
+                          length="4"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[SOURCE_LANG]"
+                          name="SOURCE_LANG" />
+                        <outputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[DESCRIPTION]"
+                          dataType="wstr"
+                          length="240"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[DESCRIPTION]"
+                          name="DESCRIPTION" />
+                        <outputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[INVENTORY_ITEM_ID]"
+                          dataType="wstr"
+                          length="38"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[INVENTORY_ITEM_ID]"
+                          name="INVENTORY_ITEM_ID" />
+                        <outputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[CREATED_BY]"
+                          dataType="wstr"
+                          length="38"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[CREATED_BY]"
+                          name="CREATED_BY" />
+                        <outputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[CREATION_DATE]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[CREATION_DATE]"
+                          name="CREATION_DATE" />
+                        <outputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[LAST_UPDATED_BY]"
+                          dataType="wstr"
+                          length="38"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[LAST_UPDATED_BY]"
+                          name="LAST_UPDATED_BY" />
+                        <outputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[LAST_UPDATE_DATE]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[LAST_UPDATE_DATE]"
+                          name="LAST_UPDATE_DATE" />
+                        <outputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[LONG_DESCRIPTION]"
+                          dataType="wstr"
+                          length="4000"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[LONG_DESCRIPTION]"
+                          name="LONG_DESCRIPTION" />
+                        <outputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[LAST_UPDATE_LOGIN]"
+                          dataType="wstr"
+                          length="38"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[LAST_UPDATE_LOGIN]"
+                          name="LAST_UPDATE_LOGIN" />
+                        <outputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[ORGANIZATION_ID]"
+                          dataType="wstr"
+                          length="38"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[ORGANIZATION_ID]"
+                          name="ORGANIZATION_ID" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\Raw File Destination"
+                  componentClassID="Microsoft.RawDestination"
+                  contactInfo="Loads raw data into a file.;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+                  description="Loads raw data into a file."
+                  localeId="1033"
+                  name="Raw File Destination"
+                  version="2">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the file."
+                      name="AccessMode"
+                      typeConverter="AccessMode">1</property>
+                    <property
+                      dataType="System.Null"
+                      description="Output file name"
+                      name="FileName"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.NonValidatingFileNameEditor" />
+                    <property
+                      dataType="System.String"
+                      description="Name of the variable that contains the file name"
+                      name="FileNameVariable">User::sRawFileLocation</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Indicates what option is used to write to the file."
+                      name="WriteOption"
+                      typeConverter="WriteOption">0</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\Raw File Destination.Inputs[Raw File Destination Input]"
+                      hasSideEffects="true"
+                      name="Raw File Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\Raw File Destination.Inputs[Raw File Destination Input].Columns[CREATED_BY]"
+                          cachedDataType="wstr"
+                          cachedLength="38"
+                          cachedName="CREATED_BY"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[CREATED_BY]" />
+                        <inputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\Raw File Destination.Inputs[Raw File Destination Input].Columns[CREATION_DATE]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="CREATION_DATE"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[CREATION_DATE]" />
+                        <inputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\Raw File Destination.Inputs[Raw File Destination Input].Columns[LAST_UPDATED_BY]"
+                          cachedDataType="wstr"
+                          cachedLength="38"
+                          cachedName="LAST_UPDATED_BY"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[LAST_UPDATED_BY]" />
+                        <inputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\Raw File Destination.Inputs[Raw File Destination Input].Columns[LAST_UPDATE_DATE]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="LAST_UPDATE_DATE"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[LAST_UPDATE_DATE]" />
+                        <inputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\Raw File Destination.Inputs[Raw File Destination Input].Columns[LAST_UPDATE_LOGIN]"
+                          cachedDataType="wstr"
+                          cachedLength="38"
+                          cachedName="LAST_UPDATE_LOGIN"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[LAST_UPDATE_LOGIN]" />
+                        <inputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\Raw File Destination.Inputs[Raw File Destination Input].Columns[OPERATION$]"
+                          cachedDataType="wstr"
+                          cachedLength="2"
+                          cachedName="OPERATION$"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[OPERATION$]" />
+                        <inputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\Raw File Destination.Inputs[Raw File Destination Input].Columns[CSCN$]"
+                          cachedDataType="wstr"
+                          cachedLength="38"
+                          cachedName="CSCN$"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[CSCN$]" />
+                        <inputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\Raw File Destination.Inputs[Raw File Destination Input].Columns[COMMIT_TIMESTAMP$]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="COMMIT_TIMESTAMP$"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[COMMIT_TIMESTAMP$]" />
+                        <inputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\Raw File Destination.Inputs[Raw File Destination Input].Columns[USERNAME$]"
+                          cachedDataType="wstr"
+                          cachedLength="30"
+                          cachedName="USERNAME$"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[USERNAME$]" />
+                        <inputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\Raw File Destination.Inputs[Raw File Destination Input].Columns[TIMESTAMP$]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="TIMESTAMP$"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[TIMESTAMP$]" />
+                        <inputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\Raw File Destination.Inputs[Raw File Destination Input].Columns[INVENTORY_ITEM_ID]"
+                          cachedDataType="wstr"
+                          cachedLength="38"
+                          cachedName="INVENTORY_ITEM_ID"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[INVENTORY_ITEM_ID]" />
+                        <inputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\Raw File Destination.Inputs[Raw File Destination Input].Columns[ORGANIZATION_ID]"
+                          cachedDataType="wstr"
+                          cachedLength="38"
+                          cachedName="ORGANIZATION_ID"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[ORGANIZATION_ID]" />
+                        <inputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\Raw File Destination.Inputs[Raw File Destination Input].Columns[LANGUAGE]"
+                          cachedDataType="wstr"
+                          cachedLength="4"
+                          cachedName="LANGUAGE"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[LANGUAGE]" />
+                        <inputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\Raw File Destination.Inputs[Raw File Destination Input].Columns[SOURCE_LANG]"
+                          cachedDataType="wstr"
+                          cachedLength="4"
+                          cachedName="SOURCE_LANG"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[SOURCE_LANG]" />
+                        <inputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\Raw File Destination.Inputs[Raw File Destination Input].Columns[DESCRIPTION]"
+                          cachedDataType="wstr"
+                          cachedLength="240"
+                          cachedName="DESCRIPTION"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[DESCRIPTION]" />
+                        <inputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\Raw File Destination.Inputs[Raw File Destination Input].Columns[LONG_DESCRIPTION]"
+                          cachedDataType="wstr"
+                          cachedLength="4000"
+                          cachedName="LONG_DESCRIPTION"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[LONG_DESCRIPTION]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                </component>
+                <component
+                  refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\Row Count"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts the rows in a dataset."
+                  name="Row Count">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::intCdcRowCount</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\Row Count.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\Row Count.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\Row Count.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\Select Rows with Timestamp$ before Midnight 1 1"
+                  componentClassID="Microsoft.ConditionalSplit"
+                  contactInfo="Conditional Split;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Evaluates and directs rows in a dataset."
+                  localeId="1033"
+                  name="Select Rows with Timestamp$ before Midnight 1 1"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\Select Rows with Timestamp$ before Midnight 1 1.Inputs[Conditional Split Input]"
+                      description="Input to the Conditional Split Transformation"
+                      name="Conditional Split Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\Select Rows with Timestamp$ before Midnight 1 1.Inputs[Conditional Split Input].Columns[TIMESTAMP$]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="TIMESTAMP$"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[TIMESTAMP$]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\Select Rows with Timestamp$ before Midnight 1 1.Outputs[After Midnight Today]"
+                      description="Output 1 of the Conditional Split Transformation"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      exclusionGroup="1"
+                      name="After Midnight Today"
+                      synchronousInputId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\Select Rows with Timestamp$ before Midnight 1 1.Inputs[Conditional Split Input]"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                          name="Expression">[DATEDIFF]("dd",#{Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[TIMESTAMP$]},[GETDATE]()) == 0</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the friendly version of the expression. This expression version uses column names."
+                          expressionType="Notify"
+                          name="FriendlyExpression">DATEDIFF("dd",TIMESTAMP$,GETDATE()) == 0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                          name="EvaluationOrder">0</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\Select Rows with Timestamp$ before Midnight 1 1.Outputs[CDC Before Midnight]"
+                      description="Default Output of the Conditional Split Transformation"
+                      exclusionGroup="1"
+                      name="CDC Before Midnight"
+                      synchronousInputId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\Select Rows with Timestamp$ before Midnight 1 1.Inputs[Conditional Split Input]">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsDefaultOut">true</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\Select Rows with Timestamp$ before Midnight 1 1.Outputs[Conditional Split Error Output]"
+                      description="Error Output of the Conditional Split Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Conditional Split Error Output"
+                      synchronousInputId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\Select Rows with Timestamp$ before Midnight 1 1.Inputs[Conditional Split Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\Select Rows with Timestamp$ before Midnight 1 1.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\Select Rows with Timestamp$ before Midnight 1 1.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\Select Rows with Timestamp$ before Midnight 1 1.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\Select Rows with Timestamp$ before Midnight 1 1.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File.Paths[CDC Before Midnight]"
+                  endId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\Row Count.Inputs[Row Count Input 1]"
+                  name="CDC Before Midnight"
+                  startId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\Select Rows with Timestamp$ before Midnight 1 1.Outputs[CDC Before Midnight]" />
+                <path
+                  refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File.Paths[OLE DB Source Output]"
+                  endId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\Select Rows with Timestamp$ before Midnight 1 1.Inputs[Conditional Split Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\OLE DB Source 1.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File.Paths[Row Count Output 1]"
+                  endId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\Raw File Destination.Inputs[Raw File Destination Input]"
+                  name="Row Count Output 1"
+                  startId="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File\Row Count.Outputs[Row Count Output 1]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Step 2 CDC - Read Raw File 1.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{DD545A92-A324-4FD8-BE65-919D4B54571F}"
+          DTS:Expression="@intCdcRowCount &gt; 0"
+          DTS:From="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Step 2 CDC - Read Raw File 1.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{F8973B7F-6784-48F7-AD3A-51D53C0815B1}"
+          DTS:From="Package\Step 2 CDC - Read Raw File 1\Execute CDC Stored Procedure"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\Step 2 CDC - Read Raw File 1\Delete CDC Rows 2" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Step 2 CDC - Read Raw File 1.PrecedenceConstraints[Constraint 3]"
+          DTS:CreationName=""
+          DTS:DTSID="{918C00D7-0BD7-4B9B-87F0-79EED4C66FE0}"
+          DTS:From="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 3"
+          DTS:To="Package\Step 2 CDC - Read Raw File 1\Execute CDC Stored Procedure" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 7]"
+      DTS:CreationName=""
+      DTS:DTSID="{9146C1A0-BC91-4086-AB09-AC36CE629E56}"
+      DTS:Expression="@dtLastModifiedDateTime != @dtDateMatch"
+      DTS:From="Package\Step 1 - Load Raw File"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 7"
+      DTS:To="Package\Step 2 CDC - Read Raw File 1" />
+  </DTS:PrecedenceConstraints>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{EE25A0B6-BA5B-4373-9311-C4F73C6990F3}"
+      DTS:EventID="0"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{D1F7CBF7-A73C-4971-8CE6-297C1242280F}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\Log Failed Package Execution"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{AA2521D7-82A0-4424-A174-14E371354903}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Log Failed Package Execution"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{94F985BA-BAFA-41E8-9127-27C8FF170901}"
+              SQLTask:SqlStatementSource="declare @Now datetime&#xA;set @Now = GetDate()&#xA;&#xA;Exec ssis.usp_RecordPackageEnd ?,@Now,'Failed'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::iPackageLoadID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\Record Error"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{29D431B3-9AA9-4354-837A-0A75FC390283}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Record Error"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{94F985BA-BAFA-41E8-9127-27C8FF170901}"
+              SQLTask:SqlStatementSource="exec ssis.usp_RecordPackageError ?,?,?,?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::iPackageLoadID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="System::SourceName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="System::ErrorCode"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="System::ErrorDescription"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package.EventHandlers[OnError].PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{976D112C-F2AF-4995-90C8-555A37A22042}"
+          DTS:From="Package.EventHandlers[OnError]\Record Error"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package.EventHandlers[OnError]\Log Failed Package Execution" />
+      </DTS:PrecedenceConstraints>
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Step 1 - Load Raw File\Truncate Stage Table"
+          TopLeft="6.56603773584905,16.2452830188679" />
+        <ContainerLayout
+          HeaderHeight="43.924528301886795"
+          IsExpanded="True"
+          PanelSize="151.2,72"
+          Size="151.2,116"
+          Id="Package\Step 1 - Load Raw File"
+          TopLeft="63.9905660377359,5.5" />
+        <NodeLayout
+          Size="136,51.2"
+          Id="Package\Step 2 CDC - Read Raw File 1\Delete CDC Rows 2"
+          TopLeft="62.9811320754717,249.679245283019" />
+        <NodeLayout
+          Size="179.2,44"
+          Id="Package\Step 2 CDC - Read Raw File 1\Execute CDC Stored Procedure"
+          TopLeft="40.4905660377359,174.132075471698" />
+        <NodeLayout
+          Size="239.2,44"
+          Id="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN"
+          TopLeft="10.5660377358491,92.4716981132075" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Step 2 CDC - Read Raw File 1\Source (Oracle) To Raw File"
+          TopLeft="61.9622641509434,10.811320754717" />
+        <EdgeLayout
+          Id="Package\Step 2 CDC - Read Raw File 1.PrecedenceConstraints[Constraint 1]"
+          TopLeft="129.849056603774,54.7358490566037">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37.7358490566038"
+              Start="0,0"
+              End="0,30.2358490566038">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.2358490566038" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Step 2 CDC - Read Raw File 1.PrecedenceConstraints[Constraint 2]"
+          TopLeft="129.849056603774,218.056603773585">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="1.0188679245283,31.6226415094339"
+              Start="0,0"
+              End="1.0188679245283,24.1226415094339">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.811320754717" />
+                  <mssgle:LineSegment
+                    End="1.0188679245283,15.811320754717" />
+                  <mssgle:LineSegment
+                    End="1.0188679245283,24.1226415094339" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Step 2 CDC - Read Raw File 1.PrecedenceConstraints[Constraint 3]"
+          TopLeft="129.849056603774,136.396226415094">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37.7358490566037"
+              Start="0,0"
+              End="0,30.2358490566037">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.2358490566037" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43.924528301886795"
+          IsExpanded="True"
+          PanelSize="267.2,315.2"
+          Size="267.2,358.4"
+          Id="Package\Step 2 CDC - Read Raw File 1"
+          TopLeft="5.5,171.349056603774" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 7]"
+          TopLeft="139.424528301887,121.575471698113">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-0.566037735849058,49.7735849056604"
+              Start="0,0"
+              End="-0.566037735849058,42.2735849056604">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.8679245283019" />
+                  <mssgle:LineSegment
+                    End="-0.566037735849058,24.8679245283019" />
+                  <mssgle:LineSegment
+                    End="-0.566037735849058,42.2735849056604" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="313.509433962265,43.9245283018868"
+          Id="Package.EventHandlers[OnError]\Log Failed Package Execution"
+          TopLeft="5.5,87.1603773584906" />
+        <NodeLayout
+          Size="135.773584905661,43.9245283018868"
+          Id="Package.EventHandlers[OnError]\Record Error"
+          TopLeft="94.3679245283019,5.5" />
+        <EdgeLayout
+          Id="Package.EventHandlers[OnError].PrecedenceConstraints[Constraint]"
+          TopLeft="162.254716981132,49.4245283018868">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37.7358490566038"
+              Start="0,0"
+              End="0,30.2358490566038">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.2358490566038" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <TaskHost
+    design-time-name="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="174.4,41.6"
+          Id="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Raw File Source 2 1"
+          TopLeft="23.9,5.49999999999995" />
+        <NodeLayout
+          Size="190.4,41.6"
+          Id="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\OLE DB Destination 2 1"
+          TopLeft="15.9,208.7" />
+        <NodeLayout
+          Size="211.2,41.6"
+          Id="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\Data Conversion EDIT 1 2 1"
+          TopLeft="5.50000000000003,107.1" />
+        <EdgeLayout
+          Id="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN.Paths[Raw File Source Output]"
+          TopLeft="111.1,47.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN.Paths[Data Conversion Output]"
+          TopLeft="111.1,148.7">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Step 2 CDC - Read Raw File 1\Raw File  To Relational  (SQL Server)                OPEN\OLE DB Destination 2 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

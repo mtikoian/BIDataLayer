@@ -1,0 +1,2580 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/30/2010 4:11:38 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LARGOBI1"
+  DTS:CreatorName="LVTBI\developer"
+  DTS:DTSID="{B5467B7A-2845-4024-9606-8181E9B5488A}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.2430.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="CDC Q_LAA_RI_NOCONTROL_ITEM_PLAN_V full"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="66"
+  DTS:VersionGUID="{15A6CD5B-358F-42D4-80FA-E85140B7E045}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LARGOBI1.DW_MAIN]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{4992C8B0-1532-4A41-B593-CD040C7A1A12}"
+      DTS:ObjectName="LARGOBI1.DW_MAIN">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=BI-PROD;Initial Catalog=DW_MAIN;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Package-{4992C8B0-1532-4A41-B593-CD040C7A1A12}LARGOBI1.DW_MAIN;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[prod.appsread]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{436DB29C-93E7-48B8-950D-1EDD4481A626}"
+      DTS:ObjectName="prod.appsread">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Retain="True"
+          DTS:ConnectionString="Data Source=prod;User ID=appsread;Provider=MSDAORA.1;Persist Security Info=True;">
+          <EncryptedData
+            Type="http://www.w3.org/2001/04/xmlenc#Element"
+            Salt="oeVNL72s/A=="
+            IV="9KO70eXVm2A=" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            <EncryptionMethod
+              Algorithm="http://www.w3.org/2001/04/xmlenc#tripledes-cbc" />
+            <CipherData>
+              <CipherValue>9KO70eXVm2BhIRGw73vQcqTLur2fjoIS6S98H63FsdGLqwHQ9YGhW2EprI4XsBNDA4sKNB0/vuGOPXC6eIP2m0/rgYFgtkp6oisGG2G8a6Hg3HldEra0tWfEsak2nP84dwunZPFm73yWed2SbK0HHSLoUraI85bYNL+SlYzME+0=</CipherValue>
+            </CipherData>
+          </EncryptedData>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D5E6DDD4-913E-4201-8FFB-4E43F185529A}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="sSelect">
+      <DTS:VariableValue
+        DTS:DataType="8">Select * From Q_LAA_RI_NOCONTROL_ITEM_PLAN_V</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B95C0DB0-1F1D-42B4-B56D-3D6CBADA49FD}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="sTargetTable">
+      <DTS:VariableValue
+        DTS:DataType="8">dbo.Q_LAA_RI_NOCONTROL_ITEM_PLAN_V</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{6AFF6D29-BF82-4CFC-B18B-E18F871A20AF}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="sTruncate">
+      <DTS:VariableValue
+        DTS:DataType="8">truncate table  dbo.Q_LAA_RI_NOCONTROL_ITEM_PLAN_V</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{75EDCC8C-1382-492D-A1F2-A8B65B77FDBB}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          BLOBTempStoragePath=""
+          bufferTempStoragePath=""
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task\Data Conversion EDIT 1 1"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              localeId="1033"
+              name="Data Conversion EDIT 1 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Data Conversion EDIT 1 1.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion EDIT 1 1.Inputs[Data Conversion Input].Columns[LAST_UPDATE_LOGIN]"
+                      cachedDataType="r8"
+                      cachedName="LAST_UPDATE_LOGIN"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[LAST_UPDATE_LOGIN]"
+                      name="LAST_UPDATE_LOGIN" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion EDIT 1 1.Inputs[Data Conversion Input].Columns[CREATED_BY]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="CREATED_BY"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CREATED_BY]"
+                      name="CREATED_BY" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion EDIT 1 1.Inputs[Data Conversion Input].Columns[LAST_UPDATED_BY]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="LAST_UPDATED_BY"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[LAST_UPDATED_BY]"
+                      name="LAST_UPDATED_BY" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion EDIT 1 1.Inputs[Data Conversion Input].Columns[LAST_UPDATE_DATE]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="LAST_UPDATE_DATE"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[LAST_UPDATE_DATE]"
+                      name="LAST_UPDATE_DATE" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion EDIT 1 1.Inputs[Data Conversion Input].Columns[CREATION_DATE]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="CREATION_DATE"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CREATION_DATE]"
+                      name="CREATION_DATE" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion EDIT 1 1.Inputs[Data Conversion Input].Columns[ORGANIZATION_NAME]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="240"
+                      cachedName="ORGANIZATION_NAME"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ORGANIZATION_NAME]"
+                      name="ORGANIZATION_NAME" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion EDIT 1 1.Inputs[Data Conversion Input].Columns[PLAN_NAME]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="PLAN_NAME"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[PLAN_NAME]"
+                      name="PLAN_NAME" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion EDIT 1 1.Inputs[Data Conversion Input].Columns[ROW_ID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="18"
+                      cachedName="ROW_ID"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ROW_ID]"
+                      name="ROW_ID" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion EDIT 1 1.Inputs[Data Conversion Input].Columns[LAST_UPDATED_BY_ID]"
+                      cachedDataType="r8"
+                      cachedName="LAST_UPDATED_BY_ID"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[LAST_UPDATED_BY_ID]"
+                      name="LAST_UPDATED_BY_ID" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion EDIT 1 1.Inputs[Data Conversion Input].Columns[OCCURRENCE]"
+                      cachedDataType="r8"
+                      cachedName="OCCURRENCE"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[OCCURRENCE]"
+                      name="OCCURRENCE" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion EDIT 1 1.Inputs[Data Conversion Input].Columns[COLLECTION_ID]"
+                      cachedDataType="r8"
+                      cachedName="COLLECTION_ID"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[COLLECTION_ID]"
+                      name="COLLECTION_ID" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion EDIT 1 1.Inputs[Data Conversion Input].Columns[CREATED_BY_ID]"
+                      cachedDataType="r8"
+                      cachedName="CREATED_BY_ID"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CREATED_BY_ID]"
+                      name="CREATED_BY_ID" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion EDIT 1 1.Inputs[Data Conversion Input].Columns[ORGANIZATION_ID]"
+                      cachedDataType="r8"
+                      cachedName="ORGANIZATION_ID"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ORGANIZATION_ID]"
+                      name="ORGANIZATION_ID" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion EDIT 1 1.Inputs[Data Conversion Input].Columns[PLAN_ID]"
+                      cachedDataType="r8"
+                      cachedName="PLAN_ID"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[PLAN_ID]"
+                      name="PLAN_ID" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion EDIT 1 1.Inputs[Data Conversion Input].Columns[LNV_ITEM_DESCRIPTION]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="150"
+                      cachedName="LNV_ITEM_DESCRIPTION"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[LNV_ITEM_DESCRIPTION]"
+                      name="LNV_ITEM_DESCRIPTION" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion EDIT 1 1.Inputs[Data Conversion Input].Columns[ITEM_ID]"
+                      cachedDataType="r8"
+                      cachedName="ITEM_ID"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ITEM_ID]"
+                      name="ITEM_ID" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion EDIT 1 1.Inputs[Data Conversion Input].Columns[QUANTITY]"
+                      cachedDataType="r8"
+                      cachedName="QUANTITY"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[QUANTITY]"
+                      name="QUANTITY" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion EDIT 1 1.Inputs[Data Conversion Input].Columns[UOM]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="UOM"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[UOM]"
+                      name="UOM" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion EDIT 1 1.Inputs[Data Conversion Input].Columns[ITEM]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="ITEM"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ITEM]"
+                      name="ITEM" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion EDIT 1 1.Inputs[Data Conversion Input].Columns[LNV_SAMPLE_SZ]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="150"
+                      cachedName="LNV_SAMPLE_SZ"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[LNV_SAMPLE_SZ]"
+                      name="LNV_SAMPLE_SZ" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion EDIT 1 1.Inputs[Data Conversion Input].Columns[PO_NUMBER]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="PO_NUMBER"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[PO_NUMBER]"
+                      name="PO_NUMBER" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion EDIT 1 1.Inputs[Data Conversion Input].Columns[UOM_NAME]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="150"
+                      cachedName="UOM_NAME"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[UOM_NAME]"
+                      name="UOM_NAME" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion EDIT 1 1.Inputs[Data Conversion Input].Columns[INSPECTOR]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="150"
+                      cachedName="INSPECTOR"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[INSPECTOR]"
+                      name="INSPECTOR" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion EDIT 1 1.Inputs[Data Conversion Input].Columns[LNV_INSPECTOR_NAME]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="150"
+                      cachedName="LNV_INSPECTOR_NAME"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[LNV_INSPECTOR_NAME]"
+                      name="LNV_INSPECTOR_NAME" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion EDIT 1 1.Inputs[Data Conversion Input].Columns[SUPPLIER]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="240"
+                      cachedName="SUPPLIER"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[SUPPLIER]"
+                      name="SUPPLIER" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion EDIT 1 1.Inputs[Data Conversion Input].Columns[REVISION]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="REVISION"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[REVISION]"
+                      name="REVISION" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion EDIT 1 1.Inputs[Data Conversion Input].Columns[INSPECTION_RESULT]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="150"
+                      cachedName="INSPECTION_RESULT"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[INSPECTION_RESULT]"
+                      name="INSPECTION_RESULT" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion EDIT 1 1.Inputs[Data Conversion Input].Columns[PO_HEADER_ID]"
+                      cachedDataType="r8"
+                      cachedName="PO_HEADER_ID"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[PO_HEADER_ID]"
+                      name="PO_HEADER_ID" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion EDIT 1 1.Inputs[Data Conversion Input].Columns[PO_LINE_NUMBER]"
+                      cachedDataType="r8"
+                      cachedName="PO_LINE_NUMBER"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[PO_LINE_NUMBER]"
+                      name="PO_LINE_NUMBER" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion EDIT 1 1.Inputs[Data Conversion Input].Columns[VENDOR_ID]"
+                      cachedDataType="r8"
+                      cachedName="VENDOR_ID"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[VENDOR_ID]"
+                      name="VENDOR_ID" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion EDIT 1 1.Inputs[Data Conversion Input].Columns[LNV_RCPT_QTY]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="LNV_RCPT_QTY"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[LNV_RCPT_QTY]"
+                      name="LNV_RCPT_QTY" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion EDIT 1 1.Inputs[Data Conversion Input].Columns[RECEIVING_TRANS_NUM]"
+                      cachedDataType="r8"
+                      cachedName="RECEIVING_TRANS_NUM"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[RECEIVING_TRANS_NUM]"
+                      name="RECEIVING_TRANS_NUM" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion EDIT 1 1.Inputs[Data Conversion Input].Columns[INSPECTION_QUANTITY]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="INSPECTION_QUANTITY"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[INSPECTION_QUANTITY]"
+                      name="INSPECTION_QUANTITY" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion EDIT 1 1.Inputs[Data Conversion Input].Columns[TRANSACTION_DATE]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="TRANSACTION_DATE"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[TRANSACTION_DATE]"
+                      name="TRANSACTION_DATE" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Data Flow Task\Data Conversion EDIT 1 1.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of LNV_SAMPLE_SZ]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="150"
+                      lineageId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of LNV_SAMPLE_SZ]"
+                      name="Copy of LNV_SAMPLE_SZ"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[LNV_SAMPLE_SZ]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of PO_NUMBER]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="20"
+                      lineageId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of PO_NUMBER]"
+                      name="Copy of PO_NUMBER"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[PO_NUMBER]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of UOM_NAME]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="150"
+                      lineageId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of UOM_NAME]"
+                      name="Copy of UOM_NAME"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[UOM_NAME]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of INSPECTOR]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="150"
+                      lineageId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of INSPECTOR]"
+                      name="Copy of INSPECTOR"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[INSPECTOR]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of LNV_INSPECTOR_NAME]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="150"
+                      lineageId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of LNV_INSPECTOR_NAME]"
+                      name="Copy of LNV_INSPECTOR_NAME"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[LNV_INSPECTOR_NAME]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of ROW_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="18"
+                      lineageId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of ROW_ID]"
+                      name="Copy of ROW_ID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ROW_ID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of SUPPLIER]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="240"
+                      lineageId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of SUPPLIER]"
+                      name="Copy of SUPPLIER"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[SUPPLIER]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of REVISION]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="3"
+                      lineageId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of REVISION]"
+                      name="Copy of REVISION"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[REVISION]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of LAST_UPDATED_BY]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of LAST_UPDATED_BY]"
+                      name="Copy of LAST_UPDATED_BY"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[LAST_UPDATED_BY]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of ITEM]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="40"
+                      lineageId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of ITEM]"
+                      name="Copy of ITEM"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ITEM]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of UOM]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="3"
+                      lineageId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of UOM]"
+                      name="Copy of UOM"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[UOM]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of ORGANIZATION_NAME]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="240"
+                      lineageId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of ORGANIZATION_NAME]"
+                      name="Copy of ORGANIZATION_NAME"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ORGANIZATION_NAME]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of LNV_ITEM_DESCRIPTION]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="150"
+                      lineageId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of LNV_ITEM_DESCRIPTION]"
+                      name="Copy of LNV_ITEM_DESCRIPTION"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[LNV_ITEM_DESCRIPTION]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of INSPECTION_RESULT]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="150"
+                      lineageId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of INSPECTION_RESULT]"
+                      name="Copy of INSPECTION_RESULT"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[INSPECTION_RESULT]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of PLAN_NAME]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="30"
+                      lineageId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of PLAN_NAME]"
+                      name="Copy of PLAN_NAME"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[PLAN_NAME]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of CREATED_BY]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of CREATED_BY]"
+                      name="Copy of CREATED_BY"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CREATED_BY]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of LAST_UPDATE_LOGIN]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of LAST_UPDATE_LOGIN]"
+                      name="Copy of LAST_UPDATE_LOGIN"
+                      precision="15"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[LAST_UPDATE_LOGIN]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of COLLECTION_ID]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of COLLECTION_ID]"
+                      name="Copy of COLLECTION_ID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[COLLECTION_ID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of CREATED_BY_ID]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of CREATED_BY_ID]"
+                      name="Copy of CREATED_BY_ID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CREATED_BY_ID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of PLAN_ID]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of PLAN_ID]"
+                      name="Copy of PLAN_ID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[PLAN_ID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of QUANTITY]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of QUANTITY]"
+                      name="Copy of QUANTITY"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[QUANTITY]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of PO_HEADER_ID]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of PO_HEADER_ID]"
+                      name="Copy of PO_HEADER_ID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[PO_HEADER_ID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of PO_LINE_NUMBER]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of PO_LINE_NUMBER]"
+                      name="Copy of PO_LINE_NUMBER"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[PO_LINE_NUMBER]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of OCCURRENCE]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of OCCURRENCE]"
+                      name="Copy of OCCURRENCE"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[OCCURRENCE]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of VENDOR_ID]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of VENDOR_ID]"
+                      name="Copy of VENDOR_ID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[VENDOR_ID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of ITEM_ID]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of ITEM_ID]"
+                      name="Copy of ITEM_ID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ITEM_ID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of ORGANIZATION_ID]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of ORGANIZATION_ID]"
+                      name="Copy of ORGANIZATION_ID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ORGANIZATION_ID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of LNV_RCPT_QTY]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of LNV_RCPT_QTY]"
+                      name="Copy of LNV_RCPT_QTY"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[LNV_RCPT_QTY]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of RECEIVING_TRANS_NUM]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of RECEIVING_TRANS_NUM]"
+                      name="Copy of RECEIVING_TRANS_NUM"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[RECEIVING_TRANS_NUM]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of LAST_UPDATED_BY_ID]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of LAST_UPDATED_BY_ID]"
+                      name="Copy of LAST_UPDATED_BY_ID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[LAST_UPDATED_BY_ID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of INSPECTION_QUANTITY]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of INSPECTION_QUANTITY]"
+                      name="Copy of INSPECTION_QUANTITY"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[INSPECTION_QUANTITY]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of TRANSACTION_DATE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of TRANSACTION_DATE]"
+                      name="Copy of TRANSACTION_DATE"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[TRANSACTION_DATE]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of CREATION_DATE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of CREATION_DATE]"
+                      name="Copy of CREATION_DATE"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CREATION_DATE]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of LAST_UPDATE_DATE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of LAST_UPDATE_DATE]"
+                      name="Copy of LAST_UPDATE_DATE"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[LAST_UPDATE_DATE]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Data Flow Task\Data Conversion EDIT 1 1.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\OLE DB Destination 1 1"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              localeId="1033"
+              name="OLE DB Destination 1 1"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[stage_CSD_REPAIRS]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable">User::sTargetTable</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\OLE DB Destination 1 1.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LARGOBI1.DW_MAIN]"
+                  connectionManagerRefId="Package.ConnectionManagers[LARGOBI1.DW_MAIN]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].Columns[Copy of CREATION_DATE]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Copy of CREATION_DATE"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[CREATION_DATE]"
+                      lineageId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of CREATION_DATE]"
+                      name="Copy of CREATION_DATE" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].Columns[Copy of CREATED_BY]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Copy of CREATED_BY"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[CREATED_BY]"
+                      lineageId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of CREATED_BY]"
+                      name="Copy of CREATED_BY" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].Columns[Copy of LAST_UPDATED_BY]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Copy of LAST_UPDATED_BY"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[LAST_UPDATED_BY]"
+                      lineageId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of LAST_UPDATED_BY]"
+                      name="Copy of LAST_UPDATED_BY" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].Columns[Copy of LAST_UPDATE_LOGIN]"
+                      cachedDataType="numeric"
+                      cachedName="Copy of LAST_UPDATE_LOGIN"
+                      cachedPrecision="15"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[LAST_UPDATE_LOGIN]"
+                      lineageId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of LAST_UPDATE_LOGIN]"
+                      name="Copy of LAST_UPDATE_LOGIN" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].Columns[Copy of LAST_UPDATE_DATE]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Copy of LAST_UPDATE_DATE"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[LAST_UPDATE_DATE]"
+                      lineageId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of LAST_UPDATE_DATE]"
+                      name="Copy of LAST_UPDATE_DATE" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].Columns[Copy of COLLECTION_ID]"
+                      cachedDataType="r8"
+                      cachedName="Copy of COLLECTION_ID"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[COLLECTION_ID]"
+                      lineageId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of COLLECTION_ID]"
+                      name="Copy of COLLECTION_ID" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].Columns[Copy of CREATED_BY_ID]"
+                      cachedDataType="r8"
+                      cachedName="Copy of CREATED_BY_ID"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[CREATED_BY_ID]"
+                      lineageId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of CREATED_BY_ID]"
+                      name="Copy of CREATED_BY_ID" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].Columns[Copy of LAST_UPDATED_BY_ID]"
+                      cachedDataType="r8"
+                      cachedName="Copy of LAST_UPDATED_BY_ID"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[LAST_UPDATED_BY_ID]"
+                      lineageId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of LAST_UPDATED_BY_ID]"
+                      name="Copy of LAST_UPDATED_BY_ID" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].Columns[Copy of OCCURRENCE]"
+                      cachedDataType="r8"
+                      cachedName="Copy of OCCURRENCE"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[OCCURRENCE]"
+                      lineageId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of OCCURRENCE]"
+                      name="Copy of OCCURRENCE" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].Columns[Copy of ORGANIZATION_ID]"
+                      cachedDataType="r8"
+                      cachedName="Copy of ORGANIZATION_ID"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[ORGANIZATION_ID]"
+                      lineageId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of ORGANIZATION_ID]"
+                      name="Copy of ORGANIZATION_ID" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].Columns[Copy of ORGANIZATION_NAME]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="240"
+                      cachedName="Copy of ORGANIZATION_NAME"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[ORGANIZATION_NAME]"
+                      lineageId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of ORGANIZATION_NAME]"
+                      name="Copy of ORGANIZATION_NAME" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].Columns[Copy of PLAN_ID]"
+                      cachedDataType="r8"
+                      cachedName="Copy of PLAN_ID"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[PLAN_ID]"
+                      lineageId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of PLAN_ID]"
+                      name="Copy of PLAN_ID" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].Columns[Copy of PLAN_NAME]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="Copy of PLAN_NAME"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[PLAN_NAME]"
+                      lineageId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of PLAN_NAME]"
+                      name="Copy of PLAN_NAME" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].Columns[Copy of ROW_ID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="18"
+                      cachedName="Copy of ROW_ID"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[ROW_ID]"
+                      lineageId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of ROW_ID]"
+                      name="Copy of ROW_ID" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].Columns[Copy of LNV_ITEM_DESCRIPTION]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="150"
+                      cachedName="Copy of LNV_ITEM_DESCRIPTION"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[LNV_ITEM_DESCRIPTION]"
+                      lineageId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of LNV_ITEM_DESCRIPTION]"
+                      name="Copy of LNV_ITEM_DESCRIPTION" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].Columns[Copy of ITEM]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="Copy of ITEM"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[ITEM]"
+                      lineageId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of ITEM]"
+                      name="Copy of ITEM" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].Columns[Copy of ITEM_ID]"
+                      cachedDataType="r8"
+                      cachedName="Copy of ITEM_ID"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[ITEM_ID]"
+                      lineageId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of ITEM_ID]"
+                      name="Copy of ITEM_ID" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].Columns[Copy of UOM]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="Copy of UOM"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[UOM]"
+                      lineageId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of UOM]"
+                      name="Copy of UOM" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].Columns[Copy of QUANTITY]"
+                      cachedDataType="r8"
+                      cachedName="Copy of QUANTITY"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[QUANTITY]"
+                      lineageId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of QUANTITY]"
+                      name="Copy of QUANTITY" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].Columns[Copy of INSPECTION_QUANTITY]"
+                      cachedDataType="r8"
+                      cachedName="Copy of INSPECTION_QUANTITY"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[INSPECTION_QUANTITY]"
+                      lineageId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of INSPECTION_QUANTITY]"
+                      name="Copy of INSPECTION_QUANTITY" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].Columns[Copy of INSPECTION_RESULT]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="150"
+                      cachedName="Copy of INSPECTION_RESULT"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[INSPECTION_RESULT]"
+                      lineageId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of INSPECTION_RESULT]"
+                      name="Copy of INSPECTION_RESULT" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].Columns[Copy of INSPECTOR]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="150"
+                      cachedName="Copy of INSPECTOR"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[INSPECTOR]"
+                      lineageId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of INSPECTOR]"
+                      name="Copy of INSPECTOR" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].Columns[Copy of LNV_INSPECTOR_NAME]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="150"
+                      cachedName="Copy of LNV_INSPECTOR_NAME"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[LNV_INSPECTOR_NAME]"
+                      lineageId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of LNV_INSPECTOR_NAME]"
+                      name="Copy of LNV_INSPECTOR_NAME" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].Columns[Copy of LNV_RCPT_QTY]"
+                      cachedDataType="r8"
+                      cachedName="Copy of LNV_RCPT_QTY"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[LNV_RCPT_QTY]"
+                      lineageId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of LNV_RCPT_QTY]"
+                      name="Copy of LNV_RCPT_QTY" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].Columns[Copy of LNV_SAMPLE_SZ]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="150"
+                      cachedName="Copy of LNV_SAMPLE_SZ"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[LNV_SAMPLE_SZ]"
+                      lineageId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of LNV_SAMPLE_SZ]"
+                      name="Copy of LNV_SAMPLE_SZ" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].Columns[Copy of PO_HEADER_ID]"
+                      cachedDataType="r8"
+                      cachedName="Copy of PO_HEADER_ID"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[PO_HEADER_ID]"
+                      lineageId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of PO_HEADER_ID]"
+                      name="Copy of PO_HEADER_ID" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].Columns[Copy of PO_LINE_NUMBER]"
+                      cachedDataType="r8"
+                      cachedName="Copy of PO_LINE_NUMBER"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[PO_LINE_NUMBER]"
+                      lineageId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of PO_LINE_NUMBER]"
+                      name="Copy of PO_LINE_NUMBER" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].Columns[Copy of PO_NUMBER]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Copy of PO_NUMBER"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[PO_NUMBER]"
+                      lineageId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of PO_NUMBER]"
+                      name="Copy of PO_NUMBER" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].Columns[Copy of RECEIVING_TRANS_NUM]"
+                      cachedDataType="r8"
+                      cachedName="Copy of RECEIVING_TRANS_NUM"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[RECEIVING_TRANS_NUM]"
+                      lineageId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of RECEIVING_TRANS_NUM]"
+                      name="Copy of RECEIVING_TRANS_NUM" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].Columns[Copy of REVISION]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="Copy of REVISION"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[REVISION]"
+                      lineageId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of REVISION]"
+                      name="Copy of REVISION" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].Columns[Copy of SUPPLIER]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="240"
+                      cachedName="Copy of SUPPLIER"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[SUPPLIER]"
+                      lineageId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of SUPPLIER]"
+                      name="Copy of SUPPLIER" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].Columns[Copy of TRANSACTION_DATE]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Copy of TRANSACTION_DATE"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[TRANSACTION_DATE]"
+                      lineageId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of TRANSACTION_DATE]"
+                      name="Copy of TRANSACTION_DATE" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].Columns[Copy of UOM_NAME]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="150"
+                      cachedName="Copy of UOM_NAME"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[UOM_NAME]"
+                      lineageId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of UOM_NAME]"
+                      name="Copy of UOM_NAME" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].Columns[Copy of VENDOR_ID]"
+                      cachedDataType="r8"
+                      cachedName="Copy of VENDOR_ID"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[VENDOR_ID]"
+                      lineageId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of VENDOR_ID]"
+                      name="Copy of VENDOR_ID" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[CREATED_BY]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="CREATED_BY" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[CREATION_DATE]"
+                      dataType="dbTimeStamp"
+                      name="CREATION_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[LAST_UPDATED_BY]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="LAST_UPDATED_BY" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[LAST_UPDATE_DATE]"
+                      dataType="dbTimeStamp"
+                      name="LAST_UPDATE_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[LAST_UPDATE_LOGIN]"
+                      dataType="r8"
+                      name="LAST_UPDATE_LOGIN" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[ROW_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="ROW_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[PLAN_ID]"
+                      dataType="r8"
+                      name="PLAN_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[PLAN_NAME]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="PLAN_NAME" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[ORGANIZATION_ID]"
+                      dataType="r8"
+                      name="ORGANIZATION_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[ORGANIZATION_NAME]"
+                      codePage="1252"
+                      dataType="str"
+                      length="240"
+                      name="ORGANIZATION_NAME" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[COLLECTION_ID]"
+                      dataType="r8"
+                      name="COLLECTION_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[OCCURRENCE]"
+                      dataType="r8"
+                      name="OCCURRENCE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[LAST_UPDATED_BY_ID]"
+                      dataType="r8"
+                      name="LAST_UPDATED_BY_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[CREATED_BY_ID]"
+                      dataType="r8"
+                      name="CREATED_BY_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[LNV_ITEM_DESCRIPTION]"
+                      codePage="1252"
+                      dataType="str"
+                      length="150"
+                      name="LNV_ITEM_DESCRIPTION" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[ITEM_ID]"
+                      dataType="r8"
+                      name="ITEM_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[QUANTITY]"
+                      dataType="r8"
+                      name="QUANTITY" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[UOM]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="UOM" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[ITEM]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="ITEM" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[PO_HEADER_ID]"
+                      dataType="r8"
+                      name="PO_HEADER_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[PO_NUMBER]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="PO_NUMBER" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[PO_LINE_NUMBER]"
+                      dataType="r8"
+                      name="PO_LINE_NUMBER" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[RECEIVING_TRANS_NUM]"
+                      dataType="r8"
+                      name="RECEIVING_TRANS_NUM" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[VENDOR_ID]"
+                      dataType="r8"
+                      name="VENDOR_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[SUPPLIER]"
+                      codePage="1252"
+                      dataType="str"
+                      length="240"
+                      name="SUPPLIER" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[REVISION]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="REVISION" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[LNV_RCPT_QTY]"
+                      dataType="r8"
+                      name="LNV_RCPT_QTY" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[LNV_SAMPLE_SZ]"
+                      codePage="1252"
+                      dataType="str"
+                      length="150"
+                      name="LNV_SAMPLE_SZ" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[INSPECTION_QUANTITY]"
+                      dataType="r8"
+                      name="INSPECTION_QUANTITY" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[INSPECTION_RESULT]"
+                      codePage="1252"
+                      dataType="str"
+                      length="150"
+                      name="INSPECTION_RESULT" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[INSPECTOR]"
+                      codePage="1252"
+                      dataType="str"
+                      length="150"
+                      name="INSPECTOR" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[LNV_INSPECTOR_NAME]"
+                      codePage="1252"
+                      dataType="str"
+                      length="150"
+                      name="LNV_INSPECTOR_NAME" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[TRANSACTION_DATE]"
+                      dataType="dbTimeStamp"
+                      name="TRANSACTION_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[UOM_NAME]"
+                      codePage="1252"
+                      dataType="str"
+                      length="150"
+                      name="UOM_NAME" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\OLE DB Destination 1 1.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1 1.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Destination 1 1.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1 1.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Destination 1 1.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
+     rowidtochar(rowid)
+     , MTSTAGE.TRANSACTION_ID
+     , MTSTAGE.REFERENCE_ACCOUNT
+     , MTSTAGE.ACCOUNTING_LINE_TYPE
+     , MTSTAGE.RESOURCE_ID
+     , MTSTAGE.PRIMARY_QUANTITY
+     , MTSTAGE.BASE_TRANSACTION_VALUE
+    , MTSTAGE.LAST_UPDATE_DATE
+  , MTSTAGE. COST_ELEMENT_ID
+,  MTSTAGE.TRANSACTION_VALUE
+, MTSTAGE.CURRENCY_CODE
+, MTSTAGE.TRANSACTION_SOURCE_TYPE_ID
+, MTSTAGE.CREATION_DATE
+FROM inv.MTL_TRANSACTION_ACCOUNTS MTSTAGE
+--where transaction_id = 86912</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable">User::sSelect</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[prod.appsread]"
+                  connectionManagerRefId="Package.ConnectionManagers[prod.appsread]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[LAST_UPDATE_DATE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LAST_UPDATE_DATE]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[LAST_UPDATE_DATE]"
+                      name="LAST_UPDATE_DATE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CREATION_DATE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CREATION_DATE]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CREATION_DATE]"
+                      name="CREATION_DATE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[LAST_UPDATED_BY]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LAST_UPDATED_BY]"
+                      length="100"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[LAST_UPDATED_BY]"
+                      name="LAST_UPDATED_BY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CREATED_BY]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CREATED_BY]"
+                      length="100"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CREATED_BY]"
+                      name="CREATED_BY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[LAST_UPDATE_LOGIN]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LAST_UPDATE_LOGIN]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[LAST_UPDATE_LOGIN]"
+                      name="LAST_UPDATE_LOGIN"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ROW_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ROW_ID]"
+                      length="18"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ROW_ID]"
+                      name="ROW_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[PLAN_ID]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PLAN_ID]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[PLAN_ID]"
+                      name="PLAN_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[PLAN_NAME]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PLAN_NAME]"
+                      length="30"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[PLAN_NAME]"
+                      name="PLAN_NAME"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ORGANIZATION_ID]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ORGANIZATION_ID]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ORGANIZATION_ID]"
+                      name="ORGANIZATION_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ORGANIZATION_NAME]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ORGANIZATION_NAME]"
+                      length="240"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ORGANIZATION_NAME]"
+                      name="ORGANIZATION_NAME"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[COLLECTION_ID]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[COLLECTION_ID]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[COLLECTION_ID]"
+                      name="COLLECTION_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[OCCURRENCE]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OCCURRENCE]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[OCCURRENCE]"
+                      name="OCCURRENCE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[LAST_UPDATED_BY_ID]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LAST_UPDATED_BY_ID]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[LAST_UPDATED_BY_ID]"
+                      name="LAST_UPDATED_BY_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CREATED_BY_ID]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CREATED_BY_ID]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CREATED_BY_ID]"
+                      name="CREATED_BY_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[LNV_ITEM_DESCRIPTION]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LNV_ITEM_DESCRIPTION]"
+                      length="150"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[LNV_ITEM_DESCRIPTION]"
+                      name="LNV_ITEM_DESCRIPTION"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ITEM_ID]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ITEM_ID]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ITEM_ID]"
+                      name="ITEM_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ITEM]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ITEM]"
+                      length="40"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ITEM]"
+                      name="ITEM"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[QUANTITY]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[QUANTITY]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[QUANTITY]"
+                      name="QUANTITY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[UOM]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UOM]"
+                      length="3"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[UOM]"
+                      name="UOM"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[INSPECTOR]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[INSPECTOR]"
+                      length="150"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[INSPECTOR]"
+                      name="INSPECTOR"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[LNV_INSPECTOR_NAME]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LNV_INSPECTOR_NAME]"
+                      length="150"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[LNV_INSPECTOR_NAME]"
+                      name="LNV_INSPECTOR_NAME"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[TRANSACTION_DATE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TRANSACTION_DATE]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[TRANSACTION_DATE]"
+                      name="TRANSACTION_DATE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[PO_HEADER_ID]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PO_HEADER_ID]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[PO_HEADER_ID]"
+                      name="PO_HEADER_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[PO_NUMBER]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PO_NUMBER]"
+                      length="20"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[PO_NUMBER]"
+                      name="PO_NUMBER"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[PO_LINE_NUMBER]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PO_LINE_NUMBER]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[PO_LINE_NUMBER]"
+                      name="PO_LINE_NUMBER"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[RECEIVING_TRANS_NUM]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RECEIVING_TRANS_NUM]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[RECEIVING_TRANS_NUM]"
+                      name="RECEIVING_TRANS_NUM"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[VENDOR_ID]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[VENDOR_ID]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[VENDOR_ID]"
+                      name="VENDOR_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[SUPPLIER]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SUPPLIER]"
+                      length="240"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[SUPPLIER]"
+                      name="SUPPLIER"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[REVISION]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[REVISION]"
+                      length="3"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[REVISION]"
+                      name="REVISION"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[LNV_RCPT_QTY]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LNV_RCPT_QTY]"
+                      length="20"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[LNV_RCPT_QTY]"
+                      name="LNV_RCPT_QTY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[LNV_SAMPLE_SZ]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LNV_SAMPLE_SZ]"
+                      length="150"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[LNV_SAMPLE_SZ]"
+                      name="LNV_SAMPLE_SZ"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[INSPECTION_QUANTITY]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[INSPECTION_QUANTITY]"
+                      length="20"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[INSPECTION_QUANTITY]"
+                      name="INSPECTION_QUANTITY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[UOM_NAME]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UOM_NAME]"
+                      length="150"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[UOM_NAME]"
+                      name="UOM_NAME"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[INSPECTION_RESULT]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[INSPECTION_RESULT]"
+                      length="150"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[INSPECTION_RESULT]"
+                      name="INSPECTION_RESULT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[LNV_COMMENTS]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LNV_COMMENTS]"
+                      length="2000"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[LNV_COMMENTS]"
+                      name="LNV_COMMENTS"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LAST_UPDATE_DATE]"
+                      dataType="dbTimeStamp"
+                      name="LAST_UPDATE_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CREATION_DATE]"
+                      dataType="dbTimeStamp"
+                      name="CREATION_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LAST_UPDATED_BY]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="LAST_UPDATED_BY" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CREATED_BY]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="CREATED_BY" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LAST_UPDATE_LOGIN]"
+                      dataType="r8"
+                      name="LAST_UPDATE_LOGIN" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ROW_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="18"
+                      name="ROW_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PLAN_ID]"
+                      dataType="r8"
+                      name="PLAN_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PLAN_NAME]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="PLAN_NAME" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ORGANIZATION_ID]"
+                      dataType="r8"
+                      name="ORGANIZATION_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ORGANIZATION_NAME]"
+                      codePage="1252"
+                      dataType="str"
+                      length="240"
+                      name="ORGANIZATION_NAME" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[COLLECTION_ID]"
+                      dataType="r8"
+                      name="COLLECTION_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OCCURRENCE]"
+                      dataType="r8"
+                      name="OCCURRENCE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LAST_UPDATED_BY_ID]"
+                      dataType="r8"
+                      name="LAST_UPDATED_BY_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CREATED_BY_ID]"
+                      dataType="r8"
+                      name="CREATED_BY_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LNV_ITEM_DESCRIPTION]"
+                      codePage="1252"
+                      dataType="str"
+                      length="150"
+                      name="LNV_ITEM_DESCRIPTION" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ITEM_ID]"
+                      dataType="r8"
+                      name="ITEM_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ITEM]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="ITEM" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[QUANTITY]"
+                      dataType="r8"
+                      name="QUANTITY" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UOM]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="UOM" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[INSPECTOR]"
+                      codePage="1252"
+                      dataType="str"
+                      length="150"
+                      name="INSPECTOR" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LNV_INSPECTOR_NAME]"
+                      codePage="1252"
+                      dataType="str"
+                      length="150"
+                      name="LNV_INSPECTOR_NAME" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TRANSACTION_DATE]"
+                      dataType="dbTimeStamp"
+                      name="TRANSACTION_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PO_HEADER_ID]"
+                      dataType="r8"
+                      name="PO_HEADER_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PO_NUMBER]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="PO_NUMBER" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PO_LINE_NUMBER]"
+                      dataType="r8"
+                      name="PO_LINE_NUMBER" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RECEIVING_TRANS_NUM]"
+                      dataType="r8"
+                      name="RECEIVING_TRANS_NUM" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[VENDOR_ID]"
+                      dataType="r8"
+                      name="VENDOR_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SUPPLIER]"
+                      codePage="1252"
+                      dataType="str"
+                      length="240"
+                      name="SUPPLIER" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[REVISION]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="REVISION" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LNV_RCPT_QTY]"
+                      dataType="wstr"
+                      length="20"
+                      name="LNV_RCPT_QTY" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LNV_SAMPLE_SZ]"
+                      codePage="1252"
+                      dataType="str"
+                      length="150"
+                      name="LNV_SAMPLE_SZ" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[INSPECTION_QUANTITY]"
+                      dataType="wstr"
+                      length="20"
+                      name="INSPECTION_QUANTITY" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UOM_NAME]"
+                      codePage="1252"
+                      dataType="str"
+                      length="150"
+                      name="UOM_NAME" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[INSPECTION_RESULT]"
+                      codePage="1252"
+                      dataType="str"
+                      length="150"
+                      name="INSPECTION_RESULT" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LNV_COMMENTS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2000"
+                      name="LNV_COMMENTS" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ROW_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="18"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ROW_ID]"
+                      name="ROW_ID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PLAN_ID]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PLAN_ID]"
+                      name="PLAN_ID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PLAN_NAME]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PLAN_NAME]"
+                      name="PLAN_NAME" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ORGANIZATION_ID]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ORGANIZATION_ID]"
+                      name="ORGANIZATION_ID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ORGANIZATION_NAME]"
+                      codePage="1252"
+                      dataType="str"
+                      length="240"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ORGANIZATION_NAME]"
+                      name="ORGANIZATION_NAME" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[COLLECTION_ID]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[COLLECTION_ID]"
+                      name="COLLECTION_ID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OCCURRENCE]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OCCURRENCE]"
+                      name="OCCURRENCE" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LAST_UPDATE_DATE]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LAST_UPDATE_DATE]"
+                      name="LAST_UPDATE_DATE" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LAST_UPDATED_BY_ID]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LAST_UPDATED_BY_ID]"
+                      name="LAST_UPDATED_BY_ID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LAST_UPDATED_BY]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LAST_UPDATED_BY]"
+                      name="LAST_UPDATED_BY" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CREATION_DATE]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CREATION_DATE]"
+                      name="CREATION_DATE" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CREATED_BY_ID]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CREATED_BY_ID]"
+                      name="CREATED_BY_ID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CREATED_BY]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CREATED_BY]"
+                      name="CREATED_BY" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LAST_UPDATE_LOGIN]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LAST_UPDATE_LOGIN]"
+                      name="LAST_UPDATE_LOGIN" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PO_HEADER_ID]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PO_HEADER_ID]"
+                      name="PO_HEADER_ID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PO_NUMBER]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PO_NUMBER]"
+                      name="PO_NUMBER" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PO_LINE_NUMBER]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PO_LINE_NUMBER]"
+                      name="PO_LINE_NUMBER" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RECEIVING_TRANS_NUM]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RECEIVING_TRANS_NUM]"
+                      name="RECEIVING_TRANS_NUM" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[VENDOR_ID]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[VENDOR_ID]"
+                      name="VENDOR_ID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SUPPLIER]"
+                      codePage="1252"
+                      dataType="str"
+                      length="240"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SUPPLIER]"
+                      name="SUPPLIER" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ITEM_ID]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ITEM_ID]"
+                      name="ITEM_ID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ITEM]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ITEM]"
+                      name="ITEM" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LNV_ITEM_DESCRIPTION]"
+                      codePage="1252"
+                      dataType="str"
+                      length="150"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LNV_ITEM_DESCRIPTION]"
+                      name="LNV_ITEM_DESCRIPTION" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[REVISION]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[REVISION]"
+                      name="REVISION" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[QUANTITY]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[QUANTITY]"
+                      name="QUANTITY" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LNV_RCPT_QTY]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LNV_RCPT_QTY]"
+                      name="LNV_RCPT_QTY" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LNV_SAMPLE_SZ]"
+                      codePage="1252"
+                      dataType="str"
+                      length="150"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LNV_SAMPLE_SZ]"
+                      name="LNV_SAMPLE_SZ" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[INSPECTION_QUANTITY]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[INSPECTION_QUANTITY]"
+                      name="INSPECTION_QUANTITY" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UOM_NAME]"
+                      codePage="1252"
+                      dataType="str"
+                      length="150"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UOM_NAME]"
+                      name="UOM_NAME" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UOM]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UOM]"
+                      name="UOM" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[INSPECTION_RESULT]"
+                      codePage="1252"
+                      dataType="str"
+                      length="150"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[INSPECTION_RESULT]"
+                      name="INSPECTION_RESULT" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LNV_COMMENTS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2000"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LNV_COMMENTS]"
+                      name="LNV_COMMENTS" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[INSPECTOR]"
+                      codePage="1252"
+                      dataType="str"
+                      length="150"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[INSPECTOR]"
+                      name="INSPECTOR" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LNV_INSPECTOR_NAME]"
+                      codePage="1252"
+                      dataType="str"
+                      length="150"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LNV_INSPECTOR_NAME]"
+                      name="LNV_INSPECTOR_NAME" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TRANSACTION_DATE]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TRANSACTION_DATE]"
+                      name="TRANSACTION_DATE" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task.Paths[Data Conversion Output]"
+              endId="Package\Data Flow Task\OLE DB Destination 1 1.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\Data Flow Task\Data Conversion EDIT 1 1.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[OLE DB Source Output]"
+              endId="Package\Data Flow Task\Data Conversion EDIT 1 1.Inputs[Data Conversion Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{57801258-CDE1-48B0-AB6A-B471CBC31AA2}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{4992C8B0-1532-4A41-B593-CD040C7A1A12}"
+          SQLTask:SqlStmtSourceType="Variable"
+          SQLTask:SqlStatementSource="User::sTruncate" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{884448F6-BC1E-461A-B7AE-9CC0C55BF7D1}"
+      DTS:From="Package\Execute SQL Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Data Flow Task" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Data Flow Task"
+          TopLeft="5.5,135.27358490566" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Execute SQL Task"
+          TopLeft="7.46226415094339,5.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="75.3490566037736,49.4245283018868">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-1.9622641509434,85.8490566037736"
+              Start="0,0"
+              End="-1.9622641509434,78.3490566037736">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.9056603773585" />
+                  <mssgle:LineSegment
+                    End="-1.9622641509434,42.9056603773585" />
+                  <mssgle:LineSegment
+                    End="-1.9622641509434,78.3490566037736" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

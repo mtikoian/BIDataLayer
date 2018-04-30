@@ -1,0 +1,33 @@
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="03d17e47-fcfd-427c-8e15-cf7d3d171ac9" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Contract Sales</ID>
+  <MeasureGroups>
+    <MeasureGroup>
+      <ID>Fact Contract Sales</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="ed766e6a-f4c3-40c5-8eaa-c57c148857f8">
+          <ID>Fact Contract Sales</ID>
+          <Name>Fact Contract Sales</Name>
+          <CreatedTimestamp>2018-03-21T00:24:00.37Z</CreatedTimestamp>
+          <LastSchemaUpdate>2018-03-29T15:36:39.886667Z</LastSchemaUpdate>
+          <LastProcessed>2018-04-04T20:05:06.473333Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="20611945-cfb4-426c-9653-64fea497dc52">
+            <DataSourceViewID>AS DWH</DataSourceViewID>
+            <TableID>EDW_Fact_Contract_Sales</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="4a664480-d663-4d0d-9df8-dd7e0146728b">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="5b5da765-c4bd-4475-92db-cf2be87c8f64" />
+          </ProactiveCaching>
+          <EstimatedSize>354725501</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+  </MeasureGroups>
+</Cube>

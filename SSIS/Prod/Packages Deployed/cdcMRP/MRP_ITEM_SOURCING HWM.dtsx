@@ -1,0 +1,2469 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/14/2009 3:24:01 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LARGOBI1"
+  DTS:CreatorName="LVTBI\developer"
+  DTS:DTSID="{8D0DD107-F159-4702-A549-91DE110A3EE4}"
+  DTS:EnableConfig="True"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.4100.1"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="MRP_ITEM_SOURCING HWM"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="113"
+  DTS:VersionGUID="{B0DA947A-E29A-4F5F-BD7F-FDCFD739DCCE}"
+  DTS:VersionMinor="1">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[AUDIT]"
+      DTS:CreationName="OLEDB"
+      DTS:DelayValidation="True"
+      DTS:DTSID="{C5501053-02E3-47B1-94B4-C958AF9540CE}"
+      DTS:ObjectName="AUDIT">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=bi-prod;Initial Catalog=SSISRunTimeMetrics;Provider=SQLNCLI11.1;Integrated Security=SSPI;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[MAIN]"
+      DTS:CreationName="OLEDB"
+      DTS:DelayValidation="True"
+      DTS:DTSID="{D3B419B3-3FCA-4790-A75C-AC1CAD7316C1}"
+      DTS:ObjectName="MAIN">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=BI-PROD;Initial Catalog=DW_MAIN;Provider=SQLNCLI11.1;Integrated Security=SSPI;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SOURCE]"
+      DTS:CreationName="OLEDB"
+      DTS:DelayValidation="True"
+      DTS:DTSID="{357FFBC2-9523-463D-A6F4-B6DA3EC968B2}"
+      DTS:ObjectName="SOURCE">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=PROD;User ID=appshr;Provider=OraOLEDB.Oracle.1;Persist Security Info=True;">
+          <EncryptedData
+            Type="http://www.w3.org/2001/04/xmlenc#Element"
+            Salt="dV4qoFQHJQ=="
+            IV="+6nooD08xjU=" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            <EncryptionMethod
+              Algorithm="http://www.w3.org/2001/04/xmlenc#tripledes-cbc" />
+            <CipherData>
+              <CipherValue>+6nooD08xjU9X1uF/KB3yK1cPCAVbsGowIBkupobuOowTJWMQYEV1uuos5TyZvAIXIJob/lFPk9iDq/iDUu7pEO1lRSlJMlibp1B3ULLUJF+v2vjhv4I0FLHe4W7OvqKQFvVgvbF/Z8EGuqkosGK9u3aXo2OOp4K3WhLLoWo45s=</CipherValue>
+            </CipherData>
+          </EncryptedData>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[STAGE]"
+      DTS:CreationName="OLEDB"
+      DTS:DelayValidation="True"
+      DTS:DTSID="{1F9FDCC2-5176-41C4-9026-B1E639AC6D21}"
+      DTS:ObjectName="STAGE">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=bi-prod;Initial Catalog=DW_STAGE;Provider=SQLNCLI11.1;Integrated Security=SSPI;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C70B4D31-48D2-42A3-9B4A-317D48298BD6}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="connAuditOLEDB">
+      <DTS:VariableValue
+        DTS:DataType="8">Data Source=LARGOBI1;Initial Catalog=SSISRunTimeMetrics;Provider=SQLNCLI10.1;Integrated Security=SSPI;</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{CA270ED4-8762-482F-9A2F-4E504EAC666C}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="connMainOLEDB">
+      <DTS:VariableValue
+        DTS:DataType="8">Data Source=LARGOBI1;Initial Catalog=DW_MAIN;Provider=SQLNCLI10.1;Integrated Security=SSPI;</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{CA38BB3A-E5E6-4F52-9710-F62B8CED8F50}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="connSourceOLEDB">
+      <DTS:VariableValue
+        DTS:DataType="8">Provider=OraOLEDB.Oracle;User ID=appshr;Password=D1sn3y;Data Source=PROD</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B0E35F32-2820-49F4-913C-44162AE963E0}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="connStageOLEDB">
+      <DTS:VariableValue
+        DTS:DataType="8">Data Source=LARGOBI1;Initial Catalog=DW_STAGE;Provider=SQLNCLI10.1;Integrated Security=SSPI;</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{15A6716B-709A-4E88-A283-143F97E25DEC}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="dtLastModifiedDateTime">
+      <DTS:VariableValue
+        DTS:DataType="7">1/15/2009 10:21:21 AM</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D4DA23C9-E997-4B6D-B012-E98ACEF94499}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intNoOfRowsInserted">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{27BD4FF4-588C-45FD-958F-C347A354601F}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intNoOfRowsRead">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{40057D0A-3FDC-4E0B-9A6B-987D451878D7}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intNoOfRowsUpdated">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{07AA6199-63FA-4733-B69A-6532702155B6}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="iPackageLoadID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A16D380D-B845-497F-8531-DD84F32FBD4F}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="iTaskLoadID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0C9141A1-2A5F-49AD-9CB1-A2B3AEA06D9A}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::sRawFilePath]+&quot;\\stage_&quot;+ @[User::sSourceTable]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="sRawFileLocation">
+      <DTS:VariableValue
+        DTS:DataType="8">\\bi-prod\raw_prod\stage_MRP_ITEM_SOURCING</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F0B05D9C-0AF5-44A1-98FD-DEA1F5B40BCB}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="sRawFilePath">
+      <DTS:VariableValue
+        DTS:DataType="8">\\bi-prod\raw_prod</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{CE4A0B97-0E25-4E2F-9FFF-701D0212714F}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="sSourceSQL">
+      <DTS:VariableValue
+        DTS:DataType="8">select * from MRP_ITEM_SOURCING</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{6B67CF18-3CC4-481C-BA97-33388623B153}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="sSourceTable">
+      <DTS:VariableValue
+        DTS:DataType="8">MRP_ITEM_SOURCING</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{10DD3396-3FA9-4B2F-9DA9-8BC998E985A5}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;exec usp_&quot;+ @[User::sSourceTable]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="sStoredProcedure">
+      <DTS:VariableValue
+        DTS:DataType="8">exec usp_MRP_ITEM_SOURCING</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2905F44D-C248-4919-8378-50E0F7C59CF2}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;SELECT     last_modified_date&#xA;FROM         INCREMENTAL_EXTRACTION&#xA;WHERE     (source_table = '&quot; +  @[sSourceTable] +&quot;')&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="sTargetLastUpdateDateSQL">
+      <DTS:VariableValue
+        DTS:DataType="8">SELECT     last_modified_date
+FROM         INCREMENTAL_EXTRACTION
+WHERE     (source_table = 'MRP_ITEM_SOURCING')</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{09BD3EB1-C81C-4711-B15A-01FD8C56F18C}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;stage_&quot; +  @[User::sSourceTable]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="sTargetStageSQL">
+      <DTS:VariableValue
+        DTS:DataType="8">stage_MRP_ITEM_SOURCING</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E07BF03B-665B-4F6D-B898-6A4F7CEC3CB9}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;truncate table stage_&quot; +  @[User::sSourceTable]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="sTargetStageTruncateSQL">
+      <DTS:VariableValue
+        DTS:DataType="8">truncate table stage_MRP_ITEM_SOURCING</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0E518385-09C0-448D-8B72-D432A5BB0C7F}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="(DT_WSTR,3)  @[System::VersionMajor] + &quot; .&quot;+ (DT_WSTR, 3) @[System::VersionMinor]+&quot; .&quot;+ (DT_WSTR, 3)  @[System::VersionBuild]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="sVersion">
+      <DTS:VariableValue
+        DTS:DataType="8">1 .1 .113</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Source (Oracle) To Raw File"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DelayValidation="True"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{434C0FF6-38B3-4080-AC09-B655FB21733A}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Source (Oracle) To Raw File"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          BLOBTempStoragePath=""
+          bufferTempStoragePath=""
+          version="1">
+          <components>
+            <component
+              refId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              localeId="1033"
+              name="Data Conversion EDIT 1 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Inputs[Data Conversion Input].Columns[LAST_UPDATE_LOGIN]"
+                      cachedDataType="wstr"
+                      cachedLength="38"
+                      cachedName="LAST_UPDATE_LOGIN"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[LAST_UPDATE_LOGIN]"
+                      name="LAST_UPDATE_LOGIN" />
+                    <inputColumn
+                      refId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Inputs[Data Conversion Input].Columns[CREATED_BY]"
+                      cachedDataType="wstr"
+                      cachedLength="38"
+                      cachedName="CREATED_BY"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[CREATED_BY]"
+                      name="CREATED_BY" />
+                    <inputColumn
+                      refId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Inputs[Data Conversion Input].Columns[LAST_UPDATED_BY]"
+                      cachedDataType="wstr"
+                      cachedLength="38"
+                      cachedName="LAST_UPDATED_BY"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[LAST_UPDATED_BY]"
+                      name="LAST_UPDATED_BY" />
+                    <inputColumn
+                      refId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Inputs[Data Conversion Input].Columns[IS_NEW]"
+                      cachedDataType="i4"
+                      cachedName="IS_NEW"
+                      lineageId="Package\Source (Oracle) To Raw File\Derived Column 1.Outputs[Derived Column Output].Columns[IS_NEW]"
+                      name="IS_NEW" />
+                    <inputColumn
+                      refId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Inputs[Data Conversion Input].Columns[LAST_UPDATE_DATE]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="LAST_UPDATE_DATE"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[LAST_UPDATE_DATE]"
+                      name="LAST_UPDATE_DATE" />
+                    <inputColumn
+                      refId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Inputs[Data Conversion Input].Columns[CREATION_DATE]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="CREATION_DATE"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[CREATION_DATE]"
+                      name="CREATION_DATE" />
+                    <inputColumn
+                      refId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Inputs[Data Conversion Input].Columns[INVENTORY_ITEM_ID]"
+                      cachedDataType="wstr"
+                      cachedLength="38"
+                      cachedName="INVENTORY_ITEM_ID"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[INVENTORY_ITEM_ID]"
+                      name="INVENTORY_ITEM_ID" />
+                    <inputColumn
+                      refId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Inputs[Data Conversion Input].Columns[ORGANIZATION_ID]"
+                      cachedDataType="wstr"
+                      cachedLength="38"
+                      cachedName="ORGANIZATION_ID"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[ORGANIZATION_ID]"
+                      name="ORGANIZATION_ID" />
+                    <inputColumn
+                      refId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Inputs[Data Conversion Input].Columns[COMPILE_DESIGNATOR]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="COMPILE_DESIGNATOR"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[COMPILE_DESIGNATOR]"
+                      name="COMPILE_DESIGNATOR" />
+                    <inputColumn
+                      refId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Inputs[Data Conversion Input].Columns[SOURCE_ORGANIZATION_ID]"
+                      cachedDataType="wstr"
+                      cachedLength="38"
+                      cachedName="SOURCE_ORGANIZATION_ID"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[SOURCE_ORGANIZATION_ID]"
+                      name="SOURCE_ORGANIZATION_ID" />
+                    <inputColumn
+                      refId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Inputs[Data Conversion Input].Columns[VENDOR_ID]"
+                      cachedDataType="wstr"
+                      cachedLength="38"
+                      cachedName="VENDOR_ID"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[VENDOR_ID]"
+                      name="VENDOR_ID" />
+                    <inputColumn
+                      refId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Inputs[Data Conversion Input].Columns[VENDOR_SITE_ID]"
+                      cachedDataType="wstr"
+                      cachedLength="38"
+                      cachedName="VENDOR_SITE_ID"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[VENDOR_SITE_ID]"
+                      name="VENDOR_SITE_ID" />
+                    <inputColumn
+                      refId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Inputs[Data Conversion Input].Columns[EFFECTIVE_DATE]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="EFFECTIVE_DATE"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[EFFECTIVE_DATE]"
+                      name="EFFECTIVE_DATE" />
+                    <inputColumn
+                      refId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Inputs[Data Conversion Input].Columns[DISABLE_DATE]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DISABLE_DATE"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[DISABLE_DATE]"
+                      name="DISABLE_DATE" />
+                    <inputColumn
+                      refId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Inputs[Data Conversion Input].Columns[ALLOCATION_PERCENT]"
+                      cachedDataType="wstr"
+                      cachedLength="38"
+                      cachedName="ALLOCATION_PERCENT"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[ALLOCATION_PERCENT]"
+                      name="ALLOCATION_PERCENT" />
+                    <inputColumn
+                      refId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Inputs[Data Conversion Input].Columns[RANK]"
+                      cachedDataType="wstr"
+                      cachedLength="38"
+                      cachedName="RANK"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[RANK]"
+                      name="RANK" />
+                    <inputColumn
+                      refId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Inputs[Data Conversion Input].Columns[QUANTITY]"
+                      cachedDataType="wstr"
+                      cachedLength="38"
+                      cachedName="QUANTITY"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[QUANTITY]"
+                      name="QUANTITY" />
+                    <inputColumn
+                      refId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Inputs[Data Conversion Input].Columns[SOURCE_TYPE]"
+                      cachedDataType="wstr"
+                      cachedLength="38"
+                      cachedName="SOURCE_TYPE"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[SOURCE_TYPE]"
+                      name="SOURCE_TYPE" />
+                    <inputColumn
+                      refId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Inputs[Data Conversion Input].Columns[AVG_TRANSIT_LEAD_TIME]"
+                      cachedDataType="wstr"
+                      cachedLength="38"
+                      cachedName="AVG_TRANSIT_LEAD_TIME"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[AVG_TRANSIT_LEAD_TIME]"
+                      name="AVG_TRANSIT_LEAD_TIME" />
+                    <inputColumn
+                      refId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Inputs[Data Conversion Input].Columns[SOURCING_RULE_ID]"
+                      cachedDataType="wstr"
+                      cachedLength="38"
+                      cachedName="SOURCING_RULE_ID"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[SOURCING_RULE_ID]"
+                      name="SOURCING_RULE_ID" />
+                    <inputColumn
+                      refId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Inputs[Data Conversion Input].Columns[ASSIGNMENT_ID]"
+                      cachedDataType="wstr"
+                      cachedLength="38"
+                      cachedName="ASSIGNMENT_ID"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[ASSIGNMENT_ID]"
+                      name="ASSIGNMENT_ID" />
+                    <inputColumn
+                      refId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Inputs[Data Conversion Input].Columns[ASSIGNMENT_SET_ID]"
+                      cachedDataType="wstr"
+                      cachedLength="38"
+                      cachedName="ASSIGNMENT_SET_ID"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[ASSIGNMENT_SET_ID]"
+                      name="ASSIGNMENT_SET_ID" />
+                    <inputColumn
+                      refId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Inputs[Data Conversion Input].Columns[ASSIGNMENT_TYPE]"
+                      cachedDataType="wstr"
+                      cachedLength="38"
+                      cachedName="ASSIGNMENT_TYPE"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[ASSIGNMENT_TYPE]"
+                      name="ASSIGNMENT_TYPE" />
+                    <inputColumn
+                      refId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Inputs[Data Conversion Input].Columns[SOURCING_RULE_TYPE]"
+                      cachedDataType="wstr"
+                      cachedLength="38"
+                      cachedName="SOURCING_RULE_TYPE"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[SOURCING_RULE_TYPE]"
+                      name="SOURCING_RULE_TYPE" />
+                    <inputColumn
+                      refId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Inputs[Data Conversion Input].Columns[SHIP_METHOD]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="SHIP_METHOD"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[SHIP_METHOD]"
+                      name="SHIP_METHOD" />
+                    <inputColumn
+                      refId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Inputs[Data Conversion Input].Columns[HISTORICAL_ALLOC_QTY]"
+                      cachedDataType="numeric"
+                      cachedName="HISTORICAL_ALLOC_QTY"
+                      cachedPrecision="30"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[HISTORICAL_ALLOC_QTY]"
+                      name="HISTORICAL_ALLOC_QTY" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of LAST_UPDATED_BY]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of LAST_UPDATED_BY]"
+                      name="Copy of LAST_UPDATED_BY"
+                      precision="15"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[LAST_UPDATED_BY]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of CREATED_BY]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of CREATED_BY]"
+                      name="Copy of CREATED_BY"
+                      precision="15"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[CREATED_BY]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of LAST_UPDATE_LOGIN]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of LAST_UPDATE_LOGIN]"
+                      name="Copy of LAST_UPDATE_LOGIN"
+                      precision="15"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[LAST_UPDATE_LOGIN]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of IS_NEW]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of IS_NEW]"
+                      name="Copy of IS_NEW"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Source (Oracle) To Raw File\Derived Column 1.Outputs[Derived Column Output].Columns[IS_NEW]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of ORGANIZATION_ID]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of ORGANIZATION_ID]"
+                      name="Copy of ORGANIZATION_ID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[ORGANIZATION_ID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of INVENTORY_ITEM_ID]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of INVENTORY_ITEM_ID]"
+                      name="Copy of INVENTORY_ITEM_ID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[INVENTORY_ITEM_ID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of LAST_UPDATE_DATE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of LAST_UPDATE_DATE]"
+                      name="Copy of LAST_UPDATE_DATE"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[LAST_UPDATE_DATE]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of CREATION_DATE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of CREATION_DATE]"
+                      name="Copy of CREATION_DATE"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[CREATION_DATE]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of COMPILE_DESIGNATOR]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of COMPILE_DESIGNATOR]"
+                      name="Copy of COMPILE_DESIGNATOR"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[COMPILE_DESIGNATOR]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of SOURCE_ORGANIZATION_ID]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of SOURCE_ORGANIZATION_ID]"
+                      name="Copy of SOURCE_ORGANIZATION_ID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[SOURCE_ORGANIZATION_ID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of VENDOR_ID]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of VENDOR_ID]"
+                      name="Copy of VENDOR_ID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[VENDOR_ID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of VENDOR_SITE_ID]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of VENDOR_SITE_ID]"
+                      name="Copy of VENDOR_SITE_ID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[VENDOR_SITE_ID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of EFFECTIVE_DATE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of EFFECTIVE_DATE]"
+                      name="Copy of EFFECTIVE_DATE"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[EFFECTIVE_DATE]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of DISABLE_DATE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of DISABLE_DATE]"
+                      name="Copy of DISABLE_DATE"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[DISABLE_DATE]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of ALLOCATION_PERCENT]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of ALLOCATION_PERCENT]"
+                      name="Copy of ALLOCATION_PERCENT"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[ALLOCATION_PERCENT]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of RANK]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of RANK]"
+                      name="Copy of RANK"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[RANK]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of QUANTITY]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of QUANTITY]"
+                      name="Copy of QUANTITY"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[QUANTITY]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of SOURCE_TYPE]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of SOURCE_TYPE]"
+                      name="Copy of SOURCE_TYPE"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[SOURCE_TYPE]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of AVG_TRANSIT_LEAD_TIME]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of AVG_TRANSIT_LEAD_TIME]"
+                      name="Copy of AVG_TRANSIT_LEAD_TIME"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[AVG_TRANSIT_LEAD_TIME]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of SOURCING_RULE_ID]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of SOURCING_RULE_ID]"
+                      name="Copy of SOURCING_RULE_ID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[SOURCING_RULE_ID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of ASSIGNMENT_ID]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of ASSIGNMENT_ID]"
+                      name="Copy of ASSIGNMENT_ID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[ASSIGNMENT_ID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of ASSIGNMENT_SET_ID]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of ASSIGNMENT_SET_ID]"
+                      name="Copy of ASSIGNMENT_SET_ID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[ASSIGNMENT_SET_ID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of ASSIGNMENT_TYPE]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of ASSIGNMENT_TYPE]"
+                      name="Copy of ASSIGNMENT_TYPE"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[ASSIGNMENT_TYPE]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of SOURCING_RULE_TYPE]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of SOURCING_RULE_TYPE]"
+                      name="Copy of SOURCING_RULE_TYPE"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[SOURCING_RULE_TYPE]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of SHIP_METHOD]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of SHIP_METHOD]"
+                      name="Copy of SHIP_METHOD"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[SHIP_METHOD]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of HISTORICAL_ALLOC_QTY]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of HISTORICAL_ALLOC_QTY]"
+                      name="Copy of HISTORICAL_ALLOC_QTY"
+                      precision="30"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[HISTORICAL_ALLOC_QTY]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Source (Oracle) To Raw File\Derived Column 1"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Updates column values using expressions"
+              localeId="1033"
+              name="Derived Column 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Source (Oracle) To Raw File\Derived Column 1.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Source (Oracle) To Raw File\Derived Column 1.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Source (Oracle) To Raw File\Derived Column 1.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\Derived Column 1.Outputs[Derived Column Output].Columns[IS_NEW]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Source (Oracle) To Raw File\Derived Column 1.Outputs[Derived Column Output].Columns[IS_NEW]"
+                      name="IS_NEW"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">1</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">1</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Source (Oracle) To Raw File\Derived Column 1.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Source (Oracle) To Raw File\Derived Column 1.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Source (Oracle) To Raw File\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Source (Oracle) To Raw File\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              localeId="1033"
+              name="OLE DB Destination 1 1"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[MRP_ITEM_SOURCING]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable">User::sTargetStageSQL</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[MAIN]"
+                  connectionManagerRefId="Package.ConnectionManagers[MAIN]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].Columns[Copy of CREATION_DATE]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Copy of CREATION_DATE"
+                      externalMetadataColumnId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[CREATION_DATE]"
+                      lineageId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of CREATION_DATE]"
+                      name="Copy of CREATION_DATE" />
+                    <inputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].Columns[Copy of CREATED_BY]"
+                      cachedDataType="numeric"
+                      cachedName="Copy of CREATED_BY"
+                      cachedPrecision="15"
+                      externalMetadataColumnId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[CREATED_BY]"
+                      lineageId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of CREATED_BY]"
+                      name="Copy of CREATED_BY" />
+                    <inputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].Columns[Copy of LAST_UPDATED_BY]"
+                      cachedDataType="numeric"
+                      cachedName="Copy of LAST_UPDATED_BY"
+                      cachedPrecision="15"
+                      externalMetadataColumnId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[LAST_UPDATED_BY]"
+                      lineageId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of LAST_UPDATED_BY]"
+                      name="Copy of LAST_UPDATED_BY" />
+                    <inputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].Columns[Copy of LAST_UPDATE_LOGIN]"
+                      cachedDataType="numeric"
+                      cachedName="Copy of LAST_UPDATE_LOGIN"
+                      cachedPrecision="15"
+                      externalMetadataColumnId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[LAST_UPDATE_LOGIN]"
+                      lineageId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of LAST_UPDATE_LOGIN]"
+                      name="Copy of LAST_UPDATE_LOGIN" />
+                    <inputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].Columns[Copy of LAST_UPDATE_DATE]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Copy of LAST_UPDATE_DATE"
+                      externalMetadataColumnId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[LAST_UPDATE_DATE]"
+                      lineageId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of LAST_UPDATE_DATE]"
+                      name="Copy of LAST_UPDATE_DATE" />
+                    <inputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].Columns[Copy of INVENTORY_ITEM_ID]"
+                      cachedDataType="r8"
+                      cachedName="Copy of INVENTORY_ITEM_ID"
+                      externalMetadataColumnId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[INVENTORY_ITEM_ID]"
+                      lineageId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of INVENTORY_ITEM_ID]"
+                      name="Copy of INVENTORY_ITEM_ID" />
+                    <inputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].Columns[Copy of ORGANIZATION_ID]"
+                      cachedDataType="r8"
+                      cachedName="Copy of ORGANIZATION_ID"
+                      externalMetadataColumnId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[ORGANIZATION_ID]"
+                      lineageId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of ORGANIZATION_ID]"
+                      name="Copy of ORGANIZATION_ID" />
+                    <inputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].Columns[Copy of COMPILE_DESIGNATOR]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Copy of COMPILE_DESIGNATOR"
+                      externalMetadataColumnId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[COMPILE_DESIGNATOR]"
+                      lineageId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of COMPILE_DESIGNATOR]"
+                      name="Copy of COMPILE_DESIGNATOR" />
+                    <inputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].Columns[Copy of SHIP_METHOD]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copy of SHIP_METHOD"
+                      externalMetadataColumnId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[SHIP_METHOD]"
+                      lineageId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of SHIP_METHOD]"
+                      name="Copy of SHIP_METHOD" />
+                    <inputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].Columns[Copy of HISTORICAL_ALLOC_QTY]"
+                      cachedDataType="numeric"
+                      cachedName="Copy of HISTORICAL_ALLOC_QTY"
+                      cachedPrecision="30"
+                      externalMetadataColumnId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[HISTORICAL_ALLOC_QTY]"
+                      lineageId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of HISTORICAL_ALLOC_QTY]"
+                      name="Copy of HISTORICAL_ALLOC_QTY" />
+                    <inputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].Columns[Copy of QUANTITY]"
+                      cachedDataType="r8"
+                      cachedName="Copy of QUANTITY"
+                      externalMetadataColumnId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[QUANTITY]"
+                      lineageId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of QUANTITY]"
+                      name="Copy of QUANTITY" />
+                    <inputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].Columns[Copy of ASSIGNMENT_ID]"
+                      cachedDataType="r8"
+                      cachedName="Copy of ASSIGNMENT_ID"
+                      externalMetadataColumnId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[ASSIGNMENT_ID]"
+                      lineageId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of ASSIGNMENT_ID]"
+                      name="Copy of ASSIGNMENT_ID" />
+                    <inputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].Columns[Copy of VENDOR_SITE_ID]"
+                      cachedDataType="r8"
+                      cachedName="Copy of VENDOR_SITE_ID"
+                      externalMetadataColumnId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[VENDOR_SITE_ID]"
+                      lineageId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of VENDOR_SITE_ID]"
+                      name="Copy of VENDOR_SITE_ID" />
+                    <inputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].Columns[Copy of SOURCE_TYPE]"
+                      cachedDataType="r8"
+                      cachedName="Copy of SOURCE_TYPE"
+                      externalMetadataColumnId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[SOURCE_TYPE]"
+                      lineageId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of SOURCE_TYPE]"
+                      name="Copy of SOURCE_TYPE" />
+                    <inputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].Columns[Copy of SOURCE_ORGANIZATION_ID]"
+                      cachedDataType="r8"
+                      cachedName="Copy of SOURCE_ORGANIZATION_ID"
+                      externalMetadataColumnId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[SOURCE_ORGANIZATION_ID]"
+                      lineageId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of SOURCE_ORGANIZATION_ID]"
+                      name="Copy of SOURCE_ORGANIZATION_ID" />
+                    <inputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].Columns[Copy of ALLOCATION_PERCENT]"
+                      cachedDataType="r8"
+                      cachedName="Copy of ALLOCATION_PERCENT"
+                      externalMetadataColumnId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[ALLOCATION_PERCENT]"
+                      lineageId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of ALLOCATION_PERCENT]"
+                      name="Copy of ALLOCATION_PERCENT" />
+                    <inputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].Columns[Copy of VENDOR_ID]"
+                      cachedDataType="r8"
+                      cachedName="Copy of VENDOR_ID"
+                      externalMetadataColumnId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[VENDOR_ID]"
+                      lineageId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of VENDOR_ID]"
+                      name="Copy of VENDOR_ID" />
+                    <inputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].Columns[Copy of ASSIGNMENT_SET_ID]"
+                      cachedDataType="r8"
+                      cachedName="Copy of ASSIGNMENT_SET_ID"
+                      externalMetadataColumnId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[ASSIGNMENT_SET_ID]"
+                      lineageId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of ASSIGNMENT_SET_ID]"
+                      name="Copy of ASSIGNMENT_SET_ID" />
+                    <inputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].Columns[Copy of AVG_TRANSIT_LEAD_TIME]"
+                      cachedDataType="r8"
+                      cachedName="Copy of AVG_TRANSIT_LEAD_TIME"
+                      externalMetadataColumnId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[AVG_TRANSIT_LEAD_TIME]"
+                      lineageId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of AVG_TRANSIT_LEAD_TIME]"
+                      name="Copy of AVG_TRANSIT_LEAD_TIME" />
+                    <inputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].Columns[Copy of RANK]"
+                      cachedDataType="r8"
+                      cachedName="Copy of RANK"
+                      externalMetadataColumnId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[RANK]"
+                      lineageId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of RANK]"
+                      name="Copy of RANK" />
+                    <inputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].Columns[Copy of ASSIGNMENT_TYPE]"
+                      cachedDataType="r8"
+                      cachedName="Copy of ASSIGNMENT_TYPE"
+                      externalMetadataColumnId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[ASSIGNMENT_TYPE]"
+                      lineageId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of ASSIGNMENT_TYPE]"
+                      name="Copy of ASSIGNMENT_TYPE" />
+                    <inputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].Columns[Copy of SOURCING_RULE_TYPE]"
+                      cachedDataType="r8"
+                      cachedName="Copy of SOURCING_RULE_TYPE"
+                      externalMetadataColumnId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[SOURCING_RULE_TYPE]"
+                      lineageId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of SOURCING_RULE_TYPE]"
+                      name="Copy of SOURCING_RULE_TYPE" />
+                    <inputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].Columns[Copy of SOURCING_RULE_ID]"
+                      cachedDataType="r8"
+                      cachedName="Copy of SOURCING_RULE_ID"
+                      externalMetadataColumnId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[SOURCING_RULE_ID]"
+                      lineageId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of SOURCING_RULE_ID]"
+                      name="Copy of SOURCING_RULE_ID" />
+                    <inputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].Columns[Copy of DISABLE_DATE]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Copy of DISABLE_DATE"
+                      externalMetadataColumnId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[DISABLE_DATE]"
+                      lineageId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of DISABLE_DATE]"
+                      name="Copy of DISABLE_DATE" />
+                    <inputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].Columns[Copy of EFFECTIVE_DATE]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Copy of EFFECTIVE_DATE"
+                      externalMetadataColumnId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[EFFECTIVE_DATE]"
+                      lineageId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output].Columns[Copy of EFFECTIVE_DATE]"
+                      name="Copy of EFFECTIVE_DATE" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[CREATED_BY]"
+                      dataType="numeric"
+                      name="CREATED_BY"
+                      precision="15" />
+                    <externalMetadataColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[CREATION_DATE]"
+                      dataType="dbTimeStamp2"
+                      name="CREATION_DATE"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[LAST_UPDATED_BY]"
+                      dataType="numeric"
+                      name="LAST_UPDATED_BY"
+                      precision="15" />
+                    <externalMetadataColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[LAST_UPDATE_DATE]"
+                      dataType="dbTimeStamp2"
+                      name="LAST_UPDATE_DATE"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[LAST_UPDATE_LOGIN]"
+                      dataType="numeric"
+                      name="LAST_UPDATE_LOGIN"
+                      precision="15" />
+                    <externalMetadataColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[INVENTORY_ITEM_ID]"
+                      dataType="r8"
+                      name="INVENTORY_ITEM_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[ORGANIZATION_ID]"
+                      dataType="r8"
+                      name="ORGANIZATION_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[COMPILE_DESIGNATOR]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="COMPILE_DESIGNATOR" />
+                    <externalMetadataColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[SHIP_METHOD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="SHIP_METHOD" />
+                    <externalMetadataColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[HISTORICAL_ALLOC_QTY]"
+                      dataType="numeric"
+                      name="HISTORICAL_ALLOC_QTY"
+                      precision="30" />
+                    <externalMetadataColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[QUANTITY]"
+                      dataType="r8"
+                      name="QUANTITY" />
+                    <externalMetadataColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[ASSIGNMENT_ID]"
+                      dataType="r8"
+                      name="ASSIGNMENT_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[VENDOR_SITE_ID]"
+                      dataType="r8"
+                      name="VENDOR_SITE_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[SOURCE_TYPE]"
+                      dataType="r8"
+                      name="SOURCE_TYPE" />
+                    <externalMetadataColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[SOURCE_ORGANIZATION_ID]"
+                      dataType="r8"
+                      name="SOURCE_ORGANIZATION_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[ALLOCATION_PERCENT]"
+                      dataType="r8"
+                      name="ALLOCATION_PERCENT" />
+                    <externalMetadataColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[VENDOR_ID]"
+                      dataType="r8"
+                      name="VENDOR_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[ASSIGNMENT_SET_ID]"
+                      dataType="r8"
+                      name="ASSIGNMENT_SET_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[AVG_TRANSIT_LEAD_TIME]"
+                      dataType="r8"
+                      name="AVG_TRANSIT_LEAD_TIME" />
+                    <externalMetadataColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[RANK]"
+                      dataType="r8"
+                      name="RANK" />
+                    <externalMetadataColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[ASSIGNMENT_TYPE]"
+                      dataType="r8"
+                      name="ASSIGNMENT_TYPE" />
+                    <externalMetadataColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[SOURCING_RULE_TYPE]"
+                      dataType="r8"
+                      name="SOURCING_RULE_TYPE" />
+                    <externalMetadataColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[SOURCING_RULE_ID]"
+                      dataType="r8"
+                      name="SOURCING_RULE_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[DISABLE_DATE]"
+                      dataType="dbTimeStamp2"
+                      name="DISABLE_DATE"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[EFFECTIVE_DATE]"
+                      dataType="dbTimeStamp2"
+                      name="EFFECTIVE_DATE"
+                      scale="7" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Source (Oracle) To Raw File\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable">User::sSourceSQL</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Source (Oracle) To Raw File\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SOURCE]"
+                  connectionManagerRefId="Package.ConnectionManagers[SOURCE]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[CREATED_BY]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CREATED_BY]"
+                      length="38"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[CREATED_BY]"
+                      name="CREATED_BY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[CREATION_DATE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CREATION_DATE]"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[CREATION_DATE]"
+                      name="CREATION_DATE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[LAST_UPDATED_BY]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LAST_UPDATED_BY]"
+                      length="38"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[LAST_UPDATED_BY]"
+                      name="LAST_UPDATED_BY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[LAST_UPDATE_DATE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LAST_UPDATE_DATE]"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[LAST_UPDATE_DATE]"
+                      name="LAST_UPDATE_DATE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[LAST_UPDATE_LOGIN]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LAST_UPDATE_LOGIN]"
+                      length="38"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[LAST_UPDATE_LOGIN]"
+                      name="LAST_UPDATE_LOGIN"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[INVENTORY_ITEM_ID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[INVENTORY_ITEM_ID]"
+                      length="38"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[INVENTORY_ITEM_ID]"
+                      name="INVENTORY_ITEM_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[ORGANIZATION_ID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ORGANIZATION_ID]"
+                      length="38"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[ORGANIZATION_ID]"
+                      name="ORGANIZATION_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[COMPILE_DESIGNATOR]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[COMPILE_DESIGNATOR]"
+                      length="10"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[COMPILE_DESIGNATOR]"
+                      name="COMPILE_DESIGNATOR"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[SOURCE_ORGANIZATION_ID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SOURCE_ORGANIZATION_ID]"
+                      length="38"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[SOURCE_ORGANIZATION_ID]"
+                      name="SOURCE_ORGANIZATION_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[VENDOR_ID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[VENDOR_ID]"
+                      length="38"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[VENDOR_ID]"
+                      name="VENDOR_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[VENDOR_SITE_ID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[VENDOR_SITE_ID]"
+                      length="38"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[VENDOR_SITE_ID]"
+                      name="VENDOR_SITE_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[EFFECTIVE_DATE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[EFFECTIVE_DATE]"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[EFFECTIVE_DATE]"
+                      name="EFFECTIVE_DATE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[DISABLE_DATE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DISABLE_DATE]"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[DISABLE_DATE]"
+                      name="DISABLE_DATE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[ALLOCATION_PERCENT]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ALLOCATION_PERCENT]"
+                      length="38"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[ALLOCATION_PERCENT]"
+                      name="ALLOCATION_PERCENT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[RANK]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RANK]"
+                      length="38"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[RANK]"
+                      name="RANK"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[QUANTITY]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[QUANTITY]"
+                      length="38"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[QUANTITY]"
+                      name="QUANTITY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[SOURCE_TYPE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SOURCE_TYPE]"
+                      length="38"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[SOURCE_TYPE]"
+                      name="SOURCE_TYPE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[AVG_TRANSIT_LEAD_TIME]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AVG_TRANSIT_LEAD_TIME]"
+                      length="38"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[AVG_TRANSIT_LEAD_TIME]"
+                      name="AVG_TRANSIT_LEAD_TIME"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[SOURCING_RULE_ID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SOURCING_RULE_ID]"
+                      length="38"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[SOURCING_RULE_ID]"
+                      name="SOURCING_RULE_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[ASSIGNMENT_ID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ASSIGNMENT_ID]"
+                      length="38"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[ASSIGNMENT_ID]"
+                      name="ASSIGNMENT_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[ASSIGNMENT_SET_ID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ASSIGNMENT_SET_ID]"
+                      length="38"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[ASSIGNMENT_SET_ID]"
+                      name="ASSIGNMENT_SET_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[ASSIGNMENT_TYPE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ASSIGNMENT_TYPE]"
+                      length="38"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[ASSIGNMENT_TYPE]"
+                      name="ASSIGNMENT_TYPE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[SOURCING_RULE_TYPE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SOURCING_RULE_TYPE]"
+                      length="38"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[SOURCING_RULE_TYPE]"
+                      name="SOURCING_RULE_TYPE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[SHIP_METHOD]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SHIP_METHOD]"
+                      length="30"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[SHIP_METHOD]"
+                      name="SHIP_METHOD"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[HISTORICAL_ALLOC_QTY]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[HISTORICAL_ALLOC_QTY]"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].Columns[HISTORICAL_ALLOC_QTY]"
+                      name="HISTORICAL_ALLOC_QTY"
+                      precision="30"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CREATED_BY]"
+                      dataType="wstr"
+                      length="38"
+                      name="CREATED_BY" />
+                    <externalMetadataColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CREATION_DATE]"
+                      dataType="dbTimeStamp"
+                      name="CREATION_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LAST_UPDATED_BY]"
+                      dataType="wstr"
+                      length="38"
+                      name="LAST_UPDATED_BY" />
+                    <externalMetadataColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LAST_UPDATE_DATE]"
+                      dataType="dbTimeStamp"
+                      name="LAST_UPDATE_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LAST_UPDATE_LOGIN]"
+                      dataType="wstr"
+                      length="38"
+                      name="LAST_UPDATE_LOGIN" />
+                    <externalMetadataColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[INVENTORY_ITEM_ID]"
+                      dataType="wstr"
+                      length="38"
+                      name="INVENTORY_ITEM_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ORGANIZATION_ID]"
+                      dataType="wstr"
+                      length="38"
+                      name="ORGANIZATION_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[COMPILE_DESIGNATOR]"
+                      dataType="wstr"
+                      length="10"
+                      name="COMPILE_DESIGNATOR" />
+                    <externalMetadataColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SOURCE_ORGANIZATION_ID]"
+                      dataType="wstr"
+                      length="38"
+                      name="SOURCE_ORGANIZATION_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[VENDOR_ID]"
+                      dataType="wstr"
+                      length="38"
+                      name="VENDOR_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[VENDOR_SITE_ID]"
+                      dataType="wstr"
+                      length="38"
+                      name="VENDOR_SITE_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[EFFECTIVE_DATE]"
+                      dataType="dbTimeStamp"
+                      name="EFFECTIVE_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DISABLE_DATE]"
+                      dataType="dbTimeStamp"
+                      name="DISABLE_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ALLOCATION_PERCENT]"
+                      dataType="wstr"
+                      length="38"
+                      name="ALLOCATION_PERCENT" />
+                    <externalMetadataColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RANK]"
+                      dataType="wstr"
+                      length="38"
+                      name="RANK" />
+                    <externalMetadataColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[QUANTITY]"
+                      dataType="wstr"
+                      length="38"
+                      name="QUANTITY" />
+                    <externalMetadataColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SOURCE_TYPE]"
+                      dataType="wstr"
+                      length="38"
+                      name="SOURCE_TYPE" />
+                    <externalMetadataColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AVG_TRANSIT_LEAD_TIME]"
+                      dataType="wstr"
+                      length="38"
+                      name="AVG_TRANSIT_LEAD_TIME" />
+                    <externalMetadataColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SOURCING_RULE_ID]"
+                      dataType="wstr"
+                      length="38"
+                      name="SOURCING_RULE_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ASSIGNMENT_ID]"
+                      dataType="wstr"
+                      length="38"
+                      name="ASSIGNMENT_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ASSIGNMENT_SET_ID]"
+                      dataType="wstr"
+                      length="38"
+                      name="ASSIGNMENT_SET_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ASSIGNMENT_TYPE]"
+                      dataType="wstr"
+                      length="38"
+                      name="ASSIGNMENT_TYPE" />
+                    <externalMetadataColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SOURCING_RULE_TYPE]"
+                      dataType="wstr"
+                      length="38"
+                      name="SOURCING_RULE_TYPE" />
+                    <externalMetadataColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SHIP_METHOD]"
+                      dataType="wstr"
+                      length="30"
+                      name="SHIP_METHOD" />
+                    <externalMetadataColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[HISTORICAL_ALLOC_QTY]"
+                      dataType="numeric"
+                      name="HISTORICAL_ALLOC_QTY"
+                      precision="30" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[COMPILE_DESIGNATOR]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[COMPILE_DESIGNATOR]"
+                      name="COMPILE_DESIGNATOR" />
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SOURCE_ORGANIZATION_ID]"
+                      dataType="wstr"
+                      length="38"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SOURCE_ORGANIZATION_ID]"
+                      name="SOURCE_ORGANIZATION_ID" />
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[VENDOR_ID]"
+                      dataType="wstr"
+                      length="38"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[VENDOR_ID]"
+                      name="VENDOR_ID" />
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[VENDOR_SITE_ID]"
+                      dataType="wstr"
+                      length="38"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[VENDOR_SITE_ID]"
+                      name="VENDOR_SITE_ID" />
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[EFFECTIVE_DATE]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[EFFECTIVE_DATE]"
+                      name="EFFECTIVE_DATE" />
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CREATED_BY]"
+                      dataType="wstr"
+                      length="38"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CREATED_BY]"
+                      name="CREATED_BY" />
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CREATION_DATE]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CREATION_DATE]"
+                      name="CREATION_DATE" />
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LAST_UPDATED_BY]"
+                      dataType="wstr"
+                      length="38"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LAST_UPDATED_BY]"
+                      name="LAST_UPDATED_BY" />
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LAST_UPDATE_DATE]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LAST_UPDATE_DATE]"
+                      name="LAST_UPDATE_DATE" />
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DISABLE_DATE]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DISABLE_DATE]"
+                      name="DISABLE_DATE" />
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ALLOCATION_PERCENT]"
+                      dataType="wstr"
+                      length="38"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ALLOCATION_PERCENT]"
+                      name="ALLOCATION_PERCENT" />
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RANK]"
+                      dataType="wstr"
+                      length="38"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RANK]"
+                      name="RANK" />
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[QUANTITY]"
+                      dataType="wstr"
+                      length="38"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[QUANTITY]"
+                      name="QUANTITY" />
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SOURCE_TYPE]"
+                      dataType="wstr"
+                      length="38"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SOURCE_TYPE]"
+                      name="SOURCE_TYPE" />
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AVG_TRANSIT_LEAD_TIME]"
+                      dataType="wstr"
+                      length="38"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AVG_TRANSIT_LEAD_TIME]"
+                      name="AVG_TRANSIT_LEAD_TIME" />
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SOURCING_RULE_ID]"
+                      dataType="wstr"
+                      length="38"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SOURCING_RULE_ID]"
+                      name="SOURCING_RULE_ID" />
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ASSIGNMENT_ID]"
+                      dataType="wstr"
+                      length="38"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ASSIGNMENT_ID]"
+                      name="ASSIGNMENT_ID" />
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ASSIGNMENT_SET_ID]"
+                      dataType="wstr"
+                      length="38"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ASSIGNMENT_SET_ID]"
+                      name="ASSIGNMENT_SET_ID" />
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ASSIGNMENT_TYPE]"
+                      dataType="wstr"
+                      length="38"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ASSIGNMENT_TYPE]"
+                      name="ASSIGNMENT_TYPE" />
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SOURCING_RULE_TYPE]"
+                      dataType="wstr"
+                      length="38"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SOURCING_RULE_TYPE]"
+                      name="SOURCING_RULE_TYPE" />
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SHIP_METHOD]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SHIP_METHOD]"
+                      name="SHIP_METHOD" />
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LAST_UPDATE_LOGIN]"
+                      dataType="wstr"
+                      length="38"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LAST_UPDATE_LOGIN]"
+                      name="LAST_UPDATE_LOGIN" />
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[HISTORICAL_ALLOC_QTY]"
+                      dataType="numeric"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[HISTORICAL_ALLOC_QTY]"
+                      name="HISTORICAL_ALLOC_QTY"
+                      precision="30" />
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[INVENTORY_ITEM_ID]"
+                      dataType="wstr"
+                      length="38"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[INVENTORY_ITEM_ID]"
+                      name="INVENTORY_ITEM_ID" />
+                    <outputColumn
+                      refId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ORGANIZATION_ID]"
+                      dataType="wstr"
+                      length="38"
+                      lineageId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ORGANIZATION_ID]"
+                      name="ORGANIZATION_ID" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Source (Oracle) To Raw File.Paths[Data Conversion Output]"
+              endId="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Source (Oracle) To Raw File.Paths[Derived Column Output]"
+              endId="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1.Inputs[Data Conversion Input]"
+              name="Derived Column Output"
+              startId="Package\Source (Oracle) To Raw File\Derived Column 1.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Source (Oracle) To Raw File.Paths[OLE DB Source Output]"
+              endId="Package\Source (Oracle) To Raw File\Derived Column 1.Inputs[Derived Column Input]"
+              name="OLE DB Source Output"
+              startId="Package\Source (Oracle) To Raw File\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate Stage Table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{4CC20579-B95D-47C3-8D9C-07ECA0A2672E}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate Stage Table"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D3B419B3-3FCA-4790-A75C-AC1CAD7316C1}"
+          SQLTask:SqlStatementSource="Truncate table dbo.MRP_ITEM_SOURCING" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{8197730E-5B68-4373-A3A7-90707E6AF36B}"
+      DTS:From="Package\Truncate Stage Table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Source (Oracle) To Raw File" />
+  </DTS:PrecedenceConstraints>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{27FC38F2-52DD-46E9-8337-4C7F8964B3BA}"
+      DTS:EventID="0"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{EF50ACA1-8C49-4ABF-AED8-FE475AFBBA1A}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\Log Failed Package Execution"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{7C28634F-2A84-4AE7-AAEE-8C71AD567037}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Log Failed Package Execution"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{C5501053-02E3-47B1-94B4-C958AF9540CE}"
+              SQLTask:SqlStatementSource="declare @Now datetime&#xA;set @Now = GetDate()&#xA;&#xA;Exec ssis.usp_RecordPackageEnd ?,@Now,'Failed'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::iPackageLoadID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\Record Error"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{B691576F-3280-4716-96D0-F02236253237}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Record Error"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{C5501053-02E3-47B1-94B4-C958AF9540CE}"
+              SQLTask:SqlStatementSource="exec ssis.usp_RecordPackageError ?,?,?,?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::iPackageLoadID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="System::SourceName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="System::ErrorCode"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="System::ErrorDescription"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package.EventHandlers[OnError].PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{A196CF03-9141-40E4-8151-BDE12E463EAC}"
+          DTS:From="Package.EventHandlers[OnError]\Record Error"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package.EventHandlers[OnError]\Log Failed Package Execution" />
+      </DTS:PrecedenceConstraints>
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Source (Oracle) To Raw File"
+          TopLeft="5.5,98.2547169811321" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Truncate Stage Table"
+          TopLeft="5.5,5.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="73.3867924528302,49.4245283018868">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,48.8301886792453"
+              Start="0,0"
+              End="0,41.3301886792453">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.3301886792453" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="313.509433962265,43.9245283018868"
+          Id="Package.EventHandlers[OnError]\Log Failed Package Execution"
+          TopLeft="5.5,87.1603773584906" />
+        <NodeLayout
+          Size="135.773584905661,43.9245283018868"
+          Id="Package.EventHandlers[OnError]\Record Error"
+          TopLeft="94.3679245283019,5.5" />
+        <EdgeLayout
+          Id="Package.EventHandlers[OnError].PrecedenceConstraints[Constraint]"
+          TopLeft="162.254716981132,49.4245283018868">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37.7358490566038"
+              Start="0,0"
+              End="0,30.2358490566038">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.2358490566038" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <TaskHost
+    design-time-name="Package\Source (Oracle) To Raw File">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Source (Oracle) To Raw File\OLE DB Source"
+          TopLeft="9.61320754716981,5.5" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Source (Oracle) To Raw File\Data Conversion EDIT 1 1"
+          TopLeft="5.5,219.160377358491" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1"
+          TopLeft="11.5,323.160377358491" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Source (Oracle) To Raw File\Derived Column 1"
+          TopLeft="8.5188679245283,115.5" />
+        <EdgeLayout
+          Id="Package\Source (Oracle) To Raw File.Paths[Derived Column Output]"
+          TopLeft="76.4056603773585,159.424528301887">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-3.01886792452829,59.7358490566038"
+              Start="0,0"
+              End="-3.01886792452829,52.2358490566038">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.8490566037736" />
+                  <mssgle:LineSegment
+                    End="-3.01886792452829,29.8490566037736" />
+                  <mssgle:LineSegment
+                    End="-3.01886792452829,52.2358490566038" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Source (Oracle) To Raw File.Paths[Data Conversion Output]"
+          TopLeft="73.3867924528302,263.084905660377">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="6,60.0754716981132"
+              Start="0,0"
+              End="6,52.5754716981132">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.0377358490566" />
+                  <mssgle:LineSegment
+                    End="6,30.0377358490566" />
+                  <mssgle:LineSegment
+                    End="6,52.5754716981132" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Source (Oracle) To Raw File.Paths[OLE DB Source Output]"
+          TopLeft="77.5,49.4245283018868">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-1.09433962264151,66.0754716981132"
+              Start="0,0"
+              End="-1.09433962264151,58.5754716981132">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.0188679245283" />
+                  <mssgle:LineSegment
+                    End="-1.09433962264151,33.0188679245283" />
+                  <mssgle:LineSegment
+                    End="-1.09433962264151,58.5754716981132" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Source (Oracle) To Raw File\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Source (Oracle) To Raw File\OLE DB Destination 1 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

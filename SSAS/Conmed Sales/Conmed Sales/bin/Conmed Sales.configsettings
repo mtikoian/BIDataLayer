@@ -1,0 +1,188 @@
+﻿<ConfigurationSettings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0">
+  <Database>
+    <DataSources>
+      <DataSource>
+        <ID>AS DWH</ID>
+        <ConnectionString>Provider=SQLNCLI11.1;Data Source=BI-PROD;Integrated Security=SSPI;Initial Catalog=AS_DWH</ConnectionString>
+        <ImpersonationInfo>
+          <ImpersonationMode xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">Default</ImpersonationMode>
+          <ImpersonationInfoSecurity xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">Unchanged</ImpersonationInfoSecurity>
+        </ImpersonationInfo>
+      </DataSource>
+    </DataSources>
+    <Dimensions>
+      <Dimension>
+        <ID>Dim BILL TO CUSTOMER LOCATION V</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Dim Commission Status</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Dim Direct Trace</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Dim Distributor</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Dim EXCLUSION REASON</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Dim GL ACCOUNT PRODUCT V</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Dim GL ACCOUNT</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Dim GL Company Hierarchy</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Dim HOLD STATUS</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Dim ORDER TYPE</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Dim ORDER</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Dim PRICELIST</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Dim CUSTOMER LOCATION</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Fact SALES ORDER</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Operating Unit</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Order Source System</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Product 2</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SALES GEOGRAPHY</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Time Master</ID>
+      </Dimension>
+    </Dimensions>
+    <Cubes>
+      <Cube>
+        <ID>SalesOrders</ID>
+        <MeasureGroups>
+          <MeasureGroup>
+            <ID>Fact SALES ORDER</ID>
+            <Partitions>
+              <Partition>
+                <ID>Fact SALES ORDER</ID>
+              </Partition>
+            </Partitions>
+          </MeasureGroup>
+          <MeasureGroup>
+            <ID>Fact SALES OPEN ORDER</ID>
+            <Partitions>
+              <Partition>
+                <ID>Fact SALES OPEN ORDER</ID>
+              </Partition>
+            </Partitions>
+          </MeasureGroup>
+          <MeasureGroup>
+            <ID>Fact Trace Est</ID>
+            <Partitions>
+              <Partition>
+                <ID>Fact Trace Est</ID>
+              </Partition>
+            </Partitions>
+          </MeasureGroup>
+          <MeasureGroup>
+            <ID>FACT TERRITORY QUOTA</ID>
+            <Partitions>
+              <Partition>
+                <ID>FACT TERRITORY QUOTA</ID>
+              </Partition>
+            </Partitions>
+          </MeasureGroup>
+          <MeasureGroup>
+            <ID>FACT DISTRICT QUOTA</ID>
+            <Partitions>
+              <Partition>
+                <ID>FACT DISTRICT QUOTA</ID>
+              </Partition>
+            </Partitions>
+          </MeasureGroup>
+          <MeasureGroup>
+            <ID>FACT REGION QUOTA</ID>
+            <Partitions>
+              <Partition>
+                <ID>FACT REGION QUOTA</ID>
+              </Partition>
+            </Partitions>
+          </MeasureGroup>
+          <MeasureGroup>
+            <ID>Fact Net Open Orders</ID>
+            <Partitions>
+              <Partition>
+                <ID>Fact Net Open Orders</ID>
+              </Partition>
+            </Partitions>
+          </MeasureGroup>
+          <MeasureGroup>
+            <ID>FACT AREA QUOTA</ID>
+            <Partitions>
+              <Partition>
+                <ID>FACT AREA QUOTA</ID>
+              </Partition>
+            </Partitions>
+          </MeasureGroup>
+          <MeasureGroup>
+            <ID>Fact Business Day</ID>
+            <Partitions>
+              <Partition>
+                <ID>Fact Business Day</ID>
+              </Partition>
+            </Partitions>
+          </MeasureGroup>
+          <MeasureGroup>
+            <ID>Fact Area Quota POC V</ID>
+            <Partitions>
+              <Partition>
+                <ID>Fact Area Quota POC V</ID>
+              </Partition>
+            </Partitions>
+          </MeasureGroup>
+          <MeasureGroup>
+            <ID>Fact District Quota POC V</ID>
+            <Partitions>
+              <Partition>
+                <ID>Fact District Quota POC V</ID>
+              </Partition>
+            </Partitions>
+          </MeasureGroup>
+          <MeasureGroup>
+            <ID>Fact Region Quota POC V</ID>
+            <Partitions>
+              <Partition>
+                <ID>Fact Region Quota POC V</ID>
+              </Partition>
+            </Partitions>
+          </MeasureGroup>
+          <MeasureGroup>
+            <ID>Fact Territory Quota POC V</ID>
+            <Partitions>
+              <Partition>
+                <ID>Fact Territory Quota POC V</ID>
+              </Partition>
+            </Partitions>
+          </MeasureGroup>
+        </MeasureGroups>
+      </Cube>
+    </Cubes>
+    <DataSourceImpersonationInfo>
+      <ImpersonationMode xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">Default</ImpersonationMode>
+      <ImpersonationInfoSecurity xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">Unchanged</ImpersonationInfoSecurity>
+    </DataSourceImpersonationInfo>
+  </Database>
+</ConfigurationSettings>

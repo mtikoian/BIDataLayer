@@ -1,0 +1,2440 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/14/2009 3:24:01 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LARGOBI1"
+  DTS:CreatorName="LVTBI\developer"
+  DTS:DTSID="{7013D5E6-735B-4C6D-81EC-4C392F5EE4AB}"
+  DTS:EnableConfig="True"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.2430.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="wip_complete_jobs_model"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="228"
+  DTS:VersionGUID="{4319D97C-C6E2-416C-8CFC-4AA987A8845C}"
+  DTS:VersionMinor="1">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[MAIN]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{FC1D4746-7C80-4FA5-856A-BA2A67CDDBD3}"
+      DTS:ObjectName="MAIN">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=BI-PROD;Initial Catalog=DW_MAIN;Provider=SQLNCLI11.1;Integrated Security=SSPI;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[STAGE]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{AD23434F-D502-4196-A6C2-3E5757F80CA4}"
+      DTS:ObjectName="STAGE">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=BI-PROD;Initial Catalog=DW_STAGE;Provider=SQLNCLI11.1;Integrated Security=SSPI;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8673B183-E03F-4F97-8EF1-3E8CFF0EC2D9}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="BIVersion">
+      <DTS:VariableValue
+        DTS:DataType="8">2.0.1</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C8C9C516-49E1-4DAE-8862-0B9DDAAEDA89}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="dtLastModifiedDateTime">
+      <DTS:VariableValue
+        DTS:DataType="7">1/15/2009 10:21:00 AM</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0FF2C54F-223B-4576-A186-A86BA25DA6EC}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intNoOfRowsInserted">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F7C61EE1-AAF1-412C-9D9D-DA0C2C552023}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intNoOfRowsRead">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7D09E53C-6465-4B55-9657-840CAB85B91F}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intNoOfRowsUpdated">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{156B6B37-4EC8-4F32-8696-1026B8862CD1}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="iPackageLoadID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1C7B68DE-533F-4AEF-8840-1D12F2A3086F}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="iTaskLoadID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8D6251A5-6ACC-402C-AB88-6063EFF5F4BC}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="sSourceSQL">
+      <DTS:VariableValue
+        DTS:DataType="8">select * from WIP_COMPLETED_JOBS</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{26D2EF55-72B7-47A4-A661-A64AFC848F0F}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="sSourceTable">
+      <DTS:VariableValue
+        DTS:DataType="8">WIP_COMPLETED_JOBS</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F4BAB6D9-A326-46B5-BEC1-8B9BB2A41D85}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;exec usp_&quot;+ @[User::sSourceTable]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="sStoredProcedure">
+      <DTS:VariableValue
+        DTS:DataType="8">exec usp_WIP_COMPLETED_JOBS</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{470F9B64-6033-452E-86C2-4092F4F7A50D}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;SELECT     last_modified_date&#xA;FROM         INCREMENTAL_EXTRACTION&#xA;WHERE     (source_table = '&quot; +  @[sSourceTable] +&quot;')&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="sTargetLastUpdateDateSQL">
+      <DTS:VariableValue
+        DTS:DataType="8">SELECT     last_modified_date
+FROM         INCREMENTAL_EXTRACTION
+WHERE     (source_table = 'WIP_COMPLETED_JOBS')</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1CEB6D00-2DB4-4CED-9B64-672E32FBC913}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::sSourceTable]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="sTargetStageSQL">
+      <DTS:VariableValue
+        DTS:DataType="8">WIP_COMPLETED_JOBS</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C88632B5-C3F0-4188-8A5D-826678BF9B32}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;truncate table &quot; +  @[User::sSourceTable]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="sTargetStageTruncateSQL">
+      <DTS:VariableValue
+        DTS:DataType="8">truncate table WIP_COMPLETED_JOBS</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{00902D3D-D113-400C-A7A5-6E391628D6EC}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="(DT_WSTR,3)  @[System::VersionMajor] + &quot; .&quot;+ (DT_WSTR, 3) @[System::VersionMinor]+&quot; .&quot;+ (DT_WSTR, 3)  @[System::VersionBuild]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="sVersion">
+      <DTS:VariableValue
+        DTS:DataType="8">1 .1 .228</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Delete wip_entity_ids updated within 10 days"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{36604C31-6580-4062-9C8E-BF0CE2A52C6E}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Delete wip_entity_ids updated within 10 days"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{FC1D4746-7C80-4FA5-856A-BA2A67CDDBD3}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="DELETE FROM dbo.wip_completed_jobs&#xA;WHERE     (wip_entity_id IN&#xA;                          (SELECT DISTINCT WIP_ENTITY_ID&#xA;                            FROM          DW_STAGE.dbo.STAGE_WIP_COMPLETED_JOBS))" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Insert wip_entity_ids that are either  new or updated within 10 days from Stage table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{9929568E-49BD-47A8-9393-FB6E33D3AD75}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Insert wip_entity_ids that are either  new or updated within 10 days from Stage table"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{FC1D4746-7C80-4FA5-856A-BA2A67CDDBD3}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="insert into dbo.wip_completed_jobs                         &#xA;select *&#xA;  from dw_stage..stage_wip_completed_jobs&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Source (DW_MAIN) To Stage"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DelayValidation="True"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{59135D91-4AB8-4D00-B005-17672B64B47D}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Source (DW_MAIN) To Stage"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          BLOBTempStoragePath=""
+          bufferTempStoragePath=""
+          version="1">
+          <components>
+            <component
+              refId="Package\Source (DW_MAIN) To Stage\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Source (DW_MAIN) To Stage\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\Data Conversion.Inputs[Data Conversion Input].Columns[wip_entity_id]"
+                      cachedDataType="r8"
+                      cachedName="wip_entity_id"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[wip_entity_id]" />
+                    <inputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\Data Conversion.Inputs[Data Conversion Input].Columns[transaction_type_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="80"
+                      cachedName="transaction_type_name"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[transaction_type_name]" />
+                    <inputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\Data Conversion.Inputs[Data Conversion Input].Columns[subinventory_code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="subinventory_code"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[subinventory_code]" />
+                    <inputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\Data Conversion.Inputs[Data Conversion Input].Columns[loc_seg1]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="loc_seg1"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[loc_seg1]" />
+                    <inputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\Data Conversion.Inputs[Data Conversion Input].Columns[loc_seg2]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="loc_seg2"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[loc_seg2]" />
+                    <inputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\Data Conversion.Inputs[Data Conversion Input].Columns[loc_seg3]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="loc_seg3"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[loc_seg3]" />
+                    <inputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\Data Conversion.Inputs[Data Conversion Input].Columns[loc_seg4]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="loc_seg4"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[loc_seg4]" />
+                    <inputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\Data Conversion.Inputs[Data Conversion Input].Columns[loc_seg5]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="loc_seg5"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[loc_seg5]" />
+                    <inputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\Data Conversion.Inputs[Data Conversion Input].Columns[loc_seg6]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="loc_seg6"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[loc_seg6]" />
+                    <inputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\Data Conversion.Inputs[Data Conversion Input].Columns[organization_id]"
+                      cachedDataType="r8"
+                      cachedName="organization_id"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[organization_id]" />
+                    <inputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\Data Conversion.Inputs[Data Conversion Input].Columns[organization_code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="organization_code"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[organization_code]" />
+                    <inputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\Data Conversion.Inputs[Data Conversion Input].Columns[org_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="240"
+                      cachedName="org_name"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[org_name]" />
+                    <inputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\Data Conversion.Inputs[Data Conversion Input].Columns[jobno]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="240"
+                      cachedName="jobno"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[jobno]" />
+                    <inputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\Data Conversion.Inputs[Data Conversion Input].Columns[status_type_disp]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="status_type_disp"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[status_type_disp]" />
+                    <inputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\Data Conversion.Inputs[Data Conversion Input].Columns[assembly]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="assembly"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[assembly]" />
+                    <inputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\Data Conversion.Inputs[Data Conversion Input].Columns[assypln]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="assypln"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[assypln]" />
+                    <inputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\Data Conversion.Inputs[Data Conversion Input].Columns[inventory_item_id]"
+                      cachedDataType="r8"
+                      cachedName="inventory_item_id"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[inventory_item_id]" />
+                    <inputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\Data Conversion.Inputs[Data Conversion Input].Columns[component]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="component"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[component]" />
+                    <inputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\Data Conversion.Inputs[Data Conversion Input].Columns[cmppln]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="cmppln"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[cmppln]" />
+                    <inputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\Data Conversion.Inputs[Data Conversion Input].Columns[supply_type]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="supply_type"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[supply_type]" />
+                    <inputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\Data Conversion.Inputs[Data Conversion Input].Columns[startqty]"
+                      cachedDataType="r8"
+                      cachedName="startqty"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[startqty]" />
+                    <inputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\Data Conversion.Inputs[Data Conversion Input].Columns[reqqty]"
+                      cachedDataType="r8"
+                      cachedName="reqqty"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[reqqty]" />
+                    <inputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\Data Conversion.Inputs[Data Conversion Input].Columns[qtyiss]"
+                      cachedDataType="r8"
+                      cachedName="qtyiss"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[qtyiss]" />
+                    <inputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\Data Conversion.Inputs[Data Conversion Input].Columns[qtyopen]"
+                      cachedDataType="r8"
+                      cachedName="qtyopen"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[qtyopen]" />
+                    <inputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\Data Conversion.Inputs[Data Conversion Input].Columns[compdate]"
+                      cachedDataType="dbTimeStamp2"
+                      cachedName="compdate"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[compdate]" />
+                    <inputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\Data Conversion.Inputs[Data Conversion Input].Columns[class_code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="class_code"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[class_code]" />
+                    <inputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\Data Conversion.Inputs[Data Conversion Input].Columns[item_cost]"
+                      cachedDataType="r8"
+                      cachedName="item_cost"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[item_cost]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Source (DW_MAIN) To Stage\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Source (DW_MAIN) To Stage\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of assembly]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="40"
+                      lineageId="Package\Source (DW_MAIN) To Stage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of assembly]"
+                      name="Copy of assembly"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[assembly]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of assypln]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\Source (DW_MAIN) To Stage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of assypln]"
+                      name="Copy of assypln"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[assypln]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of class_code]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\Source (DW_MAIN) To Stage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of class_code]"
+                      name="Copy of class_code"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[class_code]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of cmppln]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\Source (DW_MAIN) To Stage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of cmppln]"
+                      name="Copy of cmppln"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[cmppln]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of compdate]"
+                      dataType="dbTimeStamp2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Source (DW_MAIN) To Stage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of compdate]"
+                      name="Copy of compdate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[compdate]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of component]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="40"
+                      lineageId="Package\Source (DW_MAIN) To Stage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of component]"
+                      name="Copy of component"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[component]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of inventory_item_id]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Source (DW_MAIN) To Stage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of inventory_item_id]"
+                      name="Copy of inventory_item_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[inventory_item_id]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of item_cost]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Source (DW_MAIN) To Stage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of item_cost]"
+                      name="Copy of item_cost"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[item_cost]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of jobno]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="240"
+                      lineageId="Package\Source (DW_MAIN) To Stage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of jobno]"
+                      name="Copy of jobno"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[jobno]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of loc_seg1]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="40"
+                      lineageId="Package\Source (DW_MAIN) To Stage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of loc_seg1]"
+                      name="Copy of loc_seg1"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[loc_seg1]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of loc_seg2]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="40"
+                      lineageId="Package\Source (DW_MAIN) To Stage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of loc_seg2]"
+                      name="Copy of loc_seg2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[loc_seg2]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of loc_seg3]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="40"
+                      lineageId="Package\Source (DW_MAIN) To Stage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of loc_seg3]"
+                      name="Copy of loc_seg3"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[loc_seg3]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of loc_seg4]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="40"
+                      lineageId="Package\Source (DW_MAIN) To Stage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of loc_seg4]"
+                      name="Copy of loc_seg4"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[loc_seg4]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of loc_seg5]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="40"
+                      lineageId="Package\Source (DW_MAIN) To Stage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of loc_seg5]"
+                      name="Copy of loc_seg5"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[loc_seg5]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of loc_seg6]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="40"
+                      lineageId="Package\Source (DW_MAIN) To Stage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of loc_seg6]"
+                      name="Copy of loc_seg6"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[loc_seg6]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of org_name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="240"
+                      lineageId="Package\Source (DW_MAIN) To Stage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of org_name]"
+                      name="Copy of org_name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[org_name]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of organization_code]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="3"
+                      lineageId="Package\Source (DW_MAIN) To Stage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of organization_code]"
+                      name="Copy of organization_code"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[organization_code]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of organization_id]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Source (DW_MAIN) To Stage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of organization_id]"
+                      name="Copy of organization_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[organization_id]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of qtyiss]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Source (DW_MAIN) To Stage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of qtyiss]"
+                      name="Copy of qtyiss"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[qtyiss]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of qtyopen]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Source (DW_MAIN) To Stage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of qtyopen]"
+                      name="Copy of qtyopen"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[qtyopen]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of reqqty]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Source (DW_MAIN) To Stage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of reqqty]"
+                      name="Copy of reqqty"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[reqqty]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of startqty]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Source (DW_MAIN) To Stage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of startqty]"
+                      name="Copy of startqty"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[startqty]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of status_type_disp]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="80"
+                      lineageId="Package\Source (DW_MAIN) To Stage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of status_type_disp]"
+                      name="Copy of status_type_disp"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[status_type_disp]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of subinventory_code]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\Source (DW_MAIN) To Stage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of subinventory_code]"
+                      name="Copy of subinventory_code"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[subinventory_code]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of supply_type]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="80"
+                      lineageId="Package\Source (DW_MAIN) To Stage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of supply_type]"
+                      name="Copy of supply_type"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[supply_type]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of transaction_type_name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="80"
+                      lineageId="Package\Source (DW_MAIN) To Stage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of transaction_type_name]"
+                      name="Copy of transaction_type_name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[transaction_type_name]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of wip_entity_id]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Source (DW_MAIN) To Stage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of wip_entity_id]"
+                      name="Copy of wip_entity_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[wip_entity_id]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Source (DW_MAIN) To Stage\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Source (DW_MAIN) To Stage\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Source (DW_MAIN) To Stage\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Source (DW_MAIN) To Stage\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Source (DW_MAIN) To Stage\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[STAGE_WIP_COMPLETED_JOBS]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[STAGE]"
+                  connectionManagerRefId="Package.ConnectionManagers[STAGE]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[wip_entity_id]"
+                      cachedDataType="r8"
+                      cachedName="wip_entity_id"
+                      externalMetadataColumnId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[WIP_ENTITY_ID]"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[wip_entity_id]" />
+                    <inputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[organization_id]"
+                      cachedDataType="r8"
+                      cachedName="organization_id"
+                      externalMetadataColumnId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ORGANIZATION_ID]"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[organization_id]" />
+                    <inputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[status_type_disp]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="status_type_disp"
+                      externalMetadataColumnId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[STATUS_TYPE_DISP]"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[status_type_disp]" />
+                    <inputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[inventory_item_id]"
+                      cachedDataType="r8"
+                      cachedName="inventory_item_id"
+                      externalMetadataColumnId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[INVENTORY_ITEM_ID]"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[inventory_item_id]" />
+                    <inputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[supply_type]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="supply_type"
+                      externalMetadataColumnId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SUPPLY_TYPE]"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[supply_type]" />
+                    <inputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[startqty]"
+                      cachedDataType="r8"
+                      cachedName="startqty"
+                      externalMetadataColumnId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[STARTQTY]"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[startqty]" />
+                    <inputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[reqqty]"
+                      cachedDataType="r8"
+                      cachedName="reqqty"
+                      externalMetadataColumnId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[REQQTY]"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[reqqty]" />
+                    <inputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[qtyiss]"
+                      cachedDataType="r8"
+                      cachedName="qtyiss"
+                      externalMetadataColumnId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[QTYISS]"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[qtyiss]" />
+                    <inputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[qtyopen]"
+                      cachedDataType="r8"
+                      cachedName="qtyopen"
+                      externalMetadataColumnId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[QTYOPEN]"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[qtyopen]" />
+                    <inputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[compdate]"
+                      cachedDataType="dbTimeStamp2"
+                      cachedName="compdate"
+                      externalMetadataColumnId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[COMPDATE]"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[compdate]" />
+                    <inputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[item_cost]"
+                      cachedDataType="r8"
+                      cachedName="item_cost"
+                      externalMetadataColumnId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ITEM_COST]"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[item_cost]" />
+                    <inputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of assembly]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="Copy of assembly"
+                      externalMetadataColumnId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ASSEMBLY]"
+                      lineageId="Package\Source (DW_MAIN) To Stage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of assembly]" />
+                    <inputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of assypln]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="Copy of assypln"
+                      externalMetadataColumnId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ASSYPLN]"
+                      lineageId="Package\Source (DW_MAIN) To Stage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of assypln]" />
+                    <inputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of class_code]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="Copy of class_code"
+                      externalMetadataColumnId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CLASS_CODE]"
+                      lineageId="Package\Source (DW_MAIN) To Stage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of class_code]" />
+                    <inputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of cmppln]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="Copy of cmppln"
+                      externalMetadataColumnId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CMPPLN]"
+                      lineageId="Package\Source (DW_MAIN) To Stage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of cmppln]" />
+                    <inputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of component]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="Copy of component"
+                      externalMetadataColumnId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[COMPONENT]"
+                      lineageId="Package\Source (DW_MAIN) To Stage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of component]" />
+                    <inputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of jobno]"
+                      cachedDataType="wstr"
+                      cachedLength="240"
+                      cachedName="Copy of jobno"
+                      externalMetadataColumnId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[JOBNO]"
+                      lineageId="Package\Source (DW_MAIN) To Stage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of jobno]" />
+                    <inputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of loc_seg1]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="Copy of loc_seg1"
+                      externalMetadataColumnId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LOC_SEG1]"
+                      lineageId="Package\Source (DW_MAIN) To Stage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of loc_seg1]" />
+                    <inputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of loc_seg2]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="Copy of loc_seg2"
+                      externalMetadataColumnId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LOC_SEG2]"
+                      lineageId="Package\Source (DW_MAIN) To Stage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of loc_seg2]" />
+                    <inputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of loc_seg3]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="Copy of loc_seg3"
+                      externalMetadataColumnId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LOC_SEG3]"
+                      lineageId="Package\Source (DW_MAIN) To Stage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of loc_seg3]" />
+                    <inputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of loc_seg4]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="Copy of loc_seg4"
+                      externalMetadataColumnId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LOC_SEG4]"
+                      lineageId="Package\Source (DW_MAIN) To Stage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of loc_seg4]" />
+                    <inputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of loc_seg5]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="Copy of loc_seg5"
+                      externalMetadataColumnId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LOC_SEG5]"
+                      lineageId="Package\Source (DW_MAIN) To Stage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of loc_seg5]" />
+                    <inputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of loc_seg6]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="Copy of loc_seg6"
+                      externalMetadataColumnId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LOC_SEG6]"
+                      lineageId="Package\Source (DW_MAIN) To Stage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of loc_seg6]" />
+                    <inputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of org_name]"
+                      cachedDataType="wstr"
+                      cachedLength="240"
+                      cachedName="Copy of org_name"
+                      externalMetadataColumnId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ORG_NAME]"
+                      lineageId="Package\Source (DW_MAIN) To Stage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of org_name]" />
+                    <inputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of organization_code]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="Copy of organization_code"
+                      externalMetadataColumnId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ORGANIZATION_CODE]"
+                      lineageId="Package\Source (DW_MAIN) To Stage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of organization_code]" />
+                    <inputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of subinventory_code]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="Copy of subinventory_code"
+                      externalMetadataColumnId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SUBINVENTORY_CODE]"
+                      lineageId="Package\Source (DW_MAIN) To Stage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of subinventory_code]" />
+                    <inputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of transaction_type_name]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="Copy of transaction_type_name"
+                      externalMetadataColumnId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TRANSACTION_TYPE_NAME]"
+                      lineageId="Package\Source (DW_MAIN) To Stage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of transaction_type_name]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[WIP_ENTITY_ID]"
+                      dataType="r8"
+                      name="WIP_ENTITY_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ASSEMBLY]"
+                      dataType="wstr"
+                      length="40"
+                      name="ASSEMBLY" />
+                    <externalMetadataColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ASSYPLN]"
+                      dataType="wstr"
+                      length="10"
+                      name="ASSYPLN" />
+                    <externalMetadataColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CLASS_CODE]"
+                      dataType="wstr"
+                      length="10"
+                      name="CLASS_CODE" />
+                    <externalMetadataColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CMPPLN]"
+                      dataType="wstr"
+                      length="10"
+                      name="CMPPLN" />
+                    <externalMetadataColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[COMPDATE]"
+                      dataType="dbTimeStamp2"
+                      name="COMPDATE"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[COMPONENT]"
+                      dataType="wstr"
+                      length="40"
+                      name="COMPONENT" />
+                    <externalMetadataColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[INVENTORY_ITEM_ID]"
+                      dataType="wstr"
+                      length="38"
+                      name="INVENTORY_ITEM_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ITEM_COST]"
+                      dataType="wstr"
+                      length="38"
+                      name="ITEM_COST" />
+                    <externalMetadataColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[JOBNO]"
+                      dataType="wstr"
+                      length="240"
+                      name="JOBNO" />
+                    <externalMetadataColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LOC_SEG1]"
+                      dataType="wstr"
+                      length="40"
+                      name="LOC_SEG1" />
+                    <externalMetadataColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LOC_SEG2]"
+                      dataType="wstr"
+                      length="40"
+                      name="LOC_SEG2" />
+                    <externalMetadataColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LOC_SEG3]"
+                      dataType="wstr"
+                      length="40"
+                      name="LOC_SEG3" />
+                    <externalMetadataColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LOC_SEG4]"
+                      dataType="wstr"
+                      length="40"
+                      name="LOC_SEG4" />
+                    <externalMetadataColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LOC_SEG5]"
+                      dataType="wstr"
+                      length="40"
+                      name="LOC_SEG5" />
+                    <externalMetadataColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LOC_SEG6]"
+                      dataType="wstr"
+                      length="40"
+                      name="LOC_SEG6" />
+                    <externalMetadataColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ORG_NAME]"
+                      dataType="wstr"
+                      length="240"
+                      name="ORG_NAME" />
+                    <externalMetadataColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ORGANIZATION_CODE]"
+                      dataType="wstr"
+                      length="3"
+                      name="ORGANIZATION_CODE" />
+                    <externalMetadataColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ORGANIZATION_ID]"
+                      dataType="wstr"
+                      length="38"
+                      name="ORGANIZATION_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[QTYISS]"
+                      dataType="wstr"
+                      length="40"
+                      name="QTYISS" />
+                    <externalMetadataColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[QTYOPEN]"
+                      dataType="wstr"
+                      length="40"
+                      name="QTYOPEN" />
+                    <externalMetadataColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[REQQTY]"
+                      dataType="r8"
+                      name="REQQTY" />
+                    <externalMetadataColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[STARTQTY]"
+                      dataType="r8"
+                      name="STARTQTY" />
+                    <externalMetadataColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[STATUS_TYPE_DISP]"
+                      dataType="wstr"
+                      length="80"
+                      name="STATUS_TYPE_DISP" />
+                    <externalMetadataColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SUBINVENTORY_CODE]"
+                      dataType="wstr"
+                      length="10"
+                      name="SUBINVENTORY_CODE" />
+                    <externalMetadataColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SUPPLY_TYPE]"
+                      dataType="wstr"
+                      length="80"
+                      name="SUPPLY_TYPE" />
+                    <externalMetadataColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TRANSACTION_TYPE_NAME]"
+                      dataType="wstr"
+                      length="80"
+                      name="TRANSACTION_TYPE_NAME" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Source (DW_MAIN) To Stage\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT we.wip_entity_id,
+       b.segment1 assembly,
+       b.planner_code assypln,
+       f.class_code,
+       b1.planner_code cmppln,
+       f.date_completed compdate,
+       b1.segment1 component,
+       b1.inventory_item_id,
+       cst.item_cost,
+       we.wip_entity_name jobno,
+       loc.segment1 AS loc_seg1,
+       loc.segment2 AS loc_seg2,
+       loc.segment3 AS loc_seg3,
+       loc.segment4 AS loc_seg4,
+       loc.segment5 AS loc_seg5,
+       loc.segment6 AS loc_seg6,
+       haou.name org_name,
+       mp.organization_code,
+       mp.organization_id,
+       isnull (w.quantity_issued, 0) qtyiss,
+       (isnull (w.required_quantity, 0) - isnull (w.quantity_issued, 0)) qtyopen,
+       isnull(w.required_quantity, 0) reqqty,
+       isnull (f.start_quantity,0) startqty,
+       ml2.meaning status_type_disp,
+       mmt.subinventory_code,
+       ml1.meaning supply_type,
+       mtt.transaction_type_name
+       
+   --   select top 9000 f.*
+FROM wip_discrete_jobs f,
+     wip_requirement_operations w,
+     mtl_system_items_b b,
+     mtl_system_items_b b1,
+     mtl_parameters mp,
+     hr_all_organization_units haou,
+     cst_item_costs cst,
+     mtl_material_transactions mmt,
+     mtl_item_locations loc,
+     wip_entities we,
+     mtl_transaction_types mtt,
+    FND_LOOKUP_VALUES ml1,
+    FND_LOOKUP_VALUES ml2
+WHERE     f.wip_entity_id = w.wip_entity_id
+      and we.wip_entity_id = f.wip_entity_id
+      AND cst.cost_type_id = 1
+  --   and f.WIP_ENTITY_ID = 8148434
+    -- and w.OPERATION_SEQ_NUM = 5
+   --  and we.WIP_ENTITY_NAME = '703446'
+      AND b1.inventory_item_id = cst.inventory_item_id
+      AND b1.organization_id = cst.organization_id
+      AND f.primary_item_id = b.inventory_item_id
+      AND f.organization_id = b.organization_id
+      AND w.inventory_item_id = b1.inventory_item_id
+      AND w.organization_id = b1.organization_id
+      AND b1.organization_id = mp.organization_id
+      AND mp.organization_id = haou.organization_id
+      AND ml1.meaning IN ('Push', 'Assembly Pull')
+      AND w.required_quantity &gt; 0
+--      and (mmt.locator_id is null
+      and  isnull(mmt.locator_id,0) =  loc.inventory_location_id
+      AND mmt.organization_id = loc.organization_id
+----------------------------------------------------------
+      and mmt.inventory_item_id = b1.inventory_item_id
+      and mmt.organization_id = b1.organization_id
+      ------------------------------------------------------      
+      
+      AND mmt.transaction_source_id = we.wip_entity_id
+      AND mmt.transaction_type_id = mtt.transaction_type_id
+      and ml1.LANGUAGE = 'US'
+      AND ml1.VIEW_APPLICATION_ID = 700
+      AND ML1.LOOKUP_CODE = W.WIP_SUPPLY_TYPE
+      AND ML1.LOOKUP_TYPE = 'WIP_SUPPLY'
+      and ml2.LANGUAGE = 'US'
+      AND ml2.VIEW_APPLICATION_ID = 700
+      AND ml2.LOOKUP_CODE = f.STATUS_TYPE
+      AND ml2.LOOKUP_TYPE = 'WIP_JOB_STATUS'
+   --   and year(f.LAST_UPDATE_DATE) = 2015
+   --    and w.last_update_date &gt;=cast(DATEADD(dd,-196,GETDATE()) as date)
+       and datediff(dd, w.LAST_UPDATE_DATE,GETDATE()) &lt;=10
+   OPTION(QUERYTRACEON 9481);</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[MAIN]"
+                  connectionManagerRefId="Package.ConnectionManagers[MAIN]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[wip_entity_id]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[wip_entity_id]"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[wip_entity_id]"
+                      name="wip_entity_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[transaction_type_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[transaction_type_name]"
+                      length="80"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[transaction_type_name]"
+                      name="transaction_type_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[subinventory_code]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[subinventory_code]"
+                      length="10"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[subinventory_code]"
+                      name="subinventory_code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[loc_seg1]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[loc_seg1]"
+                      length="40"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[loc_seg1]"
+                      name="loc_seg1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[loc_seg2]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[loc_seg2]"
+                      length="40"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[loc_seg2]"
+                      name="loc_seg2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[loc_seg3]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[loc_seg3]"
+                      length="40"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[loc_seg3]"
+                      name="loc_seg3"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[loc_seg4]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[loc_seg4]"
+                      length="40"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[loc_seg4]"
+                      name="loc_seg4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[loc_seg5]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[loc_seg5]"
+                      length="40"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[loc_seg5]"
+                      name="loc_seg5"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[loc_seg6]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[loc_seg6]"
+                      length="40"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[loc_seg6]"
+                      name="loc_seg6"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[organization_id]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[organization_id]"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[organization_id]"
+                      name="organization_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[organization_code]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[organization_code]"
+                      length="3"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[organization_code]"
+                      name="organization_code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[org_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[org_name]"
+                      length="240"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[org_name]"
+                      name="org_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[jobno]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[jobno]"
+                      length="240"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[jobno]"
+                      name="jobno"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[status_type_disp]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[status_type_disp]"
+                      length="80"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[status_type_disp]"
+                      name="status_type_disp"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[assembly]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[assembly]"
+                      length="40"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[assembly]"
+                      name="assembly"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[assypln]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[assypln]"
+                      length="10"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[assypln]"
+                      name="assypln"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[inventory_item_id]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[inventory_item_id]"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[inventory_item_id]"
+                      name="inventory_item_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[component]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[component]"
+                      length="40"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[component]"
+                      name="component"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[cmppln]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[cmppln]"
+                      length="10"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[cmppln]"
+                      name="cmppln"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[supply_type]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[supply_type]"
+                      length="80"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[supply_type]"
+                      name="supply_type"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[startqty]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[startqty]"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[startqty]"
+                      name="startqty"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[reqqty]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[reqqty]"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[reqqty]"
+                      name="reqqty"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[qtyiss]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[qtyiss]"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[qtyiss]"
+                      name="qtyiss"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[qtyopen]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[qtyopen]"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[qtyopen]"
+                      name="qtyopen"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[compdate]"
+                      dataType="dbTimeStamp2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[compdate]"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[compdate]"
+                      name="compdate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[class_code]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[class_code]"
+                      length="10"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[class_code]"
+                      name="class_code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[item_cost]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[item_cost]"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[item_cost]"
+                      name="item_cost"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[wip_entity_id]"
+                      dataType="r8"
+                      name="wip_entity_id" />
+                    <externalMetadataColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[transaction_type_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="80"
+                      name="transaction_type_name" />
+                    <externalMetadataColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[subinventory_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="subinventory_code" />
+                    <externalMetadataColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[loc_seg1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="loc_seg1" />
+                    <externalMetadataColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[loc_seg2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="loc_seg2" />
+                    <externalMetadataColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[loc_seg3]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="loc_seg3" />
+                    <externalMetadataColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[loc_seg4]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="loc_seg4" />
+                    <externalMetadataColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[loc_seg5]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="loc_seg5" />
+                    <externalMetadataColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[loc_seg6]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="loc_seg6" />
+                    <externalMetadataColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[organization_id]"
+                      dataType="r8"
+                      name="organization_id" />
+                    <externalMetadataColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[organization_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="organization_code" />
+                    <externalMetadataColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[org_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="240"
+                      name="org_name" />
+                    <externalMetadataColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[jobno]"
+                      codePage="1252"
+                      dataType="str"
+                      length="240"
+                      name="jobno" />
+                    <externalMetadataColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[status_type_disp]"
+                      dataType="wstr"
+                      length="80"
+                      name="status_type_disp" />
+                    <externalMetadataColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[assembly]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="assembly" />
+                    <externalMetadataColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[assypln]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="assypln" />
+                    <externalMetadataColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[inventory_item_id]"
+                      dataType="r8"
+                      name="inventory_item_id" />
+                    <externalMetadataColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[component]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="component" />
+                    <externalMetadataColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[cmppln]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="cmppln" />
+                    <externalMetadataColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[supply_type]"
+                      dataType="wstr"
+                      length="80"
+                      name="supply_type" />
+                    <externalMetadataColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[startqty]"
+                      dataType="r8"
+                      name="startqty" />
+                    <externalMetadataColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[reqqty]"
+                      dataType="r8"
+                      name="reqqty" />
+                    <externalMetadataColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[qtyiss]"
+                      dataType="r8"
+                      name="qtyiss" />
+                    <externalMetadataColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[qtyopen]"
+                      dataType="r8"
+                      name="qtyopen" />
+                    <externalMetadataColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[compdate]"
+                      dataType="dbTimeStamp2"
+                      name="compdate" />
+                    <externalMetadataColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[class_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="class_code" />
+                    <externalMetadataColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[item_cost]"
+                      dataType="r8"
+                      name="item_cost" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[wip_entity_id]"
+                      dataType="r8"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[wip_entity_id]"
+                      name="wip_entity_id" />
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[transaction_type_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="80"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[transaction_type_name]"
+                      name="transaction_type_name" />
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[subinventory_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[subinventory_code]"
+                      name="subinventory_code" />
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[loc_seg1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[loc_seg1]"
+                      name="loc_seg1" />
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[loc_seg2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[loc_seg2]"
+                      name="loc_seg2" />
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[loc_seg3]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[loc_seg3]"
+                      name="loc_seg3" />
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[loc_seg4]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[loc_seg4]"
+                      name="loc_seg4" />
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[loc_seg5]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[loc_seg5]"
+                      name="loc_seg5" />
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[loc_seg6]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[loc_seg6]"
+                      name="loc_seg6" />
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[organization_id]"
+                      dataType="r8"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[organization_id]"
+                      name="organization_id" />
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[organization_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[organization_code]"
+                      name="organization_code" />
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[org_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="240"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[org_name]"
+                      name="org_name" />
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[jobno]"
+                      codePage="1252"
+                      dataType="str"
+                      length="240"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[jobno]"
+                      name="jobno" />
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[status_type_disp]"
+                      dataType="wstr"
+                      length="80"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[status_type_disp]"
+                      name="status_type_disp" />
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[assembly]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[assembly]"
+                      name="assembly" />
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[assypln]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[assypln]"
+                      name="assypln" />
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[inventory_item_id]"
+                      dataType="r8"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[inventory_item_id]"
+                      name="inventory_item_id" />
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[component]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[component]"
+                      name="component" />
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[cmppln]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[cmppln]"
+                      name="cmppln" />
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[supply_type]"
+                      dataType="wstr"
+                      length="80"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[supply_type]"
+                      name="supply_type" />
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[startqty]"
+                      dataType="r8"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[startqty]"
+                      name="startqty" />
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[reqqty]"
+                      dataType="r8"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[reqqty]"
+                      name="reqqty" />
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[qtyiss]"
+                      dataType="r8"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[qtyiss]"
+                      name="qtyiss" />
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[qtyopen]"
+                      dataType="r8"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[qtyopen]"
+                      name="qtyopen" />
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[compdate]"
+                      dataType="dbTimeStamp2"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[compdate]"
+                      name="compdate" />
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[class_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[class_code]"
+                      name="class_code" />
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[item_cost]"
+                      dataType="r8"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[item_cost]"
+                      name="item_cost" />
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Source (DW_MAIN) To Stage.Paths[Data Conversion Output]"
+              endId="Package\Source (DW_MAIN) To Stage\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\Source (DW_MAIN) To Stage\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Source (DW_MAIN) To Stage.Paths[OLE DB Source Output]"
+              endId="Package\Source (DW_MAIN) To Stage\Data Conversion.Inputs[Data Conversion Input]"
+              name="OLE DB Source Output"
+              startId="Package\Source (DW_MAIN) To Stage\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate Stage Table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{43AC1D3C-44B2-49BE-A7B6-F1A9B14215DA}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate Stage Table"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{AD23434F-D502-4196-A6C2-3E5757F80CA4}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="truncate table [dbo].[STAGE_WIP_COMPLETED_JOBS]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{CBE00EDC-31B0-42DB-945C-1CB1E9714EC8}"
+      DTS:From="Package\Truncate Stage Table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Source (DW_MAIN) To Stage" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{0234C584-E75C-422F-9983-93BC13B1C63E}"
+      DTS:From="Package\Source (DW_MAIN) To Stage"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\Delete wip_entity_ids updated within 10 days" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 6]"
+      DTS:CreationName=""
+      DTS:DTSID="{43BE4E91-9115-47D5-BAE4-0FCDF03743D7}"
+      DTS:From="Package\Delete wip_entity_ids updated within 10 days"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 6"
+      DTS:To="Package\Insert wip_entity_ids that are either  new or updated within 10 days from Stage table" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="191,46"
+          Id="Package\Delete wip_entity_ids updated within 10 days"
+          TopLeft="7.7641509433962,217.349056603774" />
+        <NodeLayout
+          Size="219,50"
+          Id="Package\Insert wip_entity_ids that are either  new or updated within 10 days from Stage table"
+          TopLeft="9.7641509433962,330.179245283019" />
+        <NodeLayout
+          Size="195,44"
+          Id="Package\Source (DW_MAIN) To Stage"
+          TopLeft="5.5,118.896226415094" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Truncate Stage Table"
+          TopLeft="32.4433962264151,11.0471698113208" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="100.330188679245,54.9716981132075">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="2.49056603773579,63.9245283018868"
+              Start="0,0"
+              End="2.49056603773579,56.4245283018868">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.9622641509434" />
+                  <mssgle:LineSegment
+                    End="2.49056603773579,31.9622641509434" />
+                  <mssgle:LineSegment
+                    End="2.49056603773579,56.4245283018868" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="102.820754716981,162.820754716981">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0.264150943396203,54.5283018867925"
+              Start="0,0"
+              End="0.264150943396203,47.0283018867925">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.2452830188679" />
+                  <mssgle:LineSegment
+                    End="0.264150943396203,27.2452830188679" />
+                  <mssgle:LineSegment
+                    End="0.264150943396203,47.0283018867925" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 6]"
+          TopLeft="103.084905660377,263.27358490566">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="16,66.9056603773585"
+              Start="0,0"
+              End="16,59.4056603773585">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.433962264151" />
+                  <mssgle:LineSegment
+                    End="16,33.433962264151" />
+                  <mssgle:LineSegment
+                    End="16,59.4056603773585" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Source (DW_MAIN) To Stage">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="152,42"
+          Id="Package\Source (DW_MAIN) To Stage\OLE DB Source"
+          TopLeft="15.9,5.49999999999995" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\Source (DW_MAIN) To Stage\OLE DB Destination"
+          TopLeft="5.50000000000003,208.7" />
+        <NodeLayout
+          Size="157,42"
+          Id="Package\Source (DW_MAIN) To Stage\Data Conversion"
+          TopLeft="13.5,107.1" />
+        <EdgeLayout
+          Id="Package\Source (DW_MAIN) To Stage.Paths[OLE DB Source Output]"
+          TopLeft="91.9,47.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Source (DW_MAIN) To Stage.Paths[Data Conversion Output]"
+          TopLeft="91.9,148.7">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Source (DW_MAIN) To Stage\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Source (DW_MAIN) To Stage\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

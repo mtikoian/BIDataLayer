@@ -1,0 +1,33 @@
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="4013a9f3-e1db-4edb-aa51-f791f7d61ef8" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Spend</ID>
+  <MeasureGroups>
+    <MeasureGroup>
+      <ID>Fact RECEIPTS MERGE</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="e25e31fa-d539-4d2a-83cf-c5dc1dee166d">
+          <ID>Fact RECEIPTS MERGE</ID>
+          <Name>Fact Invoice Detail MERGE</Name>
+          <CreatedTimestamp>2017-07-31T14:44:16.806667Z</CreatedTimestamp>
+          <LastSchemaUpdate>2017-07-31T14:44:16.806667Z</LastSchemaUpdate>
+          <LastProcessed>2018-01-30T13:37:19.296667Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="4c8dac1c-f947-45f8-84b1-8d196a0d205f">
+            <DataSourceViewID>AS DWH</DataSourceViewID>
+            <TableID>dbo_Fact_RECEIPTS_MERGE</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="fcf92aeb-bac5-42ca-af28-c98638b739c7">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="6793fdca-4732-44f8-a211-bd4788c89810" />
+          </ProactiveCaching>
+          <EstimatedSize>146677469</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+  </MeasureGroups>
+</Cube>

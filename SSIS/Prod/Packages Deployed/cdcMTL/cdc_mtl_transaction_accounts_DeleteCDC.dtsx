@@ -1,0 +1,503 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/14/2009 3:24:01 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LARGOBI1"
+  DTS:CreatorName="LVTBI\developer"
+  DTS:DTSID="{FC706310-29F9-43D0-B666-D275ED818B0A}"
+  DTS:EnableConfig="True"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.2430.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="cdc_mtl_transaction_accounts_DeleteCDC"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="376"
+  DTS:VersionGUID="{DB634B23-49E9-4312-81B5-6317BBF7ECA7}"
+  DTS:VersionMinor="1">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[AUDIT]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{36DD5790-C83A-4E42-86EC-C5972E76BE7F}"
+      DTS:ObjectName="AUDIT">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=BI-PROD;Initial Catalog=SSISRunTimeMetrics;Provider=SQLNCLI11.1;Integrated Security=SSPI;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[CDC]"
+      DTS:CreationName="OLEDB"
+      DTS:DelayValidation="True"
+      DTS:DTSID="{31EEF99C-3CE7-4A56-B37F-9454A120D503}"
+      DTS:ObjectName="CDC">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=PROD;User ID=cdcuser;Provider=OraOLEDB.Oracle.1;Persist Security Info=True;">
+          <EncryptedData
+            Type="http://www.w3.org/2001/04/xmlenc#Element"
+            Salt="XnDIT46PYA=="
+            IV="HKStMSNrils=" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            <EncryptionMethod
+              Algorithm="http://www.w3.org/2001/04/xmlenc#tripledes-cbc" />
+            <CipherData>
+              <CipherValue>HKStMSNriluKgZS4HFghjNnWrCX35e4eoO6Hb8tmMte+ajK9yv5Li5yOfeWI/8CTvoofv+VONB+Zw0eL9R4om1VJhStpPrF7fDRPksm8IcigAcOsOIzV/qKI4d+47aJZyS/Hce0PrmEyIJITet6IXlY3Xvz9NQnYKatpvOfacZcPbQxeMX7EDg==</CipherValue>
+            </CipherData>
+          </EncryptedData>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[MAIN]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{2543D263-3990-43A5-8F9B-0C5DA9C5466C}"
+      DTS:ObjectName="MAIN">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=BI-PROD;Initial Catalog=DW_MAIN;Provider=SQLNCLI11.1;Integrated Security=SSPI;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SOURCE]"
+      DTS:CreationName="OLEDB"
+      DTS:DelayValidation="True"
+      DTS:DTSID="{8437563C-EE90-4B83-8A56-E7C58D5D2F3F}"
+      DTS:ObjectName="SOURCE">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=PROD;User ID=appsread;Provider=OraOLEDB.Oracle.1;Persist Security Info=True;">
+          <EncryptedData
+            Type="http://www.w3.org/2001/04/xmlenc#Element"
+            Salt="A67Usm/OxA=="
+            IV="Zhd6jzKe7kM=" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            <EncryptionMethod
+              Algorithm="http://www.w3.org/2001/04/xmlenc#tripledes-cbc" />
+            <CipherData>
+              <CipherValue>Zhd6jzKe7kPbd7nUZRhAUKXrn84XjHOWac13a+O8V3/UkGwGV52S+jSviGivqodQUCAZcppI2SZQm9+uAhT3vhYX03+Dyiig1FVF+Zba3L64qDCQO5+kdV5/aYYz2NMxtEXSZiqtR6HU8HyGTZcuIbbf/uxjLbgRqYjR+qA5j74=</CipherValue>
+            </CipherData>
+          </EncryptedData>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[STAGE]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{2F7A69F5-4CB0-4202-A9A4-34ECB2DAD232}"
+      DTS:ObjectName="STAGE">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=BI-PROD;Initial Catalog=DW_STAGE;Provider=SQLNCLI11.1;Integrated Security=SSPI;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Configurations>
+    <DTS:Configuration
+      DTS:ConfigurationString="sRawFilePath"
+      DTS:ConfigurationVariable="\Package.Variables[User::sRawFilePath].Properties[Value]"
+      DTS:CreationName=""
+      DTS:DTSID="{F0AF0F97-2275-4B83-978B-0F7576B4B0F5}"
+      DTS:ObjectName="sRawFilePath" />
+  </DTS:Configurations>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{835F1704-A5A0-4C5C-ADA9-4F251DE10B70}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="(DT_DBTIMESTAMP) (&quot;1800-01-01&quot;)"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="dtDateMatch">
+      <DTS:VariableValue
+        DTS:DataType="7">1/1/1800</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1908175C-71B7-40AA-B858-2D1AC6F46D8D}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="dtLastModifiedDateTime">
+      <DTS:VariableValue
+        DTS:DataType="7">9/9/2009 12:56:18 PM</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{67FC8831-E525-4144-97A0-B4E0F09AD511}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intCdcRowCount">
+      <DTS:VariableValue
+        DTS:DataType="20">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{5A29BAF2-FB6C-4743-AD30-07B5228A38E7}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intNoOfRowsInserted">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{61B19BEB-1D85-41A2-A198-05AC6EAF4328}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intNoOfRowsRead">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{079A7792-A701-4C70-8563-8109304D1B5D}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intNoOfRowsUpdated">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{12EFB305-C97A-4C24-AE25-A836F2DE7691}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="iPackageLoadID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{37733076-1C9C-49C7-B71F-CB5DAE18E415}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="iTaskLoadID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{77BFBF94-3206-4054-8D55-E14BC82FE34F}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;exec usp_CDC_&quot;+ @[User::sSourceTable]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="sCDCStoredProcedure">
+      <DTS:VariableValue
+        DTS:DataType="8">exec usp_CDC_MTL_TRANSACTION_ACCOUNTS</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{46E9F9ED-3BAB-466A-B878-E033DF67BCD9}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;cdc_&quot; + @[User::sSourceTable]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="sCdcTable">
+      <DTS:VariableValue
+        DTS:DataType="8">cdc_MTL_TRANSACTION_ACCOUNTS</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{832ACEE4-7693-4672-8A9E-E65A1E5F0EDC}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="sDeleteSQL">
+      <DTS:VariableValue
+        DTS:DataType="8">DELETE  from CDC_MTL_TRANSACTION_ACCOUNTS WHERE  to_char(TIMESTAMP$, 'yyyymmdd') &lt; to_char(sysdate, 'yyyymmdd')</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{717D3157-7793-47BE-A84D-3738A144DB0E}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::sRawFilePath]+&quot;\\stage_&quot;+ @[User::sSourceTable]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="sRawFileLocation">
+      <DTS:VariableValue
+        DTS:DataType="8">\\largobi1\raw_prod\stage_MTL_TRANSACTION_ACCOUNTS</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{467F3767-F3BE-4066-8C18-7D346D82A3A1}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="sRawFilePath">
+      <DTS:VariableValue
+        DTS:DataType="8">\\largobi1\raw_prod</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{498BC15B-3AE0-42B3-AB21-FB76A2E38BBB}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="sSourceTable">
+      <DTS:VariableValue
+        DTS:DataType="8">MTL_TRANSACTION_ACCOUNTS</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7A57A158-3B18-47F2-B657-723D536422B4}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;truncate table &quot; +  @[User::sSourceTable]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="sSourceTableTruncateSQL">
+      <DTS:VariableValue
+        DTS:DataType="8">truncate table MTL_TRANSACTION_ACCOUNTS</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{67209DCD-02D7-4D4A-959E-B364D836A55F}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;exec usp_&quot;+ @[User::sSourceTable]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="sStoredProcedure">
+      <DTS:VariableValue
+        DTS:DataType="8">exec usp_MTL_TRANSACTION_ACCOUNTS</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8B000664-3C4E-4FB7-A86E-B84006F54743}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;SELECT    last_modified_date  FROM         INCREMENTAL_EXTRACTION&#xA;WHERE     (source_table = '&quot; +  @[sSourceTable] +&quot;')&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="sTargetLastUpdateDateSQL">
+      <DTS:VariableValue
+        DTS:DataType="8">SELECT    last_modified_date  FROM         INCREMENTAL_EXTRACTION
+WHERE     (source_table = 'MTL_TRANSACTION_ACCOUNTS')</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B3BFE5E7-CB86-4FB4-BF8C-635E20698F9F}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;stage_&quot; +  @[User::sSourceTable]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="sTargetStageSQL">
+      <DTS:VariableValue
+        DTS:DataType="8">stage_MTL_TRANSACTION_ACCOUNTS</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E253B029-51B5-4151-AB52-4AE51CA61666}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;truncate table stage_&quot; +  @[User::sSourceTable]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="sTargetStageTruncateSQL">
+      <DTS:VariableValue
+        DTS:DataType="8">truncate table stage_MTL_TRANSACTION_ACCOUNTS</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D954F7D2-1E9C-4681-9E81-41E6DC87A3C3}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="(DT_WSTR,3)  @[System::VersionMajor] + &quot; .&quot;+ (DT_WSTR, 3) @[System::VersionMinor]+&quot; .&quot;+ (DT_WSTR, 3)  @[System::VersionBuild]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="sVersion">
+      <DTS:VariableValue
+        DTS:DataType="8">1 .1 .376</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Delete CDC Rows Only"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="This package is run in conjustion with a full refresh of the mtl transaction Accounts table through midnight"
+      DTS:DTSID="{C074BFAD-A211-4814-B361-1865D2434380}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Delete CDC Rows Only"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{31EEF99C-3CE7-4A56-B37F-9454A120D503}"
+          SQLTask:SqlStmtSourceType="Variable"
+          SQLTask:SqlStatementSource="User::sDeleteSQL" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{0E40CF09-1DE3-4D07-BDCD-F31FB904710F}"
+      DTS:EventID="0"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{5C56D693-48DC-4B72-8EAF-2D1138539677}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\Log Failed Package Execution"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{49EF3483-981E-4791-93BA-EAE06110AB1E}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Log Failed Package Execution"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{36DD5790-C83A-4E42-86EC-C5972E76BE7F}"
+              SQLTask:SqlStatementSource="declare @Now datetime&#xA;set @Now = GetDate()&#xA;&#xA;Exec ssis.usp_RecordPackageEnd ?,@Now,'Failed'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::iPackageLoadID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\Record Error"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{446EA83A-5DDC-4856-B325-A24182D73F16}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Record Error"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{36DD5790-C83A-4E42-86EC-C5972E76BE7F}"
+              SQLTask:SqlStatementSource="exec ssis.usp_RecordPackageError ?,?,?,?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::iPackageLoadID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="System::SourceName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="System::ErrorCode"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="System::ErrorDescription"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package.EventHandlers[OnError].PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{B88D24F4-5E05-4D79-8C4B-B91EA43B2FB8}"
+          DTS:From="Package.EventHandlers[OnError]\Record Error"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package.EventHandlers[OnError]\Log Failed Package Execution" />
+      </DTS:PrecedenceConstraints>
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Delete CDC Rows Only"
+          TopLeft="173.235849056604,44.254716981132" />
+        <AnnotationLayout
+          Text="This package clears out the CDC table for MTL_Transaction_Accounts. It is run in conjustion with a full refrsh through midnight the prior day."
+          ParentId="Package"
+          Size="687,53"
+          Id="a9ccac1e-575b-4310-a5fb-90d2ffcc38ea"
+          TopLeft="5.5,5.5">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Family="Tahoma"
+              Size="11.25"
+              Color="#FF080000">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="313.509433962265,43.9245283018868"
+          Id="Package.EventHandlers[OnError]\Log Failed Package Execution"
+          TopLeft="5.5,87.1603773584906" />
+        <NodeLayout
+          Size="135.773584905661,43.9245283018868"
+          Id="Package.EventHandlers[OnError]\Record Error"
+          TopLeft="94.3679245283019,5.5" />
+        <EdgeLayout
+          Id="Package.EventHandlers[OnError].PrecedenceConstraints[Constraint]"
+          TopLeft="162.254716981132,49.4245283018868">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,37.7358490566038"
+              Start="0,0"
+              End="0,30.2358490566038">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.2358490566038" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

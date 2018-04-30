@@ -1,0 +1,3144 @@
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="b9e2838e-03a5-499a-89dc-8a7e82e297ae" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>MRP Projections</ID>
+  <MeasureGroups>
+    <MeasureGroup>
+      <ID>Fact MRP PROJECTIONS</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="d8374832-16e9-4caf-a583-5e4818a097c3">
+          <ID>Fact MRP PROJECTIONS</ID>
+          <Name>Fact MRP PROJECTIONS</Name>
+          <CreatedTimestamp>2017-09-25T20:56:02.053333Z</CreatedTimestamp>
+          <LastSchemaUpdate>2017-09-25T20:56:02.053333Z</LastSchemaUpdate>
+          <LastProcessed>2018-04-28T15:12:21.943333Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="294b7f41-dea1-408e-98f1-2380d380e61d">
+            <DataSourceViewID>AS DWH</DataSourceViewID>
+            <TableID>dbo_Fact_MRP_PROJECTIONS</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="67081f19-c2ab-4fec-9ecc-32e110026579">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="1559340f-21c9-4a4c-a018-4a2258a1ec29" />
+          </ProactiveCaching>
+          <EstimatedSize>189116942</EstimatedSize>
+          <EstimatedRows>106506</EstimatedRows>
+          <AggregationDesignID>AggregationDesign</AggregationDesignID>
+        </Partition>
+      </Partitions>
+      <AggregationDesigns>
+        <AggregationDesign>
+          <ID>AggregationDesign</ID>
+          <Name>AggregationDesign</Name>
+          <CreatedTimestamp>2017-09-25T20:56:02.023333Z</CreatedTimestamp>
+          <LastSchemaUpdate>2017-09-25T20:56:02.023333Z</LastSchemaUpdate>
+          <EstimatedRows>106506</EstimatedRows>
+          <Dimensions>
+            <Dimension>
+              <CubeDimensionID>Dim Inventory Organization</CubeDimensionID>
+              <Attributes>
+                <Attribute>
+                  <AttributeID>Dim INVENTORY ORGANIZATION KEY</AttributeID>
+                  <EstimatedCount>57</EstimatedCount>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>NAME</AttributeID>
+                  <EstimatedCount>56</EstimatedCount>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>ORGANIZATION CODE</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>DISTRIBUTION CENTER FLAG</AttributeID>
+                  <EstimatedCount>3</EstimatedCount>
+                </Attribute>
+              </Attributes>
+            </Dimension>
+            <Dimension>
+              <CubeDimensionID>Dim MRP Date</CubeDimensionID>
+              <Attributes>
+                <Attribute>
+                  <AttributeID>Dim MRP DATE KEY</AttributeID>
+                  <EstimatedCount>636</EstimatedCount>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>DATE YEAR</AttributeID>
+                  <EstimatedCount>12</EstimatedCount>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>DATE WEEK</AttributeID>
+                  <EstimatedCount>636</EstimatedCount>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>WEEK START DATE</AttributeID>
+                  <EstimatedCount>636</EstimatedCount>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>WEEK END DATE</AttributeID>
+                  <EstimatedCount>636</EstimatedCount>
+                </Attribute>
+              </Attributes>
+            </Dimension>
+            <Dimension>
+              <CubeDimensionID>Time Master</CubeDimensionID>
+              <Attributes>
+                <Attribute>
+                  <AttributeID>Day ID</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Date String</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Year Name</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Month Short Name With Year</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Quarter Short Name With Year</AttributeID>
+                </Attribute>
+              </Attributes>
+            </Dimension>
+            <Dimension>
+              <CubeDimensionID>Dim ORDER TYPE</CubeDimensionID>
+              <Attributes>
+                <Attribute>
+                  <AttributeID>Dim ORDER TYPE KEY</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>CUSTOMER TRANSACTION NAME</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>TRANSACTION TYPE NAME</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>TRANSACTION TYPE DESCRIPTION</AttributeID>
+                </Attribute>
+              </Attributes>
+            </Dimension>
+            <Dimension>
+              <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+              <Attributes>
+                <Attribute>
+                  <AttributeID>Dim Oracle Commodity Code Key</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Comm Code</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Comm Description</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Comm Group</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Man Man Code</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Corporate CA</AttributeID>
+                </Attribute>
+              </Attributes>
+            </Dimension>
+            <Dimension>
+              <CubeDimensionID>Dim PRODUCT_Attributes</CubeDimensionID>
+              <Attributes>
+                <Attribute>
+                  <AttributeID>Dim PRODUCT KEY</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>PLANNING ABC CLASS NAME</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>PLANNING MAKE BUY CODE</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>ITEM TYPE</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>PLANNER CODE</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>VENDOR NAME</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Full Name</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>INVENTORY ITEM STATUS CODE</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>FULL NAME 1</AttributeID>
+                </Attribute>
+              </Attributes>
+            </Dimension>
+            <Dimension>
+              <CubeDimensionID>Dim PRODUCT_Vendor</CubeDimensionID>
+              <Attributes>
+                <Attribute>
+                  <AttributeID>Dim PRODUCT KEY</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Dim VENDOR KEY</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>VENDOR NUM</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>VENDOR NAME</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>SMALL BUSINESS FLAG</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>WOMEN OWNED FLAG</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>MINORITY LOOKUP CODE</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>MINORITY GROUP</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>SUPPLIER TYPE</AttributeID>
+                </Attribute>
+              </Attributes>
+            </Dimension>
+            <Dimension>
+              <CubeDimensionID>Product</CubeDimensionID>
+              <Attributes>
+                <Attribute>
+                  <AttributeID>Dim PRODUCT KEY</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>DIVISION</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>MAJOR DESCRIPTION</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>MINOR DESCRIPTION</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>LINE DESCRIPTION</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>GROUP DESCRIPTION</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>RRP SOURCE</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>RRP PRODUCT TYPE</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>RRP PRODUCT DESCRIPTION</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>RRP PRODUCT LINE</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>SOURCE</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>PRODUCT TYPE</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>PRODUCT DESCRIPTION</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>PRODUCT LINE</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>ITEM NUMBER DESC</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>ITEM TYPE</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>ITEM NUMBER</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>PLANNER CODE</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>COSTING ORG</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>COSTING ITEM TYPE</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>INVENTORY ITEM STATUS CODE</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>PLANNING MAKE BUY CODE</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>MRP SAFETY STOCK PERCENT</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>SAFETY STOCK QUANTITY</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>FIXED LOT MULTIPLIER</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>FIXED DAYS SUPPLY</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>MIN MINMAX QUANTITY</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>MAX MINMAX QUANTITY</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>FIXED LEAD TIME</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>FULL LEAD TIME</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Comm Code 1</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Comm Description 1</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Comm Code 2</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Comm Description 2</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Revision</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Material Cost</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Full Name</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>VENDOR NUM</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>VENDOR NAME</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>UNIT PRICE</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>PO Qty Not Received</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Receiving Inspection Quantity</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Vendor Site Code</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Number Of Locations</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>ORACLE ORGANIZATION ID</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>PLANNING ABC CLASS NAME</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>NET REQUIREMENT</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>NET SPEND</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>List Price Per Unit</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>CYCLE ABC CLASS NAME</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Actual Usage</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Material Overhead Cost</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Unit Cost</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Budgeted Material Cost</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Budgeted Material Overhead Cost</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Budgeted Unit Cost</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Allocation Percent</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Last PO Unit Price</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>OSP Item 1</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>UNIT PRICE 1</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Last PO Unit Price 1</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>List Price Per Unit 1</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>OSP Resource Code</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>OSP Resource Description</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>SMALL BUSINESS FLAG</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>WOMEN OWNED FLAG</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>MINORITY LOOKUP CODE</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>MINORITY GROUP</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>SUPPLIER TYPE</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Forecast Owner</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Mps Owner</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Factory</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Division 1</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Major Family Description</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Minor Line Description</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Production Line Description</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Inventory Type</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Sterile Flag</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Sterile Type</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Default Shipping Location</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Supply Chain Sourcing Organization</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>FORECAST STATUS</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>INVENTORY PLAN</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>FULL NAME 1</AttributeID>
+                </Attribute>
+              </Attributes>
+            </Dimension>
+          </Dimensions>
+          <Aggregations>
+            <Aggregation>
+              <ID>Aggregation 0</ID>
+              <Name>Aggregation 0</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Dim Inventory Organization</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>DISTRIBUTION CENTER FLAG</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim MRP Date</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time Master</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim ORDER TYPE</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Attributes</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Vendor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 1</ID>
+              <Name>Aggregation 1</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Dim Inventory Organization</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>DISTRIBUTION CENTER FLAG</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim MRP Date</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>DATE YEAR</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time Master</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim ORDER TYPE</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Attributes</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Vendor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 2</ID>
+              <Name>Aggregation 2</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Dim Inventory Organization</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>DISTRIBUTION CENTER FLAG</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim MRP Date</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>DATE YEAR</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time Master</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim ORDER TYPE</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Attributes</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Vendor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 3</ID>
+              <Name>Aggregation 3</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Dim Inventory Organization</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Dim INVENTORY ORGANIZATION KEY</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim MRP Date</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>DATE YEAR</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time Master</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim ORDER TYPE</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Attributes</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Vendor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 4</ID>
+              <Name>Aggregation 4</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Dim Inventory Organization</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>DISTRIBUTION CENTER FLAG</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim MRP Date</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time Master</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim ORDER TYPE</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Attributes</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Vendor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 5</ID>
+              <Name>Aggregation 5</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Dim Inventory Organization</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>DISTRIBUTION CENTER FLAG</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim MRP Date</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time Master</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim ORDER TYPE</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Attributes</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Vendor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 6</ID>
+              <Name>Aggregation 6</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Dim Inventory Organization</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>DISTRIBUTION CENTER FLAG</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim MRP Date</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time Master</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim ORDER TYPE</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Attributes</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Vendor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 7</ID>
+              <Name>Aggregation 7</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Dim Inventory Organization</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Dim INVENTORY ORGANIZATION KEY</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim MRP Date</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time Master</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim ORDER TYPE</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Attributes</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Vendor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 8</ID>
+              <Name>Aggregation 8</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Dim Inventory Organization</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>DISTRIBUTION CENTER FLAG</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim MRP Date</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time Master</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim ORDER TYPE</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Attributes</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Vendor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 9</ID>
+              <Name>Aggregation 9</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Dim Inventory Organization</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>DISTRIBUTION CENTER FLAG</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim MRP Date</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time Master</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim ORDER TYPE</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Attributes</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Vendor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation a</ID>
+              <Name>Aggregation a</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Dim Inventory Organization</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>DISTRIBUTION CENTER FLAG</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim MRP Date</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time Master</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim ORDER TYPE</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Attributes</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Vendor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation b</ID>
+              <Name>Aggregation b</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Dim Inventory Organization</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>DISTRIBUTION CENTER FLAG</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim MRP Date</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time Master</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim ORDER TYPE</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Attributes</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Vendor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation c</ID>
+              <Name>Aggregation c</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Dim Inventory Organization</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>DISTRIBUTION CENTER FLAG</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim MRP Date</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time Master</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim ORDER TYPE</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Attributes</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Vendor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation d</ID>
+              <Name>Aggregation d</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Dim Inventory Organization</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Dim INVENTORY ORGANIZATION KEY</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim MRP Date</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time Master</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim ORDER TYPE</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Attributes</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Vendor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation e</ID>
+              <Name>Aggregation e</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Dim Inventory Organization</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>DISTRIBUTION CENTER FLAG</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim MRP Date</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>DATE YEAR</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time Master</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim ORDER TYPE</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Attributes</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Vendor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation f</ID>
+              <Name>Aggregation f</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Dim Inventory Organization</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>DISTRIBUTION CENTER FLAG</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim MRP Date</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time Master</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim ORDER TYPE</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Attributes</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Vendor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 10</ID>
+              <Name>Aggregation 10</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Dim Inventory Organization</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>DISTRIBUTION CENTER FLAG</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim MRP Date</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>DATE YEAR</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time Master</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim ORDER TYPE</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Attributes</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Vendor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 11</ID>
+              <Name>Aggregation 11</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Dim Inventory Organization</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Dim INVENTORY ORGANIZATION KEY</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim MRP Date</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>DATE YEAR</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time Master</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim ORDER TYPE</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Attributes</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Vendor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 12</ID>
+              <Name>Aggregation 12</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Dim Inventory Organization</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>DISTRIBUTION CENTER FLAG</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim MRP Date</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>DATE YEAR</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time Master</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim ORDER TYPE</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Attributes</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Vendor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 13</ID>
+              <Name>Aggregation 13</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Dim Inventory Organization</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Dim INVENTORY ORGANIZATION KEY</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim MRP Date</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time Master</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim ORDER TYPE</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Attributes</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Vendor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 14</ID>
+              <Name>Aggregation 14</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Dim Inventory Organization</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>DISTRIBUTION CENTER FLAG</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim MRP Date</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time Master</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim ORDER TYPE</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Attributes</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Vendor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 15</ID>
+              <Name>Aggregation 15</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Dim Inventory Organization</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Dim INVENTORY ORGANIZATION KEY</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim MRP Date</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time Master</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim ORDER TYPE</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Attributes</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Vendor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 16</ID>
+              <Name>Aggregation 16</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Dim Inventory Organization</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>DISTRIBUTION CENTER FLAG</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim MRP Date</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>DATE YEAR</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time Master</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim ORDER TYPE</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Attributes</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Vendor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 17</ID>
+              <Name>Aggregation 17</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Dim Inventory Organization</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>DISTRIBUTION CENTER FLAG</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim MRP Date</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Dim MRP DATE KEY</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time Master</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim ORDER TYPE</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Attributes</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Vendor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 18</ID>
+              <Name>Aggregation 18</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Dim Inventory Organization</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>DISTRIBUTION CENTER FLAG</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim MRP Date</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>DATE YEAR</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time Master</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim ORDER TYPE</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Attributes</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Vendor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 19</ID>
+              <Name>Aggregation 19</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Dim Inventory Organization</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>DISTRIBUTION CENTER FLAG</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim MRP Date</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time Master</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim ORDER TYPE</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Attributes</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Vendor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 1a</ID>
+              <Name>Aggregation 1a</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Dim Inventory Organization</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Dim INVENTORY ORGANIZATION KEY</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim MRP Date</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time Master</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim ORDER TYPE</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Attributes</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Vendor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 1b</ID>
+              <Name>Aggregation 1b</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Dim Inventory Organization</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Dim INVENTORY ORGANIZATION KEY</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim MRP Date</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time Master</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim ORDER TYPE</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Attributes</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Vendor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 1c</ID>
+              <Name>Aggregation 1c</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Dim Inventory Organization</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Dim INVENTORY ORGANIZATION KEY</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim MRP Date</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>DATE YEAR</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time Master</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim ORDER TYPE</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Attributes</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Vendor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 1d</ID>
+              <Name>Aggregation 1d</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Dim Inventory Organization</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim MRP Date</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time Master</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim ORDER TYPE</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Attributes</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Vendor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 1e</ID>
+              <Name>Aggregation 1e</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Dim Inventory Organization</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>DISTRIBUTION CENTER FLAG</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim MRP Date</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time Master</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim ORDER TYPE</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Attributes</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Vendor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 1f</ID>
+              <Name>Aggregation 1f</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Dim Inventory Organization</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim MRP Date</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>DATE YEAR</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time Master</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim ORDER TYPE</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Attributes</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Vendor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 20</ID>
+              <Name>Aggregation 20</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Dim Inventory Organization</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>DISTRIBUTION CENTER FLAG</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim MRP Date</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>DATE YEAR</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time Master</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim ORDER TYPE</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Attributes</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Vendor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 21</ID>
+              <Name>Aggregation 21</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Dim Inventory Organization</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Dim INVENTORY ORGANIZATION KEY</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim MRP Date</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time Master</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim ORDER TYPE</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Attributes</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Vendor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 22</ID>
+              <Name>Aggregation 22</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Dim Inventory Organization</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim MRP Date</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Dim MRP DATE KEY</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time Master</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim ORDER TYPE</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Attributes</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Vendor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 23</ID>
+              <Name>Aggregation 23</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Dim Inventory Organization</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Dim INVENTORY ORGANIZATION KEY</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim MRP Date</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>DATE YEAR</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time Master</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim ORDER TYPE</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Attributes</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Vendor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 24</ID>
+              <Name>Aggregation 24</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Dim Inventory Organization</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>DISTRIBUTION CENTER FLAG</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim MRP Date</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>DATE YEAR</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time Master</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim ORDER TYPE</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Attributes</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Vendor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 25</ID>
+              <Name>Aggregation 25</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Dim Inventory Organization</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>DISTRIBUTION CENTER FLAG</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim MRP Date</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Dim MRP DATE KEY</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time Master</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim ORDER TYPE</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Attributes</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Vendor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 26</ID>
+              <Name>Aggregation 26</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Dim Inventory Organization</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim MRP Date</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time Master</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim ORDER TYPE</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Attributes</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Vendor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 27</ID>
+              <Name>Aggregation 27</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Dim Inventory Organization</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Dim INVENTORY ORGANIZATION KEY</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim MRP Date</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time Master</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim ORDER TYPE</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Attributes</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Vendor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 28</ID>
+              <Name>Aggregation 28</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Dim Inventory Organization</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>DISTRIBUTION CENTER FLAG</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim MRP Date</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time Master</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim ORDER TYPE</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Attributes</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Vendor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 29</ID>
+              <Name>Aggregation 29</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Dim Inventory Organization</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim MRP Date</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time Master</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim ORDER TYPE</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Attributes</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Vendor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 2a</ID>
+              <Name>Aggregation 2a</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Dim Inventory Organization</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>DISTRIBUTION CENTER FLAG</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim MRP Date</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>DATE YEAR</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time Master</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim ORDER TYPE</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Attributes</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Vendor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 2b</ID>
+              <Name>Aggregation 2b</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Dim Inventory Organization</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Dim INVENTORY ORGANIZATION KEY</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim MRP Date</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time Master</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim ORDER TYPE</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Attributes</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Vendor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 2c</ID>
+              <Name>Aggregation 2c</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Dim Inventory Organization</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim MRP Date</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Dim MRP DATE KEY</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time Master</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim ORDER TYPE</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Attributes</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Vendor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 2d</ID>
+              <Name>Aggregation 2d</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Dim Inventory Organization</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim MRP Date</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>DATE YEAR</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time Master</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim ORDER TYPE</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Attributes</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Vendor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 2e</ID>
+              <Name>Aggregation 2e</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Dim Inventory Organization</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>DISTRIBUTION CENTER FLAG</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim MRP Date</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Dim MRP DATE KEY</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time Master</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim ORDER TYPE</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Attributes</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Vendor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 2f</ID>
+              <Name>Aggregation 2f</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Dim Inventory Organization</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Dim INVENTORY ORGANIZATION KEY</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim MRP Date</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>DATE YEAR</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time Master</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim ORDER TYPE</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Attributes</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Vendor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 30</ID>
+              <Name>Aggregation 30</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Dim Inventory Organization</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Dim INVENTORY ORGANIZATION KEY</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim MRP Date</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Dim MRP DATE KEY</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time Master</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim ORDER TYPE</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Attributes</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Vendor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 31</ID>
+              <Name>Aggregation 31</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Dim Inventory Organization</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim MRP Date</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>DATE YEAR</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time Master</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim ORDER TYPE</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Attributes</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Vendor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 32</ID>
+              <Name>Aggregation 32</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Dim Inventory Organization</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim MRP Date</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time Master</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim ORDER TYPE</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Attributes</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Vendor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 33</ID>
+              <Name>Aggregation 33</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Dim Inventory Organization</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim MRP Date</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time Master</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim ORDER TYPE</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Attributes</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Vendor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 34</ID>
+              <Name>Aggregation 34</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Dim Inventory Organization</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim MRP Date</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time Master</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim ORDER TYPE</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Attributes</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Vendor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 35</ID>
+              <Name>Aggregation 35</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Dim Inventory Organization</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim MRP Date</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time Master</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim ORDER TYPE</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Attributes</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Vendor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 36</ID>
+              <Name>Aggregation 36</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Dim Inventory Organization</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim MRP Date</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>DATE YEAR</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time Master</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim ORDER TYPE</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Attributes</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Vendor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 37</ID>
+              <Name>Aggregation 37</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Dim Inventory Organization</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim MRP Date</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time Master</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim ORDER TYPE</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Attributes</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Vendor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 38</ID>
+              <Name>Aggregation 38</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Dim Inventory Organization</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim MRP Date</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>DATE YEAR</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time Master</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim ORDER TYPE</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Attributes</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Vendor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 39</ID>
+              <Name>Aggregation 39</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Dim Inventory Organization</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim MRP Date</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>DATE YEAR</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time Master</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim ORDER TYPE</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Attributes</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Vendor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 3a</ID>
+              <Name>Aggregation 3a</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Dim Inventory Organization</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim MRP Date</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time Master</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim ORDER TYPE</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Attributes</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Vendor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 3b</ID>
+              <Name>Aggregation 3b</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Dim Inventory Organization</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim MRP Date</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time Master</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim ORDER TYPE</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Attributes</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Vendor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 3c</ID>
+              <Name>Aggregation 3c</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Dim Inventory Organization</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim MRP Date</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time Master</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim ORDER TYPE</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Attributes</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Vendor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 3d</ID>
+              <Name>Aggregation 3d</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Dim Inventory Organization</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim MRP Date</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time Master</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim ORDER TYPE</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Attributes</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Vendor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 3e</ID>
+              <Name>Aggregation 3e</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Dim Inventory Organization</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim MRP Date</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time Master</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim ORDER TYPE</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Attributes</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Vendor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 3f</ID>
+              <Name>Aggregation 3f</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Dim Inventory Organization</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim MRP Date</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Dim MRP DATE KEY</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time Master</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim ORDER TYPE</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Attributes</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Vendor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 40</ID>
+              <Name>Aggregation 40</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Dim Inventory Organization</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim MRP Date</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>DATE YEAR</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time Master</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim ORDER TYPE</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Attributes</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Vendor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 41</ID>
+              <Name>Aggregation 41</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Dim Inventory Organization</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim MRP Date</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time Master</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim ORDER TYPE</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Attributes</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Vendor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 42</ID>
+              <Name>Aggregation 42</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Dim Inventory Organization</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim MRP Date</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>DATE YEAR</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time Master</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim ORDER TYPE</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Attributes</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Vendor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 43</ID>
+              <Name>Aggregation 43</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Dim Inventory Organization</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim MRP Date</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time Master</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim ORDER TYPE</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Attributes</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Vendor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 44</ID>
+              <Name>Aggregation 44</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Dim Inventory Organization</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim MRP Date</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>DATE YEAR</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time Master</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim ORDER TYPE</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Attributes</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Vendor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 45</ID>
+              <Name>Aggregation 45</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Dim Inventory Organization</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim MRP Date</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time Master</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim ORDER TYPE</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Attributes</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Vendor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 46</ID>
+              <Name>Aggregation 46</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Dim Inventory Organization</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim MRP Date</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>DATE YEAR</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time Master</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim ORDER TYPE</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Attributes</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Vendor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 47</ID>
+              <Name>Aggregation 47</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Dim Inventory Organization</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim MRP Date</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>DATE YEAR</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time Master</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim ORDER TYPE</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Attributes</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Vendor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 48</ID>
+              <Name>Aggregation 48</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Dim Inventory Organization</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim MRP Date</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Dim MRP DATE KEY</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time Master</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim ORDER TYPE</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Attributes</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Vendor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 49</ID>
+              <Name>Aggregation 49</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Dim Inventory Organization</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim MRP Date</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time Master</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim ORDER TYPE</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Attributes</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Vendor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 4a</ID>
+              <Name>Aggregation 4a</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Dim Inventory Organization</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim MRP Date</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>DATE YEAR</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time Master</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim ORDER TYPE</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Attributes</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Vendor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 4b</ID>
+              <Name>Aggregation 4b</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Dim Inventory Organization</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim MRP Date</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Dim MRP DATE KEY</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time Master</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim ORDER TYPE</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Oracle Commodity Code</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Attributes</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim PRODUCT_Vendor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+          </Aggregations>
+        </AggregationDesign>
+      </AggregationDesigns>
+    </MeasureGroup>
+  </MeasureGroups>
+</Cube>

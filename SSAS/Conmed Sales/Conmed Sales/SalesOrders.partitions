@@ -1,0 +1,337 @@
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="38d5b922-ecf6-4ad3-a532-b0957d8645a9" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>SalesOrders</ID>
+  <MeasureGroups>
+    <MeasureGroup>
+      <ID>Fact Area Quota POC V</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="fd1729ca-bcd0-4bf4-916b-24fcbd4bc0c9">
+          <ID>Fact Area Quota POC V</ID>
+          <Name>Fact Area Quota POC V</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="a84b0740-80ed-4af2-b501-f586ef9f05b5">
+            <DataSourceViewID>AS DWH</DataSourceViewID>
+            <TableID>EDW_Fact_Area_Quota_POC_V</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Fact SALES ORDER</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="3ade385a-871b-456d-bac0-848887be0204">
+          <ID>Fact SALES ORDER</ID>
+          <Name>Fact SALES ORDER</Name>
+          <CreatedTimestamp>2017-12-14T18:04:23.573333Z</CreatedTimestamp>
+          <LastSchemaUpdate>2017-12-14T18:04:23.573333Z</LastSchemaUpdate>
+          <LastProcessed>2018-01-24T10:45:29.053333Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="c5373b33-0206-461b-8396-ddd9f4f653e6">
+            <DataSourceViewID>AS DWH</DataSourceViewID>
+            <TableID>dbo_Fact_SALES_ORDER</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="cf29c068-eea2-4bfa-9913-a3e4616a49d1">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="7f94b1eb-2a94-42c8-bd99-8a7854357e44" />
+          </ProactiveCaching>
+          <EstimatedSize>1967323395</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Fact SALES OPEN ORDER</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="c4f1c1ef-5b50-4ca4-9730-1c83ddf53f92">
+          <ID>Fact SALES OPEN ORDER</ID>
+          <Name>Fact SALES OPEN ORDER</Name>
+          <CreatedTimestamp>2017-12-14T18:04:23.603333Z</CreatedTimestamp>
+          <LastSchemaUpdate>2017-12-14T18:04:23.603333Z</LastSchemaUpdate>
+          <LastProcessed>2018-01-24T10:37:06.243333Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="27cfb4d4-cb1a-455c-b034-4aeb99569cb6">
+            <DataSourceViewID>AS DWH</DataSourceViewID>
+            <TableID>EDW_Fact_SALES_OPEN_ORDER</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="52cd2681-d691-4a75-978d-e5f452af9567">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="d98581f4-d08d-4775-a57f-6dba67c89f03" />
+          </ProactiveCaching>
+          <EstimatedSize>925834</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Fact Trace Est</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="4aba5b77-cd6f-472d-adcf-8a76bfe56cc5">
+          <ID>Fact Trace Est</ID>
+          <Name>Fact Trace Est</Name>
+          <CreatedTimestamp>2017-12-14T18:04:23.636667Z</CreatedTimestamp>
+          <LastSchemaUpdate>2017-12-14T18:04:23.636667Z</LastSchemaUpdate>
+          <LastProcessed>2018-01-24T10:37:07.713333Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="76b184f4-36eb-4071-b117-e772f2383c32">
+            <DataSourceViewID>AS DWH</DataSourceViewID>
+            <TableID>EDW_Fact_Trace_Est</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="1ff2631b-1298-4ac7-b696-f939f9e9087f">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="4e807635-8b40-4fe2-8f57-4e19be445361" />
+          </ProactiveCaching>
+          <EstimatedSize>4404125</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>FACT TERRITORY QUOTA</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="f8a3d108-b409-4602-aed0-70c3d9624ead">
+          <ID>FACT TERRITORY QUOTA</ID>
+          <Name>FACT TERRITORY QUOTA</Name>
+          <CreatedTimestamp>2017-12-14T18:04:23.666667Z</CreatedTimestamp>
+          <LastSchemaUpdate>2017-12-14T18:04:23.666667Z</LastSchemaUpdate>
+          <LastProcessed>2018-01-24T10:37:05.756667Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="323ec376-ec9b-4e7e-b1fd-d7d6016ad6bd">
+            <DataSourceViewID>AS DWH</DataSourceViewID>
+            <TableID>EDW_FACT_TERRITORY_QUOTA</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="8690cad7-3fa8-4d3a-acbd-e22389d3e6f5">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="8776c0cd-a1ae-450a-8271-7c2812f3ab88" />
+          </ProactiveCaching>
+          <EstimatedSize>6564</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>FACT DISTRICT QUOTA</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="cd8e334a-40d5-4793-9c0a-a4c2d0428ffd">
+          <ID>FACT DISTRICT QUOTA</ID>
+          <Name>FACT DISTRICT QUOTA</Name>
+          <CreatedTimestamp>2017-12-14T18:04:23.696667Z</CreatedTimestamp>
+          <LastSchemaUpdate>2017-12-14T18:04:23.696667Z</LastSchemaUpdate>
+          <LastProcessed>2018-01-24T10:37:05.743333Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="bb1a539a-b165-4644-942d-47c6c94c5da3">
+            <DataSourceViewID>AS DWH</DataSourceViewID>
+            <TableID>EDW_FACT_DISTRICT_QUOTA</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="a2f79190-33bb-4ec1-a306-d0afb44fe3e3">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="4dac1b09-c1b5-4500-bb46-03f3ac59761d" />
+          </ProactiveCaching>
+          <EstimatedSize>1740</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>FACT REGION QUOTA</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="0fc1ddc3-19a6-407d-85d9-5c0961710f00">
+          <ID>FACT REGION QUOTA</ID>
+          <Name>FACT REGION QUOTA</Name>
+          <CreatedTimestamp>2017-12-14T18:04:23.726667Z</CreatedTimestamp>
+          <LastSchemaUpdate>2017-12-14T18:04:23.726667Z</LastSchemaUpdate>
+          <LastProcessed>2018-01-24T10:37:05.756667Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="45e39e9a-0ec9-43d8-b492-972496eb3fb2">
+            <DataSourceViewID>AS DWH</DataSourceViewID>
+            <TableID>EDW_FACT_REGION_QUOTA</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="c6ef100f-b226-4f95-b6d9-edc6ebd6fa61">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="a91e28e0-ed28-46e4-99b1-28fd3eba88b3" />
+          </ProactiveCaching>
+          <EstimatedSize>1020</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Fact Net Open Orders</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="c522f39d-a7a4-4416-9fa6-fb04400eef85">
+          <ID>Fact Net Open Orders</ID>
+          <Name>Fact Net Open Orders</Name>
+          <CreatedTimestamp>2017-12-14T18:04:23.76Z</CreatedTimestamp>
+          <LastSchemaUpdate>2017-12-14T18:04:23.76Z</LastSchemaUpdate>
+          <LastProcessed>2018-01-24T10:37:05.773333Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="0689b3a7-0ab9-4fa7-8d8a-daf20d014218">
+            <DataSourceViewID>AS DWH</DataSourceViewID>
+            <TableID>EDW_Fact_Net_Open_Orders</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="216b3740-0c2b-45c7-b96e-d9986f7005f1">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="c721d387-5cc6-4f58-ab36-85a0e977db54" />
+          </ProactiveCaching>
+          <EstimatedSize>7766</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>FACT AREA QUOTA</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="16006915-3575-4dd7-8b45-b4f7499238ea">
+          <ID>FACT AREA QUOTA</ID>
+          <Name>FACT AREA QUOTA</Name>
+          <CreatedTimestamp>2017-12-14T18:04:23.776667Z</CreatedTimestamp>
+          <LastSchemaUpdate>2017-12-14T18:04:23.776667Z</LastSchemaUpdate>
+          <LastProcessed>2018-01-24T10:37:05.756667Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="d2ac0197-397d-473b-a79d-687fc6aee140">
+            <DataSourceViewID>AS DWH</DataSourceViewID>
+            <TableID>EDW_FACT_AREA_QUOTA</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="46af84b6-6fff-4523-9a29-7a8202376016">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="907deb48-6b08-45ab-9f12-e826b1f41627" />
+          </ProactiveCaching>
+          <EstimatedSize>588</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Fact Business Day</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="1c4cfa2e-1bd1-4e6b-aada-06e8892ee2e5">
+          <ID>Fact Business Day</ID>
+          <Name>Fact Business Day</Name>
+          <CreatedTimestamp>2017-12-14T18:04:23.806667Z</CreatedTimestamp>
+          <LastSchemaUpdate>2017-12-14T18:04:23.806667Z</LastSchemaUpdate>
+          <LastProcessed>2018-01-24T10:37:05.93Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="68ee232b-bb2a-4818-9251-f2e14aa507b1">
+            <DataSourceViewID>AS DWH</DataSourceViewID>
+            <TableID>EDW_Fact_Business_Day</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="205de8d5-c4f4-4495-9267-aedc2c8cfd8f">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="80f80a19-f7df-4b07-9054-2b11a1bfbd2e" />
+          </ProactiveCaching>
+          <EstimatedSize>383555</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Fact District Quota POC V</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="74696acf-5e9b-4779-bbeb-a08a0b29a9f4">
+          <ID>Fact District Quota POC V</ID>
+          <Name>Fact District Quota POC V</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="d98f571d-2656-4d24-9152-a79270cf8273">
+            <DataSourceViewID>AS DWH</DataSourceViewID>
+            <TableID>EDW_Fact_District_Quota_POC_V</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Fact Region Quota POC V</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="fcd814ce-037e-458e-8cce-0ff0c3123b72">
+          <ID>Fact Region Quota POC V</ID>
+          <Name>Fact Region Quota POC V</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="b0f4178b-e68e-495d-bbf4-05f44c324649">
+            <DataSourceViewID>AS DWH</DataSourceViewID>
+            <TableID>EDW_Fact_Region_Quota_POC_V</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Fact Territory Quota POC V</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="c9fb7313-6105-45fd-9836-65b91936857a">
+          <ID>Fact Territory Quota POC V</ID>
+          <Name>Fact Territory Quota POC V</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="1b5a86c0-1142-40d0-b618-667a4231ccfa">
+            <DataSourceViewID>AS DWH</DataSourceViewID>
+            <TableID>EDW_Fact_Territory_Quota_POC_V</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+  </MeasureGroups>
+</Cube>
