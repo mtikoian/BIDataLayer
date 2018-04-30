@@ -1,0 +1,1202 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/13/2017 2:46:33 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="XNYDB"
+  DTS:CreatorName="CNMDCORP\ralich"
+  DTS:DTSID="{D08ED0A9-045C-46B4-A89C-C61BDCF3CC1F}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.4100.1"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Copy_ManMan_BomRec150"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="19"
+  DTS:VersionGUID="{5C54305A-56EE-49BE-B55C-BC7D9AE70C2D}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[AS_STAGE]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{5C6BA222-E9C0-4DB6-A064-5C114B2532D2}"
+      DTS:ObjectName="AS_STAGE">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=dev-prod;Initial Catalog=AS_STAGE;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Copy_ManMan_BomRec-{5C6BA222-E9C0-4DB6-A064-5C114B2532D2}Largobi1.AS_STAGE;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ManMan]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{A945D393-A811-4C5A-AF6B-8D0CF062C3B8}"
+      DTS:ObjectName="ManMan">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=NYDBWAR;User ID=Conmed_fl;Initial Catalog=ManMan;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-Copy_ManMan_BomRec-{A945D393-A811-4C5A-AF6B-8D0CF062C3B8}NYDBWAR.ManMan;">
+          <EncryptedData
+            Type="http://www.w3.org/2001/04/xmlenc#Element"
+            Salt="KGs32r53Fg=="
+            IV="IWGE5KhvOtU=" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            <EncryptionMethod
+              Algorithm="http://www.w3.org/2001/04/xmlenc#tripledes-cbc" />
+            <CipherData>
+              <CipherValue>IWGE5KhvOtUpa9bA3ecZt8LTbteXdMze/jXo0cwDOaffYX7yDGiyjKeC5iZRK6YUyk9Z5wdCM4Pn/CDbHG5cdDCQgECIQW1R9QNq4y31dgJwDJKnw/Z5huQR7UUx9J38vHAXcQWGUwcBknhne5hTKJZJ7uX8NQegQ+5oBE9QSY8=</CipherValue>
+            </CipherData>
+          </EncryptedData>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Copy BomRec"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{2AF8D6FE-8EF1-4C7D-8F9F-EF65ED136E5D}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Copy BomRec"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          BLOBTempStoragePath=""
+          bufferTempStoragePath=""
+          version="1">
+          <components>
+            <component
+              refId="Package\Copy BomRec\AS_STAGE"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="AS_STAGE"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[ManMan_Mfg150_BomRec]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Copy BomRec\AS_STAGE.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[AS_STAGE]"
+                  connectionManagerRefId="Package.ConnectionManagers[AS_STAGE]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].Columns[BOMCPNO]"
+                      cachedDataType="wstr"
+                      cachedLength="18"
+                      cachedName="BOMCPNO"
+                      externalMetadataColumnId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[BOMCPNO]"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[BOMCPNO]" />
+                    <inputColumn
+                      refId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].Columns[BOMITEM]"
+                      cachedDataType="i2"
+                      cachedName="BOMITEM"
+                      externalMetadataColumnId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[BOMITEM]"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[BOMITEM]" />
+                    <inputColumn
+                      refId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].Columns[BOMQPA]"
+                      cachedDataType="r8"
+                      cachedName="BOMQPA"
+                      externalMetadataColumnId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[BOMQPA]"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[BOMQPA]" />
+                    <inputColumn
+                      refId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].Columns[BOMSDOFF]"
+                      cachedDataType="r8"
+                      cachedName="BOMSDOFF"
+                      externalMetadataColumnId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[BOMSDOFF]"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[BOMSDOFF]" />
+                    <inputColumn
+                      refId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].Columns[BOMSEQ]"
+                      cachedDataType="i2"
+                      cachedName="BOMSEQ"
+                      externalMetadataColumnId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[BOMSEQ]"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[BOMSEQ]" />
+                    <inputColumn
+                      refId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].Columns[BOMEDAT]"
+                      cachedDataType="i4"
+                      cachedName="BOMEDAT"
+                      externalMetadataColumnId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[BOMEDAT]"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[BOMEDAT]" />
+                    <inputColumn
+                      refId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].Columns[BOMIDAT]"
+                      cachedDataType="i4"
+                      cachedName="BOMIDAT"
+                      externalMetadataColumnId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[BOMIDAT]"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[BOMIDAT]" />
+                    <inputColumn
+                      refId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].Columns[BOMYLD]"
+                      cachedDataType="r8"
+                      cachedName="BOMYLD"
+                      externalMetadataColumnId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[BOMYLD]"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[BOMYLD]" />
+                    <inputColumn
+                      refId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].Columns[BOMMRGFLG]"
+                      cachedDataType="wstr"
+                      cachedLength="2"
+                      cachedName="BOMMRGFLG"
+                      externalMetadataColumnId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[BOMMRGFLG]"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[BOMMRGFLG]" />
+                    <inputColumn
+                      refId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].Columns[BOMREQOPT]"
+                      cachedDataType="i2"
+                      cachedName="BOMREQOPT"
+                      externalMetadataColumnId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[BOMREQOPT]"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[BOMREQOPT]" />
+                    <inputColumn
+                      refId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].Columns[BOMPRNTFLG]"
+                      cachedDataType="i2"
+                      cachedName="BOMPRNTFLG"
+                      externalMetadataColumnId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[BOMPRNTFLG]"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[BOMPRNTFLG]" />
+                    <inputColumn
+                      refId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].Columns[BOMPRIPRNTFLG]"
+                      cachedDataType="i2"
+                      cachedName="BOMPRIPRNTFLG"
+                      externalMetadataColumnId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[BOMPRIPRNTFLG]"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[BOMPRIPRNTFLG]" />
+                    <inputColumn
+                      refId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].Columns[BOMDEFQTY]"
+                      cachedDataType="r8"
+                      cachedName="BOMDEFQTY"
+                      externalMetadataColumnId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[BOMDEFQTY]"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[BOMDEFQTY]" />
+                    <inputColumn
+                      refId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].Columns[BOMSORTKEY]"
+                      cachedDataType="i2"
+                      cachedName="BOMSORTKEY"
+                      externalMetadataColumnId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[BOMSORTKEY]"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[BOMSORTKEY]" />
+                    <inputColumn
+                      refId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].Columns[BOMMKTGDESC]"
+                      cachedDataType="wstr"
+                      cachedLength="18"
+                      cachedName="BOMMKTGDESC"
+                      externalMetadataColumnId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[BOMMKTGDESC]"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[BOMMKTGDESC]" />
+                    <inputColumn
+                      refId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].Columns[BOMMINQPA]"
+                      cachedDataType="r8"
+                      cachedName="BOMMINQPA"
+                      externalMetadataColumnId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[BOMMINQPA]"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[BOMMINQPA]" />
+                    <inputColumn
+                      refId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].Columns[BOMMAXQPA]"
+                      cachedDataType="r8"
+                      cachedName="BOMMAXQPA"
+                      externalMetadataColumnId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[BOMMAXQPA]"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[BOMMAXQPA]" />
+                    <inputColumn
+                      refId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].Columns[BOMKITPKFLG]"
+                      cachedDataType="i2"
+                      cachedName="BOMKITPKFLG"
+                      externalMetadataColumnId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[BOMKITPKFLG]"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[BOMKITPKFLG]" />
+                    <inputColumn
+                      refId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].Columns[BOMRTGYLD]"
+                      cachedDataType="r8"
+                      cachedName="BOMRTGYLD"
+                      externalMetadataColumnId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[BOMRTGYLD]"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[BOMRTGYLD]" />
+                    <inputColumn
+                      refId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].Columns[BOMSERFLG]"
+                      cachedDataType="i2"
+                      cachedName="BOMSERFLG"
+                      externalMetadataColumnId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[BOMSERFLG]"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[BOMSERFLG]" />
+                    <inputColumn
+                      refId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].Columns[BOMVSDOFF]"
+                      cachedDataType="r8"
+                      cachedName="BOMVSDOFF"
+                      externalMetadataColumnId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[BOMVSDOFF]"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[BOMVSDOFF]" />
+                    <inputColumn
+                      refId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].Columns[_M_BOMSET]"
+                      cachedDataType="wstr"
+                      cachedLength="29"
+                      cachedName="_M_BOMSET"
+                      externalMetadataColumnId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[_M_BOMSET]"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[_M_BOMSET]" />
+                    <inputColumn
+                      refId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].Columns[_M_COMSET]"
+                      cachedDataType="wstr"
+                      cachedLength="29"
+                      cachedName="_M_COMSET"
+                      externalMetadataColumnId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[_M_COMSET]"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[_M_COMSET]" />
+                    <inputColumn
+                      refId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].Columns[_O_REFSET]"
+                      cachedDataType="wstr"
+                      cachedLength="29"
+                      cachedName="_O_REFSET"
+                      externalMetadataColumnId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[_O_REFSET]"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[_O_REFSET]" />
+                    <inputColumn
+                      refId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].Columns[__BOMREC]"
+                      cachedDataType="wstr"
+                      cachedLength="29"
+                      cachedName="__BOMREC"
+                      externalMetadataColumnId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[__BOMREC]"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[__BOMREC]" />
+                    <inputColumn
+                      refId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].Columns[_REVERSE_FETCH]"
+                      cachedDataType="wstr"
+                      cachedLength="29"
+                      cachedName="_REVERSE_FETCH"
+                      externalMetadataColumnId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[_REVERSE_FETCH]"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[_REVERSE_FETCH]" />
+                    <inputColumn
+                      refId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].Columns[ID]"
+                      cachedDataType="i8"
+                      cachedName="ID"
+                      externalMetadataColumnId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[ID]" />
+                    <inputColumn
+                      refId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].Columns[PrtRecBomSetID]"
+                      cachedDataType="i8"
+                      cachedName="PrtRecBomSetID"
+                      externalMetadataColumnId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[PrtRecBomSetID]"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[PrtRecBomSetID]" />
+                    <inputColumn
+                      refId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].Columns[PrtRecComSetID]"
+                      cachedDataType="i8"
+                      cachedName="PrtRecComSetID"
+                      externalMetadataColumnId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[PrtRecComSetID]"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[PrtRecComSetID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[BOMCPNO]"
+                      dataType="wstr"
+                      length="18"
+                      name="BOMCPNO" />
+                    <externalMetadataColumn
+                      refId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[BOMITEM]"
+                      dataType="i2"
+                      name="BOMITEM" />
+                    <externalMetadataColumn
+                      refId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[BOMQPA]"
+                      dataType="r8"
+                      name="BOMQPA" />
+                    <externalMetadataColumn
+                      refId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[BOMSDOFF]"
+                      dataType="r8"
+                      name="BOMSDOFF" />
+                    <externalMetadataColumn
+                      refId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[BOMSEQ]"
+                      dataType="i2"
+                      name="BOMSEQ" />
+                    <externalMetadataColumn
+                      refId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[BOMEDAT]"
+                      dataType="i4"
+                      name="BOMEDAT" />
+                    <externalMetadataColumn
+                      refId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[BOMIDAT]"
+                      dataType="i4"
+                      name="BOMIDAT" />
+                    <externalMetadataColumn
+                      refId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[BOMYLD]"
+                      dataType="r8"
+                      name="BOMYLD" />
+                    <externalMetadataColumn
+                      refId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[BOMMRGFLG]"
+                      dataType="wstr"
+                      length="2"
+                      name="BOMMRGFLG" />
+                    <externalMetadataColumn
+                      refId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[BOMREQOPT]"
+                      dataType="i2"
+                      name="BOMREQOPT" />
+                    <externalMetadataColumn
+                      refId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[BOMPRNTFLG]"
+                      dataType="i2"
+                      name="BOMPRNTFLG" />
+                    <externalMetadataColumn
+                      refId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[BOMPRIPRNTFLG]"
+                      dataType="i2"
+                      name="BOMPRIPRNTFLG" />
+                    <externalMetadataColumn
+                      refId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[BOMDEFQTY]"
+                      dataType="r8"
+                      name="BOMDEFQTY" />
+                    <externalMetadataColumn
+                      refId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[BOMSORTKEY]"
+                      dataType="i2"
+                      name="BOMSORTKEY" />
+                    <externalMetadataColumn
+                      refId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[BOMMKTGDESC]"
+                      dataType="wstr"
+                      length="18"
+                      name="BOMMKTGDESC" />
+                    <externalMetadataColumn
+                      refId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[BOMMINQPA]"
+                      dataType="r8"
+                      name="BOMMINQPA" />
+                    <externalMetadataColumn
+                      refId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[BOMMAXQPA]"
+                      dataType="r8"
+                      name="BOMMAXQPA" />
+                    <externalMetadataColumn
+                      refId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[BOMKITPKFLG]"
+                      dataType="i2"
+                      name="BOMKITPKFLG" />
+                    <externalMetadataColumn
+                      refId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[BOMRTGYLD]"
+                      dataType="r8"
+                      name="BOMRTGYLD" />
+                    <externalMetadataColumn
+                      refId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[BOMSERFLG]"
+                      dataType="i2"
+                      name="BOMSERFLG" />
+                    <externalMetadataColumn
+                      refId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[BOMVSDOFF]"
+                      dataType="r8"
+                      name="BOMVSDOFF" />
+                    <externalMetadataColumn
+                      refId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[_M_BOMSET]"
+                      dataType="wstr"
+                      length="29"
+                      name="_M_BOMSET" />
+                    <externalMetadataColumn
+                      refId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[_M_COMSET]"
+                      dataType="wstr"
+                      length="29"
+                      name="_M_COMSET" />
+                    <externalMetadataColumn
+                      refId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[_O_REFSET]"
+                      dataType="wstr"
+                      length="29"
+                      name="_O_REFSET" />
+                    <externalMetadataColumn
+                      refId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[__BOMREC]"
+                      dataType="wstr"
+                      length="29"
+                      name="__BOMREC" />
+                    <externalMetadataColumn
+                      refId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[_REVERSE_FETCH]"
+                      dataType="wstr"
+                      length="29"
+                      name="_REVERSE_FETCH" />
+                    <externalMetadataColumn
+                      refId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      dataType="i8"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[PrtRecBomSetID]"
+                      dataType="i8"
+                      name="PrtRecBomSetID" />
+                    <externalMetadataColumn
+                      refId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[PrtRecComSetID]"
+                      dataType="i8"
+                      name="PrtRecComSetID" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Copy BomRec\AS_STAGE.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Copy BomRec\AS_STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Copy BomRec\AS_STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Copy BomRec\AS_STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Copy BomRec\AS_STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Copy BomRec\ManMan 150"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="ManMan 150"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Mfg150].[BomRec]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Copy BomRec\ManMan 150.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[ManMan]"
+                  connectionManagerRefId="Package.ConnectionManagers[ManMan]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[BOMCPNO]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].ExternalColumns[BOMCPNO]"
+                      length="18"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[BOMCPNO]"
+                      name="BOMCPNO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[BOMITEM]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].ExternalColumns[BOMITEM]"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[BOMITEM]"
+                      name="BOMITEM"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[BOMQPA]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].ExternalColumns[BOMQPA]"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[BOMQPA]"
+                      name="BOMQPA"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[BOMSDOFF]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].ExternalColumns[BOMSDOFF]"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[BOMSDOFF]"
+                      name="BOMSDOFF"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[BOMSEQ]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].ExternalColumns[BOMSEQ]"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[BOMSEQ]"
+                      name="BOMSEQ"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[BOMEDAT]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].ExternalColumns[BOMEDAT]"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[BOMEDAT]"
+                      name="BOMEDAT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[BOMIDAT]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].ExternalColumns[BOMIDAT]"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[BOMIDAT]"
+                      name="BOMIDAT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[BOMYLD]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].ExternalColumns[BOMYLD]"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[BOMYLD]"
+                      name="BOMYLD"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[BOMMRGFLG]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].ExternalColumns[BOMMRGFLG]"
+                      length="2"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[BOMMRGFLG]"
+                      name="BOMMRGFLG"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[BOMREQOPT]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].ExternalColumns[BOMREQOPT]"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[BOMREQOPT]"
+                      name="BOMREQOPT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[BOMPRNTFLG]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].ExternalColumns[BOMPRNTFLG]"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[BOMPRNTFLG]"
+                      name="BOMPRNTFLG"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[BOMPRIPRNTFLG]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].ExternalColumns[BOMPRIPRNTFLG]"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[BOMPRIPRNTFLG]"
+                      name="BOMPRIPRNTFLG"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[BOMDEFQTY]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].ExternalColumns[BOMDEFQTY]"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[BOMDEFQTY]"
+                      name="BOMDEFQTY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[BOMSORTKEY]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].ExternalColumns[BOMSORTKEY]"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[BOMSORTKEY]"
+                      name="BOMSORTKEY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[BOMMKTGDESC]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].ExternalColumns[BOMMKTGDESC]"
+                      length="18"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[BOMMKTGDESC]"
+                      name="BOMMKTGDESC"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[BOMMINQPA]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].ExternalColumns[BOMMINQPA]"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[BOMMINQPA]"
+                      name="BOMMINQPA"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[BOMMAXQPA]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].ExternalColumns[BOMMAXQPA]"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[BOMMAXQPA]"
+                      name="BOMMAXQPA"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[BOMKITPKFLG]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].ExternalColumns[BOMKITPKFLG]"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[BOMKITPKFLG]"
+                      name="BOMKITPKFLG"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[BOMRTGYLD]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].ExternalColumns[BOMRTGYLD]"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[BOMRTGYLD]"
+                      name="BOMRTGYLD"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[BOMSERFLG]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].ExternalColumns[BOMSERFLG]"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[BOMSERFLG]"
+                      name="BOMSERFLG"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[BOMVSDOFF]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].ExternalColumns[BOMVSDOFF]"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[BOMVSDOFF]"
+                      name="BOMVSDOFF"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[_M_BOMSET]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].ExternalColumns[_M_BOMSET]"
+                      length="29"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[_M_BOMSET]"
+                      name="_M_BOMSET"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[_M_COMSET]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].ExternalColumns[_M_COMSET]"
+                      length="29"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[_M_COMSET]"
+                      name="_M_COMSET"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[_O_REFSET]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].ExternalColumns[_O_REFSET]"
+                      length="29"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[_O_REFSET]"
+                      name="_O_REFSET"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[__BOMREC]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].ExternalColumns[__BOMREC]"
+                      length="29"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[__BOMREC]"
+                      name="__BOMREC"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[_REVERSE_FETCH]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].ExternalColumns[_REVERSE_FETCH]"
+                      length="29"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[_REVERSE_FETCH]"
+                      name="_REVERSE_FETCH"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[ID]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].ExternalColumns[ID]"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[ID]"
+                      name="ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[PrtRecBomSetID]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].ExternalColumns[PrtRecBomSetID]"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[PrtRecBomSetID]"
+                      name="PrtRecBomSetID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[PrtRecComSetID]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].ExternalColumns[PrtRecComSetID]"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].Columns[PrtRecComSetID]"
+                      name="PrtRecComSetID"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].ExternalColumns[BOMCPNO]"
+                      dataType="wstr"
+                      length="18"
+                      name="BOMCPNO" />
+                    <externalMetadataColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].ExternalColumns[BOMITEM]"
+                      dataType="i2"
+                      name="BOMITEM" />
+                    <externalMetadataColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].ExternalColumns[BOMQPA]"
+                      dataType="r8"
+                      name="BOMQPA" />
+                    <externalMetadataColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].ExternalColumns[BOMSDOFF]"
+                      dataType="r8"
+                      name="BOMSDOFF" />
+                    <externalMetadataColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].ExternalColumns[BOMSEQ]"
+                      dataType="i2"
+                      name="BOMSEQ" />
+                    <externalMetadataColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].ExternalColumns[BOMEDAT]"
+                      dataType="i4"
+                      name="BOMEDAT" />
+                    <externalMetadataColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].ExternalColumns[BOMIDAT]"
+                      dataType="i4"
+                      name="BOMIDAT" />
+                    <externalMetadataColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].ExternalColumns[BOMYLD]"
+                      dataType="r8"
+                      name="BOMYLD" />
+                    <externalMetadataColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].ExternalColumns[BOMMRGFLG]"
+                      dataType="wstr"
+                      length="2"
+                      name="BOMMRGFLG" />
+                    <externalMetadataColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].ExternalColumns[BOMREQOPT]"
+                      dataType="i2"
+                      name="BOMREQOPT" />
+                    <externalMetadataColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].ExternalColumns[BOMPRNTFLG]"
+                      dataType="i2"
+                      name="BOMPRNTFLG" />
+                    <externalMetadataColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].ExternalColumns[BOMPRIPRNTFLG]"
+                      dataType="i2"
+                      name="BOMPRIPRNTFLG" />
+                    <externalMetadataColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].ExternalColumns[BOMDEFQTY]"
+                      dataType="r8"
+                      name="BOMDEFQTY" />
+                    <externalMetadataColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].ExternalColumns[BOMSORTKEY]"
+                      dataType="i2"
+                      name="BOMSORTKEY" />
+                    <externalMetadataColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].ExternalColumns[BOMMKTGDESC]"
+                      dataType="wstr"
+                      length="18"
+                      name="BOMMKTGDESC" />
+                    <externalMetadataColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].ExternalColumns[BOMMINQPA]"
+                      dataType="r8"
+                      name="BOMMINQPA" />
+                    <externalMetadataColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].ExternalColumns[BOMMAXQPA]"
+                      dataType="r8"
+                      name="BOMMAXQPA" />
+                    <externalMetadataColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].ExternalColumns[BOMKITPKFLG]"
+                      dataType="i2"
+                      name="BOMKITPKFLG" />
+                    <externalMetadataColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].ExternalColumns[BOMRTGYLD]"
+                      dataType="r8"
+                      name="BOMRTGYLD" />
+                    <externalMetadataColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].ExternalColumns[BOMSERFLG]"
+                      dataType="i2"
+                      name="BOMSERFLG" />
+                    <externalMetadataColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].ExternalColumns[BOMVSDOFF]"
+                      dataType="r8"
+                      name="BOMVSDOFF" />
+                    <externalMetadataColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].ExternalColumns[_M_BOMSET]"
+                      dataType="wstr"
+                      length="29"
+                      name="_M_BOMSET" />
+                    <externalMetadataColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].ExternalColumns[_M_COMSET]"
+                      dataType="wstr"
+                      length="29"
+                      name="_M_COMSET" />
+                    <externalMetadataColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].ExternalColumns[_O_REFSET]"
+                      dataType="wstr"
+                      length="29"
+                      name="_O_REFSET" />
+                    <externalMetadataColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].ExternalColumns[__BOMREC]"
+                      dataType="wstr"
+                      length="29"
+                      name="__BOMREC" />
+                    <externalMetadataColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].ExternalColumns[_REVERSE_FETCH]"
+                      dataType="wstr"
+                      length="29"
+                      name="_REVERSE_FETCH" />
+                    <externalMetadataColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].ExternalColumns[ID]"
+                      dataType="i8"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].ExternalColumns[PrtRecBomSetID]"
+                      dataType="i8"
+                      name="PrtRecBomSetID" />
+                    <externalMetadataColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output].ExternalColumns[PrtRecComSetID]"
+                      dataType="i8"
+                      name="PrtRecComSetID" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Error Output].Columns[BOMCPNO]"
+                      dataType="wstr"
+                      length="18"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Error Output].Columns[BOMCPNO]"
+                      name="BOMCPNO" />
+                    <outputColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Error Output].Columns[BOMITEM]"
+                      dataType="i2"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Error Output].Columns[BOMITEM]"
+                      name="BOMITEM" />
+                    <outputColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Error Output].Columns[BOMQPA]"
+                      dataType="r8"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Error Output].Columns[BOMQPA]"
+                      name="BOMQPA" />
+                    <outputColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Error Output].Columns[BOMSDOFF]"
+                      dataType="r8"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Error Output].Columns[BOMSDOFF]"
+                      name="BOMSDOFF" />
+                    <outputColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Error Output].Columns[BOMSEQ]"
+                      dataType="i2"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Error Output].Columns[BOMSEQ]"
+                      name="BOMSEQ" />
+                    <outputColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Error Output].Columns[BOMEDAT]"
+                      dataType="i4"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Error Output].Columns[BOMEDAT]"
+                      name="BOMEDAT" />
+                    <outputColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Error Output].Columns[BOMIDAT]"
+                      dataType="i4"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Error Output].Columns[BOMIDAT]"
+                      name="BOMIDAT" />
+                    <outputColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Error Output].Columns[BOMYLD]"
+                      dataType="r8"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Error Output].Columns[BOMYLD]"
+                      name="BOMYLD" />
+                    <outputColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Error Output].Columns[BOMMRGFLG]"
+                      dataType="wstr"
+                      length="2"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Error Output].Columns[BOMMRGFLG]"
+                      name="BOMMRGFLG" />
+                    <outputColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Error Output].Columns[BOMREQOPT]"
+                      dataType="i2"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Error Output].Columns[BOMREQOPT]"
+                      name="BOMREQOPT" />
+                    <outputColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Error Output].Columns[BOMPRNTFLG]"
+                      dataType="i2"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Error Output].Columns[BOMPRNTFLG]"
+                      name="BOMPRNTFLG" />
+                    <outputColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Error Output].Columns[BOMPRIPRNTFLG]"
+                      dataType="i2"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Error Output].Columns[BOMPRIPRNTFLG]"
+                      name="BOMPRIPRNTFLG" />
+                    <outputColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Error Output].Columns[BOMDEFQTY]"
+                      dataType="r8"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Error Output].Columns[BOMDEFQTY]"
+                      name="BOMDEFQTY" />
+                    <outputColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Error Output].Columns[BOMSORTKEY]"
+                      dataType="i2"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Error Output].Columns[BOMSORTKEY]"
+                      name="BOMSORTKEY" />
+                    <outputColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Error Output].Columns[BOMMKTGDESC]"
+                      dataType="wstr"
+                      length="18"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Error Output].Columns[BOMMKTGDESC]"
+                      name="BOMMKTGDESC" />
+                    <outputColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Error Output].Columns[BOMMINQPA]"
+                      dataType="r8"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Error Output].Columns[BOMMINQPA]"
+                      name="BOMMINQPA" />
+                    <outputColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Error Output].Columns[BOMMAXQPA]"
+                      dataType="r8"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Error Output].Columns[BOMMAXQPA]"
+                      name="BOMMAXQPA" />
+                    <outputColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Error Output].Columns[BOMKITPKFLG]"
+                      dataType="i2"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Error Output].Columns[BOMKITPKFLG]"
+                      name="BOMKITPKFLG" />
+                    <outputColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Error Output].Columns[BOMRTGYLD]"
+                      dataType="r8"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Error Output].Columns[BOMRTGYLD]"
+                      name="BOMRTGYLD" />
+                    <outputColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Error Output].Columns[BOMSERFLG]"
+                      dataType="i2"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Error Output].Columns[BOMSERFLG]"
+                      name="BOMSERFLG" />
+                    <outputColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Error Output].Columns[BOMVSDOFF]"
+                      dataType="r8"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Error Output].Columns[BOMVSDOFF]"
+                      name="BOMVSDOFF" />
+                    <outputColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Error Output].Columns[_M_BOMSET]"
+                      dataType="wstr"
+                      length="29"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Error Output].Columns[_M_BOMSET]"
+                      name="_M_BOMSET" />
+                    <outputColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Error Output].Columns[_M_COMSET]"
+                      dataType="wstr"
+                      length="29"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Error Output].Columns[_M_COMSET]"
+                      name="_M_COMSET" />
+                    <outputColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Error Output].Columns[_O_REFSET]"
+                      dataType="wstr"
+                      length="29"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Error Output].Columns[_O_REFSET]"
+                      name="_O_REFSET" />
+                    <outputColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Error Output].Columns[__BOMREC]"
+                      dataType="wstr"
+                      length="29"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Error Output].Columns[__BOMREC]"
+                      name="__BOMREC" />
+                    <outputColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Error Output].Columns[_REVERSE_FETCH]"
+                      dataType="wstr"
+                      length="29"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Error Output].Columns[_REVERSE_FETCH]"
+                      name="_REVERSE_FETCH" />
+                    <outputColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Error Output].Columns[ID]"
+                      dataType="i8"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Error Output].Columns[ID]"
+                      name="ID" />
+                    <outputColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Error Output].Columns[PrtRecBomSetID]"
+                      dataType="i8"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Error Output].Columns[PrtRecBomSetID]"
+                      name="PrtRecBomSetID" />
+                    <outputColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Error Output].Columns[PrtRecComSetID]"
+                      dataType="i8"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Error Output].Columns[PrtRecComSetID]"
+                      name="PrtRecComSetID" />
+                    <outputColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Copy BomRec.Paths[OLE DB Source Output]"
+              endId="Package\Copy BomRec\AS_STAGE.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Copy BomRec\ManMan 150.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate BomRec 150"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{BECA1361-A3C2-4AF4-ADCD-9377FA018CEF}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate BomRec 150"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{5C6BA222-E9C0-4DB6-A064-5C114B2532D2}"
+          SQLTask:SqlStatementSource="TRUNCATE  TABLE  AS_STAGE.dbo.ManMan_Mfg150_BomRec&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{FEC7C289-51A6-4B05-B21B-EE4040CDA06F}"
+      DTS:From="Package\Truncate BomRec 150"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Copy BomRec" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Copy BomRec"
+          TopLeft="45.4622641509434,118.292452830189" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Truncate BomRec 150"
+          TopLeft="5.5,5.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="73.3867924528302,49.4245283018868">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="39.9622641509434,68.8679245283019"
+              Start="0,0"
+              End="39.9622641509434,61.3679245283019">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.4150943396226" />
+                  <mssgle:LineSegment
+                    End="39.9622641509434,34.4150943396226" />
+                  <mssgle:LineSegment
+                    End="39.9622641509434,61.3679245283019" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

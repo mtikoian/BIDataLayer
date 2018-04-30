@@ -1,0 +1,117 @@
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="dabe172b-a3a3-4adf-95f0-68f1c070f872" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>NCR</ID>
+  <MeasureGroups>
+    <MeasureGroup>
+      <ID>Fact NCR</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="d5e2ff50-0fa0-4267-80e1-7fbb3ad03cd3">
+          <ID>Fact NCR</ID>
+          <Name>Fact NCR</Name>
+          <CreatedTimestamp>2017-05-18T18:58:18.286667Z</CreatedTimestamp>
+          <LastSchemaUpdate>2017-08-16T20:05:27.803333Z</LastSchemaUpdate>
+          <LastProcessed>2017-08-17T11:28:51.986667Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="12b5034a-d466-46ad-91f4-bf5eea239528">
+            <DataSourceViewID>AS DWH</DataSourceViewID>
+            <TableID>dbo_Fact_NCR</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="09015c8b-7a20-48c3-9561-612c237c2139">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="3b61894e-eeb4-4d8f-80ee-d179edeacdd9" />
+          </ProactiveCaching>
+          <EstimatedSize>967552</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Fact PRODUCT Measures</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="20074185-ca63-4d78-8b1a-011568b13798">
+          <ID>Fact PRODUCT Measures</ID>
+          <Name>Fact PRODUCT Measures</Name>
+          <CreatedTimestamp>2017-06-02T11:19:12.023333Z</CreatedTimestamp>
+          <LastSchemaUpdate>2017-08-16T20:05:27.99Z</LastSchemaUpdate>
+          <LastProcessed>2017-08-17T11:28:52.546667Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="43ad0ef3-0630-480c-9735-5a3e68fb9c7e">
+            <DataSourceViewID>AS DWH</DataSourceViewID>
+            <TableID>dbo_Fact_NCR_Product</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="37d3b9eb-9985-4bcf-a821-797fe0d6b1b0">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="620fdb3f-8cf0-4fde-ace3-19a4df449d34" />
+          </ProactiveCaching>
+          <EstimatedSize>291678</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Fact NCR Item Assignment</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="846380d9-bffd-4eae-a52a-fc3ae4ea5e8a">
+          <ID>Fact NCR Item Assignment</ID>
+          <Name>Fact NCR Item Assignment</Name>
+          <CreatedTimestamp>2017-05-18T18:58:18.456667Z</CreatedTimestamp>
+          <LastSchemaUpdate>2017-08-16T20:05:28.163333Z</LastSchemaUpdate>
+          <LastProcessed>2017-08-17T11:28:51.143333Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="4eb60cb0-f0b6-469c-82b7-1257cc044549">
+            <DataSourceViewID>AS DWH</DataSourceViewID>
+            <TableID>dbo_Fact_NCR_Item_Assignment</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="623211cd-6bb8-4c67-a164-fc57d9003a67">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="fb3062dd-3d40-48b5-b2f3-09cdd69f5ca9" />
+          </ProactiveCaching>
+          <EstimatedSize>996747</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Fact NCR Product BU Manager</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="8eddcf16-584d-40db-8a25-ba13483394e6">
+          <ID>Fact NCR Product BU Manager</ID>
+          <Name>Fact NCR Product BU Manager</Name>
+          <CreatedTimestamp>2017-06-14T18:54:00.663333Z</CreatedTimestamp>
+          <LastSchemaUpdate>2017-08-16T20:05:28.366667Z</LastSchemaUpdate>
+          <LastProcessed>2017-08-17T11:28:53.7Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="6a52335b-6fa5-40a9-85e8-92322938d630">
+            <DataSourceViewID>AS DWH</DataSourceViewID>
+            <TableID>dbo_Fact_NCR_Product_BU_Manager</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="61d483d3-25f3-452b-aab5-3e336ced2aa4">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="64a4b14a-4341-4c4f-8cb5-06b8ec504c7d" />
+          </ProactiveCaching>
+          <EstimatedSize>1107389</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+  </MeasureGroups>
+</Cube>

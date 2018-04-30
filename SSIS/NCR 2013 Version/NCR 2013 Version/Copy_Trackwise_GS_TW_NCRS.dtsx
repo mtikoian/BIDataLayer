@@ -1,0 +1,1943 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/2/2017 2:50:53 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="XNYDB"
+  DTS:CreatorName="CNMDCORP\ralich"
+  DTS:DTSID="{107895AE-5EB8-4697-B276-785991FF7CF1}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.4100.1"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Copy_Trackwise_GS_TW_NCRS"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="23"
+  DTS:VersionGUID="{C5851BA1-2C6C-4B2D-8FA8-B3077F0DF8F2}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[AS_STAGE]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{ABE4F32D-2CB5-4916-B88B-540FC5856749}"
+      DTS:ObjectName="AS_STAGE">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=dev-prod;Initial Catalog=AS_STAGE;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Load_Stage_BusinessUnit-{ABE4F32D-2CB5-4916-B88B-540FC5856749}Largobi1.AS_STAGE;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Trackwise]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{AE0694C5-3804-42CD-BB80-EB3DB27F58EF}"
+      DTS:ObjectName="Trackwise">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=NYDBWAR;User ID=Conmed_fl;Initial Catalog=Trackwise;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-Copy_Trackwise_GS_TW_NCRS-{AE0694C5-3804-42CD-BB80-EB3DB27F58EF}XNYDB.Trackwise;">
+          <EncryptedData
+            Type="http://www.w3.org/2001/04/xmlenc#Element"
+            Salt="qTuug3QwnA=="
+            IV="4y64Js+GzpI=" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            <EncryptionMethod
+              Algorithm="http://www.w3.org/2001/04/xmlenc#tripledes-cbc" />
+            <CipherData>
+              <CipherValue>4y64Js+GzpJ+pZyXifBeOFrFn3tT4/B1H4bhW6PVemIqocBOK2JhTzBxYhPNBHYlw9J7Fpt3kDVBHZa5LT3rR3ArdyEDCKE2nNGfqq9NWSHS0cMsAMeGorJq1Q98qy6R+RFRMQ5VDw4AQKHriicCezQhVZkTfor7pnYOV8UMW3I=</CipherValue>
+            </CipherData>
+          </EncryptedData>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Copy Data"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{01DEBB30-BFFB-4446-BA55-BB2524EABE4D}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Copy Data"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          BLOBTempStoragePath=""
+          bufferTempStoragePath=""
+          version="1">
+          <components>
+            <component
+              refId="Package\Copy Data\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Trackwise_GS_TW_NCRS]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Copy Data\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[AS_STAGE]"
+                  connectionManagerRefId="Package.ConnectionManagers[AS_STAGE]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[REC ID]"
+                      cachedDataType="numeric"
+                      cachedName="REC ID"
+                      cachedPrecision="12"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[REC ID]"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[REC ID]" />
+                    <inputColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DATE OPENED]"
+                      cachedDataType="dbTimeStamp2"
+                      cachedName="DATE OPENED"
+                      cachedScale="7"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DATE OPENED]"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[DATE OPENED]" />
+                    <inputColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DATE OF INITIATION]"
+                      cachedDataType="dbTimeStamp2"
+                      cachedName="DATE OF INITIATION"
+                      cachedScale="7"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DATE OF INITIATION]"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[DATE OF INITIATION]" />
+                    <inputColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DEFECT DESCRIPTION]"
+                      cachedDataType="nText"
+                      cachedName="DEFECT DESCRIPTION"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DEFECT DESCRIPTION]"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[DEFECT DESCRIPTION]" />
+                    <inputColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DEFECT SOURCE]"
+                      cachedDataType="wstr"
+                      cachedLength="1016"
+                      cachedName="DEFECT SOURCE"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DEFECT SOURCE]"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[DEFECT SOURCE]" />
+                    <inputColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DEFECT TYPE]"
+                      cachedDataType="wstr"
+                      cachedLength="1016"
+                      cachedName="DEFECT TYPE"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DEFECT TYPE]"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[DEFECT TYPE]" />
+                    <inputColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DEPT#]"
+                      cachedDataType="wstr"
+                      cachedLength="1016"
+                      cachedName="DEPT#"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DEPT#]"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[DEPT#]" />
+                    <inputColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[INVESTIGATED BY]"
+                      cachedDataType="wstr"
+                      cachedLength="1016"
+                      cachedName="INVESTIGATED BY"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[INVESTIGATED BY]"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[INVESTIGATED BY]" />
+                    <inputColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[INPUT TYPE]"
+                      cachedDataType="wstr"
+                      cachedLength="1016"
+                      cachedName="INPUT TYPE"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[INPUT TYPE]"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[INPUT TYPE]" />
+                    <inputColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MATERIAL LOCATION]"
+                      cachedDataType="wstr"
+                      cachedLength="1016"
+                      cachedName="MATERIAL LOCATION"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MATERIAL LOCATION]"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[MATERIAL LOCATION]" />
+                    <inputColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[NCR TYPE]"
+                      cachedDataType="wstr"
+                      cachedLength="1016"
+                      cachedName="NCR TYPE"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NCR TYPE]"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[NCR TYPE]" />
+                    <inputColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ORIGINATOR FACILITY]"
+                      cachedDataType="wstr"
+                      cachedLength="1016"
+                      cachedName="ORIGINATOR FACILITY"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ORIGINATOR FACILITY]"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[ORIGINATOR FACILITY]" />
+                    <inputColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PART#]"
+                      cachedDataType="wstr"
+                      cachedLength="1016"
+                      cachedName="PART#"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PART#]"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[PART#]" />
+                    <inputColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Source (Supplier or Facility)]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Source (Supplier or Facility)"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Source (Supplier or Facility)]"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[Source (Supplier or Facility)]" />
+                    <inputColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DATE CLOSED]"
+                      cachedDataType="dbTimeStamp2"
+                      cachedName="DATE CLOSED"
+                      cachedScale="7"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DATE CLOSED]"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[DATE CLOSED]" />
+                    <inputColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DATE OF DISPOSITION]"
+                      cachedDataType="dbTimeStamp2"
+                      cachedName="DATE OF DISPOSITION"
+                      cachedScale="7"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DATE OF DISPOSITION]"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[DATE OF DISPOSITION]" />
+                    <inputColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[REC STATE]"
+                      cachedDataType="wstr"
+                      cachedLength="1016"
+                      cachedName="REC STATE"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[REC STATE]"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[REC STATE]" />
+                    <inputColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[QTY REJECTED]"
+                      cachedDataType="numeric"
+                      cachedName="QTY REJECTED"
+                      cachedPrecision="38"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[QTY REJECTED]"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[QTY REJECTED]" />
+                    <inputColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ORIGINATOR]"
+                      cachedDataType="wstr"
+                      cachedLength="1016"
+                      cachedName="ORIGINATOR"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ORIGINATOR]"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[ORIGINATOR]" />
+                    <inputColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ACCEPT]"
+                      cachedDataType="wstr"
+                      cachedLength="1016"
+                      cachedName="ACCEPT"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ACCEPT]"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[ACCEPT]" />
+                    <inputColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[RTV]"
+                      cachedDataType="wstr"
+                      cachedLength="1016"
+                      cachedName="RTV"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RTV]"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[RTV]" />
+                    <inputColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[REWORK]"
+                      cachedDataType="wstr"
+                      cachedLength="1016"
+                      cachedName="REWORK"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[REWORK]"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[REWORK]" />
+                    <inputColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SCRAP]"
+                      cachedDataType="wstr"
+                      cachedLength="1016"
+                      cachedName="SCRAP"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SCRAP]"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[SCRAP]" />
+                    <inputColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[VOID]"
+                      cachedDataType="wstr"
+                      cachedLength="1016"
+                      cachedName="VOID"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[VOID]"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[VOID]" />
+                    <inputColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[BUYER]"
+                      cachedDataType="wstr"
+                      cachedLength="1016"
+                      cachedName="BUYER"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BUYER]"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[BUYER]" />
+                    <inputColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LOT]"
+                      cachedDataType="wstr"
+                      cachedLength="1016"
+                      cachedName="LOT"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LOT]"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[LOT]" />
+                    <inputColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PO]"
+                      cachedDataType="wstr"
+                      cachedLength="1016"
+                      cachedName="PO"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PO]"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[PO]" />
+                    <inputColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[REWORKACCEPTQTY]"
+                      cachedDataType="numeric"
+                      cachedName="REWORKACCEPTQTY"
+                      cachedPrecision="38"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[REWORKACCEPTQTY]"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[REWORKACCEPTQTY]" />
+                    <inputColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[REWORKREJECTQTY]"
+                      cachedDataType="numeric"
+                      cachedName="REWORKREJECTQTY"
+                      cachedPrecision="38"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[REWORKREJECTQTY]"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[REWORKREJECTQTY]" />
+                    <inputColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TRANSQTY]"
+                      cachedDataType="numeric"
+                      cachedName="TRANSQTY"
+                      cachedPrecision="38"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TRANSQTY]"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[TRANSQTY]" />
+                    <inputColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TRANSTYPE]"
+                      cachedDataType="wstr"
+                      cachedLength="1016"
+                      cachedName="TRANSTYPE"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TRANSTYPE]"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[TRANSTYPE]" />
+                    <inputColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TRANSDATE]"
+                      cachedDataType="dbTimeStamp2"
+                      cachedName="TRANSDATE"
+                      cachedScale="7"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TRANSDATE]"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[TRANSDATE]" />
+                    <inputColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FDA_RN]"
+                      cachedDataType="wstr"
+                      cachedLength="1016"
+                      cachedName="FDA_RN"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FDA_RN]"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[FDA_RN]" />
+                    <inputColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CONCLUSIONS]"
+                      cachedDataType="nText"
+                      cachedName="CONCLUSIONS"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CONCLUSIONS]"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[CONCLUSIONS]" />
+                    <inputColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SOURCESUPPLIER]"
+                      cachedDataType="wstr"
+                      cachedLength="1016"
+                      cachedName="SOURCESUPPLIER"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SOURCESUPPLIER]"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[SOURCESUPPLIER]" />
+                    <inputColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SOURCEFACILITY]"
+                      cachedDataType="wstr"
+                      cachedLength="1016"
+                      cachedName="SOURCEFACILITY"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SOURCEFACILITY]"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[SOURCEFACILITY]" />
+                    <inputColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SUPPLIERISSUE]"
+                      cachedDataType="wstr"
+                      cachedLength="1016"
+                      cachedName="SUPPLIERISSUE"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SUPPLIERISSUE]"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[SUPPLIERISSUE]" />
+                    <inputColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ECO_CO]"
+                      cachedDataType="wstr"
+                      cachedLength="1016"
+                      cachedName="ECO_CO"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ECO_CO]"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[ECO_CO]" />
+                    <inputColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[REPAIR]"
+                      cachedDataType="wstr"
+                      cachedLength="1016"
+                      cachedName="REPAIR"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[REPAIR]"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[REPAIR]" />
+                    <inputColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[OTHER]"
+                      cachedDataType="wstr"
+                      cachedLength="1016"
+                      cachedName="OTHER"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OTHER]"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[OTHER]" />
+                    <inputColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[OSPR]"
+                      cachedDataType="wstr"
+                      cachedLength="1016"
+                      cachedName="OSPR"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OSPR]"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[OSPR]" />
+                    <inputColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[UAI]"
+                      cachedDataType="wstr"
+                      cachedLength="1016"
+                      cachedName="UAI"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UAI]"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[UAI]" />
+                    <inputColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[EVALUATION]"
+                      cachedDataType="nText"
+                      cachedName="EVALUATION"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EVALUATION]"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[EVALUATION]" />
+                    <inputColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[RISK_STATEMENT]"
+                      cachedDataType="nText"
+                      cachedName="RISK_STATEMENT"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RISK_STATEMENT]"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[RISK_STATEMENT]" />
+                    <inputColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[VALIDATION_VERIFICATION]"
+                      cachedDataType="nText"
+                      cachedName="VALIDATION_VERIFICATION"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[VALIDATION_VERIFICATION]"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[VALIDATION_VERIFICATION]" />
+                    <inputColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TREND_ANALYSIS]"
+                      cachedDataType="nText"
+                      cachedName="TREND_ANALYSIS"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TREND_ANALYSIS]"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[TREND_ANALYSIS]" />
+                    <inputColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CAPA_NUMBER]"
+                      cachedDataType="wstr"
+                      cachedLength="1016"
+                      cachedName="CAPA_NUMBER"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CAPA_NUMBER]"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[CAPA_NUMBER]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[REC ID]"
+                      dataType="numeric"
+                      name="REC ID"
+                      precision="12" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DATE OPENED]"
+                      dataType="dbTimeStamp2"
+                      name="DATE OPENED"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DATE OF INITIATION]"
+                      dataType="dbTimeStamp2"
+                      name="DATE OF INITIATION"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DEFECT DESCRIPTION]"
+                      dataType="nText"
+                      name="DEFECT DESCRIPTION" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DEFECT SOURCE]"
+                      dataType="wstr"
+                      length="1016"
+                      name="DEFECT SOURCE" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DEFECT TYPE]"
+                      dataType="wstr"
+                      length="1016"
+                      name="DEFECT TYPE" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DEPT#]"
+                      dataType="wstr"
+                      length="1016"
+                      name="DEPT#" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[INVESTIGATED BY]"
+                      dataType="wstr"
+                      length="1016"
+                      name="INVESTIGATED BY" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[INPUT TYPE]"
+                      dataType="wstr"
+                      length="1016"
+                      name="INPUT TYPE" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MATERIAL LOCATION]"
+                      dataType="wstr"
+                      length="1016"
+                      name="MATERIAL LOCATION" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NCR TYPE]"
+                      dataType="wstr"
+                      length="1016"
+                      name="NCR TYPE" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ORIGINATOR FACILITY]"
+                      dataType="wstr"
+                      length="1016"
+                      name="ORIGINATOR FACILITY" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PART#]"
+                      dataType="wstr"
+                      length="1016"
+                      name="PART#" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Source (Supplier or Facility)]"
+                      dataType="wstr"
+                      length="255"
+                      name="Source (Supplier or Facility)" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DATE CLOSED]"
+                      dataType="dbTimeStamp2"
+                      name="DATE CLOSED"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DATE OF DISPOSITION]"
+                      dataType="dbTimeStamp2"
+                      name="DATE OF DISPOSITION"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[REC STATE]"
+                      dataType="wstr"
+                      length="1016"
+                      name="REC STATE" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[QTY REJECTED]"
+                      dataType="numeric"
+                      name="QTY REJECTED"
+                      precision="38" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ORIGINATOR]"
+                      dataType="wstr"
+                      length="1016"
+                      name="ORIGINATOR" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ACCEPT]"
+                      dataType="wstr"
+                      length="1016"
+                      name="ACCEPT" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RTV]"
+                      dataType="wstr"
+                      length="1016"
+                      name="RTV" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[REWORK]"
+                      dataType="wstr"
+                      length="1016"
+                      name="REWORK" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SCRAP]"
+                      dataType="wstr"
+                      length="1016"
+                      name="SCRAP" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[VOID]"
+                      dataType="wstr"
+                      length="1016"
+                      name="VOID" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BUYER]"
+                      dataType="wstr"
+                      length="1016"
+                      name="BUYER" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LOT]"
+                      dataType="wstr"
+                      length="1016"
+                      name="LOT" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PO]"
+                      dataType="wstr"
+                      length="1016"
+                      name="PO" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[REWORKACCEPTQTY]"
+                      dataType="numeric"
+                      name="REWORKACCEPTQTY"
+                      precision="38" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[REWORKREJECTQTY]"
+                      dataType="numeric"
+                      name="REWORKREJECTQTY"
+                      precision="38" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TRANSQTY]"
+                      dataType="numeric"
+                      name="TRANSQTY"
+                      precision="38" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TRANSTYPE]"
+                      dataType="wstr"
+                      length="1016"
+                      name="TRANSTYPE" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TRANSDATE]"
+                      dataType="dbTimeStamp2"
+                      name="TRANSDATE"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FDA_RN]"
+                      dataType="wstr"
+                      length="1016"
+                      name="FDA_RN" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CONCLUSIONS]"
+                      dataType="nText"
+                      name="CONCLUSIONS" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GS_TW_NCRS_PK]"
+                      dataType="i4"
+                      name="GS_TW_NCRS_PK" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SOURCESUPPLIER]"
+                      dataType="wstr"
+                      length="1016"
+                      name="SOURCESUPPLIER" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SOURCEFACILITY]"
+                      dataType="wstr"
+                      length="1016"
+                      name="SOURCEFACILITY" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SUPPLIERISSUE]"
+                      dataType="wstr"
+                      length="1016"
+                      name="SUPPLIERISSUE" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ECO_CO]"
+                      dataType="wstr"
+                      length="1016"
+                      name="ECO_CO" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[REPAIR]"
+                      dataType="wstr"
+                      length="1016"
+                      name="REPAIR" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OTHER]"
+                      dataType="wstr"
+                      length="1016"
+                      name="OTHER" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OSPR]"
+                      dataType="wstr"
+                      length="1016"
+                      name="OSPR" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UAI]"
+                      dataType="wstr"
+                      length="1016"
+                      name="UAI" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EVALUATION]"
+                      dataType="nText"
+                      name="EVALUATION" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RISK_STATEMENT]"
+                      dataType="nText"
+                      name="RISK_STATEMENT" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[VALIDATION_VERIFICATION]"
+                      dataType="nText"
+                      name="VALIDATION_VERIFICATION" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TREND_ANALYSIS]"
+                      dataType="nText"
+                      name="TREND_ANALYSIS" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CAPA_NUMBER]"
+                      dataType="wstr"
+                      length="1016"
+                      name="CAPA_NUMBER" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Copy Data\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Copy Data\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Copy Data\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Copy Data\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[GS_TW_NCRS]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Copy Data\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Trackwise]"
+                  connectionManagerRefId="Package.ConnectionManagers[Trackwise]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[REC ID]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[REC ID]"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[REC ID]"
+                      name="REC ID"
+                      precision="12"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[DATE OPENED]"
+                      dataType="dbTimeStamp2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DATE OPENED]"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[DATE OPENED]"
+                      name="DATE OPENED"
+                      scale="7"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[DATE OF INITIATION]"
+                      dataType="dbTimeStamp2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DATE OF INITIATION]"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[DATE OF INITIATION]"
+                      name="DATE OF INITIATION"
+                      scale="7"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[DEFECT DESCRIPTION]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DEFECT DESCRIPTION]"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[DEFECT DESCRIPTION]"
+                      name="DEFECT DESCRIPTION"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[DEFECT SOURCE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DEFECT SOURCE]"
+                      length="1016"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[DEFECT SOURCE]"
+                      name="DEFECT SOURCE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[DEFECT TYPE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DEFECT TYPE]"
+                      length="1016"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[DEFECT TYPE]"
+                      name="DEFECT TYPE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[DEPT#]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DEPT#]"
+                      length="1016"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[DEPT#]"
+                      name="DEPT#"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[INVESTIGATED BY]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[INVESTIGATED BY]"
+                      length="1016"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[INVESTIGATED BY]"
+                      name="INVESTIGATED BY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[INPUT TYPE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[INPUT TYPE]"
+                      length="1016"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[INPUT TYPE]"
+                      name="INPUT TYPE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[MATERIAL LOCATION]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MATERIAL LOCATION]"
+                      length="1016"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[MATERIAL LOCATION]"
+                      name="MATERIAL LOCATION"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[NCR TYPE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NCR TYPE]"
+                      length="1016"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[NCR TYPE]"
+                      name="NCR TYPE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[ORIGINATOR FACILITY]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ORIGINATOR FACILITY]"
+                      length="1016"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[ORIGINATOR FACILITY]"
+                      name="ORIGINATOR FACILITY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[PART#]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PART#]"
+                      length="1016"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[PART#]"
+                      name="PART#"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[Source (Supplier or Facility)]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Source (Supplier or Facility)]"
+                      length="255"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[Source (Supplier or Facility)]"
+                      name="Source (Supplier or Facility)"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[DATE CLOSED]"
+                      dataType="dbTimeStamp2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DATE CLOSED]"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[DATE CLOSED]"
+                      name="DATE CLOSED"
+                      scale="7"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[DATE OF DISPOSITION]"
+                      dataType="dbTimeStamp2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DATE OF DISPOSITION]"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[DATE OF DISPOSITION]"
+                      name="DATE OF DISPOSITION"
+                      scale="7"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[REC STATE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[REC STATE]"
+                      length="1016"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[REC STATE]"
+                      name="REC STATE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[QTY REJECTED]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[QTY REJECTED]"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[QTY REJECTED]"
+                      name="QTY REJECTED"
+                      precision="38"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[ORIGINATOR]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ORIGINATOR]"
+                      length="1016"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[ORIGINATOR]"
+                      name="ORIGINATOR"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[ACCEPT]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ACCEPT]"
+                      length="1016"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[ACCEPT]"
+                      name="ACCEPT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[RTV]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RTV]"
+                      length="1016"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[RTV]"
+                      name="RTV"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[REWORK]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[REWORK]"
+                      length="1016"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[REWORK]"
+                      name="REWORK"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[SCRAP]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SCRAP]"
+                      length="1016"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[SCRAP]"
+                      name="SCRAP"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[VOID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[VOID]"
+                      length="1016"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[VOID]"
+                      name="VOID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[BUYER]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BUYER]"
+                      length="1016"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[BUYER]"
+                      name="BUYER"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[LOT]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LOT]"
+                      length="1016"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[LOT]"
+                      name="LOT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[PO]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PO]"
+                      length="1016"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[PO]"
+                      name="PO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[REWORKACCEPTQTY]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[REWORKACCEPTQTY]"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[REWORKACCEPTQTY]"
+                      name="REWORKACCEPTQTY"
+                      precision="38"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[REWORKREJECTQTY]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[REWORKREJECTQTY]"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[REWORKREJECTQTY]"
+                      name="REWORKREJECTQTY"
+                      precision="38"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[TRANSQTY]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TRANSQTY]"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[TRANSQTY]"
+                      name="TRANSQTY"
+                      precision="38"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[TRANSTYPE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TRANSTYPE]"
+                      length="1016"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[TRANSTYPE]"
+                      name="TRANSTYPE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[TRANSDATE]"
+                      dataType="dbTimeStamp2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TRANSDATE]"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[TRANSDATE]"
+                      name="TRANSDATE"
+                      scale="7"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[FDA_RN]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FDA_RN]"
+                      length="1016"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[FDA_RN]"
+                      name="FDA_RN"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[CONCLUSIONS]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CONCLUSIONS]"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[CONCLUSIONS]"
+                      name="CONCLUSIONS"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[SOURCESUPPLIER]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SOURCESUPPLIER]"
+                      length="1016"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[SOURCESUPPLIER]"
+                      name="SOURCESUPPLIER"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[SOURCEFACILITY]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SOURCEFACILITY]"
+                      length="1016"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[SOURCEFACILITY]"
+                      name="SOURCEFACILITY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[SUPPLIERISSUE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SUPPLIERISSUE]"
+                      length="1016"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[SUPPLIERISSUE]"
+                      name="SUPPLIERISSUE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[ECO_CO]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ECO_CO]"
+                      length="1016"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[ECO_CO]"
+                      name="ECO_CO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[REPAIR]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[REPAIR]"
+                      length="1016"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[REPAIR]"
+                      name="REPAIR"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[OTHER]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OTHER]"
+                      length="1016"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[OTHER]"
+                      name="OTHER"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[OSPR]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OSPR]"
+                      length="1016"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[OSPR]"
+                      name="OSPR"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[UAI]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UAI]"
+                      length="1016"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[UAI]"
+                      name="UAI"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[EVALUATION]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[EVALUATION]"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[EVALUATION]"
+                      name="EVALUATION"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[RISK_STATEMENT]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RISK_STATEMENT]"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[RISK_STATEMENT]"
+                      name="RISK_STATEMENT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[VALIDATION_VERIFICATION]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[VALIDATION_VERIFICATION]"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[VALIDATION_VERIFICATION]"
+                      name="VALIDATION_VERIFICATION"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[TREND_ANALYSIS]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TREND_ANALYSIS]"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[TREND_ANALYSIS]"
+                      name="TREND_ANALYSIS"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[CAPA_NUMBER]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CAPA_NUMBER]"
+                      length="1016"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[CAPA_NUMBER]"
+                      name="CAPA_NUMBER"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[REC ID]"
+                      dataType="numeric"
+                      name="REC ID"
+                      precision="12" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DATE OPENED]"
+                      dataType="dbTimeStamp2"
+                      name="DATE OPENED"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DATE OF INITIATION]"
+                      dataType="dbTimeStamp2"
+                      name="DATE OF INITIATION"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DEFECT DESCRIPTION]"
+                      dataType="nText"
+                      name="DEFECT DESCRIPTION" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DEFECT SOURCE]"
+                      dataType="wstr"
+                      length="1016"
+                      name="DEFECT SOURCE" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DEFECT TYPE]"
+                      dataType="wstr"
+                      length="1016"
+                      name="DEFECT TYPE" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DEPT#]"
+                      dataType="wstr"
+                      length="1016"
+                      name="DEPT#" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[INVESTIGATED BY]"
+                      dataType="wstr"
+                      length="1016"
+                      name="INVESTIGATED BY" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[INPUT TYPE]"
+                      dataType="wstr"
+                      length="1016"
+                      name="INPUT TYPE" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MATERIAL LOCATION]"
+                      dataType="wstr"
+                      length="1016"
+                      name="MATERIAL LOCATION" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NCR TYPE]"
+                      dataType="wstr"
+                      length="1016"
+                      name="NCR TYPE" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ORIGINATOR FACILITY]"
+                      dataType="wstr"
+                      length="1016"
+                      name="ORIGINATOR FACILITY" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PART#]"
+                      dataType="wstr"
+                      length="1016"
+                      name="PART#" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Source (Supplier or Facility)]"
+                      dataType="wstr"
+                      length="255"
+                      name="Source (Supplier or Facility)" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DATE CLOSED]"
+                      dataType="dbTimeStamp2"
+                      name="DATE CLOSED"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DATE OF DISPOSITION]"
+                      dataType="dbTimeStamp2"
+                      name="DATE OF DISPOSITION"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[REC STATE]"
+                      dataType="wstr"
+                      length="1016"
+                      name="REC STATE" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[QTY REJECTED]"
+                      dataType="numeric"
+                      name="QTY REJECTED"
+                      precision="38" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ORIGINATOR]"
+                      dataType="wstr"
+                      length="1016"
+                      name="ORIGINATOR" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ACCEPT]"
+                      dataType="wstr"
+                      length="1016"
+                      name="ACCEPT" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RTV]"
+                      dataType="wstr"
+                      length="1016"
+                      name="RTV" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[REWORK]"
+                      dataType="wstr"
+                      length="1016"
+                      name="REWORK" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SCRAP]"
+                      dataType="wstr"
+                      length="1016"
+                      name="SCRAP" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[VOID]"
+                      dataType="wstr"
+                      length="1016"
+                      name="VOID" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BUYER]"
+                      dataType="wstr"
+                      length="1016"
+                      name="BUYER" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LOT]"
+                      dataType="wstr"
+                      length="1016"
+                      name="LOT" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PO]"
+                      dataType="wstr"
+                      length="1016"
+                      name="PO" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[REWORKACCEPTQTY]"
+                      dataType="numeric"
+                      name="REWORKACCEPTQTY"
+                      precision="38" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[REWORKREJECTQTY]"
+                      dataType="numeric"
+                      name="REWORKREJECTQTY"
+                      precision="38" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TRANSQTY]"
+                      dataType="numeric"
+                      name="TRANSQTY"
+                      precision="38" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TRANSTYPE]"
+                      dataType="wstr"
+                      length="1016"
+                      name="TRANSTYPE" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TRANSDATE]"
+                      dataType="dbTimeStamp2"
+                      name="TRANSDATE"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FDA_RN]"
+                      dataType="wstr"
+                      length="1016"
+                      name="FDA_RN" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CONCLUSIONS]"
+                      dataType="nText"
+                      name="CONCLUSIONS" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SOURCESUPPLIER]"
+                      dataType="wstr"
+                      length="1016"
+                      name="SOURCESUPPLIER" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SOURCEFACILITY]"
+                      dataType="wstr"
+                      length="1016"
+                      name="SOURCEFACILITY" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SUPPLIERISSUE]"
+                      dataType="wstr"
+                      length="1016"
+                      name="SUPPLIERISSUE" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ECO_CO]"
+                      dataType="wstr"
+                      length="1016"
+                      name="ECO_CO" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[REPAIR]"
+                      dataType="wstr"
+                      length="1016"
+                      name="REPAIR" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OTHER]"
+                      dataType="wstr"
+                      length="1016"
+                      name="OTHER" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OSPR]"
+                      dataType="wstr"
+                      length="1016"
+                      name="OSPR" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UAI]"
+                      dataType="wstr"
+                      length="1016"
+                      name="UAI" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[EVALUATION]"
+                      dataType="nText"
+                      name="EVALUATION" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RISK_STATEMENT]"
+                      dataType="nText"
+                      name="RISK_STATEMENT" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[VALIDATION_VERIFICATION]"
+                      dataType="nText"
+                      name="VALIDATION_VERIFICATION" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TREND_ANALYSIS]"
+                      dataType="nText"
+                      name="TREND_ANALYSIS" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CAPA_NUMBER]"
+                      dataType="wstr"
+                      length="1016"
+                      name="CAPA_NUMBER" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[REC ID]"
+                      dataType="numeric"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[REC ID]"
+                      name="REC ID"
+                      precision="12" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DATE OPENED]"
+                      dataType="dbTimeStamp2"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DATE OPENED]"
+                      name="DATE OPENED"
+                      scale="7" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DATE OF INITIATION]"
+                      dataType="dbTimeStamp2"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DATE OF INITIATION]"
+                      name="DATE OF INITIATION"
+                      scale="7" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DEFECT DESCRIPTION]"
+                      dataType="nText"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DEFECT DESCRIPTION]"
+                      name="DEFECT DESCRIPTION" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DEFECT SOURCE]"
+                      dataType="wstr"
+                      length="1016"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DEFECT SOURCE]"
+                      name="DEFECT SOURCE" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DEFECT TYPE]"
+                      dataType="wstr"
+                      length="1016"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DEFECT TYPE]"
+                      name="DEFECT TYPE" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DEPT#]"
+                      dataType="wstr"
+                      length="1016"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DEPT#]"
+                      name="DEPT#" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[INVESTIGATED BY]"
+                      dataType="wstr"
+                      length="1016"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[INVESTIGATED BY]"
+                      name="INVESTIGATED BY" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[INPUT TYPE]"
+                      dataType="wstr"
+                      length="1016"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[INPUT TYPE]"
+                      name="INPUT TYPE" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MATERIAL LOCATION]"
+                      dataType="wstr"
+                      length="1016"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MATERIAL LOCATION]"
+                      name="MATERIAL LOCATION" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NCR TYPE]"
+                      dataType="wstr"
+                      length="1016"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NCR TYPE]"
+                      name="NCR TYPE" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ORIGINATOR FACILITY]"
+                      dataType="wstr"
+                      length="1016"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ORIGINATOR FACILITY]"
+                      name="ORIGINATOR FACILITY" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PART#]"
+                      dataType="wstr"
+                      length="1016"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PART#]"
+                      name="PART#" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Source (Supplier or Facility)]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Source (Supplier or Facility)]"
+                      name="Source (Supplier or Facility)" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DATE CLOSED]"
+                      dataType="dbTimeStamp2"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DATE CLOSED]"
+                      name="DATE CLOSED"
+                      scale="7" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DATE OF DISPOSITION]"
+                      dataType="dbTimeStamp2"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DATE OF DISPOSITION]"
+                      name="DATE OF DISPOSITION"
+                      scale="7" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[REC STATE]"
+                      dataType="wstr"
+                      length="1016"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[REC STATE]"
+                      name="REC STATE" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[QTY REJECTED]"
+                      dataType="numeric"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[QTY REJECTED]"
+                      name="QTY REJECTED"
+                      precision="38" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ORIGINATOR]"
+                      dataType="wstr"
+                      length="1016"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ORIGINATOR]"
+                      name="ORIGINATOR" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ACCEPT]"
+                      dataType="wstr"
+                      length="1016"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ACCEPT]"
+                      name="ACCEPT" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RTV]"
+                      dataType="wstr"
+                      length="1016"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RTV]"
+                      name="RTV" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[REWORK]"
+                      dataType="wstr"
+                      length="1016"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[REWORK]"
+                      name="REWORK" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SCRAP]"
+                      dataType="wstr"
+                      length="1016"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SCRAP]"
+                      name="SCRAP" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[VOID]"
+                      dataType="wstr"
+                      length="1016"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[VOID]"
+                      name="VOID" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BUYER]"
+                      dataType="wstr"
+                      length="1016"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BUYER]"
+                      name="BUYER" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LOT]"
+                      dataType="wstr"
+                      length="1016"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LOT]"
+                      name="LOT" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PO]"
+                      dataType="wstr"
+                      length="1016"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PO]"
+                      name="PO" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[REWORKACCEPTQTY]"
+                      dataType="numeric"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[REWORKACCEPTQTY]"
+                      name="REWORKACCEPTQTY"
+                      precision="38" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[REWORKREJECTQTY]"
+                      dataType="numeric"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[REWORKREJECTQTY]"
+                      name="REWORKREJECTQTY"
+                      precision="38" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TRANSQTY]"
+                      dataType="numeric"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TRANSQTY]"
+                      name="TRANSQTY"
+                      precision="38" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TRANSTYPE]"
+                      dataType="wstr"
+                      length="1016"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TRANSTYPE]"
+                      name="TRANSTYPE" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TRANSDATE]"
+                      dataType="dbTimeStamp2"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TRANSDATE]"
+                      name="TRANSDATE"
+                      scale="7" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FDA_RN]"
+                      dataType="wstr"
+                      length="1016"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FDA_RN]"
+                      name="FDA_RN" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CONCLUSIONS]"
+                      dataType="nText"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CONCLUSIONS]"
+                      name="CONCLUSIONS" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SOURCESUPPLIER]"
+                      dataType="wstr"
+                      length="1016"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SOURCESUPPLIER]"
+                      name="SOURCESUPPLIER" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SOURCEFACILITY]"
+                      dataType="wstr"
+                      length="1016"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SOURCEFACILITY]"
+                      name="SOURCEFACILITY" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SUPPLIERISSUE]"
+                      dataType="wstr"
+                      length="1016"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SUPPLIERISSUE]"
+                      name="SUPPLIERISSUE" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ECO_CO]"
+                      dataType="wstr"
+                      length="1016"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ECO_CO]"
+                      name="ECO_CO" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[REPAIR]"
+                      dataType="wstr"
+                      length="1016"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[REPAIR]"
+                      name="REPAIR" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OTHER]"
+                      dataType="wstr"
+                      length="1016"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OTHER]"
+                      name="OTHER" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OSPR]"
+                      dataType="wstr"
+                      length="1016"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OSPR]"
+                      name="OSPR" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UAI]"
+                      dataType="wstr"
+                      length="1016"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UAI]"
+                      name="UAI" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[EVALUATION]"
+                      dataType="nText"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[EVALUATION]"
+                      name="EVALUATION" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RISK_STATEMENT]"
+                      dataType="nText"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RISK_STATEMENT]"
+                      name="RISK_STATEMENT" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[VALIDATION_VERIFICATION]"
+                      dataType="nText"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[VALIDATION_VERIFICATION]"
+                      name="VALIDATION_VERIFICATION" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TREND_ANALYSIS]"
+                      dataType="nText"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TREND_ANALYSIS]"
+                      name="TREND_ANALYSIS" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CAPA_NUMBER]"
+                      dataType="wstr"
+                      length="1016"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CAPA_NUMBER]"
+                      name="CAPA_NUMBER" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Copy Data.Paths[OLE DB Source Output]"
+              endId="Package\Copy Data\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Copy Data\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\TRUNCATE AS_STAGE Trackwise_GS_TW_NCRS"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{1218D384-6D5D-43C4-8196-ACA5ADA0CE86}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="TRUNCATE AS_STAGE Trackwise_GS_TW_NCRS"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{ABE4F32D-2CB5-4916-B88B-540FC5856749}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE  [AS_STAGE].[dbo].[Trackwise_GS_TW_NCRS]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{0FFB1202-2E5A-492E-9860-3AA74F1FF574}"
+      DTS:From="Package\TRUNCATE AS_STAGE Trackwise_GS_TW_NCRS"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Copy Data" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Copy Data"
+          TopLeft="86.5943396226415,98.5566037735849" />
+        <NodeLayout
+          Size="220.8,44"
+          Id="Package\TRUNCATE AS_STAGE Trackwise_GS_TW_NCRS"
+          TopLeft="5.5,5.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="115.839622641509,49.4245283018868">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="38.6415094339623,49.1320754716981"
+              Start="0,0"
+              End="38.6415094339623,41.6320754716981">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.5660377358491" />
+                  <mssgle:LineSegment
+                    End="38.6415094339623,24.5660377358491" />
+                  <mssgle:LineSegment
+                    End="38.6415094339623,41.6320754716981" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Copy Data">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Copy Data\OLE DB Source"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Copy Data\OLE DB Destination"
+          TopLeft="43.4245283018868,112.330188679245" />
+        <EdgeLayout
+          Id="Package\Copy Data.Paths[OLE DB Source Output]"
+          TopLeft="73.3867924528302,49.4245283018868">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="37.9245283018868,62.9056603773585"
+              Start="0,0"
+              End="37.9245283018868,55.4056603773585">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.4339622641509" />
+                  <mssgle:LineSegment
+                    End="37.9245283018868,31.4339622641509" />
+                  <mssgle:LineSegment
+                    End="37.9245283018868,55.4056603773585" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Copy Data\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Copy Data\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

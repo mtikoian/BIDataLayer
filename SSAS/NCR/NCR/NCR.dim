@@ -1,0 +1,1456 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="7b229bf2-6b0d-49dd-bbd2-dd767e74e3bf" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Dim NCR</ID>
+  <Name>NCR</Name>
+  <CreatedTimestamp>2017-05-18T18:58:17.85Z</CreatedTimestamp>
+  <LastSchemaUpdate>2017-08-16T20:05:27.46Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+      <Value>
+        <dds xmlns="">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="3" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-1607" scrolltop="-7109" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="7747" y="17230" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+            <font>
+              <ddsxmlobjectstreamwrapper binary="010000009001b0300100065461686f6d61" />
+            </font>
+            <mouseicon>
+              <ddsxmlobjectstreamwrapper binary="6c74000000000000" />
+            </mouseicon>
+          </diagram>
+          <layoutmanager>
+            <ddsxmlobj />
+          </layoutmanager>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="Dim NCR" left="-298" top="-5768" logicalid="2" controlid="1" masterid="0" hint1="0" hint2="0" width="5133" height="10981" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000a00000d140000e52a0000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_Dim_NCR" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+        </dds>
+      </Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>-1607</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>-7109</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>-298</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>-5768</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ARDiagramLayout</Name>
+      <Value>
+        <DiagramLayout ZoomPercent="100" ViewPortX="8" ViewPortY="0" xmlns="">
+          <Shapes NodeWidth="202">
+            <Shape Id="Dim NCR KEY" Expanded="true">
+              <Attributes>
+                <Attribute Id="Dim NCR KEY" />
+                <Attribute Id="Closed Date Month Seq" />
+                <Attribute Id="Closed Date Quarter Seq" />
+                <Attribute Id="Defect Source" />
+                <Attribute Id="Defect Type" />
+                <Attribute Id="Disposition Date" />
+                <Attribute Id="Disposition Type" />
+                <Attribute Id="Input Type" />
+                <Attribute Id="Investigated By" />
+                <Attribute Id="Is Closed" />
+                <Attribute Id="Is Overdue" />
+                <Attribute Id="Is Supplier Issue" />
+                <Attribute Id="Location" />
+                <Attribute Id="Lot Number" />
+                <Attribute Id="Item Num" />
+                <Attribute Id="NCR Number" />
+                <Attribute Id="NCR Type" />
+                <Attribute Id="Open Date Month Seq" />
+                <Attribute Id="Open Date Quarter Seq" />
+                <Attribute Id="PO Number" />
+                <Attribute Id="Record State" />
+                <Attribute Id="Source Sys" />
+                <Attribute Id="Supplier Name" />
+              </Attributes>
+              <Position x="20" y="20" />
+            </Shape>
+            <Shape Id="Closed Date" Expanded="false">
+              <Attributes>
+                <Attribute Id="Closed Date" />
+              </Attributes>
+              <Position x="277" y="20" />
+            </Shape>
+            <Shape Id="Closed Date Month" Expanded="false">
+              <Attributes>
+                <Attribute Id="Closed Date Month" />
+              </Attributes>
+              <Position x="535" y="20" />
+            </Shape>
+            <Shape Id="Closed Date Quarter" Expanded="false">
+              <Attributes>
+                <Attribute Id="Closed Date Quarter" />
+              </Attributes>
+              <Position x="792" y="20" />
+            </Shape>
+            <Shape Id="Closed Date Year" Expanded="false">
+              <Attributes>
+                <Attribute Id="Closed Date Year" />
+              </Attributes>
+              <Position x="1050" y="20" />
+            </Shape>
+            <Shape Id="Open Date" Expanded="false">
+              <Attributes>
+                <Attribute Id="Open Date" />
+              </Attributes>
+              <Position x="277" y="68" />
+            </Shape>
+            <Shape Id="Open Date Month" Expanded="false">
+              <Attributes>
+                <Attribute Id="Open Date Month" />
+              </Attributes>
+              <Position x="535" y="68" />
+            </Shape>
+            <Shape Id="Open Date Quarter" Expanded="false">
+              <Attributes>
+                <Attribute Id="Open Date Quarter" />
+              </Attributes>
+              <Position x="792" y="68" />
+            </Shape>
+            <Shape Id="Open Date Year" Expanded="false">
+              <Attributes>
+                <Attribute Id="Open Date Year" />
+              </Attributes>
+              <Position x="1050" y="68" />
+            </Shape>
+          </Shapes>
+        </DiagramLayout>
+      </Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>2017-08-17T11:28:48.523333Z</LastProcessed>
+  <State>Processed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="9c7d6b9e-7691-439a-998b-b7343bc4297e">
+    <DataSourceViewID>AS DWH</DataSourceViewID>
+  </Source>
+  <UnknownMember>Visible</UnknownMember>
+  <ErrorConfiguration dwd:design-time-name="b9a51f98-5ec9-455c-bb3a-6711847ab1ee">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <DimensionPermissions>
+    <DimensionPermission dwd:design-time-name="86964fb2-0596-4d88-b370-7e6fef9fd65d">
+      <ID>DimensionPermission</ID>
+      <Name>DimensionPermission</Name>
+      <CreatedTimestamp>0001-01-01T05:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T05:00:00Z</LastSchemaUpdate>
+      <RoleID>Role 1</RoleID>
+      <ReadDefinition>Allowed</ReadDefinition>
+      <Read>Allowed</Read>
+    </DimensionPermission>
+  </DimensionPermissions>
+  <Language>1033</Language>
+  <Collation>Latin1_General_CI_AS</Collation>
+  <UnknownMemberName>Unknown</UnknownMemberName>
+  <Attributes>
+    <Attribute dwd:design-time-name="6662e7ad-f982-4038-b684-c92298baee95">
+      <ID>Dim NCR KEY</ID>
+      <Name>Dim NCR KEY</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="85201b35-4813-4bfa-a744-85c2c5ef86d5">
+          <DataType>Integer</DataType>
+          <NullProcessing>UnknownMember</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="e86c6c1c-cc43-4824-b26a-8b2edfaf5e93">
+            <TableID>dbo_Dim_NCR</TableID>
+            <ColumnID>Dim_NCR_KEY</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="2bf94178-cfab-40c5-9592-5f7959d80ea7">
+        <DataType>WChar</DataType>
+        <NullProcessing>ZeroOrBlank</NullProcessing>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="50ae253d-1905-4d33-bae3-c25dffbe1a52">
+          <TableID>dbo_Dim_NCR</TableID>
+          <ColumnID>Dim_NCR_KEY</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="a92798d1-10ad-465f-8857-da7b234b94ef">
+          <AttributeID>NCR Number</AttributeID>
+          <Name>NCR Number</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="5da8dfc1-3154-489a-863f-39a2432f8840">
+          <AttributeID>PO Number</AttributeID>
+          <Name>PO Number</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="1e24f8e3-8e00-45f5-84e3-686f7c99dae9">
+          <AttributeID>Supplier Name</AttributeID>
+          <Name>Supplier Name</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="6aca127d-2d07-4c1e-80ba-8a8f3bebae79">
+          <AttributeID>Source Sys</AttributeID>
+          <Name>Source System</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="b6272431-5188-447a-b41a-28ae83591224">
+          <AttributeID>Lot Number</AttributeID>
+          <Name>Lot Number</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="5b5a6716-f984-41a0-b419-cd30f31522c8">
+          <AttributeID>Is Closed</AttributeID>
+          <Name>Is Closed</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="9eba1aa3-e4c2-4ca8-97bd-4dc017c1f1b2">
+          <AttributeID>Defect Type</AttributeID>
+          <Name>Defect Type</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="19fe2ebd-1ec0-4c6b-aef8-557f69c027dc">
+          <AttributeID>Location</AttributeID>
+          <Name>Location</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="681180a7-a5ff-46b0-85a6-df54affc8dc9">
+          <AttributeID>Input Type</AttributeID>
+          <Name>Input Type</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="868e0af7-ac1e-42a6-94dd-c2398ad153b6">
+          <AttributeID>Record State</AttributeID>
+          <Name>Record State</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="a69689aa-9ba4-44f3-81b0-c6b98e342296">
+          <AttributeID>NCR Type</AttributeID>
+          <Name>NCR Type</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="4a7b939e-b48a-4503-aa36-f1243d85a5a8">
+          <AttributeID>Item Num</AttributeID>
+          <Name>Item Num</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="f94a8e77-9d5c-4460-bf58-6a592b8a01ff">
+          <AttributeID>Disposition Type</AttributeID>
+          <Name>Disposition Type</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="52e5f54a-c9bb-4c10-abb5-b72a7fcf0c1f">
+          <AttributeID>Disposition Date</AttributeID>
+          <Name>Disposition Date</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="36a4e9f1-c380-4f2f-a191-05bbe309baaf">
+          <AttributeID>Is Supplier Issue</AttributeID>
+          <Name>Is Supplier Issue</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="bd390897-09dc-4ed0-b662-fb821c0b5fa1">
+          <AttributeID>Defect Source</AttributeID>
+          <Name>Defect Source</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="5a312bbb-255f-4c40-9c3b-64a46238560d">
+          <AttributeID>Open Date</AttributeID>
+          <RelationshipType>Rigid</RelationshipType>
+          <Name>Open Date</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="096c2326-7a3a-42ee-b9a6-c2d08d205aa0">
+          <AttributeID>Closed Date</AttributeID>
+          <Name>Closed Date</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="23f821a5-1211-4b24-a946-edd87d13becf">
+          <AttributeID>Open Date Quarter Seq</AttributeID>
+          <Name>Open Date Quarter Seq</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="795aeb0c-ffb7-4cd5-ad4a-e7654125e504">
+          <AttributeID>Closed Date Quarter Seq</AttributeID>
+          <Name>Closed Date Quarter Seq</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="e0533bf6-02f5-4c0f-bb8b-6fd88d89f78c">
+          <AttributeID>Closed Date Month Seq</AttributeID>
+          <Name>Closed Date Month Seq</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="16caee37-edfb-4289-83d5-0fbe033403c5">
+          <AttributeID>Open Date Month Seq</AttributeID>
+          <Name>Open Date Month Seq</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="2d78b412-441a-4ef1-9289-593e730053bc">
+          <AttributeID>Investigated By</AttributeID>
+          <Name>Investigated By</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="46d2eaf3-eb12-404d-8735-5d506b36e9da">
+          <AttributeID>Is Overdue</AttributeID>
+          <Name>Is Overdue</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="88ebf181-7cdd-40d3-949b-7dea3f904bc6">
+          <AttributeID>Is Yesterday</AttributeID>
+          <Name>Is Yesterday</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="77576405-f0f8-4b1b-84ad-3f53b90fec30">
+          <AttributeID>Organization ID</AttributeID>
+          <Name>NCR ORG ID</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="5cf55e52-606a-4ae4-9dd1-6ac5fd3555f5">
+          <AttributeID>Supplier Facility</AttributeID>
+          <Name>Supplier Facility</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="529b306f-8240-440b-a971-6614d160269a">
+          <AttributeID>Is Reoccurring Issue</AttributeID>
+          <Name>Is Reoccurring Issue</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="34c12550-8624-4b15-9a24-ad9b7e42444a">
+          <AttributeID>EVALUATION</AttributeID>
+          <Name>Evaluation</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="bc527ba3-1c04-4a67-b517-b5ba0a2c32ee">
+          <AttributeID>RISK STATEMENT</AttributeID>
+          <Name>Risk Statement</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="ec5139dd-0453-4b5f-94be-b8999d1568e0">
+          <AttributeID>VALIDATION VERIFICATION</AttributeID>
+          <Name>Validation Verification</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="159ee874-1249-4f14-b2e8-9b292b960313">
+          <AttributeID>TREND ANALYSIS</AttributeID>
+          <Name>Trend Analysis</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="c537f452-5b1a-41d2-83f9-847d93a0fb73">
+          <AttributeID>Multiple Dispositions</AttributeID>
+          <Name>Multiple Dispositions</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="16ced625-7287-4ff0-938c-6c94bd697e4c">
+      <ID>NCR Number</ID>
+      <Name>NCR Number</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="3c9282cd-d311-4d01-930d-6ee841130e09">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="032e47fc-71c1-448c-8974-64ac34159e5a">
+            <TableID>dbo_Dim_NCR</TableID>
+            <ColumnID>NCR_Number</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="e2e070a3-4ddc-4c63-913f-03c37d811c78">
+        <DataType>WChar</DataType>
+        <DataSize>50</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="32e7dbe5-d598-45d6-a1de-61d1002a059e">
+          <TableID>dbo_Dim_NCR</TableID>
+          <ColumnID>NCR_Number</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="b514bf14-4980-4c02-a817-c4b7776505c4">
+      <ID>PO Number</ID>
+      <Name>PO Number</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="48dae719-3305-4da5-ac42-56f7458ec056">
+          <DataType>WChar</DataType>
+          <DataSize>200</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="da56d53e-b241-4822-9730-7f9b1512c51d">
+            <TableID>dbo_Dim_NCR</TableID>
+            <ColumnID>PO_Number</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="0fb5d5fd-dcb4-4bba-8d39-06af45052e6a">
+        <DataType>WChar</DataType>
+        <DataSize>200</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="aa4dfb98-0948-4b11-a31a-eec9d66ae5bd">
+          <TableID>dbo_Dim_NCR</TableID>
+          <ColumnID>PO_Number</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="b7773011-3714-4dba-9b67-c431fd3fe98f">
+      <ID>Supplier Name</ID>
+      <Name>Supplier Name</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="8a150f04-0f4d-4e01-a55d-177801ba6885">
+          <DataType>WChar</DataType>
+          <DataSize>200</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="2022ec9e-a0b8-4c85-abe4-47c9da0a078b">
+            <TableID>dbo_Dim_NCR</TableID>
+            <ColumnID>Supplier_Name</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="bf2e3465-b0c9-4565-aac5-b5f8365a4e6d">
+        <DataType>WChar</DataType>
+        <DataSize>200</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="af7da229-efb5-4298-bf62-ec024b7a2846">
+          <TableID>dbo_Dim_NCR</TableID>
+          <ColumnID>Supplier_Name</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="cab66bc6-7263-4c99-b2b9-7476d1e13902">
+      <ID>Source Sys</ID>
+      <Name>Source System</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="7b88554a-78f7-4059-967a-12dc9d3cb57a">
+          <DataType>WChar</DataType>
+          <DataSize>25</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="3e65ffea-7907-4db0-b876-9f331fb9f6c8">
+            <TableID>dbo_Dim_NCR</TableID>
+            <ColumnID>Source_Sys</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="3fa6bfd1-7d17-4d3f-9203-98f1ff111961">
+        <DataType>WChar</DataType>
+        <DataSize>25</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="d84d1857-5ee2-4aad-8706-e2eaa1773e2f">
+          <TableID>dbo_Dim_NCR</TableID>
+          <ColumnID>Source_Sys</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="c8d1614e-aff9-4c50-8f80-5a158ba0c197">
+      <ID>Lot Number</ID>
+      <Name>Lot Number</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="76b8e2bd-0830-4798-898d-a796ae811541">
+          <DataType>WChar</DataType>
+          <DataSize>500</DataSize>
+          <Trimming>LeftRight</Trimming>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="478a098e-2528-46b6-ac11-99d270c7faec">
+            <TableID>dbo_Dim_NCR</TableID>
+            <ColumnID>Lot_Number</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="9cab9742-07c5-47a7-b6b8-1a37c81078a0">
+        <DataType>WChar</DataType>
+        <DataSize>500</DataSize>
+        <Trimming>LeftRight</Trimming>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="6352bedc-7f90-467c-955a-ee45570fb81f">
+          <TableID>dbo_Dim_NCR</TableID>
+          <ColumnID>Lot_Number</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="382448b7-f7b6-415d-b505-bfd088e8d4a6">
+      <ID>Is Closed</ID>
+      <Name>Is Closed</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="7f482d8e-627b-44f0-8e68-82922fd5fc2e">
+          <DataType>WChar</DataType>
+          <DataSize>5</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="82cb1877-3fac-49f7-839a-bbfa69ab7dbf">
+            <TableID>dbo_Dim_NCR</TableID>
+            <ColumnID>IsClosed</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="00820537-c988-4bc5-a0e2-e32e2ad19ecc">
+        <DataType>WChar</DataType>
+        <DataSize>5</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="679887b3-d8a2-4c5f-ac40-f9e1cb0f4218">
+          <TableID>dbo_Dim_NCR</TableID>
+          <ColumnID>IsClosed</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="d3d88744-30ca-450c-9aea-ac17da3e6a96">
+      <ID>Defect Type</ID>
+      <Name>Defect Type</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="17ce278b-484f-4d7d-a2ff-94fdafca3a7e">
+          <DataType>WChar</DataType>
+          <DataSize>200</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="28702bb8-bcd1-4186-9cef-c50202a3b193">
+            <TableID>dbo_Dim_NCR</TableID>
+            <ColumnID>Defect_Type</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="127f2bfa-23cd-4c6c-8958-ff9f42f49d84">
+        <DataType>WChar</DataType>
+        <DataSize>200</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="6774e227-7842-46ae-898e-ba3e875d32bc">
+          <TableID>dbo_Dim_NCR</TableID>
+          <ColumnID>Defect_Type</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="9e419e5a-d0c6-4d1f-bd34-418a66404273">
+      <ID>Location</ID>
+      <Name>Location</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="2b03f43e-4970-4f63-8a1c-0502b027f3b8">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="0a1a89e2-338d-4b97-81ab-1fea68bb2030">
+            <TableID>dbo_Dim_NCR</TableID>
+            <ColumnID>Location</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="55eec5d4-5340-44ad-a938-c1ed91845648">
+        <DataType>WChar</DataType>
+        <DataSize>50</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="6e088364-e472-474c-807e-2cebfcc872b7">
+          <TableID>dbo_Dim_NCR</TableID>
+          <ColumnID>Location</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="fb65b281-b30b-431b-a9d2-edf9a4ccc4ca">
+      <ID>Input Type</ID>
+      <Name>Input Type</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="dcba3505-e71e-48b0-a4cc-a11e7c0ec29e">
+          <DataType>WChar</DataType>
+          <DataSize>30</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="52fd603b-baea-499f-916c-3d663dd69dac">
+            <TableID>dbo_Dim_NCR</TableID>
+            <ColumnID>Input_Type</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="e98334eb-a4eb-4c56-ac08-a917d1c9372f">
+        <DataType>WChar</DataType>
+        <DataSize>30</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="2a39c7e2-d890-4a0f-ab3e-3989e9ae6ede">
+          <TableID>dbo_Dim_NCR</TableID>
+          <ColumnID>Input_Type</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="ebcad992-6d9f-4f22-9a5c-c4b6f4953336">
+      <ID>Record State</ID>
+      <Name>Record State</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="e4a098e7-5b06-4245-8328-1a80c6c1c14f">
+          <DataType>WChar</DataType>
+          <DataSize>30</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="79a6a372-a3cd-4e68-87fe-54a2a785d97c">
+            <TableID>dbo_Dim_NCR</TableID>
+            <ColumnID>Record_State</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="c8bb53c6-2c4a-4f6f-aae1-c2a509d5939d">
+        <DataType>WChar</DataType>
+        <DataSize>30</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="bba6b0f6-59d2-45e2-bb80-2a8b3837df1a">
+          <TableID>dbo_Dim_NCR</TableID>
+          <ColumnID>Record_State</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="ae32f14c-c36b-4f76-baf8-59b3f7a689b8">
+      <ID>NCR Type</ID>
+      <Name>NCR Type</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="78852390-9646-48b4-8e38-29875588c47b">
+          <DataType>WChar</DataType>
+          <DataSize>30</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="0f58e46b-68b5-4b42-ac71-8d960a6948a5">
+            <TableID>dbo_Dim_NCR</TableID>
+            <ColumnID>NCR_Type</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="f71c2018-8e31-40f4-a1b0-fdcbdf243196">
+        <DataType>WChar</DataType>
+        <DataSize>30</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="55a40afa-96c5-4014-a9fb-d37902005ad7">
+          <TableID>dbo_Dim_NCR</TableID>
+          <ColumnID>NCR_Type</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="ea2805f4-c6e6-4aaa-a003-286a4fc5869b">
+      <ID>Item Num</ID>
+      <Name>NCR Item Num</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="02114231-afcc-4780-a904-0b838a87c4ca">
+          <DataType>WChar</DataType>
+          <DataSize>150</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="a9dda23b-1a8e-47ab-8894-0afec4e52906">
+            <TableID>dbo_Dim_NCR</TableID>
+            <ColumnID>Item_Num</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="0fdaf459-7fcf-4ad1-9a41-034d89ca0ee1">
+        <DataType>WChar</DataType>
+        <DataSize>150</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="4e0b2615-2d25-4c12-b06c-b6a839d33aac">
+          <TableID>dbo_Dim_NCR</TableID>
+          <ColumnID>Item_Num</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="40e409fc-39d3-46ef-9a15-07dc866711a8">
+      <ID>Disposition Type</ID>
+      <Name>Disposition Type</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="f77c2072-a42d-4a42-b506-875037d05f9c">
+          <DataType>WChar</DataType>
+          <DataSize>150</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="d868e946-7bfc-40ec-8646-61562c333ea5">
+            <TableID>dbo_Dim_NCR</TableID>
+            <ColumnID>Disposition_Type</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="6db40345-134b-42e4-92e8-ac49cce47c32">
+        <DataType>WChar</DataType>
+        <DataSize>150</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="6c8a9288-84a8-470d-b24d-98112bf1a098">
+          <TableID>dbo_Dim_NCR</TableID>
+          <ColumnID>Disposition_Type</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="5fddd1cc-0424-4863-ac8b-3f8200a9a0f2">
+      <ID>Disposition Date</ID>
+      <Name>Disposition Date</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="8867cd03-9f50-4d81-a7e8-2f8323831fdf">
+          <DataType>Date</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="19273c6d-c81c-48ff-9ea9-1986442e5989">
+            <TableID>dbo_Dim_NCR</TableID>
+            <ColumnID>Disposition_Date</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="e88189f2-f19e-459d-82f7-221c657c3383">
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="203b1346-a3e4-4fcc-9fc2-4d342c9e73a6">
+          <TableID>dbo_Dim_NCR</TableID>
+          <ColumnID>Disposition_Date</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="71244566-202e-4455-884a-f6044f7252a5">
+      <ID>Is Supplier Issue</ID>
+      <Name>Is Supplier Issue</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="d338e886-a9a1-41c9-8072-57525226057b">
+          <DataType>WChar</DataType>
+          <DataSize>10</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="60568d81-be86-4d02-9143-ca761efe26b9">
+            <TableID>dbo_Dim_NCR</TableID>
+            <ColumnID>Is_Supplier_Issue</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="ea6d6f6a-eb8f-4e39-b334-bc28553d5e0e">
+        <DataType>WChar</DataType>
+        <DataSize>10</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="37de18ac-6ea6-4076-aa75-61648321330f">
+          <TableID>dbo_Dim_NCR</TableID>
+          <ColumnID>Is_Supplier_Issue</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="6ceb2dbe-6992-4b40-8c8c-661165492fdb">
+      <ID>Defect Source</ID>
+      <Name>Defect Source Trackwise</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="ecf3e1c7-8706-405f-b60b-dafc70daa168">
+          <DataType>WChar</DataType>
+          <DataSize>150</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="a805d1e2-5c09-4cd5-ad76-ee1f2dfa911c">
+            <TableID>dbo_Dim_NCR</TableID>
+            <ColumnID>Defect_Source</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="bc0779fb-d206-40b8-ad77-7f048f4f757a">
+        <DataType>WChar</DataType>
+        <DataSize>150</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="d1bbacdc-ce7d-4635-b96a-9fa616bfd489">
+          <TableID>dbo_Dim_NCR</TableID>
+          <ColumnID>Defect_Source</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="8b740cdd-47dd-4358-9a34-4f1766f5acad">
+      <ID>Open Date</ID>
+      <Name>Open Date</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="d8a77fc8-0568-4b4b-9b87-d47ee87874e7">
+          <DataType>Date</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="09225b27-a529-46e8-8062-b1757454b264">
+            <TableID>dbo_Dim_NCR</TableID>
+            <ColumnID>Open_Date</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="9699a066-c716-47d7-920b-2e5f1fa17ef0">
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="cc288c01-5c93-402a-b5dd-919d179a2652">
+          <TableID>dbo_Dim_NCR</TableID>
+          <ColumnID>Open_Date</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="ddce7dcb-6bc6-4212-88e7-6f7db4d542fd">
+          <AttributeID>Open Date Month</AttributeID>
+          <RelationshipType>Rigid</RelationshipType>
+          <Name>H - Open Date Month</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="2a757cb0-bc6c-4e61-a897-f70be3908e3e">
+      <ID>Open Date Year</ID>
+      <Name>H - Open Date Year</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="401ab9b1-166d-4624-9ab5-9b18fd58fa82">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="127c6e73-3dc5-4e14-bc8f-77f178186af8">
+            <TableID>dbo_Dim_NCR</TableID>
+            <ColumnID>Open_Date_Year</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="11933557-ca95-4482-8a96-ebe767a8e6b1">
+        <DataType>WChar</DataType>
+        <DataSize>50</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="a9c5b423-70ca-45bc-a771-0cec252243ba">
+          <TableID>dbo_Dim_NCR</TableID>
+          <ColumnID>Open_Date_Year</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="bd3a5001-dfb0-47fa-90c7-947ecfa4044d">
+      <ID>Open Date Quarter</ID>
+      <Name>H - Open Date Quarter</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="4e93c2e9-109f-4ad7-9e41-e484353c191b">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="769a9088-b56d-48f6-80d0-5c17f725a66a">
+            <TableID>dbo_Dim_NCR</TableID>
+            <ColumnID>Open_Date_Year</ColumnID>
+          </Source>
+        </KeyColumn>
+        <KeyColumn dwd:design-time-name="78056191-5ce6-4427-82e7-2a0096e2cd18">
+          <DataType>UnsignedTinyInt</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="47ee715d-e7f2-408b-82a8-d6cb4939b68b">
+            <TableID>dbo_Dim_NCR</TableID>
+            <ColumnID>Open_Date_Quarter_Seq</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="feefa830-fe91-425d-b73a-5fbbb52b4a48">
+        <DataType>WChar</DataType>
+        <DataSize>50</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="f382342c-0374-4fc9-913c-5b067c3b36da">
+          <TableID>dbo_Dim_NCR</TableID>
+          <ColumnID>Open_Date_Quarter</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="6a82c139-b912-4942-b95a-ca060455b8d6">
+          <AttributeID>Open Date Year</AttributeID>
+          <RelationshipType>Rigid</RelationshipType>
+          <Name>H - Open Date Year</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="c9996fa8-8db9-4892-8c15-30ed09cc3a35">
+      <ID>Open Date Month</ID>
+      <Name>H - Open Date Month</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="8d0434ea-83da-4e35-8a05-1b9a7ad87e0d">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="a22fe077-686c-4c67-ae48-ea3bebda4753">
+            <TableID>dbo_Dim_NCR</TableID>
+            <ColumnID>Open_Date_Year</ColumnID>
+          </Source>
+        </KeyColumn>
+        <KeyColumn dwd:design-time-name="73102f7b-24eb-46cc-9117-b5b19df6d7ba">
+          <DataType>UnsignedTinyInt</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="e4c1377c-9a6f-4a2a-9827-b54187ecc104">
+            <TableID>dbo_Dim_NCR</TableID>
+            <ColumnID>Open_Date_Month_Seq</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="ed231f99-2474-487f-9f75-18d5121c69b8">
+        <DataType>WChar</DataType>
+        <DataSize>50</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="c24a0e2c-7586-4477-b63e-e45fe506fad8">
+          <TableID>dbo_Dim_NCR</TableID>
+          <ColumnID>Open_Date_Month</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="33441746-da74-44b8-ab44-56134775c75a">
+          <AttributeID>Open Date Quarter</AttributeID>
+          <RelationshipType>Rigid</RelationshipType>
+          <Name>H - Open Date Quarter</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="928fa03b-22e8-423b-99ae-5c8da337ee60">
+      <ID>Closed Date</ID>
+      <Name>Closed Date</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="8972d165-1573-4017-ad0c-661d4e4d1a6e">
+          <DataType>Date</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="5f29859e-1ed5-4b7a-a314-0773ebe355bf">
+            <TableID>dbo_Dim_NCR</TableID>
+            <ColumnID>Closed_Date</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="cc9ce3ec-2dc3-496b-b5c3-83442214fdfd">
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="66de6978-1179-4b08-8bba-7a51f0311315">
+          <TableID>dbo_Dim_NCR</TableID>
+          <ColumnID>Closed_Date</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="16be64ee-9384-4a76-8a48-138e7faa5f0b">
+          <AttributeID>Closed Date Month</AttributeID>
+          <RelationshipType>Rigid</RelationshipType>
+          <Name>H - Closed Date Month</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="52e9a796-06be-4c62-a0e9-b1ac2e7254ee">
+      <ID>Closed Date Year</ID>
+      <Name>H - Closed Date Year</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="023ddc65-980e-4b54-a625-4fab95f29e83">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="fcddb199-5543-4ab5-b1c4-ead967b1d25c">
+            <TableID>dbo_Dim_NCR</TableID>
+            <ColumnID>Closed_Date_Year</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="bbc244d4-9900-4ccc-afb0-fb6bfd6c163f">
+        <DataType>WChar</DataType>
+        <DataSize>50</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="bc2c6293-53be-4fb5-9144-d419d8228c0a">
+          <TableID>dbo_Dim_NCR</TableID>
+          <ColumnID>Closed_Date_Year</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="8e1fbbf7-4c8f-4cb9-ad81-3c1fbef62364">
+      <ID>Closed Date Quarter</ID>
+      <Name>H - Closed Date Quarter</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="be7974bd-1bbf-47d2-a282-79dcea834012">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="929a2699-18eb-4829-9c20-509c68607d8a">
+            <TableID>dbo_Dim_NCR</TableID>
+            <ColumnID>Closed_Date_Year</ColumnID>
+          </Source>
+        </KeyColumn>
+        <KeyColumn dwd:design-time-name="55c666a8-63f7-4b7f-a449-696c4908fc1e">
+          <DataType>UnsignedTinyInt</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="65866e4d-2512-4e97-82ae-62d92206f04e">
+            <TableID>dbo_Dim_NCR</TableID>
+            <ColumnID>Closed_Date_Quarter_Seq</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="62f83b01-94fe-4a18-af5e-db858871b8c6">
+        <DataType>WChar</DataType>
+        <DataSize>50</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="761eb46a-8287-4fa7-9d0f-ece2783dde73">
+          <TableID>dbo_Dim_NCR</TableID>
+          <ColumnID>Closed_Date_Quarter</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="67648d12-00fd-4471-8fc5-266141b2476d">
+          <AttributeID>Closed Date Year</AttributeID>
+          <RelationshipType>Rigid</RelationshipType>
+          <Name>H - Closed Date Year</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="64bd86dc-f497-4806-aae1-46a7271d8b79">
+      <ID>Closed Date Month</ID>
+      <Name>H - Closed Date Month</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="174ab29a-5b97-46b3-b35c-de873b6eed2c">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="e1fcb3fa-22a7-41ec-957b-74d15aa43922">
+            <TableID>dbo_Dim_NCR</TableID>
+            <ColumnID>Closed_Date_Year</ColumnID>
+          </Source>
+        </KeyColumn>
+        <KeyColumn dwd:design-time-name="3a46ef5d-68cb-4ed7-905f-dace842adf73">
+          <DataType>UnsignedTinyInt</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="9472ebeb-f08b-41f7-a35d-e7fb905fdcd6">
+            <TableID>dbo_Dim_NCR</TableID>
+            <ColumnID>Closed_Date_Month_Seq</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="5508927f-bbdf-4f8f-9c1d-1139a0ddea13">
+        <DataType>WChar</DataType>
+        <DataSize>50</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="4d33acbc-7561-4987-94c2-17a882300d89">
+          <TableID>dbo_Dim_NCR</TableID>
+          <ColumnID>Closed_Date_Month</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="edc47405-e57f-494c-b747-3399341e9f10">
+          <AttributeID>Closed Date Quarter</AttributeID>
+          <RelationshipType>Rigid</RelationshipType>
+          <Name>H - Closed Date Quarter</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="db6fd022-504e-46db-a182-39e849b09e58">
+      <ID>Open Date Quarter Seq</ID>
+      <Name>Open Date Quarter Seq</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="d26a57f6-dc34-4550-bb27-fbfffaa287a5">
+          <DataType>UnsignedTinyInt</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="a2ea41ef-34a0-4bb8-8bf7-1b1658bd28cc">
+            <TableID>dbo_Dim_NCR</TableID>
+            <ColumnID>Open_Date_Quarter_Seq</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="cd8d9e6d-448d-4dbf-9628-893b79b99936">
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="5918b248-35a0-4d62-be0a-cc175bab6c1b">
+          <TableID>dbo_Dim_NCR</TableID>
+          <ColumnID>Open_Date_Quarter_Seq</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="a114df8e-82a9-4a33-87a4-f4dc4150ad29">
+      <ID>Closed Date Quarter Seq</ID>
+      <Name>Closed Date Quarter Seq</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="362a4445-1dd3-4cc8-a892-2f747f641132">
+          <DataType>UnsignedTinyInt</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="f38b36e3-cc57-4f24-8fde-ee8dbf192ce1">
+            <TableID>dbo_Dim_NCR</TableID>
+            <ColumnID>Closed_Date_Quarter_Seq</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="0b19f893-498e-4852-99f0-30474df578f5">
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="29eefbde-ef52-4806-aa51-91d15c06c577">
+          <TableID>dbo_Dim_NCR</TableID>
+          <ColumnID>Closed_Date_Quarter_Seq</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyEnabled>false</AttributeHierarchyEnabled>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="f74b4688-dca1-4c27-903a-243dd537d8a9">
+      <ID>Closed Date Month Seq</ID>
+      <Name>Closed Date Month Seq</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="398c032a-a68f-480b-b5f2-ae6c3dfb559d">
+          <DataType>UnsignedTinyInt</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="64641d11-4164-40d3-8b7e-b48b6a3526b9">
+            <TableID>dbo_Dim_NCR</TableID>
+            <ColumnID>Closed_Date_Month_Seq</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="f32cf220-b1fc-4c11-bbc0-1b0b779acd00">
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="442838ca-4fc2-472f-b8ca-af19e9b1d9ed">
+          <TableID>dbo_Dim_NCR</TableID>
+          <ColumnID>Closed_Date_Month_Seq</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyEnabled>false</AttributeHierarchyEnabled>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="4f814d28-109a-48ce-9334-1a5ce78be4e7">
+      <ID>Open Date Month Seq</ID>
+      <Name>Open Date Month Seq</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="b888cdc8-081f-4093-b60c-12bdcdc487ae">
+          <DataType>UnsignedTinyInt</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="e8430f9b-1f99-47fa-bf57-35c42228d342">
+            <TableID>dbo_Dim_NCR</TableID>
+            <ColumnID>Open_Date_Month_Seq</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="b4ecaf77-22df-4f79-baa2-757c657e46d0">
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="4ccc5b9f-13d2-4ecc-9688-e2694033ca60">
+          <TableID>dbo_Dim_NCR</TableID>
+          <ColumnID>Open_Date_Month_Seq</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="13853de7-6845-4eb5-8067-a7b6d1743d38">
+      <ID>Investigated By</ID>
+      <Name>Investigated By</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="2c618f78-60f7-412b-92a9-78515062dd28">
+          <DataType>WChar</DataType>
+          <DataSize>200</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="0904a039-904d-42d1-823a-552d54739f2b">
+            <TableID>dbo_Dim_NCR</TableID>
+            <ColumnID>Investigated_By</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="d18801aa-0f3c-4c4c-8eb9-30ce136247b6">
+        <DataType>WChar</DataType>
+        <DataSize>200</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="5a2b120a-dc49-4986-baec-233dd2b83419">
+          <TableID>dbo_Dim_NCR</TableID>
+          <ColumnID>Investigated_By</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="52c4d49b-6966-4bc4-987d-8e79a1cd6762">
+      <ID>Is Overdue</ID>
+      <Name>Is Overdue</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="2bcb708b-6586-497a-8af3-916d4481b988">
+          <DataType>WChar</DataType>
+          <DataSize>10</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="fe19732f-699a-49f4-90b7-af4cf4606542">
+            <TableID>dbo_Dim_NCR</TableID>
+            <ColumnID>IsOverdue</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="5ec81d2f-88f7-4040-b52a-9b9cdc3d017b">
+        <DataType>WChar</DataType>
+        <DataSize>10</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="ba0328e3-af65-4621-a123-9ace15d36080">
+          <TableID>dbo_Dim_NCR</TableID>
+          <ColumnID>IsOverdue</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="993cad2b-622c-488c-89ec-1eccea6f43d5">
+      <ID>Is Yesterday</ID>
+      <Name>Is Yesterday</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="7b9a8a67-92cc-4063-b027-c9bdce7c2bed">
+          <DataType>WChar</DataType>
+          <DataSize>10</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="bd1f10e5-a4b3-41fe-90e3-b369552f23c6">
+            <TableID>dbo_Dim_NCR</TableID>
+            <ColumnID>IsYesterday</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="00cfaa01-daaf-448f-969d-5743c8e077d5">
+        <DataType>WChar</DataType>
+        <DataSize>10</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="1e6f9d42-0f05-4726-80ae-2a2a98b09f3f">
+          <TableID>dbo_Dim_NCR</TableID>
+          <ColumnID>IsYesterday</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="346d8082-cf33-4042-9552-8fe9fd3d2220">
+      <ID>Organization ID</ID>
+      <Name>NCR ORG ID</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="67457570-c9f0-4bfc-ab31-84075de37ba5">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="d8f32e9d-dc65-4ff2-b33e-dc8959414c0b">
+            <TableID>dbo_Dim_NCR</TableID>
+            <ColumnID>Organization_ID</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="c69ee30d-e6ea-4e28-adf1-a45ab57750ce">
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="ea364b18-a326-4df6-be40-e4ab57ab3aa7">
+          <TableID>dbo_Dim_NCR</TableID>
+          <ColumnID>Organization_ID</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="0f1d26fb-84df-459f-b2ca-08f3da363edb">
+      <ID>Supplier Facility</ID>
+      <Name>Source Facility - Defect Source</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="b073873c-c2df-487f-b2d2-c4751b87dca4">
+          <DataType>WChar</DataType>
+          <DataSize>200</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="da6ea3c1-0553-4835-9105-e666a32df984">
+            <TableID>dbo_Dim_NCR</TableID>
+            <ColumnID>Supplier_Facility</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="18c525c5-08ec-4dcc-94af-6ec0760f319e">
+        <DataType>WChar</DataType>
+        <DataSize>200</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="8879ea81-3e3b-4624-9f7a-b2f0854c0342">
+          <TableID>dbo_Dim_NCR</TableID>
+          <ColumnID>Supplier_Facility</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="f95954fb-cedc-44a3-ad32-d404b9cff93a">
+      <ID>Is Reoccurring Issue</ID>
+      <Name>Is Reoccurring Issue</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="9e2141ac-2050-4d3e-a3d8-b372fba586df">
+          <DataType>WChar</DataType>
+          <DataSize>10</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="0b018400-aa33-4ffb-a8b8-a521ba979fd1">
+            <TableID>dbo_Dim_NCR</TableID>
+            <ColumnID>IsReoccurringIssue</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="4dc7993c-48eb-4213-a711-2beb11e19980">
+        <DataType>WChar</DataType>
+        <DataSize>10</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="7185a896-1132-484f-9274-dfe84d5e3c10">
+          <TableID>dbo_Dim_NCR</TableID>
+          <ColumnID>IsReoccurringIssue</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="14f839ac-0f14-43cb-b595-614ae9962f2b">
+      <ID>EVALUATION</ID>
+      <Name>Evaluation</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="779026de-7c03-4037-b9b4-e4d11864da1e">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="4eaf5169-15b3-4181-945d-14a08fcc0bcd">
+            <TableID>dbo_Dim_NCR</TableID>
+            <ColumnID>Dim_NCR_KEY</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="4e98aa5b-0763-4287-8489-f197ce6eacad">
+        <DataType>WChar</DataType>
+        <DataSize>3000</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="0ad347d7-139f-4ff4-8dff-a0cb5070dccd">
+          <TableID>dbo_Dim_NCR</TableID>
+          <ColumnID>EVALUATION</ColumnID>
+        </Source>
+      </NameColumn>
+      <ValueColumn dwd:design-time-name="1808f005-2a02-432d-a722-763401cf7fbf">
+        <DataType>WChar</DataType>
+        <DataSize>3000</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="c9a155bf-e02f-4f09-bd6b-7aed2ffa4dcd">
+          <TableID>dbo_Dim_NCR</TableID>
+          <ColumnID>EVALUATION</ColumnID>
+        </Source>
+      </ValueColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="8b6c4867-7644-4bc3-b39c-ffa9a752a404">
+      <ID>RISK STATEMENT</ID>
+      <Name>Risk Statement</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="7541469a-182a-4452-b2d7-377e53128e38">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="d495428c-4347-42bf-abda-161734d4117c">
+            <TableID>dbo_Dim_NCR</TableID>
+            <ColumnID>Dim_NCR_KEY</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="4c737f52-c3bf-44ac-b7b0-ef31010ac057">
+        <DataType>WChar</DataType>
+        <DataSize>3000</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="fa9e4f24-fc2e-49f1-b3be-1946bf35aad3">
+          <TableID>dbo_Dim_NCR</TableID>
+          <ColumnID>RISK_STATEMENT</ColumnID>
+        </Source>
+      </NameColumn>
+      <ValueColumn dwd:design-time-name="9337e630-3e2b-4a18-9c4c-a3f3158a0e3c">
+        <DataType>WChar</DataType>
+        <DataSize>3000</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="fcd27fdf-3c4b-45f7-921e-6473623a4f74">
+          <TableID>dbo_Dim_NCR</TableID>
+          <ColumnID>RISK_STATEMENT</ColumnID>
+        </Source>
+      </ValueColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="869eb68b-482c-4a53-842d-2e769c4fcaf6">
+      <ID>VALIDATION VERIFICATION</ID>
+      <Name>Validation Verification</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="c156a792-99d5-40ec-96cf-2725b4e93fc8">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="0a4c8bc9-dd42-4ff4-bc1f-52e7c2e46eeb">
+            <TableID>dbo_Dim_NCR</TableID>
+            <ColumnID>Dim_NCR_KEY</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="09ede9c0-9a91-4541-a2c8-796f685c16d9">
+        <DataType>WChar</DataType>
+        <DataSize>3000</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="f2426e70-d135-487c-b8ab-aba001e19201">
+          <TableID>dbo_Dim_NCR</TableID>
+          <ColumnID>VALIDATION_VERIFICATION</ColumnID>
+        </Source>
+      </NameColumn>
+      <ValueColumn dwd:design-time-name="9e58f90d-68a8-4e75-b94e-856f5f518d4f">
+        <DataType>WChar</DataType>
+        <DataSize>3000</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="c97b1c1b-ad83-41ff-b7c3-6c74f13f9c39">
+          <TableID>dbo_Dim_NCR</TableID>
+          <ColumnID>VALIDATION_VERIFICATION</ColumnID>
+        </Source>
+      </ValueColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="ad77004c-5ef7-42b6-af42-c8ed20470286">
+      <ID>TREND ANALYSIS</ID>
+      <Name>Trend Analysis</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="41408aaa-b1b4-4c54-84ea-bf072c0d1a72">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="1e099891-17e9-45e7-816a-12d9e6d59c57">
+            <TableID>dbo_Dim_NCR</TableID>
+            <ColumnID>Dim_NCR_KEY</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="5b43b9b4-c1aa-49cc-9f5d-63888579eb7a">
+        <DataType>WChar</DataType>
+        <DataSize>3000</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="f41de58a-fc33-405d-8d65-66f88b7226c8">
+          <TableID>dbo_Dim_NCR</TableID>
+          <ColumnID>TREND_ANALYSIS</ColumnID>
+        </Source>
+      </NameColumn>
+      <ValueColumn dwd:design-time-name="f81361e8-9ff3-4eac-b733-37aca22c676e">
+        <DataType>WChar</DataType>
+        <DataSize>3000</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="6961fa9b-9705-4a37-9786-9854b61a6a5c">
+          <TableID>dbo_Dim_NCR</TableID>
+          <ColumnID>TREND_ANALYSIS</ColumnID>
+        </Source>
+      </ValueColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="ecab39df-9369-4e30-baf5-824630d38286">
+      <ID>Multiple Dispositions</ID>
+      <Name>Multiple Dispositions</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="a85fe445-5925-4125-bcf0-9a7e60e5f080">
+          <DataType>WChar</DataType>
+          <DataSize>10</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="d8f6d4e9-831e-4a79-a0a6-1a23f2fc166c">
+            <TableID>dbo_Dim_NCR</TableID>
+            <ColumnID>Multiple_Dispositions</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <Hierarchies>
+    <Hierarchy dwd:design-time-name="9d63e085-b4a0-4b73-ae03-44d9589460ed">
+      <ID>Hierarchy</ID>
+      <Name>Open Date YQM Hierarchy</Name>
+      <Levels>
+        <Level dwd:design-time-name="5fdcfbc2-ab41-4f1d-b498-f125c9cece0e">
+          <ID>H - Open Date Year</ID>
+          <Name>H - Open Date Year</Name>
+          <SourceAttributeID>Open Date Year</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="c9032897-3a1e-49ef-92ef-ea1e92bdbe6e">
+          <ID>H - Open Date Quarter</ID>
+          <Name>H - Open Date Quarter</Name>
+          <SourceAttributeID>Open Date Quarter</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="bf42231c-711c-45d6-b9f7-02b06c05002b">
+          <ID>H - Open Date Month</ID>
+          <Name>H - Open Date Month</Name>
+          <SourceAttributeID>Open Date Month</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+    <Hierarchy dwd:design-time-name="7d2dc46f-f53b-4e80-992d-6e0af5d363a0">
+      <ID>Hierarchy 1</ID>
+      <Name>Open Date YM Hierarchy</Name>
+      <Levels>
+        <Level dwd:design-time-name="cd93b7d5-00ea-4b83-b270-b3039a013c61">
+          <ID>H - Open Date Year</ID>
+          <Name>H - Open Date Year</Name>
+          <SourceAttributeID>Open Date Year</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="2d47324d-c2de-429f-a3f0-3d96815ab596">
+          <ID>H - Open Date Month</ID>
+          <Name>H - Open Date Month</Name>
+          <SourceAttributeID>Open Date Month</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+    <Hierarchy dwd:design-time-name="6224d502-001b-4101-9e27-61a7e3c4a5ae">
+      <ID>Hierarchy 2</ID>
+      <Name>Closed Date YQM Hierarchy</Name>
+      <Levels>
+        <Level dwd:design-time-name="cd8f27c0-5e64-49c9-8841-5739b7f251c6">
+          <ID>H - Closed Date Year</ID>
+          <Name>H - Closed Date Year</Name>
+          <SourceAttributeID>Closed Date Year</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="863b0296-b32b-49db-9168-8b4719c9bfec">
+          <ID>H - Closed Date Quarter</ID>
+          <Name>H - Closed Date Quarter</Name>
+          <SourceAttributeID>Closed Date Quarter</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="5f6a6121-c18a-4b44-a3ed-1fff1dfda591">
+          <ID>H - Closed Date Month</ID>
+          <Name>H - Closed Date Month</Name>
+          <SourceAttributeID>Closed Date Month</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+    <Hierarchy dwd:design-time-name="53cd7073-baf6-4be4-8a58-1589bb6cfdc5">
+      <ID>Hierarchy 3</ID>
+      <Name>Closed Date YM Hierarchy</Name>
+      <Levels>
+        <Level dwd:design-time-name="d2116ac4-5e66-479b-8ae5-a0cdf8015bf3">
+          <ID>H - Closed Date Year</ID>
+          <Name>H - Closed Date Year</Name>
+          <SourceAttributeID>Closed Date Year</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="74799455-55ba-4b9b-93b6-baab119073f4">
+          <ID>H - Closed Date Month</ID>
+          <Name>H - Closed Date Month</Name>
+          <SourceAttributeID>Closed Date Month</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+  </Hierarchies>
+  <ProactiveCaching dwd:design-time-name="61016062-f6f9-428f-8acb-1517b6328166">
+    <SilenceInterval>-PT1S</SilenceInterval>
+    <Latency>-PT1S</Latency>
+    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+    <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="f10a1e17-3ae9-4729-9b33-175c11541e1e" />
+  </ProactiveCaching>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

@@ -1,0 +1,77 @@
+﻿<ConfigurationSettings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0">
+  <Database>
+    <DataSources>
+      <DataSource>
+        <ID>AS DWH</ID>
+        <ConnectionString>Provider=SQLNCLI11.1;Data Source=bi-prod;Integrated Security=SSPI;Initial Catalog=AS_DWH</ConnectionString>
+        <ImpersonationInfo>
+          <ImpersonationMode xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">Default</ImpersonationMode>
+          <ImpersonationInfoSecurity xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">Unchanged</ImpersonationInfoSecurity>
+        </ImpersonationInfo>
+      </DataSource>
+    </DataSources>
+    <Dimensions>
+      <Dimension>
+        <ID>GL Company</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Inventory Item Category</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Operating Unit</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Order Header Type</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Order Line Type</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Product 2</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Sales Order Line Flags</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Ship To Customer Location</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Shipment Method</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Time Master</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Time Series</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Time</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Inventory Item</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Sold From Operating Unit</ID>
+      </Dimension>
+    </Dimensions>
+    <Cubes>
+      <Cube>
+        <ID>SalesOrders</ID>
+        <MeasureGroups>
+          <MeasureGroup>
+            <ID>Fact SALES ORDER</ID>
+            <Partitions>
+              <Partition>
+                <ID>Fact SALES ORDER</ID>
+              </Partition>
+            </Partitions>
+          </MeasureGroup>
+        </MeasureGroups>
+      </Cube>
+    </Cubes>
+    <DataSourceImpersonationInfo>
+      <ImpersonationMode xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">Default</ImpersonationMode>
+      <ImpersonationInfoSecurity xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">Unchanged</ImpersonationInfoSecurity>
+    </DataSourceImpersonationInfo>
+  </Database>
+</ConfigurationSettings>
