@@ -1,0 +1,102 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/2/2014 1:28:49 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="PPARSINO"
+  DTS:CreatorName="LVTCORP\pparsino"
+  DTS:DTSID="{88054D28-B343-428D-A965-DD1A7480E167}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.4100.1"
+  DTS:LocaleID="2057"
+  DTS:ObjectName="Stars Omni Territory Refresh"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{C53C4531-5DC0-4F5D-AB3D-61BCCAAF9E2B}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Skynet Omni]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{E806296B-9AD6-4693-A680-3887723FC954}"
+      DTS:ObjectName="Skynet Omni">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=(DESCRIPTION =(ADDRESS_LIST =(ADDRESS = (PROTOCOL = TCP)(HOST = 10.200.35.86)(PORT = 1521)))(CONNECT_DATA =(SID=SKYNET)));User ID=OMNI;Provider=OraOLEDB.Oracle.1;Persist Security Info=True;">
+          <EncryptedData
+            Type="http://www.w3.org/2001/04/xmlenc#Element"
+            Salt="xrMmPWvw5g=="
+            IV="7MrHv57/6DQ=" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            <EncryptionMethod
+              Algorithm="http://www.w3.org/2001/04/xmlenc#tripledes-cbc" />
+            <CipherData>
+              <CipherValue>7MrHv57/6DTF1nAkOCaGV4E2HUZ4OyHXJh/FtIMHs0lwRTmOSGEgJuyuBKal1gAdvGgmDwmYjdhAR5ih+esgv3cvrs78KC/ymT1OM4YK+/pAQtNcriBF2OfoPGOPchkfJ7pPsfJ83B61ZInQuXbbT4uQoPY2GH2WHZ4RdpRHi/s=</CipherValue>
+            </CipherData>
+          </EncryptedData>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E72EDFA0-6B9F-4D29-931F-4ACB333A385D}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="OmniSkynet">
+      <DTS:VariableValue
+        DTS:DataType="8">Provider=OraOLEDB.Oracle.1;Password=pr0p0sal5;User ID=OMNI;Data Source="(DESCRIPTION =(ADDRESS_LIST =(ADDRESS = (PROTOCOL = TCP)(HOST = 10.200.35.86)(PORT = 1521)))(CONNECT_DATA =(SID=SKYNET)))"</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Refresh Omni Customer Territories"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Refresh Omni Customer Territories"
+      DTS:DTSID="{7F6E603C-8D4A-485D-B0F2-540A3BEA38B9}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Refresh Omni Customer Territories"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{84DD698F-E0F4-47D1-BAD0-DFF426352B18}"
+          DTS:IncludeInDebugDump="2345"
+          DTS:Namespace="User"
+          DTS:ObjectName="OmniSkynet">
+          <DTS:VariableValue
+            DTS:DataType="8">Provider=OraOLEDB.Oracle.1;Password=pr0p0sal5;User ID=OMNI;Data Source="(DESCRIPTION =(ADDRESS_LIST =(ADDRESS = (PROTOCOL = TCP)(HOST = 10.200.35.86)(PORT = 1521)))(CONNECT_DATA =(SID=SKYNET)))"</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{E806296B-9AD6-4693-A680-3887723FC954}"
+          SQLTask:SqlStatementSource="call omni.utility_pkg.refresh_cust_territories()" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="229.6,44"
+          Id="Package\Refresh Omni Customer Territories"
+          TopLeft="5.5,5.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

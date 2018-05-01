@@ -1,0 +1,179 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/2/2013 8:48:40 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="PPARSINO"
+  DTS:CreatorName="LVTCORP\pparsino"
+  DTS:Description="Copy StarsSalesFact to DW_Main"
+  DTS:DTSID="{4E9F8BB6-62EA-4A65-A2EB-64F3BAC11F52}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.4100.1"
+  DTS:LocaleID="1033"
+  DTS:MaxErrorCount="0"
+  DTS:ObjectName="Backup_Stardadmin"
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="61"
+  DTS:VersionGUID="{A3A9C727-B1A3-4A31-91BA-32D7FAF55A6B}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[largobi1.AS_DWH]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{F33E0533-49C5-49AE-9426-29EC738B06E7}"
+      DTS:ObjectName="largobi1.AS_DWH">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=BI-Prod;Initial Catalog=AS_DWH;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Backup_Stardadmin-{F33E0533-49C5-49AE-9426-29EC738B06E7}largobi1.AS_DWH;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[STARSADMIN.ADONET.ORA]"
+      DTS:CreationName="ADO.NET:System.Data.OleDb.OleDbConnection, System.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DelayValidation="True"
+      DTS:DTSID="{A1D94985-54BA-443D-BBBA-3E184C68F732}"
+      DTS:ObjectName="STARSADMIN.ADONET.ORA">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=(DESCRIPTION =(ADDRESS_LIST =(ADDRESS = (PROTOCOL = TCP)(HOST = 10.200.35.86)(PORT = 1521)))(CONNECT_DATA =(PRESENTATION=RO)(SID=SKYNET)));User ID=starsadmin;Provider=OraOLEDB.Oracle.1;Persist Security Info=True;">
+          <EncryptedData
+            Type="http://www.w3.org/2001/04/xmlenc#Element"
+            Salt="SjZ6Qthgyw=="
+            IV="c5FU8BIHsKQ=" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            <EncryptionMethod
+              Algorithm="http://www.w3.org/2001/04/xmlenc#tripledes-cbc" />
+            <CipherData>
+              <CipherValue>c5FU8BIHsKQUzfjbJv5i2kEvfUCW3QHZvkbT+sCFLNClh4I8/0CLn7AZcDSA7Ntfv9YX0LUp2UvAzNlwNs3ZqW6C7bpKX1cyKcsj7cy8EQbccOqaCScVL2c/fmy7ICp+cFJVFJO6tXvAa+z1JOAHBnhA7pNKpWWp</CipherValue>
+            </CipherData>
+          </EncryptedData>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{AD404820-7882-49D0-B3B1-E550B16CB90F}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="connSource">
+      <DTS:VariableValue
+        DTS:DataType="8">Data Source=(DESCRIPTION =(ADDRESS_LIST =(ADDRESS = (PROTOCOL = TCP)(HOST = 10.200.35.86)(PORT = 1521)))(CONNECT_DATA =(PRESENTATION=RO)(SID=SKYNET)));User ID=starsloader;Password=zune;Provider=OraOLEDB.Oracle.1;Persist Security Info=True;</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{BBABD516-7C1A-43CF-BCD0-740B6B8B3422}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="iBack_Up_Needed">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Backup Starsadmin Tables"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{F3E8ED2B-2436-4456-B0ED-29BF37DE9C04}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Backup Starsadmin Tables"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{A1D94985-54BA-443D-BBBA-3E184C68F732}"
+          SQLTask:SqlStatementSource="BEGIN &#xA;  STARSADMIN.BACK_UP_STARSADMIN_TABLES;&#xA;  COMMIT; &#xA;END; " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Check if back-up needed"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{A0361FC8-688B-4C7E-849B-0EDA633BA0EA}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Check if back-up needed"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{F33E0533-49C5-49AE-9426-29EC738B06E7}"
+          SQLTask:SqlStatementSource="-- Set Run_Today. If 1 (Monday or Last daty of month) Run back-up&#xA;--    If zero don't run&#xA;SELECT  Case&#xA;  When [DayOfWeekName] = 'Monday' &#xA;   OR [MonthLastDate] = cast(GETDATE() as DATE) Then 1&#xA;  Else 0 End RunToday&#xA;     &#xA;FROM [AS_DWH].[dbo].[TimeMaster]&#xA;where ActualDate = cast(GETDATE() as DATE)"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="RunToday"
+            SQLTask:DtsVariableName="User::iBack_Up_Needed" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{5CD233FE-150E-4C69-BE0C-A4B2039E5B99}"
+      DTS:EvalOp="3"
+      DTS:Expression="@iBack_Up_Needed == 1"
+      DTS:From="Package\Check if back-up needed"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Backup Starsadmin Tables" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="186.4,44"
+          Id="Package\Backup Starsadmin Tables"
+          TopLeft="5.5,142.405660377358" />
+        <NodeLayout
+          Size="186.4,44"
+          Id="Package\Check if back-up needed"
+          TopLeft="9.5,5.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="102.858490566038,49.4245283018868">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-4,92.9811320754717"
+              Start="0,0"
+              End="-4,85.4811320754717">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46.4905660377359" />
+                  <mssgle:LineSegment
+                    End="-4,46.4905660377359" />
+                  <mssgle:LineSegment
+                    End="-4,85.4811320754717" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-10,51.4905660377359,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

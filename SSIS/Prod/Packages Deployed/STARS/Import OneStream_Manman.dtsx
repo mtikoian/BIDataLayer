@@ -1,0 +1,1327 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/2/2016 4:21:33 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="PPARSINO"
+  DTS:CreatorName="LVTCORP\pparsino"
+  DTS:Description="SSIS Package Description"
+  DTS:DTSID="{C0D217C0-C0A5-4C5D-8D34-E59D9ADF4FAE}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.5000.0"
+  DTS:LocaleID="1033"
+  DTS:MaxErrorCount="0"
+  DTS:ObjectName="Import OneStream_Manman"
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="19"
+  DTS:VersionGUID="{F8D5CC75-8BAF-482F-9574-3FB44963F81B}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{FCF2AC49-23BC-4DC7-86F7-89AFA33181D7}"
+      DTS:ObjectName="DestinationConnectionOLEDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=BI-Prod;Initial Catalog=AS_STAGE;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=false;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[GL Manman]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{0B5CC3AE-A1C9-4B35-86CB-D21CED5359C2}"
+      DTS:ObjectName="GL Manman">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="FixedWidth"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowsToSkip="1"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="E:\PROD\GLRecon\OneStreamManman.TXT;246.TXT">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="24"
+              DTS:MaximumWidth="24"
+              DTS:DataType="129"
+              DTS:ObjectName="AccountNumber"
+              DTS:DTSID="{28928446-4F79-4253-A084-98ACFE5CC3B9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="5"
+              DTS:MaximumWidth="5"
+              DTS:DataType="129"
+              DTS:ObjectName="CodeP"
+              DTS:DTSID="{A6FF9AA4-2DE1-445B-B477-3DA2836B903A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="19"
+              DTS:MaximumWidth="19"
+              DTS:DataType="129"
+              DTS:ObjectName="NaturalKey"
+              DTS:DTSID="{D90FE13F-D16D-4B42-B415-6F5DEA694A78}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="30"
+              DTS:MaximumWidth="30"
+              DTS:DataType="129"
+              DTS:ObjectName="AccountName"
+              DTS:DTSID="{91C516FE-4E57-4C0D-BAB9-AFC4D5F818D3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="15"
+              DTS:DataType="14"
+              DTS:ObjectName="CurrFiscBal"
+              DTS:DTSID="{E09CC73B-0AD3-488F-ACE3-317C354D1389}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="7"
+              DTS:MaximumWidth="7"
+              DTS:DataType="129"
+              DTS:ObjectName="StatType"
+              DTS:DTSID="{D191BCA8-095A-45A0-8B0E-3982A19CFE7D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="24"
+              DTS:MaximumWidth="24"
+              DTS:DataType="129"
+              DTS:ObjectName="ProjectNumber"
+              DTS:DTSID="{416C9614-7DB1-4443-B8A4-7A1197C173AD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="32"
+              DTS:MaximumWidth="32"
+              DTS:DataType="129"
+              DTS:ObjectName="ProjectDescription"
+              DTS:DTSID="{8CB25B7A-E569-4475-B8EC-038BA9DAD2DF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="15"
+              DTS:DataType="14"
+              DTS:ObjectName="ProjectYTDAct"
+              DTS:DTSID="{D9C133C6-895F-49E0-A825-CB233F7B55C4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="15"
+              DTS:DataType="14"
+              DTS:ObjectName="ProjectYTDBud"
+              DTS:DTSID="{04214D4B-23FE-432B-9025-735C25F9EE96}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{815636A5-9C2A-4839-AE35-2B2AE55021AF}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="GLDate">
+      <DTS:VariableValue
+        DTS:DataType="7">9/13/2017 8:20:13 AM</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Delete Data"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{64e89768-13a6-4da1-960a-c778c083d752}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Delete Data"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{FCF2AC49-23BC-4DC7-86F7-89AFA33181D7}"
+          SQLTask:SqlStatementSource="Delete  [AS_STAGE].[dbo].[Stg_OneStream_Manman]&#xA;From [AS_STAGE].[dbo].[Stg_OneStream_Manman] s&#xA;Inner Join as_dwh.dbo.Timemaster t&#xA;on s.Period = t.MonthFirstDate&#xA;Where ActualDate = Cast(dateadd(&quot;MM&quot;, -1,getdate()) as Date)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Get GL Date"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{F400504B-567B-4D7B-B686-B36A8EFCAF84}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Get GL Date"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{FCF2AC49-23BC-4DC7-86F7-89AFA33181D7}"
+          SQLTask:SqlStatementSource="Select MonthFirstDate GLDate&#xA;from as_dwh.dbo.Timemaster&#xA;Where ActualDate = Cast(dateadd(&quot;MM&quot;, -1,getdate()) as Date)"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="GLDate"
+            SQLTask:DtsVariableName="User::GLDate" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Import GL Manman"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DelayValidation="True"
+      DTS:DTSID="{148CE8AA-587C-4E2A-AEC5-CC06C0E30851}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Import GL Manman"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          BLOBTempStoragePath=""
+          bufferTempStoragePath=""
+          defaultBufferSize="3145728"
+          version="1">
+          <components>
+            <component
+              refId="Package\Import GL Manman\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Import GL Manman\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Import GL Manman\Data Conversion.Inputs[Data Conversion Input].Columns[AccountNumber]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="24"
+                      cachedName="AccountNumber"
+                      lineageId="Package\Import GL Manman\Flat File Source.Outputs[Flat File Source Output].Columns[AccountNumber]" />
+                    <inputColumn
+                      refId="Package\Import GL Manman\Data Conversion.Inputs[Data Conversion Input].Columns[AccountName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="AccountName"
+                      lineageId="Package\Import GL Manman\Flat File Source.Outputs[Flat File Source Output].Columns[AccountName]" />
+                    <inputColumn
+                      refId="Package\Import GL Manman\Data Conversion.Inputs[Data Conversion Input].Columns[StatType]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="7"
+                      cachedName="StatType"
+                      lineageId="Package\Import GL Manman\Flat File Source.Outputs[Flat File Source Output].Columns[StatType]" />
+                    <inputColumn
+                      refId="Package\Import GL Manman\Data Conversion.Inputs[Data Conversion Input].Columns[CurrFiscBal]"
+                      cachedDataType="decimal"
+                      cachedName="CurrFiscBal"
+                      lineageId="Package\Import GL Manman\Flat File Source.Outputs[Flat File Source Output].Columns[CurrFiscBal]" />
+                    <inputColumn
+                      refId="Package\Import GL Manman\Data Conversion.Inputs[Data Conversion Input].Columns[ProjectDescription]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="32"
+                      cachedName="ProjectDescription"
+                      lineageId="Package\Import GL Manman\Flat File Source.Outputs[Flat File Source Output].Columns[ProjectDescription]" />
+                    <inputColumn
+                      refId="Package\Import GL Manman\Data Conversion.Inputs[Data Conversion Input].Columns[CodeP]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="5"
+                      cachedName="CodeP"
+                      lineageId="Package\Import GL Manman\Flat File Source.Outputs[Flat File Source Output].Columns[CodeP]" />
+                    <inputColumn
+                      refId="Package\Import GL Manman\Data Conversion.Inputs[Data Conversion Input].Columns[ProjectNumber]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="24"
+                      cachedName="ProjectNumber"
+                      lineageId="Package\Import GL Manman\Flat File Source.Outputs[Flat File Source Output].Columns[ProjectNumber]" />
+                    <inputColumn
+                      refId="Package\Import GL Manman\Data Conversion.Inputs[Data Conversion Input].Columns[NaturalKey]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="19"
+                      cachedName="NaturalKey"
+                      lineageId="Package\Import GL Manman\Flat File Source.Outputs[Flat File Source Output].Columns[NaturalKey]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Import GL Manman\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Import GL Manman\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import GL Manman\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of AccountNumber]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="24"
+                      lineageId="Package\Import GL Manman\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of AccountNumber]"
+                      name="Copy of AccountNumber"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Import GL Manman\Flat File Source.Outputs[Flat File Source Output].Columns[AccountNumber]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import GL Manman\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of AccountName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="30"
+                      lineageId="Package\Import GL Manman\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of AccountName]"
+                      name="Copy of AccountName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Import GL Manman\Flat File Source.Outputs[Flat File Source Output].Columns[AccountName]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import GL Manman\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of StatType]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="7"
+                      lineageId="Package\Import GL Manman\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of StatType]"
+                      name="Copy of StatType"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Import GL Manman\Flat File Source.Outputs[Flat File Source Output].Columns[StatType]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import GL Manman\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of CurrFiscBal]"
+                      dataType="decimal"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Import GL Manman\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of CurrFiscBal]"
+                      name="Copy of CurrFiscBal"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Import GL Manman\Flat File Source.Outputs[Flat File Source Output].Columns[CurrFiscBal]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import GL Manman\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ProjectDescription]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="32"
+                      lineageId="Package\Import GL Manman\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ProjectDescription]"
+                      name="Copy of ProjectDescription"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Import GL Manman\Flat File Source.Outputs[Flat File Source Output].Columns[ProjectDescription]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import GL Manman\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of CodeP]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="5"
+                      lineageId="Package\Import GL Manman\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of CodeP]"
+                      name="Copy of CodeP"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Import GL Manman\Flat File Source.Outputs[Flat File Source Output].Columns[CodeP]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import GL Manman\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ProjectNumber]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="24"
+                      lineageId="Package\Import GL Manman\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ProjectNumber]"
+                      name="Copy of ProjectNumber"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Import GL Manman\Flat File Source.Outputs[Flat File Source Output].Columns[ProjectNumber]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import GL Manman\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of NaturalKey]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="19"
+                      lineageId="Package\Import GL Manman\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of NaturalKey]"
+                      name="Copy of NaturalKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Import GL Manman\Flat File Source.Outputs[Flat File Source Output].Columns[NaturalKey]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Import GL Manman\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Import GL Manman\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import GL Manman\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import GL Manman\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import GL Manman\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import GL Manman\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Import GL Manman\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Import GL Manman\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Import GL Manman\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Import GL Manman\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import GL Manman\Derived Column.Outputs[Derived Column Output].Columns[GLDate]"
+                      dataType="date"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Import GL Manman\Derived Column.Outputs[Derived Column Output].Columns[GLDate]"
+                      name="GLDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">@[GLDate]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@GLDate</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Import GL Manman\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Import GL Manman\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import GL Manman\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import GL Manman\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import GL Manman\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import GL Manman\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Import GL Manman\Destination - Quotas_Import"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Destination - Quotas_Import"
+              usesDispositions="true"
+              validateExternalMetadata="False"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Stg_OneStream_Manman]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Import GL Manman\Destination - Quotas_Import.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Import GL Manman\Destination - Quotas_Import.Inputs[Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Import GL Manman\Destination - Quotas_Import.Inputs[Destination Input].Columns[CurrFiscBal]"
+                      cachedDataType="decimal"
+                      cachedName="CurrFiscBal"
+                      externalMetadataColumnId="Package\Import GL Manman\Destination - Quotas_Import.Inputs[Destination Input].ExternalColumns[CUR FISC BAL]"
+                      lineageId="Package\Import GL Manman\Flat File Source.Outputs[Flat File Source Output].Columns[CurrFiscBal]" />
+                    <inputColumn
+                      refId="Package\Import GL Manman\Destination - Quotas_Import.Inputs[Destination Input].Columns[ProjectYTDAct]"
+                      cachedDataType="decimal"
+                      cachedName="ProjectYTDAct"
+                      externalMetadataColumnId="Package\Import GL Manman\Destination - Quotas_Import.Inputs[Destination Input].ExternalColumns[PROJECT YTD ACTPROJECT]"
+                      lineageId="Package\Import GL Manman\Flat File Source.Outputs[Flat File Source Output].Columns[ProjectYTDAct]" />
+                    <inputColumn
+                      refId="Package\Import GL Manman\Destination - Quotas_Import.Inputs[Destination Input].Columns[ProjectYTDBud]"
+                      cachedDataType="decimal"
+                      cachedName="ProjectYTDBud"
+                      externalMetadataColumnId="Package\Import GL Manman\Destination - Quotas_Import.Inputs[Destination Input].ExternalColumns[YTD BUD]"
+                      lineageId="Package\Import GL Manman\Flat File Source.Outputs[Flat File Source Output].Columns[ProjectYTDBud]" />
+                    <inputColumn
+                      refId="Package\Import GL Manman\Destination - Quotas_Import.Inputs[Destination Input].Columns[Copy of AccountNumber]"
+                      cachedDataType="wstr"
+                      cachedLength="24"
+                      cachedName="Copy of AccountNumber"
+                      externalMetadataColumnId="Package\Import GL Manman\Destination - Quotas_Import.Inputs[Destination Input].ExternalColumns[ACCOUNT NUMBER]"
+                      lineageId="Package\Import GL Manman\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of AccountNumber]" />
+                    <inputColumn
+                      refId="Package\Import GL Manman\Destination - Quotas_Import.Inputs[Destination Input].Columns[Copy of AccountName]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="Copy of AccountName"
+                      externalMetadataColumnId="Package\Import GL Manman\Destination - Quotas_Import.Inputs[Destination Input].ExternalColumns[ACCOUNT NAME]"
+                      lineageId="Package\Import GL Manman\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of AccountName]" />
+                    <inputColumn
+                      refId="Package\Import GL Manman\Destination - Quotas_Import.Inputs[Destination Input].Columns[Copy of ProjectDescription]"
+                      cachedDataType="wstr"
+                      cachedLength="32"
+                      cachedName="Copy of ProjectDescription"
+                      externalMetadataColumnId="Package\Import GL Manman\Destination - Quotas_Import.Inputs[Destination Input].ExternalColumns[PROJECT DESCRIPTION]"
+                      lineageId="Package\Import GL Manman\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ProjectDescription]" />
+                    <inputColumn
+                      refId="Package\Import GL Manman\Destination - Quotas_Import.Inputs[Destination Input].Columns[GLDate]"
+                      cachedDataType="date"
+                      cachedName="GLDate"
+                      externalMetadataColumnId="Package\Import GL Manman\Destination - Quotas_Import.Inputs[Destination Input].ExternalColumns[Period]"
+                      lineageId="Package\Import GL Manman\Derived Column.Outputs[Derived Column Output].Columns[GLDate]" />
+                    <inputColumn
+                      refId="Package\Import GL Manman\Destination - Quotas_Import.Inputs[Destination Input].Columns[Copy of CodeP]"
+                      cachedDataType="wstr"
+                      cachedLength="5"
+                      cachedName="Copy of CodeP"
+                      externalMetadataColumnId="Package\Import GL Manman\Destination - Quotas_Import.Inputs[Destination Input].ExternalColumns[CODEP]"
+                      lineageId="Package\Import GL Manman\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of CodeP]" />
+                    <inputColumn
+                      refId="Package\Import GL Manman\Destination - Quotas_Import.Inputs[Destination Input].Columns[Copy of StatType]"
+                      cachedDataType="wstr"
+                      cachedLength="7"
+                      cachedName="Copy of StatType"
+                      externalMetadataColumnId="Package\Import GL Manman\Destination - Quotas_Import.Inputs[Destination Input].ExternalColumns[STATYPE]"
+                      lineageId="Package\Import GL Manman\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of StatType]" />
+                    <inputColumn
+                      refId="Package\Import GL Manman\Destination - Quotas_Import.Inputs[Destination Input].Columns[Copy of ProjectNumber]"
+                      cachedDataType="wstr"
+                      cachedLength="24"
+                      cachedName="Copy of ProjectNumber"
+                      externalMetadataColumnId="Package\Import GL Manman\Destination - Quotas_Import.Inputs[Destination Input].ExternalColumns[PROJECT NUMBER]"
+                      lineageId="Package\Import GL Manman\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ProjectNumber]" />
+                    <inputColumn
+                      refId="Package\Import GL Manman\Destination - Quotas_Import.Inputs[Destination Input].Columns[Copy of NaturalKey]"
+                      cachedDataType="wstr"
+                      cachedLength="19"
+                      cachedName="Copy of NaturalKey"
+                      externalMetadataColumnId="Package\Import GL Manman\Destination - Quotas_Import.Inputs[Destination Input].ExternalColumns[NATURAL ACCOUNT]"
+                      lineageId="Package\Import GL Manman\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of NaturalKey]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Import GL Manman\Destination - Quotas_Import.Inputs[Destination Input].ExternalColumns[Period]"
+                      dataType="dbTimeStamp"
+                      name="Period" />
+                    <externalMetadataColumn
+                      refId="Package\Import GL Manman\Destination - Quotas_Import.Inputs[Destination Input].ExternalColumns[ACCOUNT NUMBER]"
+                      dataType="wstr"
+                      length="255"
+                      name="ACCOUNT NUMBER" />
+                    <externalMetadataColumn
+                      refId="Package\Import GL Manman\Destination - Quotas_Import.Inputs[Destination Input].ExternalColumns[CODEPNATURAL ACCOUNT]"
+                      dataType="r8"
+                      name="CODEPNATURAL ACCOUNT" />
+                    <externalMetadataColumn
+                      refId="Package\Import GL Manman\Destination - Quotas_Import.Inputs[Destination Input].ExternalColumns[ACCOUNT NAME]"
+                      dataType="wstr"
+                      length="255"
+                      name="ACCOUNT NAME" />
+                    <externalMetadataColumn
+                      refId="Package\Import GL Manman\Destination - Quotas_Import.Inputs[Destination Input].ExternalColumns[CUR FISC BAL]"
+                      dataType="cy"
+                      name="CUR FISC BAL" />
+                    <externalMetadataColumn
+                      refId="Package\Import GL Manman\Destination - Quotas_Import.Inputs[Destination Input].ExternalColumns[STATYPEPROJECT NUMBER]"
+                      dataType="wstr"
+                      length="255"
+                      name="STATYPEPROJECT NUMBER" />
+                    <externalMetadataColumn
+                      refId="Package\Import GL Manman\Destination - Quotas_Import.Inputs[Destination Input].ExternalColumns[PROJECT DESCRIPTION]"
+                      dataType="wstr"
+                      length="255"
+                      name="PROJECT DESCRIPTION" />
+                    <externalMetadataColumn
+                      refId="Package\Import GL Manman\Destination - Quotas_Import.Inputs[Destination Input].ExternalColumns[PROJECT YTD ACTPROJECT]"
+                      dataType="r8"
+                      name="PROJECT YTD ACTPROJECT" />
+                    <externalMetadataColumn
+                      refId="Package\Import GL Manman\Destination - Quotas_Import.Inputs[Destination Input].ExternalColumns[YTD BUD]"
+                      dataType="r8"
+                      name="YTD BUD" />
+                    <externalMetadataColumn
+                      refId="Package\Import GL Manman\Destination - Quotas_Import.Inputs[Destination Input].ExternalColumns[CODEP]"
+                      dataType="wstr"
+                      length="5"
+                      name="CODEP" />
+                    <externalMetadataColumn
+                      refId="Package\Import GL Manman\Destination - Quotas_Import.Inputs[Destination Input].ExternalColumns[NATURAL ACCOUNT]"
+                      dataType="wstr"
+                      length="20"
+                      name="NATURAL ACCOUNT" />
+                    <externalMetadataColumn
+                      refId="Package\Import GL Manman\Destination - Quotas_Import.Inputs[Destination Input].ExternalColumns[STATYPE]"
+                      dataType="wstr"
+                      length="7"
+                      name="STATYPE" />
+                    <externalMetadataColumn
+                      refId="Package\Import GL Manman\Destination - Quotas_Import.Inputs[Destination Input].ExternalColumns[PROJECT NUMBER]"
+                      dataType="wstr"
+                      length="24"
+                      name="PROJECT NUMBER" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Import GL Manman\Destination - Quotas_Import.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Import GL Manman\Destination - Quotas_Import.Inputs[Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import GL Manman\Destination - Quotas_Import.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import GL Manman\Destination - Quotas_Import.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import GL Manman\Destination - Quotas_Import.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import GL Manman\Destination - Quotas_Import.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Import GL Manman\Flat File Source"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="Flat File Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Import GL Manman\Flat File Source.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[GL Manman]"
+                  connectionManagerRefId="Package.ConnectionManagers[GL Manman]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Import GL Manman\Flat File Source.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import GL Manman\Flat File Source.Outputs[Flat File Source Output].Columns[AccountNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import GL Manman\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[AccountNumber]"
+                      length="24"
+                      lineageId="Package\Import GL Manman\Flat File Source.Outputs[Flat File Source Output].Columns[AccountNumber]"
+                      name="AccountNumber"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import GL Manman\Flat File Source.Outputs[Flat File Source Output].Columns[CodeP]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import GL Manman\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CodeP]"
+                      length="5"
+                      lineageId="Package\Import GL Manman\Flat File Source.Outputs[Flat File Source Output].Columns[CodeP]"
+                      name="CodeP"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import GL Manman\Flat File Source.Outputs[Flat File Source Output].Columns[NaturalKey]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import GL Manman\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[NaturalKey]"
+                      length="19"
+                      lineageId="Package\Import GL Manman\Flat File Source.Outputs[Flat File Source Output].Columns[NaturalKey]"
+                      name="NaturalKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import GL Manman\Flat File Source.Outputs[Flat File Source Output].Columns[AccountName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import GL Manman\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[AccountName]"
+                      length="30"
+                      lineageId="Package\Import GL Manman\Flat File Source.Outputs[Flat File Source Output].Columns[AccountName]"
+                      name="AccountName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import GL Manman\Flat File Source.Outputs[Flat File Source Output].Columns[CurrFiscBal]"
+                      dataType="decimal"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import GL Manman\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CurrFiscBal]"
+                      lineageId="Package\Import GL Manman\Flat File Source.Outputs[Flat File Source Output].Columns[CurrFiscBal]"
+                      name="CurrFiscBal"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import GL Manman\Flat File Source.Outputs[Flat File Source Output].Columns[StatType]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import GL Manman\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[StatType]"
+                      length="7"
+                      lineageId="Package\Import GL Manman\Flat File Source.Outputs[Flat File Source Output].Columns[StatType]"
+                      name="StatType"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import GL Manman\Flat File Source.Outputs[Flat File Source Output].Columns[ProjectNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import GL Manman\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ProjectNumber]"
+                      length="24"
+                      lineageId="Package\Import GL Manman\Flat File Source.Outputs[Flat File Source Output].Columns[ProjectNumber]"
+                      name="ProjectNumber"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import GL Manman\Flat File Source.Outputs[Flat File Source Output].Columns[ProjectDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import GL Manman\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ProjectDescription]"
+                      length="32"
+                      lineageId="Package\Import GL Manman\Flat File Source.Outputs[Flat File Source Output].Columns[ProjectDescription]"
+                      name="ProjectDescription"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import GL Manman\Flat File Source.Outputs[Flat File Source Output].Columns[ProjectYTDAct]"
+                      dataType="decimal"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import GL Manman\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ProjectYTDAct]"
+                      lineageId="Package\Import GL Manman\Flat File Source.Outputs[Flat File Source Output].Columns[ProjectYTDAct]"
+                      name="ProjectYTDAct"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import GL Manman\Flat File Source.Outputs[Flat File Source Output].Columns[ProjectYTDBud]"
+                      dataType="decimal"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import GL Manman\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ProjectYTDBud]"
+                      lineageId="Package\Import GL Manman\Flat File Source.Outputs[Flat File Source Output].Columns[ProjectYTDBud]"
+                      name="ProjectYTDBud"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Import GL Manman\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[AccountNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="24"
+                      name="AccountNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Import GL Manman\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CodeP]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="CodeP" />
+                    <externalMetadataColumn
+                      refId="Package\Import GL Manman\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[NaturalKey]"
+                      codePage="1252"
+                      dataType="str"
+                      length="19"
+                      name="NaturalKey" />
+                    <externalMetadataColumn
+                      refId="Package\Import GL Manman\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[AccountName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="AccountName" />
+                    <externalMetadataColumn
+                      refId="Package\Import GL Manman\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CurrFiscBal]"
+                      dataType="decimal"
+                      name="CurrFiscBal" />
+                    <externalMetadataColumn
+                      refId="Package\Import GL Manman\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[StatType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="7"
+                      name="StatType" />
+                    <externalMetadataColumn
+                      refId="Package\Import GL Manman\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ProjectNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="24"
+                      name="ProjectNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Import GL Manman\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ProjectDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      length="32"
+                      name="ProjectDescription" />
+                    <externalMetadataColumn
+                      refId="Package\Import GL Manman\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ProjectYTDAct]"
+                      dataType="decimal"
+                      name="ProjectYTDAct" />
+                    <externalMetadataColumn
+                      refId="Package\Import GL Manman\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ProjectYTDBud]"
+                      dataType="decimal"
+                      name="ProjectYTDBud" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Import GL Manman\Flat File Source.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import GL Manman\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Import GL Manman\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Import GL Manman\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import GL Manman\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import GL Manman\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import GL Manman\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Import GL Manman.Paths[Data Conversion Output]"
+              endId="Package\Import GL Manman\Derived Column.Inputs[Derived Column Input]"
+              name="Data Conversion Output"
+              startId="Package\Import GL Manman\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Import GL Manman.Paths[Derived Column Output]"
+              endId="Package\Import GL Manman\Destination - Quotas_Import.Inputs[Destination Input]"
+              name="Derived Column Output"
+              startId="Package\Import GL Manman\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Import GL Manman.Paths[Flat File Source Output]"
+              endId="Package\Import GL Manman\Data Conversion.Inputs[Data Conversion Input]"
+              name="Flat File Source Output"
+              startId="Package\Import GL Manman\Flat File Source.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{C2648987-416D-4516-919B-683109286277}"
+      DTS:From="Package\Get GL Date"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Import GL Manman" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{30010C49-F2FB-4DA7-8158-8FB118D8BF1D}"
+      DTS:From="Package\Delete Data"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Get GL Date" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="170,42"
+          Id="Package\Import GL Manman"
+          TopLeft="5.18396232003033,333.322012322912" />
+        <NodeLayout
+          Size="136.666666666667,42"
+          Id="Package\Get GL Date"
+          TopLeft="14.9999997764826,251.499999496341" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="86.7586477149231,293.499999496341">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,39.8220128265711"
+              Start="0,0"
+              End="0,32.3220128265711">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.3220128265711" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="134.666666666667,42"
+          Id="Package\Delete Data"
+          TopLeft="18.3333330601454,170.033334286412" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="84.4999997516473,212.033334286412">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,39.4666652099292"
+              Start="0,0"
+              End="0,31.9666652099292">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.9666652099292" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Import GL Manman">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="151.333333333334,42"
+          Id="Package\Import GL Manman\Flat File Source"
+          TopLeft="61.2499990873039,13.8666664187113" />
+        <NodeLayout
+          Size="156.666666666667,42"
+          Id="Package\Import GL Manman\Data Conversion"
+          TopLeft="64.9999990314245,88.8333317448696" />
+        <NodeLayout
+          Size="214,42"
+          Id="Package\Import GL Manman\Destination - Quotas_Import"
+          TopLeft="31.7499996088446,241.199999418855" />
+        <NodeLayout
+          Size="154,42"
+          Id="Package\Import GL Manman\Derived Column"
+          TopLeft="67.4999989941716,161.333332713445" />
+        <EdgeLayout
+          Id="Package\Import GL Manman.Paths[Flat File Source Output]"
+          TopLeft="140.124999059364,55.8666664187113">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,32.9666653261583"
+              Start="0,0"
+              End="0,25.4666653261583">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.4666653261583" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import GL Manman.Paths[Derived Column Output]"
+          TopLeft="141.624999301508,203.333332713445">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37.8666667054103"
+              Start="0,0"
+              End="0,30.3666667054103">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.3666667054103" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import GL Manman.Paths[Data Conversion Output]"
+          TopLeft="143.916665679465,130.83333174487">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,30.5000009685754"
+              Start="0,0"
+              End="0,23.0000009685754">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.0000009685754" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Import GL Manman\Destination - Quotas_Import">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

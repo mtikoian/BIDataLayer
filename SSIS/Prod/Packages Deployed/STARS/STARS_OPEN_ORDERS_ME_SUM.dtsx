@@ -1,0 +1,605 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/2/2013 8:48:40 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="PPARSINO"
+  DTS:CreatorName="LVTCORP\pparsino"
+  DTS:Description="Copy StarsSalesFact to DW_Main"
+  DTS:DTSID="{289BF5BB-6563-4C0E-93C7-4F0C75AB8C28}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.4100.1"
+  DTS:LocaleID="1033"
+  DTS:MaxErrorCount="0"
+  DTS:ObjectName="STARS_OPEN_ORDERS_ME_SUM"
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="158"
+  DTS:VersionGUID="{B38BC57F-F692-467C-BD8E-762D22022048}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[AS_DWH]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{FF59F50C-15E6-495B-9D10-C5EEA344A2BF}"
+      DTS:ObjectName="AS_DWH">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=BI-Prod;Initial Catalog=AS_DWH;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=false;Application Name=SSIS-StarsSalesFact  Skynet-{749F6A8D-1BB7-4B10-9FA8-F26C97852155}DestinationConnectionOLEDB;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Skynet]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{01B540E1-373F-4727-8354-68D698684B6B}"
+      DTS:ObjectName="Skynet">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::connSource]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=(DESCRIPTION =(ADDRESS_LIST =(ADDRESS = (PROTOCOL = TCP)(HOST = 10.200.35.86)(PORT = 1521)))(CONNECT_DATA =(PRESENTATION=RO)(SID=SKYNET)));User ID=stars;Provider=OraOLEDB.Oracle.1;Persist Security Info=True;">
+          <EncryptedData
+            Type="http://www.w3.org/2001/04/xmlenc#Element"
+            Salt="hu9G8Vpbig=="
+            IV="xqQQvXK75bU=" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            <EncryptionMethod
+              Algorithm="http://www.w3.org/2001/04/xmlenc#tripledes-cbc" />
+            <CipherData>
+              <CipherValue>xqQQvXK75bXo242pVJy7Z3SSVUZ1vhrqhG7gDHkQhYBHh4tkrK4zBJW48pBhJyEnr1FcVaQf6lZ+N3uX7sQxbCvtDibruZveuoNDqlp/r6iMS6YazjIeOaCQpn85L9KO7CUryKjaJpPp/Re6sxFue2LdzkS2Juye</CipherValue>
+            </CipherData>
+          </EncryptedData>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E977E843-DDDD-4E73-B647-D2F80D3F444F}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="connSource">
+      <DTS:VariableValue
+        DTS:DataType="8">Data Source=(DESCRIPTION =(ADDRESS_LIST =(ADDRESS = (PROTOCOL = TCP)(HOST = 10.200.35.86)(PORT = 1521)))(CONNECT_DATA =(PRESENTATION=RO)(SID=SKYNET)));User ID=stars;Password=zune;Provider=OraOLEDB.Oracle.1;Persist Security Info=True;</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Copy Stage to Skynet"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DelayValidation="True"
+      DTS:DTSID="{34864B2C-3370-47B5-B4AC-A5658D59CC58}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Copy Stage to Skynet"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          BLOBTempStoragePath=""
+          bufferTempStoragePath=""
+          defaultBufferMaxRows="100000"
+          defaultBufferSize="13145728"
+          version="1">
+          <components>
+            <component
+              refId="Package\Copy Stage to Skynet\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Copy Stage to Skynet\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Copy Stage to Skynet\Data Conversion.Inputs[Data Conversion Input].Columns[Item_Type]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="Item_Type"
+                      lineageId="Package\Copy Stage to Skynet\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Item_Type]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Copy Stage to Skynet\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Copy Stage to Skynet\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Copy Stage to Skynet\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Item_Type]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="40"
+                      lineageId="Package\Copy Stage to Skynet\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Item_Type]"
+                      name="Copy of Item_Type"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Copy Stage to Skynet\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Item_Type]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Copy Stage to Skynet\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Copy Stage to Skynet\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Copy Stage to Skynet\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Copy Stage to Skynet\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Copy Stage to Skynet\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Copy Stage to Skynet\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Copy Stage to Skynet\Destination - Skynet"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Destination - Skynet"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">"STARS"."STARS_OPEN_ORDERS_ME_SUM"</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Copy Stage to Skynet\Destination - Skynet.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Skynet]"
+                  connectionManagerRefId="Package.ConnectionManagers[Skynet]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Copy Stage to Skynet\Destination - Skynet.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Copy Stage to Skynet\Destination - Skynet.Inputs[OLE DB Destination Input].Columns[Amount]"
+                      cachedDataType="cy"
+                      cachedName="Amount"
+                      externalMetadataColumnId="Package\Copy Stage to Skynet\Destination - Skynet.Inputs[OLE DB Destination Input].ExternalColumns[ORD_LINE_AMT_USD]"
+                      lineageId="Package\Copy Stage to Skynet\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Amount]" />
+                    <inputColumn
+                      refId="Package\Copy Stage to Skynet\Destination - Skynet.Inputs[OLE DB Destination Input].Columns[terrid]"
+                      cachedDataType="i4"
+                      cachedName="terrid"
+                      externalMetadataColumnId="Package\Copy Stage to Skynet\Destination - Skynet.Inputs[OLE DB Destination Input].ExternalColumns[REPNUM2]"
+                      lineageId="Package\Copy Stage to Skynet\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[terrid]" />
+                    <inputColumn
+                      refId="Package\Copy Stage to Skynet\Destination - Skynet.Inputs[OLE DB Destination Input].Columns[fiscper]"
+                      cachedDataType="i4"
+                      cachedName="fiscper"
+                      externalMetadataColumnId="Package\Copy Stage to Skynet\Destination - Skynet.Inputs[OLE DB Destination Input].ExternalColumns[FISC_PERIOD]"
+                      lineageId="Package\Copy Stage to Skynet\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[fiscper]" />
+                    <inputColumn
+                      refId="Package\Copy Stage to Skynet\Destination - Skynet.Inputs[OLE DB Destination Input].Columns[product]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="product"
+                      externalMetadataColumnId="Package\Copy Stage to Skynet\Destination - Skynet.Inputs[OLE DB Destination Input].ExternalColumns[ITEM_NUMBER]"
+                      lineageId="Package\Copy Stage to Skynet\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[product]" />
+                    <inputColumn
+                      refId="Package\Copy Stage to Skynet\Destination - Skynet.Inputs[OLE DB Destination Input].Columns[Copy of Item_Type]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="Copy of Item_Type"
+                      externalMetadataColumnId="Package\Copy Stage to Skynet\Destination - Skynet.Inputs[OLE DB Destination Input].ExternalColumns[ITEM_TYPE]"
+                      lineageId="Package\Copy Stage to Skynet\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Item_Type]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Copy Stage to Skynet\Destination - Skynet.Inputs[OLE DB Destination Input].ExternalColumns[ITEM_NUMBER]"
+                      dataType="wstr"
+                      length="40"
+                      name="ITEM_NUMBER" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Stage to Skynet\Destination - Skynet.Inputs[OLE DB Destination Input].ExternalColumns[ORD_LINE_AMT_USD]"
+                      dataType="wstr"
+                      length="38"
+                      name="ORD_LINE_AMT_USD" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Stage to Skynet\Destination - Skynet.Inputs[OLE DB Destination Input].ExternalColumns[REPNUM2]"
+                      dataType="wstr"
+                      length="150"
+                      name="REPNUM2" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Stage to Skynet\Destination - Skynet.Inputs[OLE DB Destination Input].ExternalColumns[ITEM_TYPE]"
+                      dataType="wstr"
+                      length="40"
+                      name="ITEM_TYPE" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Stage to Skynet\Destination - Skynet.Inputs[OLE DB Destination Input].ExternalColumns[FISC_PERIOD]"
+                      dataType="wstr"
+                      length="38"
+                      name="FISC_PERIOD" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Copy Stage to Skynet\Destination - Skynet.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Copy Stage to Skynet\Destination - Skynet.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Copy Stage to Skynet\Destination - Skynet.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Copy Stage to Skynet\Destination - Skynet.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Copy Stage to Skynet\Destination - Skynet.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Copy Stage to Skynet\Destination - Skynet.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Copy Stage to Skynet\OLE DB Source 1"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source 1"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Sales_Open_Orders_MonthEnd_Summary_Manman]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Copy Stage to Skynet\OLE DB Source 1.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[AS_DWH]"
+                  connectionManagerRefId="Package.ConnectionManagers[AS_DWH]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Copy Stage to Skynet\OLE DB Source 1.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Copy Stage to Skynet\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[terrid]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Stage to Skynet\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[terrid]"
+                      lineageId="Package\Copy Stage to Skynet\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[terrid]"
+                      name="terrid"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Stage to Skynet\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Amount]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Stage to Skynet\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Amount]"
+                      lineageId="Package\Copy Stage to Skynet\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Amount]"
+                      name="Amount"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Stage to Skynet\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[fiscper]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Stage to Skynet\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[fiscper]"
+                      lineageId="Package\Copy Stage to Skynet\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[fiscper]"
+                      name="fiscper"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Stage to Skynet\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[product]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Stage to Skynet\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[product]"
+                      length="30"
+                      lineageId="Package\Copy Stage to Skynet\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[product]"
+                      name="product"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Stage to Skynet\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Item_Type]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Stage to Skynet\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Item_Type]"
+                      length="40"
+                      lineageId="Package\Copy Stage to Skynet\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Item_Type]"
+                      name="Item_Type"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Copy Stage to Skynet\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[terrid]"
+                      dataType="i4"
+                      name="terrid" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Stage to Skynet\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Amount]"
+                      dataType="cy"
+                      name="Amount" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Stage to Skynet\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[fiscper]"
+                      dataType="i4"
+                      name="fiscper" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Stage to Skynet\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[product]"
+                      dataType="wstr"
+                      length="30"
+                      name="product" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Stage to Skynet\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Item_Type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="Item_Type" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Copy Stage to Skynet\OLE DB Source 1.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Copy Stage to Skynet\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[terrid]"
+                      dataType="i4"
+                      lineageId="Package\Copy Stage to Skynet\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[terrid]"
+                      name="terrid" />
+                    <outputColumn
+                      refId="Package\Copy Stage to Skynet\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Amount]"
+                      dataType="cy"
+                      lineageId="Package\Copy Stage to Skynet\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Amount]"
+                      name="Amount" />
+                    <outputColumn
+                      refId="Package\Copy Stage to Skynet\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[fiscper]"
+                      dataType="i4"
+                      lineageId="Package\Copy Stage to Skynet\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[fiscper]"
+                      name="fiscper" />
+                    <outputColumn
+                      refId="Package\Copy Stage to Skynet\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[product]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\Copy Stage to Skynet\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[product]"
+                      name="product" />
+                    <outputColumn
+                      refId="Package\Copy Stage to Skynet\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Item_Type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      lineageId="Package\Copy Stage to Skynet\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Item_Type]"
+                      name="Item_Type" />
+                    <outputColumn
+                      refId="Package\Copy Stage to Skynet\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Copy Stage to Skynet\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Copy Stage to Skynet\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Copy Stage to Skynet\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Copy Stage to Skynet.Paths[Data Conversion Output]"
+              endId="Package\Copy Stage to Skynet\Destination - Skynet.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\Copy Stage to Skynet\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Copy Stage to Skynet.Paths[OLE DB Source Output]"
+              endId="Package\Copy Stage to Skynet\Data Conversion.Inputs[Data Conversion Input]"
+              name="OLE DB Source Output"
+              startId="Package\Copy Stage to Skynet\OLE DB Source 1.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{20EDA9E8-ED64-4EE5-983F-090D237201E2}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{01B540E1-373F-4727-8354-68D698684B6B}"
+          SQLTask:SqlStatementSource="Delete from STARS.STARS_OPEN_ORDERS_ME_SUM" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{69D50961-4E67-440D-8E42-205DA1F3BD99}"
+      DTS:From="Package\Execute SQL Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Copy Stage to Skynet" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="164,47.2"
+          Id="Package\Copy Stage to Skynet"
+          TopLeft="6.29245283018867,111.122641509434" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Execute SQL Task"
+          TopLeft="5.5,5.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="73.3867924528302,49.4245283018868">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="14.754716981132,61.6981132075472"
+              Start="0,0"
+              End="14.754716981132,54.1981132075472">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.8679245283019" />
+                  <mssgle:LineSegment
+                    End="14.754716981132,30.8679245283019" />
+                  <mssgle:LineSegment
+                    End="14.754716981132,54.1981132075472" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

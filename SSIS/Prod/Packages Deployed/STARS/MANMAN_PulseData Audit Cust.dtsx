@@ -1,0 +1,2006 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/5/2012 1:27:28 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LARGOBI4"
+  DTS:CreatorName="LVTBI\developer"
+  DTS:DTSID="{3F43E025-AAA5-4A77-BAA3-D3C13E6FA853}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.4100.1"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="MANMAN_PulseData Audit Cust"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="289"
+  DTS:VersionGUID="{FDADE333-88CE-4C8D-B0EC-5685DB4F2CE9}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[AS_DWH]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{80ADC5AB-6197-4251-BF19-E808DD08EA9F}"
+      DTS:ObjectName="AS_DWH">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=BI-Prod;Initial Catalog=AS_DWH;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-CDC ap_batches_all full-{B1979EF6-6DA3-4B2E-A883-66D0ED4C62CB}largobi5.DW_MAIN;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[AS_Stage]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{05221685-5455-427F-B68C-1BF2D611628A}"
+      DTS:ObjectName="AS_Stage">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=BI-Prod;Initial Catalog=AS_STAGE;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-CDC ap_batches_all full-{B1979EF6-6DA3-4B2E-A883-66D0ED4C62CB}largobi5.DW_MAIN;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ManMan]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{99929CD4-5B9B-4336-9CA7-319EC376C2A6}"
+      DTS:ObjectName="ManMan">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=nydbwar.cnmdcorp.com;User ID=conmed_fl;Initial Catalog=Sales;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-Logistics Freight CSV NT Pull-{99929CD4-5B9B-4336-9CA7-319EC376C2A6}largobi1.AS_STAGE;">
+          <EncryptedData
+            Type="http://www.w3.org/2001/04/xmlenc#Element"
+            Salt="uAra2ekpsA=="
+            IV="+oCOwkFHnmg=" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            <EncryptionMethod
+              Algorithm="http://www.w3.org/2001/04/xmlenc#tripledes-cbc" />
+            <CipherData>
+              <CipherValue>+oCOwkFHnmijEzNna4EDycGUq1bUWMrR3Ike15zc01ziiU1srIv8J+IITpvAolLpgRda5HZzPxt5sbv99/S0AI11oMFDLZoguDe2tHfByklPh9TxODCkuU9Yq+e8g/SalO9Po3AbUblm2cey/1JY/+Sauf4NiBUvtDl0c4/9+ME=</CipherValue>
+            </CipherData>
+          </EncryptedData>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SKYNET.STARS]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{FF60C426-7937-421D-AFEA-201D33C4CC1F}"
+      DTS:ObjectName="SKYNET.STARS">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=SKYNET;User ID=stars;Provider=OraOLEDB.Oracle.1;Persist Security Info=True;">
+          <EncryptedData
+            Type="http://www.w3.org/2001/04/xmlenc#Element"
+            Salt="vPyNIIwdxQ=="
+            IV="iIeBsysOByE=" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            <EncryptionMethod
+              Algorithm="http://www.w3.org/2001/04/xmlenc#tripledes-cbc" />
+            <CipherData>
+              <CipherValue>iIeBsysOByFvZ0/zKKu5vwweslxOc31YKP6qZ1PgWn0oEdhxkwGPpjYMVukpPtxdx7ue9q/npD475Bdr8p32DaV8rKJYqqqvNVipr6azAuQG0lznUknGld/g+ixeCxCXyF2GkLbJaqGGGz2UvjLjbOV064vv7LsC</CipherValue>
+            </CipherData>
+          </EncryptedData>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{78F2D292-B506-4E04-B162-85AB5978F027}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="dtAsOf">
+      <DTS:VariableValue
+        DTS:DataType="7">1/23/2015 1:51:46 PM</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D97D7BE9-FFE9-475B-8692-6A60660FC673}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="iresultCode">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Audit AS_DWH Table"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{C3900EBC-3B82-40DE-9A8E-A260B69D0FC5}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Audit AS_DWH Table"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          BLOBTempStoragePath=""
+          bufferTempStoragePath=""
+          version="1">
+          <components>
+            <component
+              refId="Package\Audit AS_DWH Table\Data Conversion 1"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              localeId="1033"
+              name="Data Conversion 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Audit AS_DWH Table\Data Conversion 1.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Audit AS_DWH Table\Data Conversion 1.Inputs[Data Conversion Input].Columns[DateMM]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="7"
+                      cachedName="DateMM"
+                      lineageId="Package\Audit AS_DWH Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateMM]" />
+                    <inputColumn
+                      refId="Package\Audit AS_DWH Table\Data Conversion 1.Inputs[Data Conversion Input].Columns[Oracle_Cust_Num]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="Oracle_Cust_Num"
+                      lineageId="Package\Audit AS_DWH Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[Oracle_Cust_Num]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Audit AS_DWH Table\Data Conversion 1.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Audit AS_DWH Table\Data Conversion 1.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Audit AS_DWH Table\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of DateMM]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="7"
+                      lineageId="Package\Audit AS_DWH Table\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of DateMM]"
+                      name="Copy of DateMM"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Audit AS_DWH Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateMM]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Audit AS_DWH Table\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of Oracle_Cust_Num]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Audit AS_DWH Table\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of Oracle_Cust_Num]"
+                      name="Copy of Oracle_Cust_Num"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Audit AS_DWH Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[Oracle_Cust_Num]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Audit AS_DWH Table\Data Conversion 1.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Audit AS_DWH Table\Data Conversion 1.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Audit AS_DWH Table\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Audit AS_DWH Table\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Audit AS_DWH Table\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Audit AS_DWH Table\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Audit AS_DWH Table\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Manman_PulseData_Audit_Cust]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Audit AS_DWH Table\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[AS_Stage]"
+                  connectionManagerRefId="Package.ConnectionManagers[AS_Stage]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Audit AS_DWH Table\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Audit AS_DWH Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Cnt]"
+                      cachedDataType="i4"
+                      cachedName="Cnt"
+                      externalMetadataColumnId="Package\Audit AS_DWH Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Cnt]"
+                      lineageId="Package\Audit AS_DWH Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[Cnt]" />
+                    <inputColumn
+                      refId="Package\Audit AS_DWH Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MinDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="MinDate"
+                      externalMetadataColumnId="Package\Audit AS_DWH Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MinDate]"
+                      lineageId="Package\Audit AS_DWH Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[MinDate]" />
+                    <inputColumn
+                      refId="Package\Audit AS_DWH Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MaxDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="MaxDate"
+                      externalMetadataColumnId="Package\Audit AS_DWH Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MaxDate]"
+                      lineageId="Package\Audit AS_DWH Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[MaxDate]" />
+                    <inputColumn
+                      refId="Package\Audit AS_DWH Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of DateMM]"
+                      cachedDataType="wstr"
+                      cachedLength="7"
+                      cachedName="Copy of DateMM"
+                      externalMetadataColumnId="Package\Audit AS_DWH Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateMM]"
+                      lineageId="Package\Audit AS_DWH Table\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of DateMM]" />
+                    <inputColumn
+                      refId="Package\Audit AS_DWH Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[AuditTable1]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="31"
+                      cachedName="AuditTable1"
+                      externalMetadataColumnId="Package\Audit AS_DWH Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AuditTable]"
+                      lineageId="Package\Audit AS_DWH Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[AuditTable1]" />
+                    <inputColumn
+                      refId="Package\Audit AS_DWH Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Inv_Line_Amt_USD]"
+                      cachedDataType="cy"
+                      cachedName="Inv_Line_Amt_USD"
+                      externalMetadataColumnId="Package\Audit AS_DWH Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Inv_Line_Amt_USD]"
+                      lineageId="Package\Audit AS_DWH Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[Inv_Line_Amt_USD]" />
+                    <inputColumn
+                      refId="Package\Audit AS_DWH Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of Oracle_Cust_Num]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copy of Oracle_Cust_Num"
+                      externalMetadataColumnId="Package\Audit AS_DWH Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OracleCustNo]"
+                      lineageId="Package\Audit AS_DWH Table\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of Oracle_Cust_Num]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Audit AS_DWH Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateMM]"
+                      dataType="wstr"
+                      length="10"
+                      name="DateMM" />
+                    <externalMetadataColumn
+                      refId="Package\Audit AS_DWH Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Cnt]"
+                      dataType="i4"
+                      name="Cnt" />
+                    <externalMetadataColumn
+                      refId="Package\Audit AS_DWH Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MinDate]"
+                      dataType="dbTimeStamp"
+                      name="MinDate" />
+                    <externalMetadataColumn
+                      refId="Package\Audit AS_DWH Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MaxDate]"
+                      dataType="dbTimeStamp"
+                      name="MaxDate" />
+                    <externalMetadataColumn
+                      refId="Package\Audit AS_DWH Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AuditTable]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="AuditTable" />
+                    <externalMetadataColumn
+                      refId="Package\Audit AS_DWH Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Inv_Line_Amt_USD]"
+                      dataType="cy"
+                      name="Inv_Line_Amt_USD" />
+                    <externalMetadataColumn
+                      refId="Package\Audit AS_DWH Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OracleCustNo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="128"
+                      name="OracleCustNo" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Audit AS_DWH Table\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Audit AS_DWH Table\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Audit AS_DWH Table\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Audit AS_DWH Table\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Audit AS_DWH Table\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Audit AS_DWH Table\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Audit AS_DWH Table\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Uti].[UnverifiedPulseData]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select 'Sales_Comm_Stars_Format_MM_Hist' AuditTable1
+,left(convert(date,comminv_date, 102),7) DateMM
+, Oracle_Cust_Num
+,Sum( Inv_Line_Amt_USD) Inv_Line_Amt_USD
+, COUNT(*) Cnt
+, MIN(comminv_date) MinDate, Max(comminv_date) MaxDate
+From dbo.Sales_Comm_Stars_Format_MM_Hist
+Where MNLADJID IS NULL
+group by left(convert(date,comminv_date, 102),7), Oracle_Cust_Num
+order by left(convert(date,comminv_date, 102),7), Oracle_Cust_Num</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Audit AS_DWH Table\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[AS_DWH]"
+                  connectionManagerRefId="Package.ConnectionManagers[AS_DWH]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Audit AS_DWH Table\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Audit AS_DWH Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateMM]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Audit AS_DWH Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DateMM]"
+                      length="7"
+                      lineageId="Package\Audit AS_DWH Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateMM]"
+                      name="DateMM"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Audit AS_DWH Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[Cnt]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Audit AS_DWH Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Cnt]"
+                      lineageId="Package\Audit AS_DWH Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[Cnt]"
+                      name="Cnt"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Audit AS_DWH Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[MinDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Audit AS_DWH Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MinDate]"
+                      lineageId="Package\Audit AS_DWH Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[MinDate]"
+                      name="MinDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Audit AS_DWH Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[MaxDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Audit AS_DWH Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MaxDate]"
+                      lineageId="Package\Audit AS_DWH Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[MaxDate]"
+                      name="MaxDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Audit AS_DWH Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[AuditTable1]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Audit AS_DWH Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AuditTable1]"
+                      length="31"
+                      lineageId="Package\Audit AS_DWH Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[AuditTable1]"
+                      name="AuditTable1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Audit AS_DWH Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[Inv_Line_Amt_USD]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Audit AS_DWH Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Inv_Line_Amt_USD]"
+                      lineageId="Package\Audit AS_DWH Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[Inv_Line_Amt_USD]"
+                      name="Inv_Line_Amt_USD"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Audit AS_DWH Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[Oracle_Cust_Num]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Audit AS_DWH Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Oracle_Cust_Num]"
+                      length="30"
+                      lineageId="Package\Audit AS_DWH Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[Oracle_Cust_Num]"
+                      name="Oracle_Cust_Num"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Audit AS_DWH Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DateMM]"
+                      codePage="1252"
+                      dataType="str"
+                      length="7"
+                      name="DateMM" />
+                    <externalMetadataColumn
+                      refId="Package\Audit AS_DWH Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Cnt]"
+                      dataType="i4"
+                      name="Cnt" />
+                    <externalMetadataColumn
+                      refId="Package\Audit AS_DWH Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MinDate]"
+                      dataType="dbTimeStamp"
+                      name="MinDate" />
+                    <externalMetadataColumn
+                      refId="Package\Audit AS_DWH Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MaxDate]"
+                      dataType="dbTimeStamp"
+                      name="MaxDate" />
+                    <externalMetadataColumn
+                      refId="Package\Audit AS_DWH Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AuditTable1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="31"
+                      name="AuditTable1" />
+                    <externalMetadataColumn
+                      refId="Package\Audit AS_DWH Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Inv_Line_Amt_USD]"
+                      dataType="cy"
+                      name="Inv_Line_Amt_USD" />
+                    <externalMetadataColumn
+                      refId="Package\Audit AS_DWH Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Oracle_Cust_Num]"
+                      dataType="wstr"
+                      length="30"
+                      name="Oracle_Cust_Num" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Audit AS_DWH Table\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Audit AS_DWH Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AuditTable1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="31"
+                      lineageId="Package\Audit AS_DWH Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AuditTable1]"
+                      name="AuditTable1" />
+                    <outputColumn
+                      refId="Package\Audit AS_DWH Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DateMM]"
+                      codePage="1252"
+                      dataType="str"
+                      length="7"
+                      lineageId="Package\Audit AS_DWH Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DateMM]"
+                      name="DateMM" />
+                    <outputColumn
+                      refId="Package\Audit AS_DWH Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Oracle_Cust_Num]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\Audit AS_DWH Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Oracle_Cust_Num]"
+                      name="Oracle_Cust_Num" />
+                    <outputColumn
+                      refId="Package\Audit AS_DWH Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Inv_Line_Amt_USD]"
+                      dataType="cy"
+                      lineageId="Package\Audit AS_DWH Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Inv_Line_Amt_USD]"
+                      name="Inv_Line_Amt_USD" />
+                    <outputColumn
+                      refId="Package\Audit AS_DWH Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Cnt]"
+                      dataType="i4"
+                      lineageId="Package\Audit AS_DWH Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Cnt]"
+                      name="Cnt" />
+                    <outputColumn
+                      refId="Package\Audit AS_DWH Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MinDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Audit AS_DWH Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MinDate]"
+                      name="MinDate" />
+                    <outputColumn
+                      refId="Package\Audit AS_DWH Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MaxDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Audit AS_DWH Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MaxDate]"
+                      name="MaxDate" />
+                    <outputColumn
+                      refId="Package\Audit AS_DWH Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Audit AS_DWH Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Audit AS_DWH Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Audit AS_DWH Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Audit AS_DWH Table.Paths[Data Conversion Output]"
+              endId="Package\Audit AS_DWH Table\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\Audit AS_DWH Table\Data Conversion 1.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Audit AS_DWH Table.Paths[OLE DB Source Output]"
+              endId="Package\Audit AS_DWH Table\Data Conversion 1.Inputs[Data Conversion Input]"
+              name="OLE DB Source Output"
+              startId="Package\Audit AS_DWH Table\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Audit Manman Table"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{23349FAE-ACAD-4621-A348-9077612989D7}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Audit Manman Table"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          BLOBTempStoragePath=""
+          bufferTempStoragePath=""
+          version="1">
+          <components>
+            <component
+              refId="Package\Audit Manman Table\Data Conversion 1"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              localeId="1033"
+              name="Data Conversion 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Audit Manman Table\Data Conversion 1.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Audit Manman Table\Data Conversion 1.Inputs[Data Conversion Input].Columns[DateMM]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="7"
+                      cachedName="DateMM"
+                      lineageId="Package\Audit Manman Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateMM]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Audit Manman Table\Data Conversion 1.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Audit Manman Table\Data Conversion 1.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Audit Manman Table\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of DateMM]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="7"
+                      lineageId="Package\Audit Manman Table\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of DateMM]"
+                      name="Copy of DateMM"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Audit Manman Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateMM]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Audit Manman Table\Data Conversion 1.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Audit Manman Table\Data Conversion 1.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Audit Manman Table\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Audit Manman Table\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Audit Manman Table\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Audit Manman Table\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Audit Manman Table\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Manman_PulseData_Audit_Cust]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Audit Manman Table\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[AS_Stage]"
+                  connectionManagerRefId="Package.ConnectionManagers[AS_Stage]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Audit Manman Table\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Audit Manman Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Cnt]"
+                      cachedDataType="i4"
+                      cachedName="Cnt"
+                      externalMetadataColumnId="Package\Audit Manman Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Cnt]"
+                      lineageId="Package\Audit Manman Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[Cnt]" />
+                    <inputColumn
+                      refId="Package\Audit Manman Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MinDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="MinDate"
+                      externalMetadataColumnId="Package\Audit Manman Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MinDate]"
+                      lineageId="Package\Audit Manman Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[MinDate]" />
+                    <inputColumn
+                      refId="Package\Audit Manman Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MaxDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="MaxDate"
+                      externalMetadataColumnId="Package\Audit Manman Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MaxDate]"
+                      lineageId="Package\Audit Manman Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[MaxDate]" />
+                    <inputColumn
+                      refId="Package\Audit Manman Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of DateMM]"
+                      cachedDataType="wstr"
+                      cachedLength="7"
+                      cachedName="Copy of DateMM"
+                      externalMetadataColumnId="Package\Audit Manman Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateMM]"
+                      lineageId="Package\Audit Manman Table\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of DateMM]" />
+                    <inputColumn
+                      refId="Package\Audit Manman Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[AuditTable]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="9"
+                      cachedName="AuditTable"
+                      externalMetadataColumnId="Package\Audit Manman Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AuditTable]"
+                      lineageId="Package\Audit Manman Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[AuditTable]" />
+                    <inputColumn
+                      refId="Package\Audit Manman Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Inv_Line_Amt_USD]"
+                      cachedDataType="numeric"
+                      cachedName="Inv_Line_Amt_USD"
+                      cachedPrecision="38"
+                      cachedScale="4"
+                      externalMetadataColumnId="Package\Audit Manman Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Inv_Line_Amt_USD]"
+                      lineageId="Package\Audit Manman Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[Inv_Line_Amt_USD]" />
+                    <inputColumn
+                      refId="Package\Audit Manman Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[OracleCustNo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="128"
+                      cachedName="OracleCustNo"
+                      externalMetadataColumnId="Package\Audit Manman Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OracleCustNo]"
+                      lineageId="Package\Audit Manman Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[OracleCustNo]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Audit Manman Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateMM]"
+                      dataType="wstr"
+                      length="10"
+                      name="DateMM" />
+                    <externalMetadataColumn
+                      refId="Package\Audit Manman Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Cnt]"
+                      dataType="i4"
+                      name="Cnt" />
+                    <externalMetadataColumn
+                      refId="Package\Audit Manman Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MinDate]"
+                      dataType="dbTimeStamp"
+                      name="MinDate" />
+                    <externalMetadataColumn
+                      refId="Package\Audit Manman Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MaxDate]"
+                      dataType="dbTimeStamp"
+                      name="MaxDate" />
+                    <externalMetadataColumn
+                      refId="Package\Audit Manman Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AuditTable]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="AuditTable" />
+                    <externalMetadataColumn
+                      refId="Package\Audit Manman Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Inv_Line_Amt_USD]"
+                      dataType="cy"
+                      name="Inv_Line_Amt_USD" />
+                    <externalMetadataColumn
+                      refId="Package\Audit Manman Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OracleCustNo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="128"
+                      name="OracleCustNo" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Audit Manman Table\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Audit Manman Table\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Audit Manman Table\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Audit Manman Table\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Audit Manman Table\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Audit Manman Table\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Audit Manman Table\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Uti].[UnverifiedPulseData]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select 'PulseData' AuditTable
+,left(convert(date,comminvdate, 102),7) DateMM
+, OracleCustNo
+,Sum( InvLineAmtUSD) Inv_Line_Amt_USD
+, COUNT(*) Cnt
+, MIN(comminvdate) MinDate, Max(comminvdate) MaxDate
+From uti.UnverifiedPulseData
+where comminvdate &gt;= '2014-01-01'
+group by left(convert(date,comminvdate, 102),7), OracleCustNo
+order by left(convert(date,comminvdate, 102),7), OracleCustNo</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Audit Manman Table\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[ManMan]"
+                  connectionManagerRefId="Package.ConnectionManagers[ManMan]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Audit Manman Table\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Audit Manman Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateMM]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Audit Manman Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DateMM]"
+                      length="7"
+                      lineageId="Package\Audit Manman Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateMM]"
+                      name="DateMM"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Audit Manman Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[Cnt]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Audit Manman Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Cnt]"
+                      lineageId="Package\Audit Manman Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[Cnt]"
+                      name="Cnt"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Audit Manman Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[MinDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Audit Manman Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MinDate]"
+                      lineageId="Package\Audit Manman Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[MinDate]"
+                      name="MinDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Audit Manman Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[MaxDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Audit Manman Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MaxDate]"
+                      lineageId="Package\Audit Manman Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[MaxDate]"
+                      name="MaxDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Audit Manman Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[AuditTable]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Audit Manman Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AuditTable]"
+                      length="9"
+                      lineageId="Package\Audit Manman Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[AuditTable]"
+                      name="AuditTable"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Audit Manman Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[Inv_Line_Amt_USD]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Audit Manman Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Inv_Line_Amt_USD]"
+                      lineageId="Package\Audit Manman Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[Inv_Line_Amt_USD]"
+                      name="Inv_Line_Amt_USD"
+                      precision="38"
+                      scale="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Audit Manman Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[OracleCustNo]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Audit Manman Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OracleCustNo]"
+                      length="128"
+                      lineageId="Package\Audit Manman Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[OracleCustNo]"
+                      name="OracleCustNo"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Audit Manman Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DateMM]"
+                      codePage="1252"
+                      dataType="str"
+                      length="7"
+                      name="DateMM" />
+                    <externalMetadataColumn
+                      refId="Package\Audit Manman Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Cnt]"
+                      dataType="i4"
+                      name="Cnt" />
+                    <externalMetadataColumn
+                      refId="Package\Audit Manman Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MinDate]"
+                      dataType="dbTimeStamp"
+                      name="MinDate" />
+                    <externalMetadataColumn
+                      refId="Package\Audit Manman Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MaxDate]"
+                      dataType="dbTimeStamp"
+                      name="MaxDate" />
+                    <externalMetadataColumn
+                      refId="Package\Audit Manman Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AuditTable]"
+                      codePage="1252"
+                      dataType="str"
+                      length="9"
+                      name="AuditTable" />
+                    <externalMetadataColumn
+                      refId="Package\Audit Manman Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Inv_Line_Amt_USD]"
+                      dataType="numeric"
+                      name="Inv_Line_Amt_USD"
+                      precision="38"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\Audit Manman Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OracleCustNo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="128"
+                      name="OracleCustNo" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Audit Manman Table\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Audit Manman Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AuditTable]"
+                      codePage="1252"
+                      dataType="str"
+                      length="9"
+                      lineageId="Package\Audit Manman Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AuditTable]"
+                      name="AuditTable" />
+                    <outputColumn
+                      refId="Package\Audit Manman Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DateMM]"
+                      codePage="1252"
+                      dataType="str"
+                      length="7"
+                      lineageId="Package\Audit Manman Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DateMM]"
+                      name="DateMM" />
+                    <outputColumn
+                      refId="Package\Audit Manman Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OracleCustNo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="128"
+                      lineageId="Package\Audit Manman Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OracleCustNo]"
+                      name="OracleCustNo" />
+                    <outputColumn
+                      refId="Package\Audit Manman Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Inv_Line_Amt_USD]"
+                      dataType="numeric"
+                      lineageId="Package\Audit Manman Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Inv_Line_Amt_USD]"
+                      name="Inv_Line_Amt_USD"
+                      precision="38"
+                      scale="4" />
+                    <outputColumn
+                      refId="Package\Audit Manman Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Cnt]"
+                      dataType="i4"
+                      lineageId="Package\Audit Manman Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Cnt]"
+                      name="Cnt" />
+                    <outputColumn
+                      refId="Package\Audit Manman Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MinDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Audit Manman Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MinDate]"
+                      name="MinDate" />
+                    <outputColumn
+                      refId="Package\Audit Manman Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MaxDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Audit Manman Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MaxDate]"
+                      name="MaxDate" />
+                    <outputColumn
+                      refId="Package\Audit Manman Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Audit Manman Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Audit Manman Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Audit Manman Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Audit Manman Table.Paths[Data Conversion Output]"
+              endId="Package\Audit Manman Table\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\Audit Manman Table\Data Conversion 1.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Audit Manman Table.Paths[OLE DB Source Output]"
+              endId="Package\Audit Manman Table\Data Conversion 1.Inputs[Data Conversion Input]"
+              name="OLE DB Source Output"
+              startId="Package\Audit Manman Table\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Audit PulseTable"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{EBFD4EDC-22AF-4385-AC34-BA0A99B51630}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Audit PulseTable"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          BLOBTempStoragePath=""
+          bufferTempStoragePath=""
+          version="1">
+          <components>
+            <component
+              refId="Package\Audit PulseTable\Data Conversion 1"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              localeId="1033"
+              name="Data Conversion 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Audit PulseTable\Data Conversion 1.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Audit PulseTable\Data Conversion 1.Inputs[Data Conversion Input].Columns[AUDITTABLE2]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="AUDITTABLE2"
+                      lineageId="Package\Audit PulseTable\OLE DB Source.Outputs[OLE DB Source Output].Columns[AUDITTABLE2]" />
+                    <inputColumn
+                      refId="Package\Audit PulseTable\Data Conversion 1.Inputs[Data Conversion Input].Columns[ORACLE_CUST_NUM]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="ORACLE_CUST_NUM"
+                      lineageId="Package\Audit PulseTable\OLE DB Source.Outputs[OLE DB Source Output].Columns[ORACLE_CUST_NUM]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Audit PulseTable\Data Conversion 1.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Audit PulseTable\Data Conversion 1.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Audit PulseTable\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of AUDITTABLE2]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Audit PulseTable\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of AUDITTABLE2]"
+                      name="Copy of AUDITTABLE2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Audit PulseTable\OLE DB Source.Outputs[OLE DB Source Output].Columns[AUDITTABLE2]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Audit PulseTable\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of ORACLE_CUST_NUM]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Audit PulseTable\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of ORACLE_CUST_NUM]"
+                      name="Copy of ORACLE_CUST_NUM"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Audit PulseTable\OLE DB Source.Outputs[OLE DB Source Output].Columns[ORACLE_CUST_NUM]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Audit PulseTable\Data Conversion 1.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Audit PulseTable\Data Conversion 1.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Audit PulseTable\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Audit PulseTable\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Audit PulseTable\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Audit PulseTable\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Audit PulseTable\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Manman_PulseData_Audit_Cust]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Audit PulseTable\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[AS_Stage]"
+                  connectionManagerRefId="Package.ConnectionManagers[AS_Stage]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Audit PulseTable\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Audit PulseTable\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CNT]"
+                      cachedDataType="wstr"
+                      cachedLength="38"
+                      cachedName="CNT"
+                      externalMetadataColumnId="Package\Audit PulseTable\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Cnt]"
+                      lineageId="Package\Audit PulseTable\OLE DB Source.Outputs[OLE DB Source Output].Columns[CNT]" />
+                    <inputColumn
+                      refId="Package\Audit PulseTable\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MINDATE]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="MINDATE"
+                      externalMetadataColumnId="Package\Audit PulseTable\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MinDate]"
+                      lineageId="Package\Audit PulseTable\OLE DB Source.Outputs[OLE DB Source Output].Columns[MINDATE]" />
+                    <inputColumn
+                      refId="Package\Audit PulseTable\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MAXDATE]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="MAXDATE"
+                      externalMetadataColumnId="Package\Audit PulseTable\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MaxDate]"
+                      lineageId="Package\Audit PulseTable\OLE DB Source.Outputs[OLE DB Source Output].Columns[MAXDATE]" />
+                    <inputColumn
+                      refId="Package\Audit PulseTable\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[INV_LINE_AMT_USD]"
+                      cachedDataType="wstr"
+                      cachedLength="38"
+                      cachedName="INV_LINE_AMT_USD"
+                      externalMetadataColumnId="Package\Audit PulseTable\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Inv_Line_Amt_USD]"
+                      lineageId="Package\Audit PulseTable\OLE DB Source.Outputs[OLE DB Source Output].Columns[INV_LINE_AMT_USD]" />
+                    <inputColumn
+                      refId="Package\Audit PulseTable\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DATEMM]"
+                      cachedDataType="wstr"
+                      cachedLength="7"
+                      cachedName="DATEMM"
+                      externalMetadataColumnId="Package\Audit PulseTable\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateMM]"
+                      lineageId="Package\Audit PulseTable\OLE DB Source.Outputs[OLE DB Source Output].Columns[DATEMM]" />
+                    <inputColumn
+                      refId="Package\Audit PulseTable\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of AUDITTABLE2]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copy of AUDITTABLE2"
+                      externalMetadataColumnId="Package\Audit PulseTable\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AuditTable]"
+                      lineageId="Package\Audit PulseTable\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of AUDITTABLE2]" />
+                    <inputColumn
+                      refId="Package\Audit PulseTable\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of ORACLE_CUST_NUM]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copy of ORACLE_CUST_NUM"
+                      externalMetadataColumnId="Package\Audit PulseTable\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OracleCustNo]"
+                      lineageId="Package\Audit PulseTable\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of ORACLE_CUST_NUM]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Audit PulseTable\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateMM]"
+                      dataType="wstr"
+                      length="10"
+                      name="DateMM" />
+                    <externalMetadataColumn
+                      refId="Package\Audit PulseTable\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Cnt]"
+                      dataType="i4"
+                      name="Cnt" />
+                    <externalMetadataColumn
+                      refId="Package\Audit PulseTable\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MinDate]"
+                      dataType="dbTimeStamp"
+                      name="MinDate" />
+                    <externalMetadataColumn
+                      refId="Package\Audit PulseTable\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MaxDate]"
+                      dataType="dbTimeStamp"
+                      name="MaxDate" />
+                    <externalMetadataColumn
+                      refId="Package\Audit PulseTable\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AuditTable]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="AuditTable" />
+                    <externalMetadataColumn
+                      refId="Package\Audit PulseTable\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Inv_Line_Amt_USD]"
+                      dataType="cy"
+                      name="Inv_Line_Amt_USD" />
+                    <externalMetadataColumn
+                      refId="Package\Audit PulseTable\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OracleCustNo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="128"
+                      name="OracleCustNo" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Audit PulseTable\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Audit PulseTable\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Audit PulseTable\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Audit PulseTable\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Audit PulseTable\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Audit PulseTable\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Audit PulseTable\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Uti].[UnverifiedPulseData]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select 'stars_sales_fact_align_mm_Hist' AuditTable2
+,to_char(invoice_Date,'yyyy-mm') DateMM
+, Oracle_Cust_Num
+,sum(inv_line_amt_usd)  Inv_Line_Amt_USD
+, COUNT(*) Cnt
+, MIN(invoice_Date) MinDate, Max(invoice_Date) MaxDate
+from stars_sales_fact_align_mm_Hist
+Where MNLADJID IS NULL
+group by to_char(invoice_Date,'yyyy-mm'), Oracle_Cust_Num
+order by  to_char(invoice_Date,'yyyy-mm'), Oracle_Cust_Num</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Audit PulseTable\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SKYNET.STARS]"
+                  connectionManagerRefId="Package.ConnectionManagers[SKYNET.STARS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Audit PulseTable\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Audit PulseTable\OLE DB Source.Outputs[OLE DB Source Output].Columns[AUDITTABLE2]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Audit PulseTable\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AUDITTABLE2]"
+                      length="30"
+                      lineageId="Package\Audit PulseTable\OLE DB Source.Outputs[OLE DB Source Output].Columns[AUDITTABLE2]"
+                      name="AUDITTABLE2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Audit PulseTable\OLE DB Source.Outputs[OLE DB Source Output].Columns[DATEMM]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Audit PulseTable\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DATEMM]"
+                      length="7"
+                      lineageId="Package\Audit PulseTable\OLE DB Source.Outputs[OLE DB Source Output].Columns[DATEMM]"
+                      name="DATEMM"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Audit PulseTable\OLE DB Source.Outputs[OLE DB Source Output].Columns[INV_LINE_AMT_USD]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Audit PulseTable\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[INV_LINE_AMT_USD]"
+                      length="38"
+                      lineageId="Package\Audit PulseTable\OLE DB Source.Outputs[OLE DB Source Output].Columns[INV_LINE_AMT_USD]"
+                      name="INV_LINE_AMT_USD"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Audit PulseTable\OLE DB Source.Outputs[OLE DB Source Output].Columns[CNT]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Audit PulseTable\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CNT]"
+                      length="38"
+                      lineageId="Package\Audit PulseTable\OLE DB Source.Outputs[OLE DB Source Output].Columns[CNT]"
+                      name="CNT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Audit PulseTable\OLE DB Source.Outputs[OLE DB Source Output].Columns[MINDATE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Audit PulseTable\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MINDATE]"
+                      lineageId="Package\Audit PulseTable\OLE DB Source.Outputs[OLE DB Source Output].Columns[MINDATE]"
+                      name="MINDATE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Audit PulseTable\OLE DB Source.Outputs[OLE DB Source Output].Columns[MAXDATE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Audit PulseTable\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MAXDATE]"
+                      lineageId="Package\Audit PulseTable\OLE DB Source.Outputs[OLE DB Source Output].Columns[MAXDATE]"
+                      name="MAXDATE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Audit PulseTable\OLE DB Source.Outputs[OLE DB Source Output].Columns[ORACLE_CUST_NUM]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Audit PulseTable\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ORACLE_CUST_NUM]"
+                      length="30"
+                      lineageId="Package\Audit PulseTable\OLE DB Source.Outputs[OLE DB Source Output].Columns[ORACLE_CUST_NUM]"
+                      name="ORACLE_CUST_NUM"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Audit PulseTable\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AUDITTABLE2]"
+                      dataType="wstr"
+                      length="30"
+                      name="AUDITTABLE2" />
+                    <externalMetadataColumn
+                      refId="Package\Audit PulseTable\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DATEMM]"
+                      dataType="wstr"
+                      length="7"
+                      name="DATEMM" />
+                    <externalMetadataColumn
+                      refId="Package\Audit PulseTable\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[INV_LINE_AMT_USD]"
+                      dataType="wstr"
+                      length="38"
+                      name="INV_LINE_AMT_USD" />
+                    <externalMetadataColumn
+                      refId="Package\Audit PulseTable\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CNT]"
+                      dataType="wstr"
+                      length="38"
+                      name="CNT" />
+                    <externalMetadataColumn
+                      refId="Package\Audit PulseTable\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MINDATE]"
+                      dataType="dbTimeStamp"
+                      name="MINDATE" />
+                    <externalMetadataColumn
+                      refId="Package\Audit PulseTable\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MAXDATE]"
+                      dataType="dbTimeStamp"
+                      name="MAXDATE" />
+                    <externalMetadataColumn
+                      refId="Package\Audit PulseTable\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ORACLE_CUST_NUM]"
+                      dataType="wstr"
+                      length="30"
+                      name="ORACLE_CUST_NUM" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Audit PulseTable\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Audit PulseTable\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AUDITTABLE2]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\Audit PulseTable\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AUDITTABLE2]"
+                      name="AUDITTABLE2" />
+                    <outputColumn
+                      refId="Package\Audit PulseTable\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DATEMM]"
+                      dataType="wstr"
+                      length="7"
+                      lineageId="Package\Audit PulseTable\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DATEMM]"
+                      name="DATEMM" />
+                    <outputColumn
+                      refId="Package\Audit PulseTable\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ORACLE_CUST_NUM]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\Audit PulseTable\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ORACLE_CUST_NUM]"
+                      name="ORACLE_CUST_NUM" />
+                    <outputColumn
+                      refId="Package\Audit PulseTable\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[INV_LINE_AMT_USD]"
+                      dataType="wstr"
+                      length="38"
+                      lineageId="Package\Audit PulseTable\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[INV_LINE_AMT_USD]"
+                      name="INV_LINE_AMT_USD" />
+                    <outputColumn
+                      refId="Package\Audit PulseTable\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CNT]"
+                      dataType="wstr"
+                      length="38"
+                      lineageId="Package\Audit PulseTable\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CNT]"
+                      name="CNT" />
+                    <outputColumn
+                      refId="Package\Audit PulseTable\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MINDATE]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Audit PulseTable\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MINDATE]"
+                      name="MINDATE" />
+                    <outputColumn
+                      refId="Package\Audit PulseTable\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MAXDATE]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Audit PulseTable\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MAXDATE]"
+                      name="MAXDATE" />
+                    <outputColumn
+                      refId="Package\Audit PulseTable\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Audit PulseTable\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Audit PulseTable\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Audit PulseTable\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Audit PulseTable.Paths[Data Conversion Output]"
+              endId="Package\Audit PulseTable\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\Audit PulseTable\Data Conversion 1.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Audit PulseTable.Paths[OLE DB Source Output]"
+              endId="Package\Audit PulseTable\Data Conversion 1.Inputs[Data Conversion Input]"
+              name="OLE DB Source Output"
+              startId="Package\Audit PulseTable\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate Table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{473346B7-F641-40C5-9B93-C904737E14F7}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate Table"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{2D61B289-4AFB-4619-806B-2990C4DAFE62}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="User"
+          DTS:ObjectName="Variable">
+          <DTS:VariableValue
+            DTS:DataType="3">0</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{05221685-5455-427F-B68C-1BF2D611628A}"
+          SQLTask:SqlStatementSource="Truncate Table [AS_STAGE].[dbo].Manman_PulseData_Audit_Cust" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{66C2AE56-0F87-411F-BBC7-525FEDCC50A6}"
+      DTS:From="Package\Audit Manman Table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Audit AS_DWH Table" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{2A042BAB-735A-4168-A484-528F08C4185C}"
+      DTS:From="Package\Truncate Table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Audit Manman Table" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{87B12615-F0CE-4CDE-9D8C-CA845563BE4E}"
+      DTS:From="Package\Audit AS_DWH Table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Audit PulseTable" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Audit AS_DWH Table"
+          TopLeft="9.91509433962256,175.462264150943" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Audit Manman Table"
+          TopLeft="7.91509433962256,88.7075471698113" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Audit PulseTable"
+          TopLeft="14.5188679245282,254.216981132075" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Truncate Table"
+          TopLeft="5.5,5.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="75.8018867924527,132.632075471698">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="2,42.8301886792453"
+              Start="0,0"
+              End="2,35.3301886792453">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.4339622641509" />
+                  <mssgle:LineSegment
+                    End="2,21.4339622641509" />
+                  <mssgle:LineSegment
+                    End="2,35.3301886792453" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="73.3867924528302,49.4245283018868">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="2.41509433962256,39.2830188679245"
+              Start="0,0"
+              End="2.41509433962256,31.7830188679245">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.6603773584906" />
+                  <mssgle:LineSegment
+                    End="2.41509433962256,19.6603773584906" />
+                  <mssgle:LineSegment
+                    End="2.41509433962256,31.7830188679245" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="77.8018867924527,219.38679245283">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="4.60377358490587,34.8301886792453"
+              Start="0,0"
+              End="4.60377358490587,27.3301886792453">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.3962264150943" />
+                  <mssgle:LineSegment
+                    End="4.60377358490587,17.3962264150943" />
+                  <mssgle:LineSegment
+                    End="4.60377358490587,27.3301886792453" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Audit PulseTable">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Audit PulseTable\OLE DB Source"
+          TopLeft="8.48113207547169,5.5" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Audit PulseTable\OLE DB Destination"
+          TopLeft="5.5,189.235849056604" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Audit PulseTable\Data Conversion 1"
+          TopLeft="10.1792452830189,101.27358490566" />
+        <EdgeLayout
+          Id="Package\Audit PulseTable.Paths[Data Conversion Output]"
+          TopLeft="78.0660377358491,145.198113207547">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-4.67924528301887,44.0377358490566"
+              Start="0,0"
+              End="-4.67924528301887,36.5377358490566">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22" />
+                  <mssgle:LineSegment
+                    End="-4.67924528301887,22" />
+                  <mssgle:LineSegment
+                    End="-4.67924528301887,36.5377358490566" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Audit PulseTable.Paths[OLE DB Source Output]"
+          TopLeft="76.3679245283019,49.4245283018868">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="1.69811320754718,51.8490566037736"
+              Start="0,0"
+              End="1.69811320754718,44.3490566037736">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.9245283018868" />
+                  <mssgle:LineSegment
+                    End="1.69811320754718,25.9245283018868" />
+                  <mssgle:LineSegment
+                    End="1.69811320754718,44.3490566037736" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
