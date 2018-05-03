@@ -5,22 +5,22 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="LARGOBI4"
   DTS:CreatorName="LVTBI\developer"
-  DTS:DTSID="{44FD899B-6739-4ADB-B622-00BFF0AE16D7}"
+  DTS:DTSID="{C28A95F5-D66F-4629-A850-D5DFB70587FF}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="12.0.5000.0"
+  DTS:LastModifiedProductVersion="12.0.4100.1"
   DTS:LocaleID="1033"
   DTS:ObjectName="MANMAN_FactGSSales History"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="281"
-  DTS:VersionGUID="{900DC0F5-6EDE-4398-9BD0-D683B043FBE2}">
+  DTS:VersionBuild="282"
+  DTS:VersionGUID="{E9C71588-5BA1-438D-B040-F71CCD4C4542}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[AS_Stage]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{DEC5AD1A-C4E7-4E4F-B235-52031961E048}"
+      DTS:DTSID="{E28D5213-63B0-4EB5-B0B5-8D9575664B7F}"
       DTS:ObjectName="AS_Stage">
       <DTS:ObjectData>
         <DTS:ConnectionManager
@@ -30,19 +30,19 @@
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[ManMan]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{57AC8238-81DB-47C6-8ABC-467C922E3469}"
+      DTS:DTSID="{D2720B3F-8DBB-436C-A5ED-5CDA14A39AF5}"
       DTS:ObjectName="ManMan">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=nydbwar.cnmdcorp.com;User ID=conmed_fl;Initial Catalog=DWH;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-Logistics Freight CSV NT Pull-{57AC8238-81DB-47C6-8ABC-467C922E3469}largobi1.AS_STAGE;">
+          DTS:ConnectionString="Data Source=nydbwar.cnmdcorp.com;User ID=conmed_fl;Initial Catalog=DWH;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-Logistics Freight CSV NT Pull-{D2720B3F-8DBB-436C-A5ED-5CDA14A39AF5}largobi1.AS_STAGE;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="9CTQHIa1bg=="
-            IV="nIEHvKHOPlw=" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="Uxjf6wHbcA=="
+            IV="KrUTrDC1oVE=" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#tripledes-cbc" />
             <CipherData>
-              <CipherValue>nIEHvKHOPlw/2Re/wOSsT7yKB9xb5T2ywzDUbh13IYzT7vt7KA+c0K3inI2Jv8a+jEFRmdeBWNewjt+TQZhrR3guony6Uy5CX2WafdJWj4/6gsfnYjOj+w9GhKUHWiVHBrYJOj+GLIGJAdrkPzvj43OKBKyN5tlS6ZAOX4Dmzik=</CipherValue>
+              <CipherValue>KrUTrDC1oVEvbcMLwcEiuhVOq5zyfcPE5WSxidTYHAAkGWgF/LcZmjCBvk3Wq8YmBgxN8EKe+adq3LSNwuPfP+q7nEXFCEFNhqQjXAZ2RhWL4jiLkYrIaD+zRxSqGEUQepx1dyynLM2ULyh72H1tbSJljXxOdjLbfu/KHfJd+Kw=</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -52,7 +52,7 @@
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{1D14888C-4108-45BB-9837-0A55653C5AB0}"
+      DTS:DTSID="{55F651B6-9FF5-4E66-8161-FEEB2F3248C5}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="dtAsOf">
@@ -61,7 +61,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{520B906D-F6E9-40AB-9C15-43AFC625D1F7}"
+      DTS:DTSID="{5C63535E-E966-407E-9A84-3B0026E4C8BC}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="iresultCode">
@@ -74,7 +74,7 @@
       DTS:refId="Package\Load Table"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{5ED8461C-F9CB-425F-98B9-3021F641F13E}"
+      DTS:DTSID="{D640CBAF-D71F-46A0-944E-DA46967EE3AE}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Load Table"
@@ -405,6 +405,12 @@
                       cachedScale="5"
                       externalMetadataColumnId="Package\Load Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductCost_Commissioned]"
                       lineageId="Package\Load Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductCost_Commissioned]" />
+                    <inputColumn
+                      refId="Package\Load Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[scheduledshipdate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="scheduledshipdate"
+                      externalMetadataColumnId="Package\Load Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[scheduledshipdate]"
+                      lineageId="Package\Load Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[scheduledshipdate]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -592,6 +598,10 @@
                       name="ProductCost_Commissioned"
                       precision="18"
                       scale="5" />
+                    <externalMetadataColumn
+                      refId="Package\Load Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[scheduledshipdate]"
+                      dataType="dbTimeStamp"
+                      name="scheduledshipdate" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -1039,6 +1049,26 @@
                       precision="18"
                       scale="5"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[EXTEN_A]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[EXTEN_A]"
+                      lineageId="Package\Load Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[EXTEN_A]"
+                      name="EXTEN_A"
+                      precision="18"
+                      scale="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[scheduledshipdate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[scheduledshipdate]"
+                      lineageId="Package\Load Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[scheduledshipdate]"
+                      name="scheduledshipdate"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1215,6 +1245,16 @@
                       name="ProductCost_Commissioned"
                       precision="18"
                       scale="5" />
+                    <externalMetadataColumn
+                      refId="Package\Load Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[EXTEN_A]"
+                      dataType="numeric"
+                      name="EXTEN_A"
+                      precision="18"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\Load Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[scheduledshipdate]"
+                      dataType="dbTimeStamp"
+                      name="scheduledshipdate" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -1433,6 +1473,18 @@
                       precision="18"
                       scale="5" />
                     <outputColumn
+                      refId="Package\Load Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[EXTEN_A]"
+                      dataType="numeric"
+                      lineageId="Package\Load Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[EXTEN_A]"
+                      name="EXTEN_A"
+                      precision="18"
+                      scale="4" />
+                    <outputColumn
+                      refId="Package\Load Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[scheduledshipdate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Load Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[scheduledshipdate]"
+                      name="scheduledshipdate" />
+                    <outputColumn
                       refId="Package\Load Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
                       lineageId="Package\Load Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
@@ -1464,7 +1516,7 @@
       DTS:refId="Package\Truncate Table"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{0BEE0B60-9277-4745-967A-EAA10090AE39}"
+      DTS:DTSID="{94C5EF94-DCF5-45F5-BB79-6D621B2F576A}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Truncate Table"
@@ -1473,7 +1525,7 @@
       <DTS:Variables>
         <DTS:Variable
           DTS:CreationName=""
-          DTS:DTSID="{8A7BD54E-0DFD-4E4D-AEB0-A7DCD0E04A2A}"
+          DTS:DTSID="{C87408DA-AEF3-490A-8797-8B179D63123C}"
           DTS:IncludeInDebugDump="6789"
           DTS:Namespace="User"
           DTS:ObjectName="Variable">
@@ -1483,7 +1535,7 @@
       </DTS:Variables>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{DEC5AD1A-C4E7-4E4F-B235-52031961E048}"
+          SQLTask:Connection="{E28D5213-63B0-4EB5-B0B5-8D9575664B7F}"
           SQLTask:SqlStatementSource="Truncate Table [AS_STAGE].[dbo].Manman_FactGSSales_History" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -1492,7 +1544,7 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{D29FE454-11D5-4072-A56A-4A9B05CD2701}"
+      DTS:DTSID="{CDBEEFEE-3E86-432A-AFF0-31BBB411F62D}"
       DTS:From="Package\Truncate Table"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
@@ -1515,7 +1567,7 @@
           Id="Package\Load Table"
           TopLeft="25.5,105.72641509434" />
         <NodeLayout
-          Size="144.666666666667,44"
+          Size="144.8,44"
           Id="Package\Truncate Table"
           TopLeft="5.5,5.5" />
         <EdgeLayout
@@ -1553,11 +1605,11 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="150,42"
+          Size="150.4,41.6"
           Id="Package\Load Table\OLE DB Source"
           TopLeft="16.1666666666667,5.5" />
         <NodeLayout
-          Size="171.333333333334,42"
+          Size="171.2,41.6"
           Id="Package\Load Table\OLE DB Destination"
           TopLeft="5.50000000000001,107.5" />
         <EdgeLayout
