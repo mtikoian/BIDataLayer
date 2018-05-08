@@ -3,13 +3,13 @@
   <Name>Inventory</Name>
   <CreatedTimestamp>2018-02-01T16:16:58.526667Z</CreatedTimestamp>
   <LastSchemaUpdate>2018-02-06T18:02:58.826667Z</LastSchemaUpdate>
-  <Description>Ext Sales USD / Invoice Qty</Description>
+  <Description>Field Inventory</Description>
   <Annotations>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
       <Value>
         <dds xmlns="">
-          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="96" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-2695" scrolltop="-3684" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="15134" y="15621" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="96" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="1458" scrolltop="6280" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="22246" y="17230" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
             <font>
               <ddsxmlobjectstreamwrapper binary="010000009001b0300100065461686f6d61" />
             </font>
@@ -182,7 +182,7 @@
           <ddscontrol controlprogid="MSDDS.Polyline" left="16113" top="6989" logicalid="60" controlid="13" masterid="0" hint1="0" hint2="0" width="3000" height="7626" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
             <control>
               <ddsxmlobj>
-                <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+                <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="2" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
               </ddsxmlobj>
             </control>
             <layoutobject>
@@ -766,11 +766,11 @@
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
-      <Value>-2695</Value>
+      <Value>1458</Value>
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
-      <Value>-3684</Value>
+      <Value>6280</Value>
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
@@ -1109,7 +1109,6 @@
         </Attribute>
         <Attribute dwd:design-time-name="7d4453ba-268b-4373-9107-647488bef4f2">
           <AttributeID>ORACLE ORGANIZATION ID</AttributeID>
-          <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
         </Attribute>
         <Attribute dwd:design-time-name="159223e0-4ca7-4362-9df9-e6e1cc169422">
           <AttributeID>SOURCE</AttributeID>
@@ -1236,7 +1235,66 @@
         <Attribute dwd:design-time-name="dd63291b-3fe6-4e4c-a579-e1b74b18262b">
           <AttributeID>Basis Months</AttributeID>
         </Attribute>
+        <Attribute dwd:design-time-name="e48befef-99e1-40c6-93ad-6c94746c19ef">
+          <AttributeID>Snapshot Date Year</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="024619d9-a740-4f1f-b06b-938ac95430fa">
+          <AttributeID>Snapshot Date Quarter</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="a015922e-55fa-4c2f-8439-c7df465d23ea">
+          <AttributeID>Snapshot Date Quarter Seq</AttributeID>
+          <AttributeHierarchyEnabled>false</AttributeHierarchyEnabled>
+        </Attribute>
+        <Attribute dwd:design-time-name="d4097529-61f4-4b54-a21c-85b4b38dd3f6">
+          <AttributeID>Snapshot Date Month</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="b7e40beb-0e79-4fe6-803e-c26e910f355e">
+          <AttributeID>Snapshot Date Month Seq</AttributeID>
+          <AttributeHierarchyEnabled>false</AttributeHierarchyEnabled>
+        </Attribute>
+        <Attribute dwd:design-time-name="d4f9a5a8-cd89-4d03-891d-4ff5a650bf48">
+          <AttributeID>Snapshot Date Week</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="eb716201-2a1d-40d1-96e2-b0d14d5bc5cf">
+          <AttributeID>Snapshot Date Week Seq</AttributeID>
+          <AttributeHierarchyEnabled>false</AttributeHierarchyEnabled>
+        </Attribute>
+        <Attribute dwd:design-time-name="e77cf6d2-a0e5-42fe-8195-97da4a136310">
+          <AttributeID>Basis Date Year</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="bcb0a7c1-7f73-42df-876e-66561603f456">
+          <AttributeID>Basis Date Quarter</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="3f2e27be-791b-4e49-99ab-e61aa529634c">
+          <AttributeID>Basis Date Quarter Seq</AttributeID>
+          <AttributeHierarchyEnabled>false</AttributeHierarchyEnabled>
+        </Attribute>
+        <Attribute dwd:design-time-name="056ba120-e6d6-4bdf-abd9-8b0b6e0136bb">
+          <AttributeID>Basis Date Month</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="e3028425-8890-43b0-9c48-7a136c84a55e">
+          <AttributeID>Basis Date Month Seq</AttributeID>
+          <AttributeHierarchyEnabled>false</AttributeHierarchyEnabled>
+        </Attribute>
+        <Attribute dwd:design-time-name="71753ede-2d77-4460-9028-dbf20cba8361">
+          <AttributeID>Basis Date Week</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="9c024c4b-e61a-43f5-9ce9-cb153c69aa9b">
+          <AttributeID>Basis Date Week Seq</AttributeID>
+          <AttributeHierarchyEnabled>false</AttributeHierarchyEnabled>
+        </Attribute>
       </Attributes>
+      <Hierarchies>
+        <Hierarchy dwd:design-time-name="2ef1dfcb-fa63-4fb6-b0b4-635a406901b2">
+          <HierarchyID>Hierarchy</HierarchyID>
+        </Hierarchy>
+        <Hierarchy dwd:design-time-name="b26a934d-6c2c-4609-bf53-fdc09ed04757">
+          <HierarchyID>Hierarchy 1</HierarchyID>
+        </Hierarchy>
+        <Hierarchy dwd:design-time-name="722d5ad0-36c3-46a9-ba34-6009e1b7d561">
+          <HierarchyID>Hierarchy 2</HierarchyID>
+        </Hierarchy>
+      </Hierarchies>
     </Dimension>
     <Dimension dwd:design-time-name="4276d960-189c-499a-986b-7edfa97d444f">
       <ID>Sold From Operating Unit</ID>

@@ -12,8 +12,8 @@
   DTS:ObjectName="LoadInventoryReportsManMan"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="3"
-  DTS:VersionGUID="{7595E8B7-B8E2-4230-BA81-7E45BD081A84}">
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{D32B5047-C635-47DD-839C-B8170C8FC23E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -37,12 +37,12 @@
           DTS:ConnectionString="Data Source=NYDBWAR;User ID=Conmed_fl;Initial Catalog=ManMan;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="naNE/jeb7w=="
-            IV="kBmz9kyq2S8=" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="sCSWCPYrLw=="
+            IV="ShhwGfReedQ=" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#tripledes-cbc" />
             <CipherData>
-              <CipherValue>kBmz9kyq2S8z+vOsonWHbFIDXKZwP3m8WcUEmKeEE0pZyl+u8h9yh/hGzcqfv8RvLcjayD6wIFLHx9L2As1UZF/AEeGFY988K9Q+YL0pmTUeamKofKuZ2hNij2ffOuYQpE7qKKdVn7ZNr38uizjxBIqk/vCjsxpAfhFfsASUnho=</CipherValue>
+              <CipherValue>ShhwGfReedRztAxEdCQCFu2BfRJywYzR8EfLSnXOe/sw/s8dsIAYhMK5uVEaMmTDwcbiqBxWpUzfEQJlJ4VnTzlHLN26rA/RC64uJakzg7XxLB0+u3wPKGkwmjCJ0RFlkux0NBeJb4JDNVPYemRzhKmUFhkunzMhX4xYZuixbBo=</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -429,7 +429,8 @@
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT prt.id, 'CONASP' DB, 'LOT' sectionofreport, prt.prtno AS part, prt.prtdesc AS [desc], prt.prtpuom AS uom, prt.prtsc, prt.prtbc, prt.prtopc, 
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT prt.id, 'CONASP' DB, 'LOT' sectionofreport, rtrim(ltrim(prt.prtno)) AS part, prt.prtdesc AS [desc], prt.prtpuom AS uom,
+	 prt.prtsc, prt.prtbc, prt.prtopc, 
 		prt.prtrev curprtrev, prt.prtdwg, loc.locwar, loc.loccode, lot.lotno, 
 		CASE 
 			WHEN loc.locnet = 1
@@ -437,7 +438,7 @@
 			ELSE 
 				'N'
 		END AS Net,
-		lot.lotqty qty, loc.locactno, prt.prtactno,
+		lot.lotqty qty, cast(rtrim(ltrim(replace(loc.locactno, 'ACCT', ''))) as nvarchar(24)) locactno , prt.prtactno,
 		CASE 
 			WHEN (prtsc LIKE 'P%' OR prtsc LIKE 'B%')
 				THEN (cstspur * cstsambf) + cstspur
@@ -457,9 +458,11 @@
 
 	UNION ALL
 
-	SELECT prt.id, 'CONASP' DB, 'STAGE' sectionofreport, prt.prtno AS part, prt.prtdesc AS [desc], prt.prtpuom AS uom, prt.prtsc, prt.prtbc, prt.prtopc, 
-		prt.prtrev curprtrev, prt.prtdwg, stgp.ma_stgpwar locwar, stgp.ma_stgpsloc loccode, stgp.ma_stgplot lotno, 'NA' Net, stgp.ma_stgpqty qty, 
-		stgp.ma_stgpactno locactno, prt.prtactno, 
+	SELECT prt.id, 'CONASP' DB, 'STAGE' sectionofreport, rtrim(ltrim(prt.prtno)) AS part, prt.prtdesc AS [desc], prt.prtpuom AS uom, 
+	prt.prtsc, prt.prtbc, prt.prtopc, 
+		prt.prtrev curprtrev, prt.prtdwg, stgp.ma_stgpwar locwar, 
+		stgp.ma_stgpsloc loccode, stgp.ma_stgplot lotno, 'NA' Net, stgp.ma_stgpqty qty, 
+		cast(rtrim(ltrim(stgp.ma_stgpactno)) as nvarchar(24)) locactno, prt.prtactno, 
 		CASE 
 			WHEN (prtsc LIKE 'P%' OR prtsc LIKE 'B%')
 				THEN (cstspur * cstsambf) + cstspur
@@ -479,8 +482,9 @@
 
 	UNION ALL
 
-	SELECT prt.id, 'CONASP' DB, 'IN-TRANSIT' sectionofreport, prt.prtno AS part, prt.prtdesc AS [desc], prt.prtpuom AS uom, prt.prtsc, prt.prtbc, prt.prtopc, 
-		prt.prtrev curprtrev, prt.prtdwg, '' locwar, '' loccode, '' lotno, 'NA' Net, (intqtyshp - intqtyrec - intqtylost) qty, intacct locactno, prt.prtactno, 
+	SELECT prt.id, 'CONASP' DB, 'IN-TRANSIT' sectionofreport, rtrim(ltrim(prt.prtno)) AS part, prt.prtdesc AS [desc], prt.prtpuom AS uom, prt.prtsc, prt.prtbc, prt.prtopc, 
+		prt.prtrev curprtrev, prt.prtdwg, '' locwar, '' loccode, '' lotno, 'NA' Net, 
+		(intqtyshp - intqtyrec - intqtylost) qty, cast(rtrim(ltrim(intacct)) as nvarchar(24)) locactno, prt.prtactno, 
 		CASE 
 			WHEN (prtsc LIKE 'P%' OR prtsc LIKE 'B%')
 				THEN(cstspur * cstsambf) + cstspur
@@ -1361,13 +1365,13 @@
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT prt.id, 'MEXICO' DB, 'LOT' sectionofreport, prt.prtno AS part, prt.prtdesc AS [desc], prt.prtpuom AS uom, prt.prtsc, prt.prtbc, prt.prtopc, prt.prtrev curprtrev,
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT prt.id, 'MEXICO' DB, 'LOT' sectionofreport, rtrim(ltrim(prt.prtno)) AS part, prt.prtdesc AS [desc], prt.prtpuom AS uom, prt.prtsc, prt.prtbc, prt.prtopc, prt.prtrev curprtrev,
 		prt.prtdwg, loc.locwar, loc.loccode, lot.lotno,
 		CASE 
 			WHEN loc.locnet = 1
 				THEN 'Y'
 			ELSE 'N'
-		END AS Net, lot.lotqty qty, loc.locactno, prt.prtactno,
+		END AS Net, lot.lotqty qty, cast(rtrim(ltrim(loc.locactno)) as nvarchar(24)) locactno, prt.prtactno,
 		CASE 
 			WHEN (prtsc LIKE 'P%' OR prtsc LIKE 'B%')
 				THEN (cstspur * cstsambf) + cstspur
@@ -1387,8 +1391,9 @@
 
 	UNION ALL
 
-	SELECT prt.id, 'MEXICO' DB, 'STAGE' sectionofreport, prt.prtno AS part, prt.prtdesc AS [desc], prt.prtpuom AS uom, prt.prtsc, prt.prtbc, prt.prtopc, prt.prtrev curprtrev,
-		prt.prtdwg, stgp.ma_stgpwar locwar, stgp.ma_stgpsloc loccode, stgp.ma_stgplot lotno, 'NA' Net, stgp.ma_stgpqty qty, stgp.ma_stgpactno locactno, prt.prtactno, 
+	SELECT prt.id, 'MEXICO' DB, 'STAGE' sectionofreport, rtrim(ltrim(prt.prtno)) AS part, prt.prtdesc AS [desc], prt.prtpuom AS uom, prt.prtsc, prt.prtbc, prt.prtopc, prt.prtrev curprtrev,
+		prt.prtdwg, stgp.ma_stgpwar locwar, stgp.ma_stgpsloc loccode, stgp.ma_stgplot lotno, 
+		'NA' Net, stgp.ma_stgpqty qty, cast(rtrim(ltrim(stgp.ma_stgpactno)) as nvarchar(24)) locactno, prt.prtactno, 
 		CASE 
 			WHEN (prtsc LIKE 'P%' OR prtsc LIKE 'B%')
 				THEN (cstspur * cstsambf) + cstspur
@@ -1408,8 +1413,10 @@
 
 	UNION ALL
 
-	SELECT prt.id, 'MEXICO' DB, 'IN-TRANSIT' sectionofreport, prt.prtno AS part, prt.prtdesc AS [desc], prt.prtpuom AS uom, prt.prtsc, prt.prtbc, prt.prtopc, 
-		prt.prtrev curprtrev, prt.prtdwg, '' locwar, '' loccode, '' lotno, 'NA' Net, (intqtyshp - intqtyrec - intqtylost) qty, intacct locactno, prt.prtactno,
+	SELECT prt.id, 'MEXICO' DB, 'IN-TRANSIT' sectionofreport, rtrim(ltrim(prt.prtno)) AS part, 
+	prt.prtdesc AS [desc], prt.prtpuom AS uom, prt.prtsc, prt.prtbc, prt.prtopc, 
+		prt.prtrev curprtrev, prt.prtdwg, '' locwar, '' loccode, '' lotno, 'NA' Net, 
+		(intqtyshp - intqtyrec - intqtylost) qty, cast(rtrim(ltrim(intacct)) as nvarchar(24)) locactno, prt.prtactno,
 		CASE 
 			WHEN (prtsc LIKE 'P%' OR prtsc LIKE 'B%')
 				THEN (cstspur * cstsambf) + cstspur
@@ -2293,6 +2300,14 @@
                       cachedName="POItemCostHighOrLow"
                       externalMetadataColumnId="Package\load receiving 415\load receiving 415.Inputs[OLE DB Destination Input].ExternalColumns[POItemCostHighOrLow]"
                       lineageId="Package\load receiving 415\Receiving 415 source.Outputs[OLE DB Source Output].Columns[POItemCostHighOrLow]" />
+                    <inputColumn
+                      refId="Package\load receiving 415\load receiving 415.Inputs[OLE DB Destination Input].Columns[locactno]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="locactno"
+                      externalMetadataColumnId="Package\load receiving 415\load receiving 415.Inputs[OLE DB Destination Input].ExternalColumns[locactno]"
+                      lineageId="Package\load receiving 415\Receiving 415 source.Outputs[OLE DB Source Output].Columns[locactno]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -2501,6 +2516,12 @@
                       dataType="str"
                       length="1"
                       name="POItemCostHighOrLow" />
+                    <externalMetadataColumn
+                      refId="Package\load receiving 415\load receiving 415.Inputs[OLE DB Destination Input].ExternalColumns[locactno]"
+                      codePage="1252"
+                      dataType="str"
+                      length="24"
+                      name="locactno" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -2662,6 +2683,8 @@ AND prtsc NOT LIKE 'X%'
 AND UPPER(prtbc) &lt;&gt; 'ZZ'
 AND UPPER(prtpc) &lt;&gt; 'ZZ'
 and ManMan.MFG101.prtrec.id = prt.id )then 'Y' else 'N' end  POItemCostHighOrLow
+
+, 'RAW'  as locactno
 FROM ManMan.Mfg101.PodRec AS pod  WITH (NOLOCK) 
 LEFT JOIN ManMan.Mfg101.Prtrec AS prt WITH (NOLOCK)  ON pod.PrtRecID = prt.ID
 LEFT JOIN ManMan.Mfg101.PohRec AS poh WITH (NOLOCK) ON pod.PohRecID = poh.ID
@@ -2784,6 +2807,8 @@ AND prtsc NOT LIKE 'X%'
 AND UPPER(prtbc) &lt;&gt; 'ZZ'
 AND UPPER(prtpc) &lt;&gt; 'ZZ'
 and ManMan.MFG150.prtrec.id = prt.id )then 'Y' else 'N' end POItemCostHighOrLow
+
+, 'RAW' as locactno
 FROM ManMan.Mfg150.PodRec AS pod     WITH (NOLOCK)
 LEFT JOIN ManMan.Mfg150.Prtrec  AS prt WITH (NOLOCK) ON pod.PrtRecID = prt.ID
 LEFT JOIN ManMan.Mfg150.PohRec AS poh WITH (NOLOCK) ON pod.PohRecID = poh.ID
@@ -2907,6 +2932,8 @@ AND prtsc NOT LIKE 'X%'
 AND UPPER(prtbc) &lt;&gt; 'ZZ'
 AND UPPER(prtpc) &lt;&gt; 'ZZ'
 and ManMan.MFG101.prtrec.id = prt.id )then 'Y' else 'N' end  POItemCostHighOrLow
+
+, 'RAW' as locactno
 FROM ManMan.Mfg101.PodRec AS pod  WITH (NOLOCK) 
 LEFT JOIN ManMan.Mfg101.Prtrec AS prt WITH (NOLOCK)  ON pod.PrtRecID = prt.ID
 LEFT JOIN ManMan.Mfg101.PohRec AS poh WITH (NOLOCK) ON pod.PohRecID = poh.ID
@@ -3030,6 +3057,8 @@ AND prtsc NOT LIKE 'X%'
 AND UPPER(prtbc) &lt;&gt; 'ZZ'
 AND UPPER(prtpc) &lt;&gt; 'ZZ'
 and ManMan.MFG150.prtrec.id = prt.id )then 'Y' else 'N' end  POItemCostHighOrLow
+
+, 'RAW' as locactno
 FROM ManMan.Mfg150.PodRec AS pod     WITH (NOLOCK)
 LEFT JOIN ManMan.Mfg150.Prtrec  AS prt WITH (NOLOCK) ON pod.PrtRecID = prt.ID
 LEFT JOIN ManMan.Mfg150.PohRec AS poh WITH (NOLOCK) ON pod.PohRecID = poh.ID
@@ -3507,6 +3536,17 @@ WHERE 1 = 1
                       lineageId="Package\load receiving 415\Receiving 415 source.Outputs[OLE DB Source Output].Columns[POItemCostHighOrLow]"
                       name="POItemCostHighOrLow"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\load receiving 415\Receiving 415 source.Outputs[OLE DB Source Output].Columns[locactno]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load receiving 415\Receiving 415 source.Outputs[OLE DB Source Output].ExternalColumns[locactno]"
+                      length="3"
+                      lineageId="Package\load receiving 415\Receiving 415 source.Outputs[OLE DB Source Output].Columns[locactno]"
+                      name="locactno"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -3715,6 +3755,12 @@ WHERE 1 = 1
                       dataType="str"
                       length="1"
                       name="POItemCostHighOrLow" />
+                    <externalMetadataColumn
+                      refId="Package\load receiving 415\Receiving 415 source.Outputs[OLE DB Source Output].ExternalColumns[locactno]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="locactno" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -3972,6 +4018,13 @@ WHERE 1 = 1
                       length="1"
                       lineageId="Package\load receiving 415\Receiving 415 source.Outputs[OLE DB Source Error Output].Columns[POItemCostHighOrLow]"
                       name="POItemCostHighOrLow" />
+                    <outputColumn
+                      refId="Package\load receiving 415\Receiving 415 source.Outputs[OLE DB Source Error Output].Columns[locactno]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\load receiving 415\Receiving 415 source.Outputs[OLE DB Source Error Output].Columns[locactno]"
+                      name="locactno" />
                     <outputColumn
                       refId="Package\load receiving 415\Receiving 415 source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
@@ -4368,6 +4421,14 @@ WHERE 1 = 1
                       cachedName="DefaultWIPLoc"
                       externalMetadataColumnId="Package\load WHIP 374\WHIP 374 Destination.Inputs[OLE DB Destination Input].ExternalColumns[DefaultWIPLoc]"
                       lineageId="Package\load WHIP 374\WHIP 374 source.Outputs[OLE DB Source Output].Columns[DefaultWIPLoc]" />
+                    <inputColumn
+                      refId="Package\load WHIP 374\WHIP 374 Destination.Inputs[OLE DB Destination Input].Columns[locactno]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="locactno"
+                      externalMetadataColumnId="Package\load WHIP 374\WHIP 374 Destination.Inputs[OLE DB Destination Input].ExternalColumns[locactno]"
+                      lineageId="Package\load WHIP 374\WHIP 374 source.Outputs[OLE DB Source Output].Columns[locactno]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -4563,6 +4624,12 @@ WHERE 1 = 1
                       dataType="wstr"
                       length="10"
                       name="DefaultWIPLoc" />
+                    <externalMetadataColumn
+                      refId="Package\load WHIP 374\WHIP 374 Destination.Inputs[OLE DB Destination Input].ExternalColumns[locactno]"
+                      codePage="1252"
+                      dataType="str"
+                      length="24"
+                      name="locactno" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -4696,6 +4763,7 @@ WHERE 1 = 1
       --,[WKARecID]
       , rp_wkadesc WorkAreaDesc
       , rp_wkawiploc DefaultWIPLoc
+	  , 'WIP' as locactno
   FROM [ManMan].[Rep101].[WpvRec] wip
   left join (select id, rp_wkawa, rp_wkadesc, rp_wkawiploc from [ManMan].[Rep101].[WkaRec]) area
 on area.id = wip.[WKARecID]
@@ -4783,6 +4851,7 @@ SELECT
       --,[WKARecID]
       , rp_wkadesc
       , rp_wkawiploc
+	  , 'WIP' as locactno
   FROM [ManMan].[Rep150].[WpvRec] wip
     left join (select id, rp_wkawa, rp_wkadesc, rp_wkawiploc from [ManMan].[Rep150].[WkaRec]) area
 on area.id = wip.[WKARecID]</property>
@@ -5238,6 +5307,17 @@ on area.id = wip.[WKARecID]</property>
                       lineageId="Package\load WHIP 374\WHIP 374 source.Outputs[OLE DB Source Output].Columns[DefaultWIPLoc]"
                       name="DefaultWIPLoc"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\load WHIP 374\WHIP 374 source.Outputs[OLE DB Source Output].Columns[locactno]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load WHIP 374\WHIP 374 source.Outputs[OLE DB Source Output].ExternalColumns[locactno]"
+                      length="3"
+                      lineageId="Package\load WHIP 374\WHIP 374 source.Outputs[OLE DB Source Output].Columns[locactno]"
+                      name="locactno"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -5433,6 +5513,12 @@ on area.id = wip.[WKARecID]</property>
                       dataType="wstr"
                       length="10"
                       name="DefaultWIPLoc" />
+                    <externalMetadataColumn
+                      refId="Package\load WHIP 374\WHIP 374 source.Outputs[OLE DB Source Output].ExternalColumns[locactno]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="locactno" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -5677,6 +5763,13 @@ on area.id = wip.[WKARecID]</property>
                       length="10"
                       lineageId="Package\load WHIP 374\WHIP 374 source.Outputs[OLE DB Source Error Output].Columns[DefaultWIPLoc]"
                       name="DefaultWIPLoc" />
+                    <outputColumn
+                      refId="Package\load WHIP 374\WHIP 374 source.Outputs[OLE DB Source Error Output].Columns[locactno]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\load WHIP 374\WHIP 374 source.Outputs[OLE DB Source Error Output].Columns[locactno]"
+                      name="locactno" />
                     <outputColumn
                       refId="Package\load WHIP 374\WHIP 374 source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
@@ -5947,7 +6040,7 @@ on area.id = wip.[WKARecID]</property>
     design-time-name="Package\Load conasp 115">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="168,41.6"
           Id="Package\Load conasp 115\conasp 115 source"
@@ -5987,9 +6080,7 @@ on area.id = wip.[WKARecID]</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -6020,7 +6111,7 @@ on area.id = wip.[WKARecID]</property>
     design-time-name="Package\Load mexico 115">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="168,41.6"
           Id="Package\Load mexico 115\mexico 115 source"
@@ -6060,9 +6151,7 @@ on area.id = wip.[WKARecID]</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -6108,9 +6197,9 @@ on area.id = wip.[WKARecID]</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="15.2000000000001,69.6"
+              EndConnector="15.2,69.6"
               Start="0,0"
-              End="15.2000000000001,62.1">
+              End="15.2,62.1">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -6121,13 +6210,13 @@ on area.id = wip.[WKARecID]</property>
                     Point2="0,34.8"
                     Point3="4,34.8" />
                   <mssgle:LineSegment
-                    End="11.2000000000001,34.8" />
+                    End="11.2,34.8" />
                   <mssgle:CubicBezierSegment
-                    Point1="11.2000000000001,34.8"
-                    Point2="15.2000000000001,34.8"
-                    Point3="15.2000000000001,38.8" />
+                    Point1="11.2,34.8"
+                    Point2="15.2,34.8"
+                    Point3="15.2,38.8" />
                   <mssgle:LineSegment
-                    End="15.2000000000001,62.1" />
+                    End="15.2,62.1" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6164,7 +6253,7 @@ on area.id = wip.[WKARecID]</property>
     design-time-name="Package\load WHIP 374">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="161.6,41.6"
           Id="Package\load WHIP 374\WHIP 374 source"
@@ -6204,9 +6293,7 @@ on area.id = wip.[WKARecID]</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
