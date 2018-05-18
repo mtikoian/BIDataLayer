@@ -1,0 +1,719 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="c965a6d2-59f9-4274-ad4c-1574f2b83820" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Dim Complaint Product</ID>
+  <Name>Product</Name>
+  <CreatedTimestamp>2017-07-11T12:15:37.51Z</CreatedTimestamp>
+  <LastSchemaUpdate>2017-08-29T18:11:30.223333Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+      <Value>
+        <dds xmlns="">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="3" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="262" scrolltop="-2381" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="9885" y="17230" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+            <font>
+              <ddsxmlobjectstreamwrapper binary="010000009001b0300100065461686f6d61" />
+            </font>
+            <mouseicon>
+              <ddsxmlobjectstreamwrapper binary="6c74000000000000" />
+            </mouseicon>
+          </diagram>
+          <layoutmanager>
+            <ddsxmlobj />
+          </layoutmanager>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="Dim_Complaint_Product" left="20" top="0" logicalid="2" controlid="1" masterid="0" hint1="0" hint2="0" width="6376" height="5000" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000a0000e818000088130000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="EDW_Dim_Complaint_Product" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+        </dds>
+      </Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>262</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>-2381</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>20</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ARDiagramLayout</Name>
+      <Value>
+        <DiagramLayout ZoomPercent="100" ViewPortX="0" ViewPortY="0" xmlns="">
+          <Shapes NodeWidth="225">
+            <Shape Id="Dim Complaint Product KEY" Expanded="true">
+              <Attributes>
+                <Attribute Id="Dim Complaint Product KEY" />
+                <Attribute Id="Buyer ID" />
+                <Attribute Id="Origin Country" />
+                <Attribute Id="Design Owner" />
+                <Attribute Id="DIM QUALITY ITEM CATEGORY KEY" />
+                <Attribute Id="Factory" />
+                <Attribute Id="Is Sellable" />
+                <Attribute Id="Item Category" />
+                <Attribute Id="Description" />
+                <Attribute Id="Item Number" />
+                <Attribute Id="Item Source" />
+                <Attribute Id="INVENTORY ITEM STATUS CODE" />
+                <Attribute Id="Item Type" />
+                <Attribute Id="Launch Date" />
+                <Attribute Id="Planning Make Buy" />
+                <Attribute Id="Manufacturing Location" />
+                <Attribute Id="Organization ID" />
+                <Attribute Id="Planner Code" />
+                <Attribute Id="Production Line" />
+                <Attribute Id="PRIMARY UOM CODE" />
+                <Attribute Id="Vendor Name" />
+              </Attributes>
+              <Position x="20" y="20" />
+            </Shape>
+          </Shapes>
+        </DiagramLayout>
+      </Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>2017-08-30T11:02:07.313333Z</LastProcessed>
+  <State>Processed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="06d52ee8-5d56-4c3a-a6fc-4ef57a3c7355">
+    <DataSourceViewID>AS DWH</DataSourceViewID>
+  </Source>
+  <UnknownMember>Hidden</UnknownMember>
+  <ErrorConfiguration dwd:design-time-name="455bd7e2-62aa-4ae5-b1bf-1410f11976ab">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Language>1033</Language>
+  <Collation>Latin1_General_CI_AS</Collation>
+  <UnknownMemberName>unknown</UnknownMemberName>
+  <Attributes>
+    <Attribute dwd:design-time-name="db0970c3-a693-4819-aa20-6c9c6bd7cf85">
+      <ID>Dim Complaint Product KEY</ID>
+      <Name>Dim Complaint Product KEY</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="105ab660-05f9-469f-95c1-6c002761ecdd">
+          <DataType>Integer</DataType>
+          <NullProcessing>UnknownMember</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="4d3f4eb3-af0d-4a7d-a88e-eb98acb87af3">
+            <TableID>EDW_Dim_Complaint_Product</TableID>
+            <ColumnID>Dim_Complaint_Product_KEY</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="612b6d36-a472-4110-9ed5-9297aed6dca1">
+        <DataType>WChar</DataType>
+        <NullProcessing>ZeroOrBlank</NullProcessing>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="3abee33a-2d19-4080-a1fd-1f82ed83a997">
+          <TableID>EDW_Dim_Complaint_Product</TableID>
+          <ColumnID>Dim_Complaint_Product_KEY</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="438e0d2c-da01-4b54-9ec4-28f2735b515d">
+          <AttributeID>Item Number</AttributeID>
+          <Name>Item Number</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="264c344c-8c15-4db3-add0-a7db7c727fb0">
+          <AttributeID>Organization ID</AttributeID>
+          <Name>Organization ID</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="326f4401-41d0-494a-a59f-779a89acc4f6">
+          <AttributeID>Description</AttributeID>
+          <Name>Item Description</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="dd4237bb-ecb8-4de0-8544-31792ff8b9ab">
+          <AttributeID>Item Type</AttributeID>
+          <Name>Item Type</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="556e6f3c-74be-4606-b4c3-fc9f9a9f6350">
+          <AttributeID>Planning Make Buy</AttributeID>
+          <Name>Make Buy Indicator</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="1815be79-b418-4e80-8181-cb24771c2587">
+          <AttributeID>Planner Code</AttributeID>
+          <Name>Planner Code</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="97e4585e-f41c-4347-9be4-f5534646d600">
+          <AttributeID>Buyer ID</AttributeID>
+          <Name>Buyer ID</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="1abbc60a-0d46-4889-b656-a2a6ba77a017">
+          <AttributeID>Is Sellable</AttributeID>
+          <Name>Is Sellable</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="241e3266-9b89-41a6-a2f2-6dd5cd1fd2e5">
+          <AttributeID>Design Owner</AttributeID>
+          <Name>Design Owner</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="830d6a3f-d92a-450d-8b53-b40ce2f9d6e2">
+          <AttributeID>Origin Country</AttributeID>
+          <Name>Country of Origin</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="98d01977-17c6-4d23-b7df-a7189b06f0be">
+          <AttributeID>Manufacturing Location</AttributeID>
+          <Name>Manufacturing Location</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="69d644c0-c438-42ee-939f-2a0ba8420c71">
+          <AttributeID>Production Line</AttributeID>
+          <Name>Production Line</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="e47ae9d0-ac74-4f44-89b9-083939cff34e">
+          <AttributeID>DIM QUALITY ITEM CATEGORY KEY</AttributeID>
+          <Name>DIM QUALITY ITEM CATEGORY KEY</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="d72e699f-5dfa-427e-ac46-1935615ea6bc">
+          <AttributeID>INVENTORY ITEM STATUS CODE</AttributeID>
+          <Name>Item Status</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="144fe1dc-e5a8-4b36-aa16-7639a8977b95">
+          <AttributeID>Factory</AttributeID>
+          <Name>Factory</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="b2404d39-2b66-4f1c-bafa-79814b42eb04">
+          <AttributeID>Launch Date</AttributeID>
+          <Name>Launch Date</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="64cff1fd-f729-4d67-bc15-5062d963d584">
+          <AttributeID>PRIMARY UOM CODE</AttributeID>
+          <Name>UOM</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="6d9bbddc-73d2-4efc-b8e6-124e6034c272">
+          <AttributeID>Item Category</AttributeID>
+          <Name>Item Category</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="97674401-03cd-4203-a7e1-6f1b1541a60b">
+          <AttributeID>Item Source</AttributeID>
+          <Name>Item Source</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="e957b05a-0217-4f35-a60b-b59131210301">
+          <AttributeID>Organization Description</AttributeID>
+          <Name>Organization Description</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="07929bd2-cfa7-4a98-bf6b-357583224f15">
+      <ID>Item Number</ID>
+      <Name>Item Number</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="f9b8a9f7-480e-4e3d-958b-0bddb5ef5851">
+          <DataType>WChar</DataType>
+          <DataSize>40</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="c624ea10-8f0c-4853-9293-97275e5d9202">
+            <TableID>EDW_Dim_Complaint_Product</TableID>
+            <ColumnID>Item_Number</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="050f145f-c3cb-4d41-8baf-aa00b67b7b04">
+        <DataType>WChar</DataType>
+        <DataSize>40</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="e90eadc7-841a-4d37-ba62-35d8f4e06b3d">
+          <TableID>EDW_Dim_Complaint_Product</TableID>
+          <ColumnID>Item_Number</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="ccf3e55f-e668-4319-b6e1-860ff2580fb9">
+      <ID>Organization ID</ID>
+      <Name>Organization ID</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="56347cfe-0690-4f6a-a936-ad47ffddd25e">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="b809058e-01db-460b-af6c-ce0d012fd344">
+            <TableID>EDW_Dim_Complaint_Product</TableID>
+            <ColumnID>Organization_ID</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="c27cfdd7-aa47-4611-a2b4-5f81d4acc72a">
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="87088932-146a-471b-9f3d-3f9c0a231aab">
+          <TableID>EDW_Dim_Complaint_Product</TableID>
+          <ColumnID>Organization_ID</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="e9deb973-0b01-41d7-a9b7-01950f72bd98">
+      <ID>Description</ID>
+      <Name>Item Description</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="01a3edb2-5e76-49bd-ac11-5aaeb849121e">
+          <DataType>WChar</DataType>
+          <DataSize>240</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="f37611a9-d8b5-44bd-8eba-dd9336fd02f9">
+            <TableID>EDW_Dim_Complaint_Product</TableID>
+            <ColumnID>Description</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="6e963d3d-d78d-4a33-a115-51a385291348">
+        <DataType>WChar</DataType>
+        <DataSize>240</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="a881bad6-e215-4ecf-8e67-da97a2d4b851">
+          <TableID>EDW_Dim_Complaint_Product</TableID>
+          <ColumnID>Description</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="341a6456-57ad-48c9-bb2b-4e8e3c599607">
+      <ID>Item Type</ID>
+      <Name>Item Type</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="4778aa45-7db9-48bc-a8d2-f248b03c1f8b">
+          <DataType>WChar</DataType>
+          <DataSize>80</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="e91feacb-ab6b-40c9-b34c-cdd314d8efbb">
+            <TableID>EDW_Dim_Complaint_Product</TableID>
+            <ColumnID>Item_Type</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="161424ac-ade8-4900-b93b-81968de02afb">
+        <DataType>WChar</DataType>
+        <DataSize>80</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="37fb47c4-cbd3-47eb-b738-3e45b05f5ee4">
+          <TableID>EDW_Dim_Complaint_Product</TableID>
+          <ColumnID>Item_Type</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="2b2a7b14-a1d2-4772-bded-0299a62ee809">
+      <ID>Planning Make Buy</ID>
+      <Name>Make Buy Indicator</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="2d9be08f-1f32-434c-977d-ed54c46dc18b">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="202577f2-ad80-4751-8a83-bfb788e22cd8">
+            <TableID>EDW_Dim_Complaint_Product</TableID>
+            <ColumnID>Planning_Make_Buy</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="d1d53d93-5a05-47d4-8895-8d5d9e7c4e55">
+        <DataType>WChar</DataType>
+        <DataSize>50</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="976c0b95-3845-4afe-8b90-d71f4f98a716">
+          <TableID>EDW_Dim_Complaint_Product</TableID>
+          <ColumnID>Planning_Make_Buy</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="a9468eac-8afb-44c3-973b-b532e116c52d">
+      <ID>Planner Code</ID>
+      <Name>Planner Code</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="c64fe026-2582-4984-ad75-e93d584c514a">
+          <DataType>WChar</DataType>
+          <DataSize>10</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="acfdb9a3-6363-41b6-88d7-3eb1c7ce5b58">
+            <TableID>EDW_Dim_Complaint_Product</TableID>
+            <ColumnID>Planner_Code</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="30728629-0189-43d8-a127-9504d87cc705">
+        <DataType>WChar</DataType>
+        <DataSize>10</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="c482eed0-f13c-4e6a-ae10-6e2a1e11ee65">
+          <TableID>EDW_Dim_Complaint_Product</TableID>
+          <ColumnID>Planner_Code</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="f40f78b6-d409-4100-ac51-31a2c39bdbdb">
+      <ID>Buyer ID</ID>
+      <Name>Buyer ID</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="f7e4f484-82f2-4204-9935-5e583618cdb1">
+          <DataType>WChar</DataType>
+          <DataSize>30</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="9075350f-0560-4dad-ad26-a1b0fabdb7b5">
+            <TableID>EDW_Dim_Complaint_Product</TableID>
+            <ColumnID>Buyer_ID</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="754f5ab8-988c-408a-b9fa-d46bf5bb2b54">
+        <DataType>WChar</DataType>
+        <DataSize>30</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="165347c7-10c8-47de-b439-5fad415ad87a">
+          <TableID>EDW_Dim_Complaint_Product</TableID>
+          <ColumnID>Buyer_ID</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="74b47d29-8efc-480f-91b8-ce7eba243c12">
+      <ID>Is Sellable</ID>
+      <Name>Is Sellable</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="0b89316e-72c9-4b11-bbc1-f995a3f75efc">
+          <DataType>WChar</DataType>
+          <DataSize>10</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="739a2dab-8173-433d-a30f-05db601b223c">
+            <TableID>EDW_Dim_Complaint_Product</TableID>
+            <ColumnID>IsSellable</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="a8d47579-c2be-4329-9eee-1cea50512d84">
+        <DataType>WChar</DataType>
+        <DataSize>10</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="58bbcac1-1deb-41f8-ad51-02bbfbcf516c">
+          <TableID>EDW_Dim_Complaint_Product</TableID>
+          <ColumnID>IsSellable</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="1c01ebda-35ef-43b5-b682-947fa786804b">
+      <ID>Design Owner</ID>
+      <Name>Design Owner</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="68837907-efde-4f08-bcc4-24e4f059e04e">
+          <DataType>WChar</DataType>
+          <DataSize>240</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="3ff85c45-1a5b-4d39-a80a-90c2db32e9f9">
+            <TableID>EDW_Dim_Complaint_Product</TableID>
+            <ColumnID>Design_Owner</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="8e82eff3-796e-4fe9-8848-4823ad388503">
+        <DataType>WChar</DataType>
+        <DataSize>240</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="d2546483-2d1d-4380-ab74-9430b79deb3b">
+          <TableID>EDW_Dim_Complaint_Product</TableID>
+          <ColumnID>Design_Owner</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="1ec05e8e-99a3-495e-b3ab-b7f968dd698e">
+      <ID>Origin Country</ID>
+      <Name>Country of Origin</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="5b0ac46e-34eb-47ee-ab53-e2fac2ffdfd8">
+          <DataType>WChar</DataType>
+          <DataSize>240</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="4b21522c-3a7a-4a30-857f-2f02a38b5e6c">
+            <TableID>EDW_Dim_Complaint_Product</TableID>
+            <ColumnID>origin_Country</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="7778269b-947c-4b6d-b446-ad9dca4093e5">
+        <DataType>WChar</DataType>
+        <DataSize>240</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="9e0f630f-c6fd-4356-b36c-ddbffa271a3e">
+          <TableID>EDW_Dim_Complaint_Product</TableID>
+          <ColumnID>origin_Country</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="bdd89b54-6e02-4a5b-a933-db37acfa8f1a">
+      <ID>Manufacturing Location</ID>
+      <Name>Manufacturing Location</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="44a6e225-73c8-4b05-b753-554ef57cbfae">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="c1f49b88-6e67-4b5c-9801-30cf37f81dba">
+            <TableID>EDW_Dim_Complaint_Product</TableID>
+            <ColumnID>Manufacturing_Location</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="719e62b2-8670-4ae1-821f-02e12798fb05">
+        <DataType>WChar</DataType>
+        <DataSize>50</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="b9d19244-b83f-4bec-9df6-a12facb67559">
+          <TableID>EDW_Dim_Complaint_Product</TableID>
+          <ColumnID>Manufacturing_Location</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="7514156f-4dfc-4fd9-8056-0d9c3b202411">
+      <ID>Production Line</ID>
+      <Name>Production Line</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="ec572243-b042-45aa-ad8a-c2fe1e9cb70d">
+          <DataType>WChar</DataType>
+          <DataSize>100</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="a6fcbe67-c86c-457b-97de-974f13b02f41">
+            <TableID>EDW_Dim_Complaint_Product</TableID>
+            <ColumnID>ProductionLine</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="7784358d-dbe4-42dc-8ec8-ce2676213048">
+        <DataType>WChar</DataType>
+        <DataSize>100</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="9adcbe40-52b8-4b2e-9234-07eb6f6333d6">
+          <TableID>EDW_Dim_Complaint_Product</TableID>
+          <ColumnID>ProductionLine</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="569352da-0d55-4ef6-ad3b-470477788c9c">
+      <ID>DIM QUALITY ITEM CATEGORY KEY</ID>
+      <Name>DIM QUALITY ITEM CATEGORY KEY</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="57dfe7e1-a802-43ed-a7d8-2441a93e6fd0">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="05701e5d-864e-4503-9f1a-086a2e96aac1">
+            <TableID>EDW_Dim_Complaint_Product</TableID>
+            <ColumnID>DIM_QUALITY_ITEM_CATEGORY_KEY</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="45e99d02-96b1-45b6-b741-09ff381a141a">
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="c7cd3148-49e2-4091-9bb0-c97c21abf060">
+          <TableID>EDW_Dim_Complaint_Product</TableID>
+          <ColumnID>DIM_QUALITY_ITEM_CATEGORY_KEY</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="06205527-8674-45e0-ac0e-210f85aa31e6">
+      <ID>INVENTORY ITEM STATUS CODE</ID>
+      <Name>Item Status</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="8d39c6a5-b4ee-478a-b2a4-8b6a2e611af8">
+          <DataType>WChar</DataType>
+          <DataSize>10</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="e6033c1d-ca99-47be-bfae-182b921b108f">
+            <TableID>EDW_Dim_Complaint_Product</TableID>
+            <ColumnID>INVENTORY_ITEM_STATUS_CODE</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="91d75a2b-3fe3-40a3-bd5b-e100b95f392f">
+        <DataType>WChar</DataType>
+        <DataSize>10</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="8306a675-4242-4771-a969-6d1721842c14">
+          <TableID>EDW_Dim_Complaint_Product</TableID>
+          <ColumnID>INVENTORY_ITEM_STATUS_CODE</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="306688b3-8c2d-42e9-aec9-c113ddf85611">
+      <ID>Factory</ID>
+      <Name>Factory</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="7598c648-e653-40d1-a723-134375f2c67c">
+          <DataType>WChar</DataType>
+          <DataSize>100</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="af9151b3-2f9c-4dd6-afaf-fbdfafe916ea">
+            <TableID>EDW_Dim_Complaint_Product</TableID>
+            <ColumnID>Factory</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="ee258093-18b0-4285-96c6-c76f3132be0d">
+        <DataType>WChar</DataType>
+        <DataSize>100</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="e022c3d9-3cf9-432c-b7b9-421f47ef4e61">
+          <TableID>EDW_Dim_Complaint_Product</TableID>
+          <ColumnID>Factory</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="2e31cde5-85fa-4e4a-b02f-144d0273bd34">
+      <ID>Launch Date</ID>
+      <Name>Launch Date</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="f07733a5-96eb-4571-9100-9143d51dbfa2">
+          <DataType>WChar</DataType>
+          <DataSize>10</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="31cb7961-7c03-47c7-aaf0-bd468af78204">
+            <TableID>EDW_Dim_Complaint_Product</TableID>
+            <ColumnID>Launch_Date</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="f363c6c7-3041-4c1f-b82d-27a41754242d">
+        <DataType>WChar</DataType>
+        <DataSize>10</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="236472e8-4478-4587-bb90-c7ca00754d87">
+          <TableID>EDW_Dim_Complaint_Product</TableID>
+          <ColumnID>Launch_Date</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="13511d1b-0c36-41aa-8714-c7eee7ed43c3">
+      <ID>PRIMARY UOM CODE</ID>
+      <Name>UOM</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="311b451a-15f2-4c4b-82d6-84e6bd31b8b4">
+          <DataType>WChar</DataType>
+          <DataSize>10</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="66f370ec-2769-4673-ab53-7dbc646dd859">
+            <TableID>EDW_Dim_Complaint_Product</TableID>
+            <ColumnID>PRIMARY_UOM_CODE</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="2a398d98-c503-45ab-913a-147059596006">
+        <DataType>WChar</DataType>
+        <DataSize>10</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="645a2e36-41fa-4eca-a467-7a2ab73e2194">
+          <TableID>EDW_Dim_Complaint_Product</TableID>
+          <ColumnID>PRIMARY_UOM_CODE</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="3ae5ddbc-bf46-46f1-9883-76e196e1acf9">
+      <ID>Item Category</ID>
+      <Name>Item Category</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="747dfd28-d0e8-42a5-b694-36ede0f4e166">
+          <DataType>WChar</DataType>
+          <DataSize>40</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="9c9eb2a0-4a48-420a-aaca-12f8f0db707c">
+            <TableID>EDW_Dim_Complaint_Product</TableID>
+            <ColumnID>Item_Category</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="7e1f1df2-4c07-49fd-9239-73e5710e55be">
+        <DataType>WChar</DataType>
+        <DataSize>40</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="63a8c406-bb3d-4da1-99d9-14bd79e68a79">
+          <TableID>EDW_Dim_Complaint_Product</TableID>
+          <ColumnID>Item_Category</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="86204330-243f-4276-b0e4-882a9e877b27">
+      <ID>Item Source</ID>
+      <Name>Item Source</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="ae7721f0-77a2-49e6-a87a-d45a15e103a8">
+          <DataType>WChar</DataType>
+          <DataSize>40</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="473a8e97-459f-4a67-8295-890d1a93f82f">
+            <TableID>EDW_Dim_Complaint_Product</TableID>
+            <ColumnID>Item_Source</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="b8385fa4-e509-436d-98bd-e47b4bd3f075">
+        <DataType>WChar</DataType>
+        <DataSize>40</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="bd104e78-90d8-49b7-8b25-86bfb595390a">
+          <TableID>EDW_Dim_Complaint_Product</TableID>
+          <ColumnID>Item_Source</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="76898506-2df3-4a4d-9eeb-483e3acffffb">
+      <ID>Organization Description</ID>
+      <Name>Organization Description</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="3a7ddb7d-d697-4a69-b1c7-6ea540e0e94f">
+          <DataType>WChar</DataType>
+          <DataSize>240</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="dd426871-f2c2-409f-b7fc-3163cb1bc046">
+            <TableID>EDW_Dim_Complaint_Product</TableID>
+            <ColumnID>Organization_Description</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <ProactiveCaching dwd:design-time-name="ce30f84c-fccf-45d1-989e-dac89c6a51a5">
+    <SilenceInterval>-PT1S</SilenceInterval>
+    <Latency>-PT1S</Latency>
+    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+    <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="6604032e-14a2-4150-921b-f8c061b16ab4" />
+  </ProactiveCaching>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

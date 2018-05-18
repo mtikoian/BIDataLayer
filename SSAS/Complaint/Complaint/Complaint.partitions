@@ -1,0 +1,205 @@
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="ec194316-7725-47cd-9828-e3fbd98610b3" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Complaint</ID>
+  <MeasureGroups>
+    <MeasureGroup>
+      <ID>Fact Complaint</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="ee088948-1e40-4144-8c89-7746e1a2576c">
+          <ID>Fact Complaint</ID>
+          <Name>Fact Complaint</Name>
+          <CreatedTimestamp>2017-07-11T12:15:37.68Z</CreatedTimestamp>
+          <LastSchemaUpdate>2017-08-29T18:11:30.753333Z</LastSchemaUpdate>
+          <LastProcessed>2017-08-30T11:02:19.856667Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="e316d247-c44a-4297-a288-35c792772947">
+            <DataSourceViewID>AS DWH</DataSourceViewID>
+            <TableID>EDW_Fact_Complaint</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="4a46bf83-a1f6-4b65-94ce-b52f864bb29b">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="7a7c1a92-fc44-467e-8142-811180d17d0f" />
+          </ProactiveCaching>
+          <EstimatedSize>2795589</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Fact Complaint Product</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="236faf5e-12c7-4f21-b6f9-ef9f08ca8e80">
+          <ID>Fact Complaint Product</ID>
+          <Name>Fact Complaint Product</Name>
+          <CreatedTimestamp>2017-07-11T12:15:37.836667Z</CreatedTimestamp>
+          <LastSchemaUpdate>2017-08-29T18:11:30.94Z</LastSchemaUpdate>
+          <LastProcessed>2017-08-30T11:02:23.48Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="d05ff11d-ef81-4151-b5ed-357f9b424fad">
+            <DataSourceViewID>AS DWH</DataSourceViewID>
+            <TableID>EDW_Fact_Complaint_Product</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="5d652bf4-6fa9-4004-a41f-73102247aadd">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="56a9d4d6-7584-4933-8b90-6e956030f071" />
+          </ProactiveCaching>
+          <EstimatedSize>30540</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Fact Complaint Service Request V</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="fc7b0b25-3dfb-4483-b9f7-8e67d4aeda4b">
+          <ID>Fact Complaint Service Request V</ID>
+          <Name>Fact Complaint Service Request V</Name>
+          <CreatedTimestamp>2017-08-01T10:48:48.716667Z</CreatedTimestamp>
+          <LastSchemaUpdate>2017-08-29T18:11:31.266667Z</LastSchemaUpdate>
+          <LastProcessed>2017-08-30T11:02:22.886667Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="38074708-31fa-4ea3-833f-466520bb578d">
+            <DataSourceViewID>AS DWH</DataSourceViewID>
+            <TableID>EDW_Fact_Complaint_Service_Request_V</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="f47dac9c-2700-48f8-a0ae-eb33dd8a7a45">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="d4dda5c3-be98-4cd4-8cb5-c9a06f5ac6db" />
+          </ProactiveCaching>
+          <EstimatedSize>263521</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Fact Complaint AWCR</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="568aeb3b-6baf-400a-ac75-cea0775c66c3">
+          <ID>Fact Complaint AWCR</ID>
+          <Name>Fact Complaint AWCR</Name>
+          <CreatedTimestamp>2017-08-28T11:46:47.21Z</CreatedTimestamp>
+          <LastSchemaUpdate>2017-08-29T18:11:31.44Z</LastSchemaUpdate>
+          <LastProcessed>2017-08-30T11:02:20.186667Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="bcfacfa7-f11d-4622-887d-a0a2de322205">
+            <DataSourceViewID>AS DWH</DataSourceViewID>
+            <TableID>EDW_Fact_Complaint_AWCR</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="67381933-eaa8-4028-bd7d-788ca426252c">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="ed4c3402-bd59-4350-a57e-8ae2e950cc6b" />
+          </ProactiveCaching>
+          <EstimatedSize>10216</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Fact Complaint Item Assignment</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="f7f2d688-bf02-4832-bc00-089c577fad6c">
+          <ID>Fact Complaint Item Assignment</ID>
+          <Name>Fact Complaint Item Assignment</Name>
+          <CreatedTimestamp>2017-08-28T22:31:41.86Z</CreatedTimestamp>
+          <LastSchemaUpdate>2017-08-29T18:11:31.58Z</LastSchemaUpdate>
+          <LastProcessed>2017-08-30T11:02:21.403333Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="93b10ee1-efe2-4769-b817-0794b814af0d">
+            <DataSourceViewID>AS DWH</DataSourceViewID>
+            <TableID>EDW_Fact_Complaint_Item_Assignment</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="012bd24d-16d0-4aab-8016-b9abfb9eec35">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="ba01fa96-41ed-4e81-a764-36b5064a4e9d" />
+          </ProactiveCaching>
+          <EstimatedSize>1912775</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Fact Complaint Failure Code Assignment</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="d364b96b-f7e7-4836-b16e-1fd6f00cfff2">
+          <ID>Fact Complaint Failure Code Assignment</ID>
+          <Name>Fact Complaint Failure Code Assignment</Name>
+          <CreatedTimestamp>0001-01-01T05:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T05:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T05:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="915c07ee-3492-4035-a2a9-2384ae793558">
+            <DataSourceViewID>AS DWH</DataSourceViewID>
+            <TableID>EDW_Fact_Complaint_Failure_Code_Assignment</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Fact Complaint Eval Com Assignment</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="6c56ee62-cc37-4ec3-8f0b-8a48626f01b4">
+          <ID>Fact Complaint Eval Com Assignment</ID>
+          <Name>Fact Complaint Eval Com Assignment</Name>
+          <CreatedTimestamp>0001-01-01T05:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T05:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T05:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="7a04b06e-4861-460f-90f7-620c3134704e">
+            <DataSourceViewID>AS DWH</DataSourceViewID>
+            <TableID>EDW_Fact_Complaint_Eval_Com_Assignment</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Fact Complaint CPM</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="a74b6e82-524b-40ed-a75d-350a657333b0">
+          <ID>Fact Complaint CPM</ID>
+          <Name>Fact Complaint CPM</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="f296c8e5-c0ff-405c-acd2-de20384d3c84">
+            <DataSourceViewID>AS DWH</DataSourceViewID>
+            <TableID>EDW_Fact_Complaint_CPM</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+  </MeasureGroups>
+</Cube>

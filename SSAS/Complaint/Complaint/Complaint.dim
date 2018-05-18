@@ -1,0 +1,3843 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="89b857a0-0a72-419b-a722-32ac50d559d9" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Dim Complaint</ID>
+  <Name>Complaint</Name>
+  <CreatedTimestamp>2017-07-11T12:15:37.463333Z</CreatedTimestamp>
+  <LastSchemaUpdate>2017-08-29T18:11:29.926667Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+      <Value>
+        <dds xmlns="">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="3" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-3089" scrolltop="-3701" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="8297" y="15621" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+            <font>
+              <ddsxmlobjectstreamwrapper binary="010000009001b0300100065461686f6d61" />
+            </font>
+            <mouseicon>
+              <ddsxmlobjectstreamwrapper binary="6c74000000000000" />
+            </mouseicon>
+          </diagram>
+          <layoutmanager>
+            <ddsxmlobj />
+          </layoutmanager>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="Dim_Complaint" left="-2483" top="-360" logicalid="2" controlid="1" masterid="0" hint1="0" hint2="0" width="5239" height="5000" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000a00007714000088130000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="EDW_Dim_Complaint" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+        </dds>
+      </Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>-3089</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>-3701</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>-2483</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>-360</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ARDiagramLayout</Name>
+      <Value>
+        <DiagramLayout ZoomPercent="100" ViewPortX="0" ViewPortY="20" xmlns="">
+          <Shapes NodeWidth="186">
+            <Shape Id="Dim Complaint KEY" Expanded="true">
+              <Attributes>
+                <Attribute Id="Dim Complaint KEY" />
+                <Attribute Id="CAPA Number" />
+                <Attribute Id="Comments" />
+                <Attribute Id="Complaint Closed By" />
+                <Attribute Id="Complaint Created By" />
+                <Attribute Id="Complaint Number" />
+                <Attribute Id="Compl Responsibility" />
+                <Attribute Id="Status" />
+                <Attribute Id="Customer Symptom" />
+                <Attribute Id="Complaintant" />
+                <Attribute Id="Complaintant Acct No" />
+                <Attribute Id="Complaints Summary" />
+                <Attribute Id="Contact Name" />
+                <Attribute Id="Customer City" />
+                <Attribute Id="Customer Country" />
+                <Attribute Id="Customer Name" />
+                <Attribute Id="Customer Postal Code" />
+                <Attribute Id="Customer State" />
+                <Attribute Id="Date Of Awareness" />
+                <Attribute Id="Date Of Event" />
+                <Attribute Id="Decision Tree Assigned To" />
+                <Attribute Id="Decision Trees Completed By" />
+                <Attribute Id="DT- Completed On" />
+                <Attribute Id="DT- In Process" />
+                <Attribute Id="Exclude 1700-000" />
+                <Attribute Id="FAR Due Date" />
+                <Attribute Id="FAR Number" />
+                <Attribute Id="FAR Status" />
+                <Attribute Id="FAR User Decision" />
+                <Attribute Id="Follow Up Due Date" />
+                <Attribute Id="Closed Date Month Seq" />
+                <Attribute Id="Closed Date Quarter Seq" />
+                <Attribute Id="Closed Date Week Seq" />
+                <Attribute Id="FAR Filed On Month Seq" />
+                <Attribute Id="FAR Filed On Quarter Seq" />
+                <Attribute Id="Manufactured Date Month Seq" />
+                <Attribute Id="MDR Filed On Month Seq" />
+                <Attribute Id="MDR Filed On Quarter Seq" />
+                <Attribute Id="Open Date Month Seq" />
+                <Attribute Id="Open Date Quarter Seq" />
+                <Attribute Id="Open Date Week Seq" />
+                <Attribute Id="VIG Filed On Month Seq" />
+                <Attribute Id="VIG Filed On Quarter Seq" />
+                <Attribute Id="Injury" />
+                <Attribute Id="Investigation Result" />
+                <Attribute Id="Is Adverse Event" />
+                <Attribute Id="Is Adverse Event Late" />
+                <Attribute Id="Is Age 0 45" />
+                <Attribute Id="Is Age 46 60" />
+                <Attribute Id="Is Age 61 70" />
+                <Attribute Id="Is Age 71 Plus" />
+                <Attribute Id="Is Closed" />
+                <Attribute Id="Is Complaint Verbal" />
+                <Attribute Id="Is Customer Feedback" />
+                <Attribute Id="Is FAR Event" />
+                <Attribute Id="Is FAR Late" />
+                <Attribute Id="Is Follow Up Required" />
+                <Attribute Id="Is Last 12 Weeks Closed" />
+                <Attribute Id="Is Last 12 Weeks Opened" />
+                <Attribute Id="Is Last 13 Months Opened" />
+                <Attribute Id="Is Letter Required" />
+                <Attribute Id="Is MDR Event" />
+                <Attribute Id="Is MDR Late" />
+                <Attribute Id="Is Product Indicated" />
+                <Attribute Id="Is VIG Event" />
+                <Attribute Id="Is VIG Late" />
+                <Attribute Id="Is Yesterday" />
+                <Attribute Id="Lot Number" />
+                <Attribute Id="MDR Assigned To" />
+                <Attribute Id="MDR Due Date" />
+                <Attribute Id="MDR Number" />
+                <Attribute Id="MDR Status" />
+                <Attribute Id="MDR User Decision" />
+                <Attribute Id="PI Completed By" />
+                <Attribute Id="PI Completion Date" />
+                <Attribute Id="Product Returned Date" />
+                <Attribute Id="Product Returned Status" />
+                <Attribute Id="Regulatory Review Rationale" />
+                <Attribute Id="Report Source Other" />
+                <Attribute Id="RGA Number" />
+                <Attribute Id="Serial Number" />
+                <Attribute Id="Source Sys" />
+                <Attribute Id="Suspect Quantity" />
+                <Attribute Id="VIG Due Date" />
+                <Attribute Id="VIG Number" />
+                <Attribute Id="VIG Status" />
+                <Attribute Id="VIG User Decision" />
+              </Attributes>
+              <Position x="20" y="20" />
+            </Shape>
+            <Shape Id="Manufactured Date" Expanded="false">
+              <Attributes>
+                <Attribute Id="Manufactured Date" />
+              </Attributes>
+              <Position x="257" y="20" />
+            </Shape>
+            <Shape Id="Manufactured Date Month" Expanded="false">
+              <Attributes>
+                <Attribute Id="Manufactured Date Month" />
+              </Attributes>
+              <Position x="495" y="20" />
+            </Shape>
+            <Shape Id="Manufactured Date Year" Expanded="false">
+              <Attributes>
+                <Attribute Id="Manufactured Date Year" />
+              </Attributes>
+              <Position x="732" y="20" />
+            </Shape>
+            <Shape Id="VIG Filed On Date" Expanded="false">
+              <Attributes>
+                <Attribute Id="VIG Filed On Date" />
+              </Attributes>
+              <Position x="257" y="69" />
+            </Shape>
+            <Shape Id="VIG Filed On Month" Expanded="false">
+              <Attributes>
+                <Attribute Id="VIG Filed On Month" />
+              </Attributes>
+              <Position x="495" y="69" />
+            </Shape>
+            <Shape Id="VIG Filed On Quarter" Expanded="false">
+              <Attributes>
+                <Attribute Id="VIG Filed On Quarter" />
+              </Attributes>
+              <Position x="732" y="69" />
+            </Shape>
+            <Shape Id="VIG Filed On Year" Expanded="false">
+              <Attributes>
+                <Attribute Id="VIG Filed On Year" />
+              </Attributes>
+              <Position x="970" y="69" />
+            </Shape>
+            <Shape Id="Date Closed" Expanded="false">
+              <Attributes>
+                <Attribute Id="Date Closed" />
+              </Attributes>
+              <Position x="257" y="118" />
+            </Shape>
+            <Shape Id="Closed Date Week" Expanded="false">
+              <Attributes>
+                <Attribute Id="Closed Date Week" />
+              </Attributes>
+              <Position x="495" y="118" />
+            </Shape>
+            <Shape Id="Closed Date Year" Expanded="false">
+              <Attributes>
+                <Attribute Id="Closed Date Year" />
+              </Attributes>
+              <Position x="970" y="118" />
+            </Shape>
+            <Shape Id="Closed Date Month" Expanded="true">
+              <Attributes>
+                <Attribute Id="Closed Date Month" />
+              </Attributes>
+              <Position x="495" y="167" />
+            </Shape>
+            <Shape Id="Closed Date Quarter" Expanded="false">
+              <Attributes>
+                <Attribute Id="Closed Date Quarter" />
+              </Attributes>
+              <Position x="732" y="167" />
+            </Shape>
+            <Shape Id="Date Opened" Expanded="true">
+              <Attributes>
+                <Attribute Id="Date Opened" />
+              </Attributes>
+              <Position x="257" y="216" />
+            </Shape>
+            <Shape Id="Open Date Week" Expanded="false">
+              <Attributes>
+                <Attribute Id="Open Date Week" />
+              </Attributes>
+              <Position x="495" y="216" />
+            </Shape>
+            <Shape Id="Open Date Year" Expanded="false">
+              <Attributes>
+                <Attribute Id="Open Date Year" />
+              </Attributes>
+              <Position x="970" y="216" />
+            </Shape>
+            <Shape Id="Open Date Month" Expanded="true">
+              <Attributes>
+                <Attribute Id="Open Date Month" />
+              </Attributes>
+              <Position x="495" y="265" />
+            </Shape>
+            <Shape Id="Open Date Quarter" Expanded="false">
+              <Attributes>
+                <Attribute Id="Open Date Quarter" />
+              </Attributes>
+              <Position x="732" y="265" />
+            </Shape>
+            <Shape Id="FAR Filed On Date" Expanded="false">
+              <Attributes>
+                <Attribute Id="FAR Filed On Date" />
+              </Attributes>
+              <Position x="257" y="314" />
+            </Shape>
+            <Shape Id="FAR Filed On Month" Expanded="false">
+              <Attributes>
+                <Attribute Id="FAR Filed On Month" />
+              </Attributes>
+              <Position x="495" y="314" />
+            </Shape>
+            <Shape Id="FAR Filed On Quarter" Expanded="false">
+              <Attributes>
+                <Attribute Id="FAR Filed On Quarter" />
+              </Attributes>
+              <Position x="732" y="314" />
+            </Shape>
+            <Shape Id="FAR Filed On Year" Expanded="false">
+              <Attributes>
+                <Attribute Id="FAR Filed On Year" />
+              </Attributes>
+              <Position x="970" y="314" />
+            </Shape>
+            <Shape Id="MDR Filed On Date" Expanded="false">
+              <Attributes>
+                <Attribute Id="MDR Filed On Date" />
+              </Attributes>
+              <Position x="257" y="363" />
+            </Shape>
+            <Shape Id="MDR Filed On Month" Expanded="false">
+              <Attributes>
+                <Attribute Id="MDR Filed On Month" />
+              </Attributes>
+              <Position x="495" y="363" />
+            </Shape>
+            <Shape Id="MDR Filed On Quarter" Expanded="false">
+              <Attributes>
+                <Attribute Id="MDR Filed On Quarter" />
+              </Attributes>
+              <Position x="732" y="363" />
+            </Shape>
+            <Shape Id="MDR Filed On Year" Expanded="false">
+              <Attributes>
+                <Attribute Id="MDR Filed On Year" />
+              </Attributes>
+              <Position x="970" y="363" />
+            </Shape>
+          </Shapes>
+        </DiagramLayout>
+      </Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>2017-08-30T11:02:15.02Z</LastProcessed>
+  <State>Processed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="dfa1e286-cb21-40db-b18a-bdca813d25de">
+    <DataSourceViewID>AS DWH</DataSourceViewID>
+  </Source>
+  <UnknownMember>Hidden</UnknownMember>
+  <ErrorConfiguration dwd:design-time-name="8cbd81ab-889b-449a-a331-597efce10b74">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Language>1033</Language>
+  <Collation>Latin1_General_CI_AS</Collation>
+  <UnknownMemberName>unknown</UnknownMemberName>
+  <Attributes>
+    <Attribute dwd:design-time-name="8d45f286-df63-4d1b-b710-0aa103687553">
+      <ID>Dim Complaint KEY</ID>
+      <Name>Dim Complaint KEY</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="a0fe2bab-fa26-4063-8e24-e9d451a0e5a8">
+          <DataType>Integer</DataType>
+          <NullProcessing>UnknownMember</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="9f047af6-49f2-4e92-9aba-263fc1765c47">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>Dim_Complaint_KEY</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="b654a34e-e61e-4d60-8596-bbc98762381c">
+        <DataType>WChar</DataType>
+        <NullProcessing>ZeroOrBlank</NullProcessing>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="a10960d4-ee74-4721-9a60-2bf7b6a0d93c">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>Dim_Complaint_KEY</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="65e1d1a2-32d7-4a74-bdca-1fc7afb04245">
+          <AttributeID>Compl Responsibility</AttributeID>
+          <Name>Complaint Responsibility</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="e8f1bffb-1b19-4735-8e43-bdae2c0fc573">
+          <AttributeID>MDR Number</AttributeID>
+          <Name>MDR Number</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="13fe71f7-6fd4-4417-9d16-9a820f8c4fb5">
+          <AttributeID>MDR Status</AttributeID>
+          <Name>MDR Status</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="28f00af5-dcfe-4637-8443-917bf1b5e3ed">
+          <AttributeID>MDR User Decision</AttributeID>
+          <Name>MDR User Decision</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="3a1bc701-6a63-423a-955d-41f1a04c25e0">
+          <AttributeID>MDR Filed On Date</AttributeID>
+          <Name>MDR Filed On Date</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="20321250-024d-484e-ab52-dee06820259b">
+          <AttributeID>MDR Due Date</AttributeID>
+          <Name>MDR Due Date</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="2cbda436-dbf8-4a85-b48e-24bc45d17c95">
+          <AttributeID>FAR Number</AttributeID>
+          <Name>FAR Number</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="14a6afcf-0105-473c-be6e-961523953734">
+          <AttributeID>FAR Status</AttributeID>
+          <Name>FAR Status</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="c2369539-3f83-4d51-97d5-0affdff55d88">
+          <AttributeID>FAR User Decision</AttributeID>
+          <Name>FAR User Decision</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="09059314-b755-44b2-91c7-a66a26fd5b02">
+          <AttributeID>FAR Filed On Date</AttributeID>
+          <Name>FAR Filed On Date</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="6c6e34fa-63d4-40b0-86d6-dd4d03f36b21">
+          <AttributeID>FAR Due Date</AttributeID>
+          <Name>FAR Due Date</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="5e4c5cc6-073d-4589-b995-8cf5e2f57db9">
+          <AttributeID>VIG Number</AttributeID>
+          <Name>VIG Number</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="5159b07b-f874-4b93-825f-a33695dc1395">
+          <AttributeID>VIG Status</AttributeID>
+          <Name>VIG Status</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="7571b649-c1bf-4f7f-a4fc-0348c64b7648">
+          <AttributeID>VIG User Decision</AttributeID>
+          <Name>VIG User Decision</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="dcfad2bd-3de6-4ee5-98e3-033c77db5b8d">
+          <AttributeID>VIG Due Date</AttributeID>
+          <Name>VIG Due Date</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="bfa23bb6-0def-4a77-8567-7991eda35516">
+          <AttributeID>Source Sys</AttributeID>
+          <Name>Source Sys</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="3541c993-af49-4d30-a4f3-1eaa3a3be66f">
+          <AttributeID>Open Date Quarter Seq</AttributeID>
+          <Name>H-Open Date Quarter Seq</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="7c1a87c6-f1ef-45c8-ba4b-3cc0b07e69fb">
+          <AttributeID>Open Date Month Seq</AttributeID>
+          <Name>H-Open Date Month Seq</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="b14c3390-a962-477c-af04-8956b6799200">
+          <AttributeID>Closed Date Quarter Seq</AttributeID>
+          <Name>H-Closed Date Quarter Seq</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="aa66122c-26be-4404-8177-3c8e2f4e7020">
+          <AttributeID>Closed Date Month Seq</AttributeID>
+          <Name>H-Closed Date Month Seq</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="b94638da-eaae-442d-9181-29aa9b03fbd8">
+          <AttributeID>FAR Filed On Quarter Seq</AttributeID>
+          <Name>H-FAR Filed On Quarter Seq</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="8dc2d247-4e18-4f11-b0c2-a03f53e388c3">
+          <AttributeID>VIG Filed On Month Seq</AttributeID>
+          <Name>H-VIG Filed On Month Seq</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="969c26fb-ccab-44a1-b33d-0a0969173712">
+          <AttributeID>VIG Filed On Quarter Seq</AttributeID>
+          <Name>H-VIG Filed On Quarter Seq</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="f770fe77-a538-4145-9a7c-02dc121bf717">
+          <AttributeID>FAR Filed On Month Seq</AttributeID>
+          <Name>H-FAR Filed On Month Seq</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="6cfbcd8a-adc1-474d-84a4-4ab5688718a0">
+          <AttributeID>MDR Filed On Quarter Seq</AttributeID>
+          <Name>H-MDR Filed On Quarter Seq</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="d7978c95-75c9-4da8-a53c-be12497c4765">
+          <AttributeID>MDR Filed On Month Seq</AttributeID>
+          <Name>H-MDR Filed On Month Seq</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="ed8f5169-5a3a-4788-93a6-765cf1a6cc57">
+          <AttributeID>Complaint Number</AttributeID>
+          <Name>Complaint Number</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="f058ebeb-db9c-4f68-85f0-dcff6d4eff63">
+          <AttributeID>Date Opened</AttributeID>
+          <Name>Date Opened</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="85aeb911-3153-491a-a0d3-a2d7de758506">
+          <AttributeID>Date Closed</AttributeID>
+          <Name>Date Closed</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="c48b4dec-cc81-4b68-9dcf-9a8704a524a9">
+          <AttributeID>Status</AttributeID>
+          <Name>Status</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="bad357c3-0c8c-470a-b6e8-d2cf83f05431">
+          <AttributeID>Comments</AttributeID>
+          <Name>Comments</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="ac7c7220-4570-45d6-9940-7da8539f9bd4">
+          <AttributeID>Customer Name</AttributeID>
+          <Name>Customer Name</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="3d3aacbf-533b-4a31-8a99-cc6c836538ec">
+          <AttributeID>Complaintant Acct No</AttributeID>
+          <Name>Complaintant Acct No</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="8018b6d1-33e7-4b13-bf07-c853d26d0975">
+          <AttributeID>Customer State</AttributeID>
+          <Name>Customer State</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="0e35640b-989f-439b-9c07-5e53468b527b">
+          <AttributeID>Customer Country</AttributeID>
+          <Name>Customer Country</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="273769bf-83ef-4841-a3e9-fa90280943fd">
+          <AttributeID>Is Closed</AttributeID>
+          <Name>Is Closed</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="0a7cfb40-f8c1-4c44-b328-a4b76992d988">
+          <AttributeID>Is Yesterday</AttributeID>
+          <Name>Is Yesterday</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="2c1924b4-882f-485b-9e9c-c610cfbaea59">
+          <AttributeID>Is Adverse Event</AttributeID>
+          <Name>Is Adverse Event</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="02704dc3-fdd7-4389-b98b-b0e40a5a6103">
+          <AttributeID>Is Adverse Event Late</AttributeID>
+          <Name>Is Adverse Event Late</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="d711b3ed-1656-4055-8bab-d59c2021731e">
+          <AttributeID>Is MDR Event</AttributeID>
+          <Name>Is MDR Event</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="bd726361-d0e8-4014-9016-6b89492b6c3b">
+          <AttributeID>Is FAR Event</AttributeID>
+          <Name>Is FAR Event</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="803f6b36-0343-4f29-81f8-947e497d2c75">
+          <AttributeID>Is VIG Event</AttributeID>
+          <Name>Is VIG Event</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="957ab999-b9af-4b45-b0a1-118dad878742">
+          <AttributeID>Date Of Event</AttributeID>
+          <Name>Date Of Event</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="be9c27a5-f502-431d-a10a-04f6d00321a6">
+          <AttributeID>Date Of Awareness</AttributeID>
+          <Name>Date Of Awareness</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="42729ccb-9ab4-47d2-a2c2-77caeea97e50">
+          <AttributeID>Is MDR Late</AttributeID>
+          <Name>Is MDR Late</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="4afcf5b1-9fc4-4dcf-af08-ece52fc023b7">
+          <AttributeID>Is FAR Late</AttributeID>
+          <Name>Is FAR Late</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="cc46c8b1-1bf7-4ccf-b751-7c2a596ce73f">
+          <AttributeID>Is VIG Late</AttributeID>
+          <Name>Is VIG Late</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="29f3d3d1-9cdc-43ba-97ee-d85f54d7b8d2">
+          <AttributeID>VIG Filed On Date</AttributeID>
+          <Name>VIG Filed On Date</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="74b2dfb2-7c4f-497f-8891-cc0e72e88a72">
+          <AttributeID>Customer Symptom</AttributeID>
+          <Name>Customer Symptom</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="2a2e25d2-bc8f-4d74-98c6-7b58dad99465">
+          <AttributeID>Contact Name</AttributeID>
+          <Name>Contact Name</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="4fd28959-1db9-4282-bf06-0433d1d04a07">
+          <AttributeID>Customer City</AttributeID>
+          <Name>Customer City</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="dcc80648-1fa0-49e3-af93-88da89f9f950">
+          <AttributeID>Customer Postal Code</AttributeID>
+          <Name>Customer Postal Code</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="7972b42c-7f5a-4263-9ad8-395f265b64c8">
+          <AttributeID>Complaintant</AttributeID>
+          <Name>Complaintant</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="1e4d1ba6-691b-4b95-8c12-461b9a7a84a7">
+          <AttributeID>Is Customer Feedback</AttributeID>
+          <Name>Is Customer Feedback</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="d11a01de-6ab0-41d3-9384-a0b5cfd2bdb8">
+          <AttributeID>Is Complaint Verbal</AttributeID>
+          <Name>Is Complaint Verbal</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="9e060efa-57fd-4d28-bbf1-d988a030caca">
+          <AttributeID>Is Age 0 45</AttributeID>
+          <Name>Is Age 0 45</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="774c7037-e601-42cc-a776-3a380bbb4ca3">
+          <AttributeID>Is Age 46 60</AttributeID>
+          <Name>Is Age 46 60</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="7d579e4d-db3a-4e20-a387-a747b1ca3b16">
+          <AttributeID>Is Age 61 70</AttributeID>
+          <Name>Is Age 61 70</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="26328029-2cb5-4cbd-b332-3283453f10c5">
+          <AttributeID>Is Age 71 Plus</AttributeID>
+          <Name>Is Age 71 Plus</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="210dceb4-eee1-4776-970e-ebf674f87d98">
+          <AttributeID>Lot Number</AttributeID>
+          <Name>Lot Number</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="14af5d05-f16e-480b-931a-4b889baa7c3b">
+          <AttributeID>Serial Number</AttributeID>
+          <Name>Serial Number</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="e40c0ccd-7735-4f06-bcda-f4de0f2ba440">
+          <AttributeID>Manufactured Date</AttributeID>
+          <Name>Manufactured Date</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="8a26a234-b125-404e-b2f5-01551e6264f7">
+          <AttributeID>Closed Date Week Seq</AttributeID>
+          <Name>H-Closed Date Week Seq</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="37df85fd-164d-477b-94a1-abfb5cabcdb1">
+          <AttributeID>Open Date Week Seq</AttributeID>
+          <Name>H-Open Date Week Seq</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="5b41a856-f956-4d1f-9898-1ed903306ab4">
+          <AttributeID>Is Last 12 Weeks Opened</AttributeID>
+          <Name>Is Last 12 Weeks Opened</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="4466e140-0b4a-44a4-a53e-1ea588f44175">
+          <AttributeID>Is Last 12 Weeks Closed</AttributeID>
+          <Name>Is Last 12 Weeks Closed</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="62aec6fd-92d0-4a77-9da7-973948f73706">
+          <AttributeID>Is Last 13 Months Opened</AttributeID>
+          <Name>Is Last 13 Months Opened</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="b4e8f1e3-f209-4147-bed5-f2947901e5fc">
+          <AttributeID>Is Product Indicated</AttributeID>
+          <Name>Is Product Indicated</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="08b7f48f-0abd-4ab0-a136-8324b422b0f0">
+          <AttributeID>Manufactured Date Month Seq</AttributeID>
+          <Name>H-Manufactured Date Month Seq</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="bbee0662-52c4-4fbb-a48f-3242a5f0fc70">
+          <AttributeID>Decision Tree Assigned To</AttributeID>
+          <Name>Decision Tree Assigned To</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="7e174d9e-49de-4b76-a748-b83bd03e6ee4">
+          <AttributeID>Regulatory Review Rationale</AttributeID>
+          <Name>Regulatory Review Rationale</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="1f9fc035-ebc2-4543-94d5-ff808b16f610">
+          <AttributeID>Is Letter Required</AttributeID>
+          <Name>Is Letter Required</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="c2e9c8ec-95e6-4a96-9b08-b3a0d21aa199">
+          <AttributeID>PI Completed By</AttributeID>
+          <Name>PI Completed By</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="d05f206b-a97b-45f7-8f02-be2092ec65ad">
+          <AttributeID>MDR Assigned To</AttributeID>
+          <Name>MDR Assigned To</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="e02c226c-305d-4fc4-953f-2313c89d9969">
+          <AttributeID>Is Follow Up Required</AttributeID>
+          <Name>Is Follow Up Required</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="6b00fc78-a854-4c72-ba23-9b4687c95791">
+          <AttributeID>Follow Up Due Date</AttributeID>
+          <Name>Follow Up Due Date</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="7fbb3c4a-f558-4334-a95b-aa728c076e91">
+          <AttributeID>Product Returned Date</AttributeID>
+          <Name>Product Returned Date</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="d0e69a10-dcbf-445d-ba4d-2156251cb8ac">
+          <AttributeID>Product Returned Status</AttributeID>
+          <Name>Product Returned Status</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="15342f24-0159-46bf-aefb-ee831ca89c9f">
+          <AttributeID>PI Completion Date</AttributeID>
+          <Name>PI Completion Date</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="d70cb2e6-6ae2-428e-b4ee-8345a312740c">
+          <AttributeID>CAPA Number</AttributeID>
+          <Name>CAPA Number</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="c0f88eeb-e645-456c-aea8-06ac421ab06c">
+          <AttributeID>Investigation Result</AttributeID>
+          <Name>Investigation Result</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="9644efcb-ab5c-4e69-8aaf-f44ba6c49396">
+          <AttributeID>Report Source Other</AttributeID>
+          <Name>Report Source Other</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="6b6bf3d1-6747-4ae2-909c-836b0a083164">
+          <AttributeID>RGA Number</AttributeID>
+          <Name>RGA Number</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="c7d5d896-0a1b-4449-8772-2a499e4ff057">
+          <AttributeID>Complaints Summary</AttributeID>
+          <Name>Complaints Summary</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="756c40d6-1dc9-42c5-bc32-b6828bdf119f">
+          <AttributeID>DT- In Process</AttributeID>
+          <Name>DT- In Process</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="fce1bc70-55ba-4f67-bac9-1a62b92ef88f">
+          <AttributeID>DT- Completed On</AttributeID>
+          <Name>DT- Completed On</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="55fab007-2d20-4601-a250-a503ad8ac5e3">
+          <AttributeID>Injury</AttributeID>
+          <Name>Injury</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="784c9462-1d63-41ae-a6ef-ce93de8d3275">
+          <AttributeID>Exclude 1700-000</AttributeID>
+          <Name>Exclude 1700-000</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="8307c7d4-7ef3-40b1-b85f-f8fee46e697a">
+          <AttributeID>Complaint Closed By</AttributeID>
+          <Name>Complaint Closed By</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="851a3609-d86f-4aa9-b128-29876d9769d8">
+          <AttributeID>Complaint Created By</AttributeID>
+          <Name>Complaint Created By</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="c802937a-ef6d-4106-a6da-35c9d62bc96e">
+          <AttributeID>Decision Trees Completed By</AttributeID>
+          <Name>Decision Trees Completed By</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="0aa649e6-e36c-4db5-a94b-9e064624dc29">
+      <ID>Compl Responsibility</ID>
+      <Name>Complaint Responsibility</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="34fce7e8-2068-40fa-9bd6-3dff5867d5df">
+          <DataType>WChar</DataType>
+          <DataSize>250</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="42032981-8f6e-4d27-a5d4-0728cdf1de99">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>Compl_Responsibility</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="eab5e93c-a97e-42cb-920a-b2ba5e6fa68c">
+        <DataType>WChar</DataType>
+        <DataSize>250</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="037209ae-fabe-46ab-b1be-ff9786c822b0">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>Compl_Responsibility</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="1a852a1b-fb18-425d-9b0e-33398321054a">
+      <ID>MDR Number</ID>
+      <Name>MDR Number</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="048ca767-b5df-47f6-a9ae-0d15a1c4a7f7">
+          <DataType>WChar</DataType>
+          <DataSize>1024</DataSize>
+          <NullProcessing>Preserve</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="4998fe5a-0408-4aa0-bc12-18277850526f">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>MDR_Number</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="e00dfff5-a82a-4778-8c13-f4b4a53d28a2">
+        <DataType>WChar</DataType>
+        <DataSize>1024</DataSize>
+        <NullProcessing>ZeroOrBlank</NullProcessing>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="4136e35f-568c-4396-8ae2-ebea4a4816c4">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>MDR_Number</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyDisplayFolder>MDR</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="74727e56-5f3f-40aa-a46d-4119a8a5f599">
+      <ID>MDR Status</ID>
+      <Name>MDR Status</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="00f5a609-b3b3-4fd1-bccf-03d417d82ea2">
+          <DataType>WChar</DataType>
+          <DataSize>1024</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="d1d7ffc9-6f73-40f6-b85b-2a20f531e3a9">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>MDR_Status</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="3e0f5c4a-e095-4547-a28f-b93a483010d8">
+        <DataType>WChar</DataType>
+        <DataSize>1024</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="c7c881d9-92cd-4ac9-8366-0a893cc3388e">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>MDR_Status</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyDisplayFolder>MDR</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="c05f3ab2-034b-4cf7-9823-2716ffbe62b0">
+      <ID>MDR User Decision</ID>
+      <Name>MDR User Decision</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="1808634b-b4fa-40e8-872a-ccef332b3986">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="754d1d45-2559-4543-a1e6-765c00842fe6">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>MDR_User_Decision</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="62dc5d9b-31ff-41fd-9069-95c145bc1c50">
+        <DataType>WChar</DataType>
+        <DataSize>50</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="e19a9486-a0b7-45d0-8fe7-ac47d7a4f730">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>MDR_User_Decision</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyDisplayFolder>MDR</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="61eab78d-79d0-4453-8cee-d60ef6b6247f">
+      <ID>MDR Filed On Date</ID>
+      <Name>MDR Filed On Date</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="c821d1e5-1481-4019-8d02-ac96c4e79c29">
+          <DataType>WChar</DataType>
+          <DataSize>10</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="d16955fa-8efb-480d-8860-3fd47696a755">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>MDR_Filed_On_Date</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="a533098e-fc09-4294-bcdc-822dda1dccaf">
+        <DataType>WChar</DataType>
+        <DataSize>10</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="6054de2f-adfe-4bf9-842e-7c6990a4dac0">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>MDR_Filed_On_Date</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="002ee8af-34cd-474c-b36d-946433981b25">
+          <AttributeID>MDR Filed On Month</AttributeID>
+          <RelationshipType>Rigid</RelationshipType>
+          <Name>H-MDR Filed On Month</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <AttributeHierarchyDisplayFolder>MDR</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="db5edb34-bd71-4738-a6fd-3f23ae02ccd6">
+      <ID>MDR Due Date</ID>
+      <Name>MDR Due Date</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="8ca4d9f8-27d2-480d-941c-77a10bdec34d">
+          <DataType>WChar</DataType>
+          <DataSize>10</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="d31c17b9-000b-4844-9fde-9c7f1a9a898c">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>MDR_Due_Date</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="f9f86de0-ddad-42cd-9c34-82a26bd792e8">
+        <DataType>WChar</DataType>
+        <DataSize>10</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="5bc2897c-293f-4207-b510-40bb649513d5">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>MDR_Due_Date</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyDisplayFolder>MDR</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="1bdf5014-9c6c-4f43-bcd1-e6b14d0f1c51">
+      <ID>FAR Number</ID>
+      <Name>FAR Number</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="cd8d5686-e9f9-4bfd-9836-a2b1a5fea536">
+          <DataType>WChar</DataType>
+          <DataSize>1024</DataSize>
+          <NullProcessing>Preserve</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="daa4fe4c-7394-4bdb-8577-9fc0683f2efd">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>FAR_Number</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="fcaa48ea-b95d-4649-b52d-6d88c82f0626">
+        <DataType>WChar</DataType>
+        <DataSize>1024</DataSize>
+        <NullProcessing>ZeroOrBlank</NullProcessing>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="cdb468b3-e22f-4654-8b8b-deaff47d6e8b">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>FAR_Number</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyDisplayFolder>FAR</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="6c9c9d70-7b13-4707-8c34-184209d93eb0">
+      <ID>FAR Status</ID>
+      <Name>FAR Status</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="4b6da702-17fe-4840-802d-50c6294da5cf">
+          <DataType>WChar</DataType>
+          <DataSize>1024</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="589f965c-d4fe-4707-aadd-7b3ec2883f59">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>FAR_Status</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="be79f37e-289e-4215-9197-5b36dd022ace">
+        <DataType>WChar</DataType>
+        <DataSize>1024</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="f5c6dc7d-79a5-499d-a6ab-827cee2ca9b3">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>FAR_Status</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyDisplayFolder>FAR</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="1b135a78-abb1-4d0a-bff2-d2628249ff41">
+      <ID>FAR User Decision</ID>
+      <Name>FAR User Decision</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="17aa36f9-2eae-4b91-a76b-d73772c962b1">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="45313909-97ab-4cff-8726-5e5930aef169">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>FAR_User_Decision</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="d0905629-e796-46f7-8d4f-279d5bd8eecb">
+        <DataType>WChar</DataType>
+        <DataSize>50</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="2c0cb1df-4cb6-4644-9375-a6ad81293dc0">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>FAR_User_Decision</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyDisplayFolder>FAR</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="3e6ab472-74dc-42e4-8470-a9c528293c5b">
+      <ID>FAR Filed On Date</ID>
+      <Name>FAR Filed On Date</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="b35364a7-f497-4b3f-999a-127ff34f8c66">
+          <DataType>WChar</DataType>
+          <DataSize>10</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="20e3954a-25ad-47eb-b11b-fdadf675c3fe">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>FAR_Filed_On_Date</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="fe31f1bf-61e6-4cc5-a217-f3da912bda16">
+        <DataType>WChar</DataType>
+        <DataSize>10</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="92983d7e-4f14-46cc-a130-b15b63fac1e6">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>FAR_Filed_On_Date</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="4bd51b80-4e38-4960-8f5d-4460dd8e95e7">
+          <AttributeID>FAR Filed On Month</AttributeID>
+          <RelationshipType>Rigid</RelationshipType>
+          <Name>H-FAR Filed On Month</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <AttributeHierarchyDisplayFolder>FAR</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="294bdf18-35d2-42a2-9031-3a99edeb75b0">
+      <ID>FAR Due Date</ID>
+      <Name>FAR Due Date</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="1c8b0ecb-f917-476d-84a7-dd7bbab18fe2">
+          <DataType>WChar</DataType>
+          <DataSize>10</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="02df7f47-9bbd-45db-b34a-19d9970fa0e4">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>FAR_Due_Date</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="89b8df2c-8d4e-48dc-a3c4-68d0bb103796">
+        <DataType>WChar</DataType>
+        <DataSize>10</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="d32c8019-aa45-4369-af27-833a1f8dd760">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>FAR_Due_Date</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyDisplayFolder>FAR</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="fc405eb5-4a03-4091-b47c-37adf41868b7">
+      <ID>VIG Number</ID>
+      <Name>VIG Number</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="a8742c6f-9a3b-49be-abe1-26da8bc22e59">
+          <DataType>WChar</DataType>
+          <DataSize>1024</DataSize>
+          <NullProcessing>Preserve</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="e1054d55-492d-4198-b849-d285981f1534">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>VIG_Number</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="43caec91-3d42-4a7c-8dba-07a7a9eeadaa">
+        <DataType>WChar</DataType>
+        <DataSize>1024</DataSize>
+        <NullProcessing>ZeroOrBlank</NullProcessing>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="5747d85e-e74f-4a3c-8051-d370e1a91431">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>VIG_Number</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyDisplayFolder>VIG</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="e83c56d5-0160-481f-b69d-b617cb36f20e">
+      <ID>VIG Status</ID>
+      <Name>VIG Status</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="fa87db07-536e-4582-ab8d-6ec89604ed38">
+          <DataType>WChar</DataType>
+          <DataSize>1024</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="de9a0e2d-f74d-413a-990b-da49a3fcccde">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>VIG_Status</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="24a852e7-3dfd-4f17-af18-3df525936499">
+        <DataType>WChar</DataType>
+        <DataSize>1024</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="1238948d-2f2b-4b31-a481-fa8d48cddf0f">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>VIG_Status</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyDisplayFolder>VIG</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="eeae8b89-e07a-4496-adfd-19927d88a690">
+      <ID>VIG User Decision</ID>
+      <Name>VIG User Decision</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="517382f3-3171-4384-817b-625dc07f3258">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="88366a1d-2975-4224-a942-e9ed72833185">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>VIG_User_Decision</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="aa3b700a-d3df-473c-a380-9080a0e3b91e">
+        <DataType>WChar</DataType>
+        <DataSize>50</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="81634149-088c-4cc9-9964-6f4ecd94c066">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>VIG_User_Decision</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyDisplayFolder>VIG</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="db4b2870-2839-43fe-92a5-36af931ba2e6">
+      <ID>VIG Due Date</ID>
+      <Name>VIG Due Date</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="4122b362-0bff-4610-b6d0-c98835a88895">
+          <DataType>WChar</DataType>
+          <DataSize>10</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="f49f42c6-3ce2-422b-b360-08adca4c8397">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>VIG_Due_Date</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="b97d793d-6191-425c-a14f-24ee88bdf0ff">
+        <DataType>WChar</DataType>
+        <DataSize>10</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="054b7d11-3fc0-45a9-afb1-a12c79e4b32d">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>VIG_Due_Date</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyDisplayFolder>VIG</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="3eaf9198-f3de-4dec-a2b3-891013a49ec9">
+      <ID>Source Sys</ID>
+      <Name>Source System</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="e496d8f7-85c8-42e1-b855-2c02291cac18">
+          <DataType>WChar</DataType>
+          <DataSize>25</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="1a7581a8-7285-44fe-aefb-f15da44e0ab5">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>Source_Sys</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="1ab72ddd-6803-419f-a7eb-be68634065b9">
+        <DataType>WChar</DataType>
+        <DataSize>25</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="2fdc7778-0c31-4fe0-84b6-07fc7fe5e7d7">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>Source_Sys</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="f4f47624-0e10-4519-8080-3ae2ff8b8ab4">
+      <ID>Open Date Quarter Seq</ID>
+      <Name>H-Open Date Quarter Seq</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="91963630-8e50-4b19-ab57-2b7a9d688645">
+          <DataType>Integer</DataType>
+          <Trimming>None</Trimming>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="c60fa7e3-c019-4df7-9e19-edde4c11262d">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>Open_Date_Quarter_Seq</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="dce6f889-efe9-4a35-878e-ce75c0972372">
+        <DataType>WChar</DataType>
+        <Trimming>None</Trimming>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="9ffa45ca-4957-4afa-9de4-a985f679ed5d">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>Open_Date_Quarter_Seq</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="824adaeb-a7c8-4841-8f59-b4ee3e29d102">
+      <ID>Open Date Month</ID>
+      <Name>H-Open Date Month</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="6354610e-b133-4169-8721-d471b8ab0b01">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="23528f99-6542-4540-99c6-ecfe31f260f9">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>Open_Date_Year</ColumnID>
+          </Source>
+        </KeyColumn>
+        <KeyColumn dwd:design-time-name="523ba6c5-bdf2-4dff-aa2f-159ddb1c1b09">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="46f79ec3-2496-48a1-982d-57e58929374d">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>Open_Date_Quarter_Seq</ColumnID>
+          </Source>
+        </KeyColumn>
+        <KeyColumn dwd:design-time-name="5ba481a9-e96f-494e-8de9-3afc20e1f992">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="f918ff99-1125-488c-a759-9b244070368b">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>Open_Date_Month_Seq</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="423a4cac-fc0d-46ed-ba71-6ab4ae82d3ad">
+        <DataType>WChar</DataType>
+        <DataSize>50</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="8e79a07b-7dc3-45da-968d-d2071556b0f7">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>Open_Date_Month</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="dead191c-da51-4fb8-9e85-dd3a9c4f65d7">
+          <AttributeID>Open Date Quarter</AttributeID>
+          <RelationshipType>Rigid</RelationshipType>
+          <Name>H-Open Date Quarter</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="65ce2d30-b050-47b8-a52b-cd457ae5a04f">
+      <ID>Open Date Month Seq</ID>
+      <Name>H-Open Date Month Seq</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="ba88307d-6521-4ff2-b502-e6a1b1f8d348">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="b5421636-5e77-435a-ae36-9a9ee098f851">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>Open_Date_Month_Seq</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="aeacb237-f6d7-4033-b14a-67dca5c4ef94">
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="c96e7a79-06b5-4651-8f1b-91e891b83156">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>Open_Date_Month_Seq</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="8c829f95-fd9f-4445-8633-9c4be55834f9">
+      <ID>Closed Date Year</ID>
+      <Name>H-Closed Date Year</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="6152ba1a-fa61-46b2-bca3-94e1417b4325">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="2dcb1df6-adc8-4ed1-83b1-b48956e980bb">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>Closed_Date_Year</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="0f9c0f12-b7eb-45a1-9184-f327ec4b82e4">
+        <DataType>WChar</DataType>
+        <DataSize>50</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="cba3c53e-a2e5-4bda-9260-737c113fe9d5">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>Closed_Date_Year</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="acf6d68b-eb46-4f6d-b3c3-183824ac83f9">
+      <ID>Closed Date Quarter</ID>
+      <Name>H-Closed Date Quarter</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="8b81d268-aea2-40fc-b987-7dddcc294626">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="a3a50b8f-3b20-44b2-9308-b2f47f11882b">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>Closed_Date_Year</ColumnID>
+          </Source>
+        </KeyColumn>
+        <KeyColumn dwd:design-time-name="765ba2f1-a7c9-40f3-8698-4fe39ce729fe">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="8feb104a-ad2b-4654-881a-d59d008af1e0">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>Closed_Date_Quarter_Seq</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="fbf11875-9eb9-4c24-9fe4-2d53aa861077">
+        <DataType>WChar</DataType>
+        <DataSize>50</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="a706a491-9642-40b7-881f-6db43eed0dfb">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>Closed_Date_Quarter</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="5927f2e8-4b5b-42f9-a397-15948c63a804">
+          <AttributeID>Closed Date Year</AttributeID>
+          <RelationshipType>Rigid</RelationshipType>
+          <Name>H-Closed Date Year</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="1364e764-e4f3-457b-b26f-d7cf69eeccf5">
+      <ID>Closed Date Quarter Seq</ID>
+      <Name>H-Closed Date Quarter Seq</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="d08f02b4-e640-4f00-95a5-324b9e0714c4">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="739afc26-323c-43a5-8d68-b759646e53fb">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>Closed_Date_Quarter_Seq</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="95559171-5914-4673-a727-6c785bf91d1d">
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="e196af87-38a9-4e71-abd6-4677b0e4bdc5">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>Closed_Date_Quarter_Seq</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="ec48a832-8f2d-4012-9cf4-2479054c2ff2">
+      <ID>Closed Date Month</ID>
+      <Name>H-Closed Date Month</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="9184fb9c-407b-4139-8802-9f4f927b562b">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="8888104b-6dea-438d-b1f9-be4d5afc8402">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>Closed_Date_Year</ColumnID>
+          </Source>
+        </KeyColumn>
+        <KeyColumn dwd:design-time-name="fcb8ac1c-9f7d-4355-a085-33deff007e7e">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="7fdd9df3-2aba-45ff-90a6-0b2191fcd0ee">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>Closed_Date_Quarter_Seq</ColumnID>
+          </Source>
+        </KeyColumn>
+        <KeyColumn dwd:design-time-name="3ea382a2-4e01-484d-b303-dad0a5b3ee2f">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="b3b325df-a547-4e0f-85b2-e827177beb6a">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>Closed_Date_Month_Seq</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="cb77ba20-0887-4546-8d79-fecb81630548">
+        <DataType>WChar</DataType>
+        <DataSize>50</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="0d4e5510-3318-41b5-9ec8-88a8ed8268ba">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>Closed_Date_Month</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="6b5e3db8-57f0-42d3-b6fe-1fa8e6033c17">
+          <AttributeID>Closed Date Quarter</AttributeID>
+          <RelationshipType>Rigid</RelationshipType>
+          <Name>H-Closed Date Quarter</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="cc1be8bf-fb76-410d-a03d-f1015153e962">
+      <ID>Closed Date Month Seq</ID>
+      <Name>H-Closed Date Month Seq</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="50d3d73a-1b89-4145-b018-98a7410fc4cb">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="cc63c2d2-6e9c-4fa2-ba02-9eafde0e726f">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>Closed_Date_Month_Seq</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="5e03bd1b-89cc-46db-bc3f-88b2c72da151">
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="5ed48e71-6a9b-4138-b776-7cec5febae10">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>Closed_Date_Month_Seq</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="4bcd154f-bc75-45c3-9c0d-e4483d4d5d39">
+      <ID>Open Date Year</ID>
+      <Name>H-Open Date Year</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="1d7aae89-a9d0-4fe3-a4d4-015f4cbc78a1">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <NullProcessing>Preserve</NullProcessing>
+          <Trimming>LeftRight</Trimming>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="4e6b274b-a89c-4f7b-b07b-6694fd5d9cc8">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>Open_Date_Year</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="996465fc-2fcc-4be1-993b-8dfa58c12156">
+        <DataType>WChar</DataType>
+        <DataSize>50</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="f952c82d-5370-4500-858d-fe5eb0193f18">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>Open_Date_Year</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="823cdac6-ab62-403f-8b87-2f0c643677f6">
+      <ID>VIG Filed On Year</ID>
+      <Name>H-VIG Filed On Year</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="55d9757d-cacf-478a-a84f-148a0abe91f2">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="4bed3b1f-902c-4fba-b654-24e6964d8f5f">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>VIG_Filed_On_Year</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="ae005e1d-4a12-4ae9-bfc3-a32c0d92c66a">
+        <DataType>WChar</DataType>
+        <DataSize>50</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="11940b5f-987b-4291-8a28-9488ef4dfc27">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>VIG_Filed_On_Year</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <AttributeHierarchyDisplayFolder>VIG</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="123f549a-9e36-4f1f-8ad2-8bdf529e7ab3">
+      <ID>FAR Filed On Quarter</ID>
+      <Name>H-FAR Filed On Quarter</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="e43f1b9b-9075-416b-b25a-9ad2077e212e">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="7d70201c-f65b-413a-b0cd-72fe31da4432">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>FAR_Filed_On_Year</ColumnID>
+          </Source>
+        </KeyColumn>
+        <KeyColumn dwd:design-time-name="5bca5234-ab43-474b-a306-73844c4efcd7">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="16e56572-acd2-4632-8ca6-1cbb44194939">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>FAR_Filed_On_Quarter_Seq</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="37a98794-a9d0-4564-9bd6-07e35670f1f0">
+        <DataType>WChar</DataType>
+        <DataSize>50</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="5c44b6dc-864d-494c-bb4b-355c6cf4e7fa">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>FAR_Filed_On_Quarter</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="d44aa23b-4840-4853-9d15-a7a73d503701">
+          <AttributeID>FAR Filed On Year</AttributeID>
+          <RelationshipType>Rigid</RelationshipType>
+          <Name>H-FAR Filed On Year</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <AttributeHierarchyDisplayFolder>FAR</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="b865f615-f820-4850-971e-178270538680">
+      <ID>FAR Filed On Quarter Seq</ID>
+      <Name>H-FAR Filed On Quarter Seq</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="c019bfff-6bb6-4e5b-bb11-135a8494c5fd">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="d5795ae6-a2be-4415-8e4b-0c862ecf56d9">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>FAR_Filed_On_Quarter_Seq</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="7c4e9303-14c5-426c-90b8-f663b97460b9">
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="e338dc41-6fc3-4c14-ab3a-3bbec153c4a2">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>FAR_Filed_On_Quarter_Seq</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <AttributeHierarchyDisplayFolder>FAR</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="c751b8a2-8f1f-491d-9ed0-418ca77365b3">
+      <ID>VIG Filed On Month Seq</ID>
+      <Name>H-VIG Filed On Month Seq</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="b1455abc-94f3-49b6-be64-dc1aba30cc3b">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="bddceb1d-a25e-4dd1-87d0-394b214459aa">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>VIG_Filed_On_Month_Seq</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="9c657e30-812f-4cb6-8ca2-3762ff4b4da4">
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="ac05decc-cb49-46c1-8135-879ba52b56fa">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>VIG_Filed_On_Month_Seq</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <AttributeHierarchyDisplayFolder>VIG</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="cff04737-8e3f-437f-8782-3386e7cfacba">
+      <ID>VIG Filed On Month</ID>
+      <Name>H-VIG Filed On Month</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="9b2de74d-e186-41a7-ac0b-595747288fa8">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="2946f507-e891-4506-b11b-3488ccd88a57">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>VIG_Filed_On_Year</ColumnID>
+          </Source>
+        </KeyColumn>
+        <KeyColumn dwd:design-time-name="7f021196-786c-4434-9a11-a6e2b084c0c4">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="24462a57-96ec-4d7c-83de-c0ac017330ad">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>VIG_Filed_On_Quarter_Seq</ColumnID>
+          </Source>
+        </KeyColumn>
+        <KeyColumn dwd:design-time-name="c120fa9e-0a37-4289-a09d-aaf3795b19e7">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="5c7b819d-905a-409e-b0b9-8f0324168f34">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>VIG_Filed_On_Month_Seq</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="115296d5-9993-4020-a7b0-a25795f7c09e">
+        <DataType>WChar</DataType>
+        <DataSize>50</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="29df4e75-201e-4b94-8e70-06ec1f265d6c">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>VIG_Filed_On_Month</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="54b70217-d1c6-4ec9-aada-bb123135c822">
+          <AttributeID>VIG Filed On Quarter</AttributeID>
+          <RelationshipType>Rigid</RelationshipType>
+          <Name>H-VIG Filed On Quarter</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <AttributeHierarchyDisplayFolder>VIG</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="91490d45-7761-4c70-8e53-24fd64fe9bca">
+      <ID>VIG Filed On Quarter Seq</ID>
+      <Name>H-VIG Filed On Quarter Seq</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="7ef9b419-dbd5-4095-9fbc-86b95f00f469">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="0c082828-82be-4c5a-b401-c1abdeba3193">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>VIG_Filed_On_Quarter_Seq</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="1076461d-94e0-463b-9a45-c477a33fa804">
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="367976d8-a1f7-48b0-a08f-819abf16d2c4">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>VIG_Filed_On_Quarter_Seq</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <AttributeHierarchyDisplayFolder>VIG</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="62094f71-5fc5-4140-afaf-a9727f38f017">
+      <ID>VIG Filed On Quarter</ID>
+      <Name>H-VIG Filed On Quarter</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="8011c037-f06c-4554-90b3-32f8aa065c6a">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="60d2d832-e55d-48a2-9257-b08806cf7d50">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>VIG_Filed_On_Year</ColumnID>
+          </Source>
+        </KeyColumn>
+        <KeyColumn dwd:design-time-name="0f34db63-f7e9-40aa-bb96-b912e50c7365">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="df468075-9328-40f7-ace9-06ddc247cd69">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>VIG_Filed_On_Quarter_Seq</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="780f3f37-f3f2-427c-beee-1a5018eb3722">
+        <DataType>WChar</DataType>
+        <DataSize>50</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="4a002f6f-351c-4056-9dbb-a27d76926c75">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>VIG_Filed_On_Quarter</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="2abcab81-46e6-47bb-baca-381c8a6ec6d4">
+          <AttributeID>VIG Filed On Year</AttributeID>
+          <RelationshipType>Rigid</RelationshipType>
+          <Name>H-VIG Filed On Year</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <AttributeHierarchyDisplayFolder>VIG</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="6b818220-3556-4f2f-b90e-04d3b12c26b8">
+      <ID>FAR Filed On Year</ID>
+      <Name>H-FAR Filed On Year</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="345c5299-4450-428a-95b2-9e21982350c8">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="c3c47df9-cde0-43e1-9542-023c094835b9">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>FAR_Filed_On_Year</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="39711619-7cba-4e6d-a46a-2130f2ce70a8">
+        <DataType>WChar</DataType>
+        <DataSize>50</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="4b6982d6-f16d-41f2-aba3-29d74a323f66">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>FAR_Filed_On_Year</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <AttributeHierarchyDisplayFolder>FAR</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="7fbc37f0-50e9-41c1-b26b-0f1a9d63a046">
+      <ID>FAR Filed On Month Seq</ID>
+      <Name>H-FAR Filed On Month Seq</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="8a9feae3-a478-43f9-8087-ff850fd9989e">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="2e43ab8c-096a-4c9f-9571-4d9194e8f987">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>FAR_Filed_On_Month_Seq</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="842c6f8b-a506-48de-bae1-b2f9c3f1bda0">
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="d7f36a60-1b87-4f93-a65d-0c415044c6e1">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>FAR_Filed_On_Month_Seq</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <AttributeHierarchyDisplayFolder>FAR</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="3db32ecb-6cc8-4352-8498-b218de02efa8">
+      <ID>MDR Filed On Year</ID>
+      <Name>H-MDR Filed On Year</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="096fbbef-4588-4367-96de-ef5e1a1032f2">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="bcc03503-354f-46a3-b016-120b26bbd584">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>MDR_Filed_On_Year</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="841d4da4-4136-4210-b0da-d7b0871a077d">
+        <DataType>WChar</DataType>
+        <DataSize>50</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="4b15bdf4-e47c-42c3-95b2-6c8371f29389">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>MDR_Filed_On_Year</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <AttributeHierarchyDisplayFolder>MDR</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="5b914fc6-d9a6-4da7-9431-a657e03d136f">
+      <ID>MDR Filed On Quarter</ID>
+      <Name>H-MDR Filed On Quarter</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="f74f1b93-17e0-46b3-86a6-06f24ce38175">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="f442dab4-3851-4efe-85a3-ded9f807095c">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>MDR_Filed_On_Year</ColumnID>
+          </Source>
+        </KeyColumn>
+        <KeyColumn dwd:design-time-name="21e32bb5-392b-4903-9635-51ce2b82beff">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="1348ae72-7962-4fa5-9e82-043ac4aaa8ef">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>MDR_Filed_On_Quarter_Seq</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="df3618a7-31a4-4379-94d5-e8826485f2aa">
+        <DataType>WChar</DataType>
+        <DataSize>50</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="e15136a2-b061-4c7f-84e1-c4f4fd5adf36">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>MDR_Filed_On_Quarter</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="0a0d1d16-901a-4542-b7fd-1864c18610fd">
+          <AttributeID>MDR Filed On Year</AttributeID>
+          <RelationshipType>Rigid</RelationshipType>
+          <Name>H-MDR Filed On Year</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <AttributeHierarchyDisplayFolder>MDR</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="7c5f136b-859f-43f7-b682-b2d82e5b2651">
+      <ID>MDR Filed On Quarter Seq</ID>
+      <Name>H-MDR Filed On Quarter Seq</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="755f60a1-af98-4d89-bfb5-25856f1da1dc">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="55678974-ef6d-4aba-b28c-13c4f2807da4">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>MDR_Filed_On_Quarter_Seq</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="9c5e91ab-ff4a-411e-91e4-96dc95c86cc8">
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="64c75217-9cc7-4556-a7e5-a5c0a30d15e8">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>MDR_Filed_On_Quarter_Seq</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <AttributeHierarchyDisplayFolder>MDR</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="36296326-ad86-4750-9d44-3d9c1297164c">
+      <ID>MDR Filed On Month</ID>
+      <Name>H-MDR Filed On Month</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="0d1b8a49-5c9f-403f-abe5-3013737be48c">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="85c6028e-6e39-431a-a42f-90e645013a9a">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>MDR_Filed_On_Year</ColumnID>
+          </Source>
+        </KeyColumn>
+        <KeyColumn dwd:design-time-name="caa23893-954f-45df-9b60-56bf72af2537">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="e3238190-46c7-42cf-824b-2ee50a0549ac">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>MDR_Filed_On_Quarter_Seq</ColumnID>
+          </Source>
+        </KeyColumn>
+        <KeyColumn dwd:design-time-name="27e4015e-d877-491f-9c80-da0c1536bf56">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="e20fbb4d-70b6-4ab8-9100-17a69432699b">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>MDR_Filed_On_Month_Seq</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="31247831-90ca-4cee-8dc3-035b6c943338">
+        <DataType>WChar</DataType>
+        <DataSize>50</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="32e382a5-86eb-4525-8110-87395283d5f3">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>MDR_Filed_On_Month</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="e0bc9d2e-08ad-404c-9dd2-cd9159645916">
+          <AttributeID>MDR Filed On Quarter</AttributeID>
+          <RelationshipType>Rigid</RelationshipType>
+          <Name>H-MDR Filed On Quarter</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <AttributeHierarchyDisplayFolder>MDR</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="fc5f4740-4793-4578-8134-3bd8621b92a7">
+      <ID>MDR Filed On Month Seq</ID>
+      <Name>H-MDR Filed On Month Seq</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="6e6190f3-9e53-4126-8140-d39a767f6da1">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="cc41c167-4b83-4821-a2aa-970ab9598b9b">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>MDR_Filed_On_Month_Seq</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="0d92a84e-c46d-4403-b6c3-823a22d1471e">
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="bd82d4b0-cca6-483c-9595-ca38ca3c166c">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>MDR_Filed_On_Month_Seq</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <AttributeHierarchyDisplayFolder>MDR</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="0ea71703-4e82-4c1a-9554-51019ca1a9c2">
+      <ID>Open Date Quarter</ID>
+      <Name>H-Open Date Quarter</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="63e11082-a169-4a46-ac71-b8c77e5e2af8">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="5c576237-50b7-45f4-b2b6-11b6d35f451d">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>Open_Date_Quarter</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="8a46cdef-8b9b-4d0f-9d46-b7ca9bcd6488">
+        <DataType>WChar</DataType>
+        <DataSize>50</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="d3afbab4-a1c2-4088-bcac-1a3e838175b9">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>Open_Date_Quarter</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="33908431-afc2-4a52-87c6-0d1b987775d1">
+          <AttributeID>Open Date Year</AttributeID>
+          <RelationshipType>Rigid</RelationshipType>
+          <Name>H-Open Date Year</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="5bc592c9-e450-41bc-8052-2174bd2be3f4">
+      <ID>FAR Filed On Month</ID>
+      <Name>H-FAR Filed On Month</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="7fd4d4e1-b939-4be7-8640-731128b8c3bf">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="09dd6036-83f6-4f16-87e6-ae736f668339">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>FAR_Filed_On_Year</ColumnID>
+          </Source>
+        </KeyColumn>
+        <KeyColumn dwd:design-time-name="aec81971-329a-487e-81ef-bb860ed1d441">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="229bbe38-9289-48a8-9b50-4031ba19f770">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>FAR_Filed_On_Quarter_Seq</ColumnID>
+          </Source>
+        </KeyColumn>
+        <KeyColumn dwd:design-time-name="77edeb6a-e940-49d5-8bf2-cf4b8b1ca025">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="7f9b7699-22f8-42f3-a081-e0962aa6de64">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>FAR_Filed_On_Month_Seq</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="7017946e-a230-4dcf-b873-470fdacec349">
+        <DataType>WChar</DataType>
+        <DataSize>50</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="83a9c78c-baca-4bb6-8d49-5826a0bf1a2b">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>FAR_Filed_On_Month</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="33667a4a-3054-4f3d-8f06-d3824ae19678">
+          <AttributeID>FAR Filed On Quarter</AttributeID>
+          <RelationshipType>Rigid</RelationshipType>
+          <Name>H-FAR Filed On Quarter</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <AttributeHierarchyDisplayFolder>FAR</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="200e905a-ba17-4bda-b49e-f62146caef65">
+      <ID>Complaint Number</ID>
+      <Name>Complaint Number</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="1cce3776-ea31-4096-b74a-e71850104035">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="d3e3daff-6a22-4722-9e06-56a5e5ea5f4e">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>Complaint_Number</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="de833862-5623-4119-b9dd-34a2dba86861">
+        <DataType>WChar</DataType>
+        <DataSize>50</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="ef43a910-0e81-42bc-9009-1a9ff9f2777c">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>Complaint_Number</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="5c82a9bd-c67e-4996-9fef-0c2b8f44f89e">
+      <ID>Date Opened</ID>
+      <Name>Date Opened</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="4d3c7ca4-ebfa-4569-8fff-ad3820a21ae3">
+          <DataType>WChar</DataType>
+          <DataSize>10</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="4f491ae0-16c7-46aa-b748-ca05c8df243a">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>Date_Opened</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="c3693f4b-8999-4307-9540-e60b1851ea55">
+        <DataType>WChar</DataType>
+        <DataSize>10</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="4ebfe02d-4b5d-41e7-8eab-e6363cea25cd">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>Date_Opened</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="d80e4b8c-0f96-4b22-99b4-735fa62f5765">
+          <AttributeID>Open Date Month</AttributeID>
+          <RelationshipType>Rigid</RelationshipType>
+          <Name>H-Open Date Month</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="6968df53-673f-4d8d-9aef-75ffce7a2317">
+          <AttributeID>Open Date Week</AttributeID>
+          <RelationshipType>Rigid</RelationshipType>
+          <Name>H-Open Date Week</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="d909dc55-cd56-4afc-9d2a-08b98148f465">
+      <ID>Date Closed</ID>
+      <Name>Date Closed</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="31fd89c7-6466-4954-98fe-9da05d952cec">
+          <DataType>WChar</DataType>
+          <DataSize>10</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="6d68c8af-b805-4cf8-a5b0-405ddc08269e">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>Date_Closed</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="eba3ca04-63bf-4b12-9419-2415222e42ac">
+        <DataType>WChar</DataType>
+        <DataSize>10</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="0ba95767-6a8a-47b0-ad6c-cda5477261bc">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>Date_Closed</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="9480ac07-0198-4cbf-872d-ae04f596826d">
+          <AttributeID>Closed Date Month</AttributeID>
+          <RelationshipType>Rigid</RelationshipType>
+          <Name>H-Closed Date Month</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="16f2725b-4667-429c-b7cb-8df1fd2e076c">
+          <AttributeID>Closed Date Week</AttributeID>
+          <RelationshipType>Rigid</RelationshipType>
+          <Name>H-Closed Date Week</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="16b51599-6429-4655-889c-04f8926570e9">
+      <ID>Status</ID>
+      <Name>Complaint Status</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="86b7a0f9-5a8c-4a6a-86dd-503466b218c7">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="caf6c992-bf3a-45d6-bfe7-d0be414294b6">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>Status</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="b02eb51a-001b-444f-8713-d62eb0cfdde4">
+        <DataType>WChar</DataType>
+        <DataSize>50</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="008d6f39-39a7-4d31-a5fb-9787b0e147a5">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>Status</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="4e5b31e3-2cb3-4c62-9277-4a298a58c8b8">
+      <ID>Comments</ID>
+      <Name>Comments</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="103f6fe6-89a8-4eec-879d-00096434a674">
+          <DataType>WChar</DataType>
+          <DataSize>8000</DataSize>
+          <NullProcessing>UnknownMember</NullProcessing>
+          <Trimming>None</Trimming>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="3ded33a5-f526-4df0-9f6d-99e884426651">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>Comments</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="0fc42eab-6bcc-46a9-a38f-be63b2198f28">
+        <DataType>WChar</DataType>
+        <DataSize>8000</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="d56ee2a4-6d00-4d49-a434-6d3f9de08c23">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>Comments</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="fcc19b47-aa54-4940-a955-93ab68b4f405">
+      <ID>Customer Name</ID>
+      <Name>Customer Name</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="dab8c82c-a9aa-4992-9a21-1945b9549c37">
+          <DataType>Integer</DataType>
+          <NullProcessing>ZeroOrBlank</NullProcessing>
+          <Trimming>None</Trimming>
+          <Collation>Latin1_General_CI_AS</Collation>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="8b4eac8d-5a65-4d7d-9872-eca65ccd9426">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>Customer_Sequence</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="7681c5a0-e2e8-4146-9622-7c1843da30e1">
+        <DataType>WChar</DataType>
+        <DataSize>250</DataSize>
+        <Collation>Latin1_General_CS_AS</Collation>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="4103f359-b4da-4044-b0f2-b0f9a7c42e1c">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>Customer_Name</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyDisplayFolder>Customer</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="8edb1767-769b-4cdf-a4b7-86ebe09489c7">
+      <ID>Complaintant Acct No</ID>
+      <Name>Complaintant Acct No</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="891b835b-3bcf-4c46-97d8-7011eff0d475">
+          <DataType>WChar</DataType>
+          <DataSize>250</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="8ad7b2f5-aadb-4a99-8616-1b3fcf4afcd0">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>Complaintant_Acct_No</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="f5cecb70-2a63-41a7-a1b1-641a06c429ab">
+        <DataType>WChar</DataType>
+        <DataSize>250</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="bef093e5-8f8b-47c4-b3b8-6cba358b9507">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>Complaintant_Acct_No</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyDisplayFolder>Customer</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="327f6894-b746-40cb-8a00-1ea75730cd1d">
+      <ID>Customer State</ID>
+      <Name>Customer State</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="ff841d7c-b3f8-4510-8fbd-048610201897">
+          <DataType>WChar</DataType>
+          <DataSize>250</DataSize>
+          <NullProcessing>UnknownMember</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="d5ae5505-6fa5-43b1-bdd1-695086700267">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>Customer_State</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="e5e5d2cd-417c-49c9-b8f6-16cc51774ed3">
+        <DataType>WChar</DataType>
+        <DataSize>250</DataSize>
+        <NullProcessing>ZeroOrBlank</NullProcessing>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="3f5db862-6b29-4a3f-8893-189bacdc520f">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>Customer_State</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyDisplayFolder>Customer</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="0b5d6e67-c175-4e35-a861-d10ae401532d">
+      <ID>Customer Country</ID>
+      <Name>Customer Country</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="a86170b3-a6da-4a28-9b69-dfa7455e64cb">
+          <DataType>WChar</DataType>
+          <DataSize>250</DataSize>
+          <NullProcessing>UnknownMember</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="22caee79-ca48-469e-a02a-dbcc1f5c763c">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>Customer_Country</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="ca0c109c-411c-4659-b410-adf342930fb4">
+        <DataType>WChar</DataType>
+        <DataSize>250</DataSize>
+        <NullProcessing>ZeroOrBlank</NullProcessing>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="69acf078-b75f-4225-b42e-1f3b642e98c1">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>Customer_Country</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyDisplayFolder>Customer</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="7da5aa35-d7b9-4542-b754-fd70417777e9">
+      <ID>Is Closed</ID>
+      <Name>Is Closed</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="8f74d8f2-d23c-43b5-9881-87efd9197d5e">
+          <DataType>WChar</DataType>
+          <DataSize>10</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="f82779e8-a0cf-4186-a8a6-3f4c46e524f0">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>Is_Closed</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="c21362a1-4e85-442f-87f4-14b8c652a7ab">
+        <DataType>WChar</DataType>
+        <DataSize>10</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="fb696d79-85e1-4cf2-809a-395510f559c2">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>Is_Closed</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="d1b0bfdb-0687-4ba3-aa33-6090e33cc1d6">
+      <ID>Is Yesterday</ID>
+      <Name>Is Yesterday</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="1038069a-a881-4fb0-9826-0be860370182">
+          <DataType>WChar</DataType>
+          <DataSize>10</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="5c9a9467-aa77-4a0d-a4b7-86e9269fbf46">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>Is_Yesterday</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="e7efe1c3-f13a-427b-8d54-5252bc63dfda">
+        <DataType>WChar</DataType>
+        <DataSize>10</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="1e0ee0bc-f7e0-4d8a-8876-49202d519bc9">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>Is_Yesterday</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="2f140489-4cbf-4a3a-86ed-4e8f48be5aa6">
+      <ID>Is Adverse Event</ID>
+      <Name>Is Adverse Event</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="cd5d6ba8-6918-4b00-8141-8d4800da632d">
+          <DataType>WChar</DataType>
+          <DataSize>10</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="f81475c3-be62-4344-a9f5-ac56bdb54599">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>Is_Adverse_Event</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="93270a69-371b-4e8e-96f4-61fc86693d7c">
+        <DataType>WChar</DataType>
+        <DataSize>10</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="5af7544c-923b-4448-afbb-3b62e7bbcc8c">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>Is_Adverse_Event</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyDisplayFolder>Adverse Event</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="3966a90c-b00e-4f47-b1c9-d5fd6a46c3b9">
+      <ID>Is Adverse Event Late</ID>
+      <Name>Is Adverse Event Late</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="df8a7930-dddc-444b-a337-8c379e1e7029">
+          <DataType>WChar</DataType>
+          <DataSize>10</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="9bf62852-b9e6-4e51-b3ca-84711ea72dd1">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>Is_Adverse_Event_Late</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="4cc646f0-b95b-4514-b57c-94ab0cd98fbc">
+        <DataType>WChar</DataType>
+        <DataSize>10</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="4f6e12a1-a37c-4085-a8cb-e301088cadc3">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>Is_Adverse_Event_Late</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyDisplayFolder>Adverse Event</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="57b60f74-871c-4634-8c20-1adbe5b4284c">
+      <ID>Is MDR Event</ID>
+      <Name>Is MDR Event</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="9fc57ad7-32f2-4a8d-9bf0-8632867b8817">
+          <DataType>WChar</DataType>
+          <DataSize>10</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="62a5d766-911d-4196-89a6-ad39f88e412d">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>Is_MDR_Event</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="d48cee7d-4123-4e5a-b906-96db15a56450">
+        <DataType>WChar</DataType>
+        <DataSize>10</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="6481f507-07d7-47c0-a861-b758ae2e76cb">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>Is_MDR_Event</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyDisplayFolder>MDR</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="39ca0de0-efd1-4259-b204-bf35c3924a46">
+      <ID>Is FAR Event</ID>
+      <Name>Is FAR Event</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="207deed4-4a00-4b7b-9055-ace4adf79599">
+          <DataType>WChar</DataType>
+          <DataSize>10</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="1055359a-46ea-4893-9bba-d8bd2388015b">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>Is_FAR_Event</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="5f4808dd-72bc-41f5-85c2-814daef9e762">
+        <DataType>WChar</DataType>
+        <DataSize>10</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="0543c0fd-207a-4c1b-887e-69b00bd0b687">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>Is_FAR_Event</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyDisplayFolder>FAR</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="9728b673-748b-4b96-b1b2-f51659c2a4ee">
+      <ID>Is VIG Event</ID>
+      <Name>Is VIG Event</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="2d0d66fa-4613-4bd0-be71-c7b32aea562f">
+          <DataType>WChar</DataType>
+          <DataSize>10</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="b2673f32-f3eb-4aa7-a9d9-b1e9890e297e">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>Is_VIG_Event</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="c64bba87-bd04-4431-90e5-8e089dedd78a">
+        <DataType>WChar</DataType>
+        <DataSize>10</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="774baee3-2fe9-43d5-a668-cb4e49b9486d">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>Is_VIG_Event</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyDisplayFolder>VIG</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="a28ff5a6-6340-4e13-bc99-98fa2bb42025">
+      <ID>Date Of Event</ID>
+      <Name>Date Of Incident</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="da2fbe86-87ee-49fb-b0df-2ec9abb3267b">
+          <DataType>WChar</DataType>
+          <DataSize>10</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="5b6c07ce-7852-40da-95c9-0b1fa6ecb41f">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>Date_of_Event</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="68dd29c1-b1f6-4754-bb45-66a44ac95ae4">
+        <DataType>WChar</DataType>
+        <DataSize>10</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="aabae197-3aae-4343-9cb3-9820df405047">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>Date_of_Event</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyDisplayFolder>Adverse Event</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="5d846294-43e7-43ea-b3b1-69b9046529f2">
+      <ID>Date Of Awareness</ID>
+      <Name>Date Of Awareness</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="8e90d9d8-bf4d-461e-959f-4c3db70aabc6">
+          <DataType>WChar</DataType>
+          <DataSize>10</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="24d71168-805c-4eb3-891b-37f3e457a79c">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>Date_of_Awareness</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="6cb3569f-6e1b-4468-8963-86def0f8052d">
+        <DataType>WChar</DataType>
+        <DataSize>10</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="1dcd030e-509f-491b-abcb-46013b5513b4">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>Date_of_Awareness</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyDisplayFolder>Adverse Event</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="20cb0238-93b7-4a7f-a119-c838026d0cfd">
+      <ID>Is MDR Late</ID>
+      <Name>Is MDR Late</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="b00d54b7-4693-40b6-a986-bd050c591df6">
+          <DataType>WChar</DataType>
+          <DataSize>10</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="127462cd-513a-44ba-a500-5a00114f11aa">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>Is_MDR_Late</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="d1c78772-7384-48f2-a185-1aeb7de64d78">
+        <DataType>WChar</DataType>
+        <DataSize>10</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="2b4bfd27-a4e4-4fcb-bda4-982d5e4d9efd">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>Is_MDR_Late</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyDisplayFolder>MDR</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="7f4d2a18-1814-403f-841f-e0378ec696c4">
+      <ID>Is FAR Late</ID>
+      <Name>Is FAR Late</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="e18b57c8-0ad2-4236-a205-ee3394f438c8">
+          <DataType>WChar</DataType>
+          <DataSize>10</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="92dc6114-51f1-4b8f-b513-fd4d5fb02628">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>Is_FAR_Late</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="6f74f3c1-b08f-4afa-acc3-2d50675fa780">
+        <DataType>WChar</DataType>
+        <DataSize>10</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="12876096-f079-4ae2-b091-f97cf7c5d5c4">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>Is_FAR_Late</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyDisplayFolder>FAR</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="ce7b6319-e0a3-41d7-98f9-fbe118191622">
+      <ID>Is VIG Late</ID>
+      <Name>Is VIG Late</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="c01c77fa-5ca2-4254-a273-fffa5d6222d9">
+          <DataType>WChar</DataType>
+          <DataSize>10</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="2d7f6daf-5f3f-4a5c-8603-c960f30ce9da">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>Is_VIG_Late</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="53639676-4b4c-40f9-9d0e-f3ca0f6c8ba8">
+        <DataType>WChar</DataType>
+        <DataSize>10</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="582ebb23-cd8a-4568-9c29-58f776906d77">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>Is_VIG_Late</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyDisplayFolder>VIG</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="c833f67d-5fd9-4088-9524-6144e4baeebc">
+      <ID>VIG Filed On Date</ID>
+      <Name>VIG Filed On Date</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="36c18717-6490-4b62-863c-4770bfa381b6">
+          <DataType>WChar</DataType>
+          <DataSize>10</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="1274e2bb-a51c-4a3f-afb3-ac2fd4aef301">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>VIG_Filed_On_Date</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="c0fc041d-46e0-4bdc-9b3b-c51fb518fdc3">
+        <DataType>WChar</DataType>
+        <DataSize>10</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="4a3a4aff-c145-4152-83cd-f620b0a80952">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>VIG_Filed_On_Date</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="10a3cd70-6b4c-4d9c-b361-cdd99934199f">
+          <AttributeID>VIG Filed On Month</AttributeID>
+          <RelationshipType>Rigid</RelationshipType>
+          <Name>H-VIG Filed On Month</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <AttributeHierarchyDisplayFolder>VIG</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="5ea0012f-ae83-49fb-a23b-b87f6aa2f675">
+      <ID>Customer Symptom</ID>
+      <Name>Complaint Symptom</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="6131db28-7477-4c6c-9c8b-3c6ceb95d714">
+          <DataType>WChar</DataType>
+          <DataSize>250</DataSize>
+          <Collation>Latin1_General_CS_AS</Collation>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="7bec6040-a3ad-4d65-bc9c-362fae277eb5">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>Customer_Symptom</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="b7e7d919-032b-4092-bd40-e5f5bcd4cb98">
+        <DataType>WChar</DataType>
+        <DataSize>250</DataSize>
+        <Collation>Latin1_General_CS_AS</Collation>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="785974ef-c7e3-4a4e-8b53-c3875e3c0896">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>Customer_Symptom</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="dce4a43b-edf5-4549-aeae-63b3ee48f96c">
+      <ID>Contact Name</ID>
+      <Name>Contact Name</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="9d137565-c0a6-44bc-aa16-8466a8aac10f">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="c4ea834d-dfde-486c-98e6-76c9d01e364d">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>Contact_Name_Sequence</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="e9e750b6-bc3e-46ed-9f62-480e12bb5099">
+        <DataType>WChar</DataType>
+        <DataSize>250</DataSize>
+        <Collation>Latin1_General_CI_AS</Collation>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="2f1c645e-44d4-456d-a5ac-813137df2d0f">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>Contact_Name</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyDisplayFolder>Customer</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="585cfebc-5e78-464e-80e0-75437f074371">
+      <ID>Customer City</ID>
+      <Name>Customer City</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="40ebf55b-2d2e-4734-91f2-40bfe4a3dd37">
+          <DataType>WChar</DataType>
+          <DataSize>250</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="3f7f8525-84f6-4b7b-bdf2-ed96ca342f34">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>Customer_City</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="e489c02a-a713-40e4-ba15-98b2aa388921">
+        <DataType>WChar</DataType>
+        <DataSize>250</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="3ff4e3eb-00e8-497a-8186-85b1b0e08620">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>Customer_City</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyDisplayFolder>Customer</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="a3b38450-d329-45aa-a813-8481d6a88887">
+      <ID>Customer Postal Code</ID>
+      <Name>Customer Postal Code</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="3e8ea1f1-8fce-42d1-a996-993c0cc77625">
+          <DataType>WChar</DataType>
+          <DataSize>250</DataSize>
+          <NullProcessing>UnknownMember</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="5ce46cf1-1cd3-4b3e-b702-467cc026ea6c">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>Customer_Postal_Code</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="ed2649ad-a4f8-4048-a790-e2bea768ebb0">
+        <DataType>WChar</DataType>
+        <DataSize>250</DataSize>
+        <NullProcessing>ZeroOrBlank</NullProcessing>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="fbbaf5ba-74b3-42b4-a46c-b7532e546f73">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>Customer_Postal_Code</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyDisplayFolder>Customer</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="fd0895d5-52ff-43e9-a31f-b5932070b957">
+      <ID>Complaintant</ID>
+      <Name>Complaintant</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="2ff4b136-20c8-4d35-8fea-90a1d9b3c160">
+          <DataType>Integer</DataType>
+          <Collation>Latin1_General_CS_AS</Collation>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="7682333a-d2cc-4456-b38e-7d4cc39152f6">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>Complaintant_Sequence</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="c4e6e603-06c2-4aba-9f1d-b66e2fbd5c9d">
+        <DataType>WChar</DataType>
+        <DataSize>250</DataSize>
+        <Collation>Latin1_General_CS_AS</Collation>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="1cc1067a-2d8b-4003-8163-a138eb6d18af">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>Complaintant</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyDisplayFolder>Customer</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="2e8cc282-c452-4265-9879-57293dce1fb7">
+      <ID>Is Customer Feedback</ID>
+      <Name>Is Customer Feedback</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="42be9011-1ab4-4c53-83a6-09297d876128">
+          <DataType>WChar</DataType>
+          <DataSize>10</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="f65774d3-26f2-48b4-b682-faba96a19f50">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>Is_Customer_Feedback</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="6c2dbe59-ff3e-42f3-991d-b55f727dfc84">
+        <DataType>WChar</DataType>
+        <DataSize>10</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="5425fac6-b3a9-49c6-821b-4423233d6e59">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>Is_Customer_Feedback</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="36bebf0b-ff61-4d55-b958-b49010d888de">
+      <ID>Is Complaint Verbal</ID>
+      <Name>Is Complaint Verbal</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="13c6089d-6977-4b0e-bfd6-a62e3dd05108">
+          <DataType>WChar</DataType>
+          <DataSize>10</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="feb1bf04-d8fb-4341-a88f-fa6fb795ab2c">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>Is_Complaint_Verbal</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="0e3ab4cc-8c89-4175-bfe3-27e004c2f62a">
+        <DataType>WChar</DataType>
+        <DataSize>10</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="609b4c91-2187-4a9c-8ff7-22f979a38a38">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>Is_Complaint_Verbal</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="a2758df4-c967-41a9-9503-69cd74dc3b93">
+      <ID>Is Age 0 45</ID>
+      <Name>Is Age 0 45</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="e3478330-9e2a-4106-aaf6-6eef308e4bf6">
+          <DataType>WChar</DataType>
+          <DataSize>10</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="797cd3f3-db23-4813-a7da-d87e64f2c6e7">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>Is_Age_0_45</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="f93f8785-abb3-4f51-a0ba-d7d11426aa47">
+        <DataType>WChar</DataType>
+        <DataSize>10</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="0f103299-0abe-4534-9646-999699763de1">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>Is_Age_0_45</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="407bb6cd-a3f8-4b99-b30c-721ee52a2043">
+      <ID>Is Age 46 60</ID>
+      <Name>Is Age 46 60</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="7ecdf8ab-5fb2-4dc1-9c99-c009f5365087">
+          <DataType>WChar</DataType>
+          <DataSize>10</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="5494a317-70f4-405c-8eb6-64755fae27ee">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>Is_Age_46_60</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="4c26f636-8638-4bbd-9abe-19ee7f1f61eb">
+        <DataType>WChar</DataType>
+        <DataSize>10</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="553be3c0-064d-4e71-87a1-73b4f9ffb844">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>Is_Age_46_60</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="00cc06ee-3ef5-439f-9c71-6a50371193b2">
+      <ID>Is Age 61 70</ID>
+      <Name>Is Age 61 70</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="71bbebc5-e3eb-45ab-a5ae-9f545a8e052c">
+          <DataType>WChar</DataType>
+          <DataSize>10</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="70c87663-59f1-40f5-9f88-ae58453149dc">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>Is_Age_61_70</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="8ecda13e-8f4e-4537-9ab5-8788efc4e246">
+        <DataType>WChar</DataType>
+        <DataSize>10</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="43211ae1-a278-4ae1-9136-403819a19e88">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>Is_Age_61_70</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="2e206c1e-3cb6-40f4-ada4-27dfe7d2d28f">
+      <ID>Is Age 71 Plus</ID>
+      <Name>Is Age 71 Plus</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="15d2d802-d1b7-408f-b9c3-24d127938650">
+          <DataType>WChar</DataType>
+          <DataSize>10</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="a42705b0-cf5b-4f8e-98f3-2480892d7279">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>Is_Age_71_Plus</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="a12293a1-8acd-4a46-9a90-42db5aef8d7b">
+        <DataType>WChar</DataType>
+        <DataSize>10</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="36cd2167-c629-45e3-b087-43757a869d96">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>Is_Age_71_Plus</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="5d32df16-6057-427f-9ff3-15648481c9f5">
+      <ID>Lot Number</ID>
+      <Name>Lot Number</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="fe811dbb-80d5-4f2c-972b-d05b78c5e797">
+          <DataType>WChar</DataType>
+          <DataSize>1000</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="a406729a-8575-4cbd-9d33-ab1a4a6150e9">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>Lot_Number</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="b7c10cf9-0beb-4d34-b5bb-351e683c492c">
+        <DataType>WChar</DataType>
+        <DataSize>1000</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="65271224-e37b-4072-bde6-c10f1a7b750f">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>Lot_Number</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="5ec58e74-8ad8-4db4-8b30-8192d83f4910">
+      <ID>Serial Number</ID>
+      <Name>Serial Number</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="fc6a05d6-da20-4cf1-9396-2e313737a955">
+          <DataType>WChar</DataType>
+          <DataSize>1000</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="a7939eaa-c93f-447b-a439-09097248c2ba">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>Serial_Number</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="31f40ed5-e17b-4fa7-9f0b-54ea94338791">
+        <DataType>WChar</DataType>
+        <DataSize>1000</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="c1f87479-e350-4b62-a76f-27e572197950">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>Serial_Number</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="fbf545c8-8396-4ce5-a734-c406c8f6bff4">
+      <ID>Manufactured Date</ID>
+      <Name>Manufactured Date</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="1752b9c5-9281-4714-a037-8d021843ea41">
+          <DataType>WChar</DataType>
+          <DataSize>10</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="041444f3-4c3f-41b5-98e4-0eec2e23a3e4">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>Manufactured_Date</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="75c860d9-bafa-41c5-a5b0-2bd5738736ee">
+        <DataType>WChar</DataType>
+        <DataSize>10</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="126e9bba-d355-4adf-982d-d0744b08fdf9">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>Manufactured_Date</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="c4815aa5-8a2f-43f8-bedf-3af1531629ff">
+          <AttributeID>Manufactured Date Month</AttributeID>
+          <RelationshipType>Rigid</RelationshipType>
+          <Name>H-Manufactured Date Month</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="a7436198-f251-4f65-a2f9-e73efd44fd44">
+      <ID>Closed Date Week</ID>
+      <Name>H-Closed Date Week</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="f89189df-5b77-4fbd-9528-59de96fd519d">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="097ba2af-fac3-47e8-af7d-7a6399acfecb">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>Closed_Date_Year</ColumnID>
+          </Source>
+        </KeyColumn>
+        <KeyColumn dwd:design-time-name="78031f9a-ca3c-4461-b432-0bf7ca813e28">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="4533102f-6c04-410e-9fef-1183f25c0832">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>Closed_Date_Week_Seq</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="41cd7308-8c05-47ca-b922-1ba6248212e8">
+        <DataType>WChar</DataType>
+        <DataSize>50</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="c5ca29fe-5bf3-493a-8285-be56e8a2d461">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>Closed_Date_Week</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="c4b4a900-effe-4e06-bf65-4c65a7dcb785">
+          <AttributeID>Closed Date Year</AttributeID>
+          <RelationshipType>Rigid</RelationshipType>
+          <Name>H-Closed Date Year</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="da774ca7-31ac-48b9-ace6-d7a4411ae779">
+      <ID>Closed Date Week Seq</ID>
+      <Name>H-Closed Date Week Seq</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="8ac46d0b-71e9-4cb2-b6cd-060f33252610">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="a20da248-580b-4f6e-9727-9c246ebcbfa2">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>Closed_Date_Week_Seq</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="88716033-147d-4ad7-98e5-31c07480732b">
+      <ID>Open Date Week</ID>
+      <Name>H-Open Date Week</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="8b80e036-ccd6-4457-a35c-49450f47d0b9">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="065e6f0b-1ac6-417a-bc81-3c0c7bf9648c">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>Open_Date_Year</ColumnID>
+          </Source>
+        </KeyColumn>
+        <KeyColumn dwd:design-time-name="6b267f7f-7c16-4841-90ef-a33a5772516a">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="2982e17f-a067-453e-a3de-aee378c75fbb">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>Open_Date_Week_Seq</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="1c5ec4d2-b616-4400-984b-0ccfde32dbb0">
+        <DataType>WChar</DataType>
+        <DataSize>50</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="260ec233-2d4c-4e06-9da5-5b6b7d5db632">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>Open_Date_Week</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="1d84729a-cda9-420b-976c-31e4f71def21">
+          <AttributeID>Open Date Year</AttributeID>
+          <RelationshipType>Rigid</RelationshipType>
+          <Name>H-Open Date Year</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="fee89d96-d897-4449-9863-79fcb773abae">
+      <ID>Open Date Week Seq</ID>
+      <Name>H-Open Date Week Seq</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="189e0170-3eae-4217-8a9c-e5ff9860be9d">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="a41e14a4-37c1-4e73-8324-d67b57a0d18b">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>Open_Date_Week_Seq</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="693b620d-5d43-48db-bb48-b501392ae922">
+      <ID>Is Last 12 Weeks Opened</ID>
+      <Name>Is Last 12 Weeks Opened</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="22ee85f6-387f-4fbb-bf43-d7488c9c9b43">
+          <DataType>WChar</DataType>
+          <DataSize>10</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="5221d99d-cdbf-4a69-a422-3f149beff0c2">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>Is_Last_12_Weeks_Opened</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="18addc71-69c1-49cf-8fdc-08e8e62c66e2">
+      <ID>Is Last 12 Weeks Closed</ID>
+      <Name>Is Last 12 Weeks Closed</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="eda42913-9345-432e-93e1-8d538f8bf117">
+          <DataType>WChar</DataType>
+          <DataSize>10</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="989a8685-0cf5-4bc6-9a5d-05226d2a090f">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>Is_Last_12_Weeks_Closed</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="cbeb492a-07ac-4e50-bc40-6cba2ebd2e57">
+      <ID>Is Last 13 Months Opened</ID>
+      <Name>Is Last 13 Months Opened</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="68d78328-afe8-4cf0-91fe-f66df78a5679">
+          <DataType>WChar</DataType>
+          <DataSize>10</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="96cb11c8-9b80-4d33-8b18-794d148efb1e">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>Is_Last_13_Months_Opened</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="80a3fe77-5da5-46ea-8305-0c8d1c8578ed">
+      <ID>Is Product Indicated</ID>
+      <Name>Is Product Indicated</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="fc912206-62b6-4bd8-b509-a52f434c1027">
+          <DataType>WChar</DataType>
+          <DataSize>10</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="93e8a988-2330-4ecb-8081-c618fbb62ba4">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>IsProductIndicated</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="1926909a-20d0-4234-b1cf-ead1705795e6">
+        <DataType>WChar</DataType>
+        <DataSize>10</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="b5c3fdb1-f377-4ddf-b6af-b90a5c4716d9">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>IsProductIndicated</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="d85a1139-6770-4d05-95c5-5a2a82cf18da">
+      <ID>Manufactured Date Year</ID>
+      <Name>H-Manufactured Date Year</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="c80a61f4-072f-4207-9ce5-2d4cbaf0efe5">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="2eb421f6-c5f1-4332-8b3e-99e0447fbd3a">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>Manufactured_Date_Year</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="1504e0af-4fc4-4f3b-a527-6da31876568a">
+        <DataType>WChar</DataType>
+        <DataSize>50</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="c7960dd6-b5d6-4794-b13c-cbca0ffd950d">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>Manufactured_Date_Year</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="80d3ba96-1215-4cb9-a0ce-d67e463136ee">
+      <ID>Manufactured Date Month</ID>
+      <Name>H-Manufactured Date Month</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="8933cc79-7cc5-4fdb-856c-6038cba0420a">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="55bfaee2-bd6a-4669-8179-82793b26f948">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>Manufactured_Date_Year</ColumnID>
+          </Source>
+        </KeyColumn>
+        <KeyColumn dwd:design-time-name="d2e4b213-8f44-4554-828e-549cae4d3ce3">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="54b49345-304b-4a85-8c92-1bdae46a18e2">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>Manufactured_Date_Month_Seq</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="e3daca91-d9b9-4abd-8f11-decae0d0e517">
+        <DataType>WChar</DataType>
+        <DataSize>50</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="e7665d48-0256-44ec-ab30-53f972202c1c">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>Manufactured_Date_Month</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="48f9fd1a-221f-485e-81db-35aedaec0133">
+          <AttributeID>Manufactured Date Year</AttributeID>
+          <RelationshipType>Rigid</RelationshipType>
+          <Name>H-Manufactured Date Year</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="b50e56a0-5f4c-423b-9b0b-fedcf3b21f6c">
+      <ID>Manufactured Date Month Seq</ID>
+      <Name>H-Manufactured Date Month Seq</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="6f6e2fc3-f5b8-4611-9442-e290441bd102">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="4e65dc82-e245-4b6c-8755-884022f5a168">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>Manufactured_Date_Month_Seq</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="9904a5df-67a6-4f12-ac6d-82cf9af00b01">
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="72825aa8-d0eb-487c-a346-4ae5d8886475">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>Manufactured_Date_Month_Seq</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="47b717bd-ec0e-47cc-897a-334a11496146">
+      <ID>Decision Tree Assigned To</ID>
+      <Name>Decision Tree Assigned To</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="78b952fa-b6f0-4763-9d1e-be4dca5cff4c">
+          <DataType>WChar</DataType>
+          <DataSize>321</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="73aad681-425b-4824-97e1-54927b19adff">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>DecisionTreeAssignedTo</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="c2903e9c-aef7-46a4-b88b-7e4901ff0c52">
+      <ID>Regulatory Review Rationale</ID>
+      <Name>Regulatory Review Rationale</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="6aeac9b1-3894-4455-a153-09baecd0de3e">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="7110a105-a46d-4b9c-b0ae-b4594502f7b5">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>Dim_Complaint_KEY</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="1c0e17e8-1b8e-4e5b-8381-6cc7637d2d1f">
+        <DataType>WChar</DataType>
+        <DataSize>3000</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="e0261b6c-8ee1-4783-ba6a-f2593d8d0eb4">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>RegulatoryReviewRationale</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="09eee547-adfc-4e15-878f-7dac8b81e1fb">
+      <ID>Is Letter Required</ID>
+      <Name>Is Letter Required</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="e09a707a-0146-483b-a640-c69a82729199">
+          <DataType>WChar</DataType>
+          <DataSize>1016</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="c2c9b792-fe04-4ea8-8e34-c6eb5edf6d90">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>IsLetterRequired</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="f7ce400b-d04b-4637-a4f0-188a8244dfce">
+      <ID>PI Completed By</ID>
+      <Name>PI Completed By</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="30a05ff5-482e-41db-84f6-19af97f2527d">
+          <DataType>WChar</DataType>
+          <DataSize>1016</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="30448957-f11f-471d-9013-bad8c7d6e881">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>PICompletedBy</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="a019087c-e85d-4178-bf07-0359bfa5dc3b">
+        <DataType>WChar</DataType>
+        <DataSize>1016</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="9ea01094-7c14-46af-aeaa-4927a5ce9af2">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>PICompletedBy</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="92df51d2-d78f-49d2-826a-fcdf64d9e0d1">
+      <ID>MDR Assigned To</ID>
+      <Name>MDR Assigned To</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="2e9acae9-585a-4ce3-9273-8941b237c95f">
+          <DataType>WChar</DataType>
+          <DataSize>1016</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="40950d4d-40de-45ef-acfc-a391ed9c7a20">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>MDRAssignedTo</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <AttributeHierarchyDisplayFolder>MDR</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="225a84e0-7a16-421a-a651-73c5cbd48c17">
+      <ID>Is Follow Up Required</ID>
+      <Name>Is Follow Up Required</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="422cd1cd-00c4-4a75-a14d-be36f7d8d6d7">
+          <DataType>WChar</DataType>
+          <DataSize>1016</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="97a6b956-cd3f-4d70-9ba4-eec118d48348">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>IsFollowUpRequired</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <AttributeHierarchyDisplayFolder>MDR</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="b61beba1-f7df-4414-ae65-90643bef51c1">
+      <ID>Follow Up Due Date</ID>
+      <Name>Follow Up Due Date</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="ae46f36a-521b-40a1-a515-ddde6168d55e">
+          <DataType>WChar</DataType>
+          <DataSize>10</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="7777e1ad-d1a6-4768-b936-990ab78f82af">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>FollowUpDueDate</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <AttributeHierarchyDisplayFolder>MDR</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="3e8aa8bf-a839-4d68-a49d-de9b5c8130be">
+      <ID>Product Returned Date</ID>
+      <Name>Product Returned Date</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="ed844ef0-693f-4a8f-96e3-03d33f2ed55d">
+          <DataType>WChar</DataType>
+          <DataSize>10</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="c313f8af-3869-40ea-9c52-984affa5e711">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>ProductReturnedDate</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="bc98c9b5-2527-4398-ab9d-eda0fae2260c">
+      <ID>Product Returned Status</ID>
+      <Name>Product Returned Status</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="76138a85-158f-4dc4-ac1a-da92830ef167">
+          <DataType>WChar</DataType>
+          <DataSize>10</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="0e8e23f9-84de-4f07-9360-b8f1b202e5af">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>ProductReturnedStatus</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="24802a46-14dd-45a1-b6a4-00752b26c866">
+      <ID>PI Completion Date</ID>
+      <Name>PI Completion Date</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="9396e1cf-37c6-4d30-9bb8-d66733e8cf3b">
+          <DataType>WChar</DataType>
+          <DataSize>10</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="0c7252d3-842b-481f-941c-b9ebf02e8d2a">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>PI_Completion_Date</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="0fe4558e-593c-42e9-aa9a-eeacb97670a4">
+        <DataType>WChar</DataType>
+        <DataSize>10</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="c5425174-aac6-414c-9a25-c0da8290164c">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>PI_Completion_Date</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="5f536458-828e-476a-8daf-42964562acc7">
+      <ID>CAPA Number</ID>
+      <Name>CAPA Number</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="d3e5e118-cd49-4e12-9b07-21a62f64317e">
+          <DataType>WChar</DataType>
+          <DataSize>150</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="f37e6d32-ea31-402b-94b7-cf37fdff9043">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>CAPA_Number</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="52293123-12eb-4e42-83d5-38cb144bd45e">
+      <ID>Investigation Result</ID>
+      <Name>Investigation Result</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="95d8030b-0013-4fd7-a1e9-46c699245dd2">
+          <DataType>WChar</DataType>
+          <DataSize>1016</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="713b5ae8-8cf4-4215-9da3-65183247d6ad">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>Investigation_Result</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="54481855-d497-42b2-bef7-b371acfb174a">
+      <ID>Report Source Other</ID>
+      <Name>Report Source Other</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="3ca2ce4d-7075-4668-81f0-0e97c5016a51">
+          <DataType>WChar</DataType>
+          <DataSize>1016</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="2c64c568-1b9e-4160-958a-78622ec6ea23">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>Report_Source_Other</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="d92057a8-df7a-44cc-a487-30c286b9bea3">
+        <DataType>WChar</DataType>
+        <DataSize>1016</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="a7a2b033-6a00-4926-9eb3-49f6502b4fc8">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>Report_Source_Other</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyDisplayFolder>Additional Details</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="baed33d4-8b6e-41eb-a42a-71b71967848c">
+      <ID>RGA Number</ID>
+      <Name>RGA Number</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="3c439088-6fda-4ed7-92af-702f0b80ba7b">
+          <DataType>WChar</DataType>
+          <DataSize>1016</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="abb03c71-9259-4f46-8878-69a1297f68c3">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>RGA_Number</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="c84bde0f-fa41-4fec-ba7a-c7c620cad76a">
+        <DataType>WChar</DataType>
+        <DataSize>1016</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="6a32772e-8007-47b0-9747-0268a5bdf7ae">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>RGA_Number</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyDisplayFolder>Additional Details</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="a56d1356-60d7-4e8e-9645-46d84887512d">
+      <ID>Complaints Summary</ID>
+      <Name>Complaints Summary</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="4eb0c358-fb7a-4355-947e-867ea1da4a27">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="1992a0ca-e545-416c-af67-dc9ab4df4da6">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>Dim_Complaint_KEY</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="8de2f45c-6ae0-40f7-97c4-3bbece9d3cb4">
+        <DataType>WChar</DataType>
+        <DataSize>3000</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="3312ddcc-e661-4225-9bd4-8d428aadf60f">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>Complaints_Summary</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyDisplayFolder>Additional Details</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="52f93ba6-adfb-423a-9c41-898792959d67">
+      <ID>DT- In Process</ID>
+      <Name>DT- In Process</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="4b1c9390-a2dd-4f14-8678-5ba8849a2417">
+          <DataType>WChar</DataType>
+          <DataSize>160</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="e8a444c6-d4ad-46f6-8aa3-cab9d8ef6522">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>DT-InProcess</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="ff4238dc-e3d7-45aa-bbe4-3e9069a8a3f1">
+        <DataType>WChar</DataType>
+        <DataSize>160</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="61362def-6b7d-4977-b646-f3df63481270">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>DT-InProcess</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="8425718d-ae13-4c0a-969f-aa6da0ae8ae2">
+      <ID>DT- Completed On</ID>
+      <Name>DT- Completed On</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="637087f7-410e-419e-bc89-762f1937cfa8">
+          <DataType>WChar</DataType>
+          <DataSize>10</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="287944ec-c4d6-4052-849d-325c5d46061b">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>DT-Completed_On</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="3a4873a6-44c9-4e04-852a-06c210dbf3e0">
+        <DataType>WChar</DataType>
+        <DataSize>10</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="517fd499-af04-43ba-be70-2675e8f84d1c">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>DT-Completed_On</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="981c8903-a8e8-44d6-964f-f9cbd3ad6259">
+      <ID>Injury</ID>
+      <Name>Injury</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="19708085-96d3-41f7-ab6e-37317ff1d237">
+          <DataType>WChar</DataType>
+          <DataSize>150</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="747c0fc5-e63d-4794-a24d-3286fd152a62">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>Injury</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="43a1967a-ef71-4fb2-9882-26f01e5ab932">
+        <DataType>WChar</DataType>
+        <DataSize>150</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="a3885fb8-d449-4b78-af84-5ea8517dc06c">
+          <TableID>EDW_Dim_Complaint</TableID>
+          <ColumnID>Injury</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="f0869ebd-0d01-4f0c-a2c6-09e097d2ed6d">
+      <ID>Exclude 1700-000</ID>
+      <Name>Exclude 1700-010</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="0ad1038a-ad38-4536-b06a-6f1904bfdd1c">
+          <DataType>WChar</DataType>
+          <DataSize>10</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="7c07c710-1b0d-479c-accb-d9eabea4b25b">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>Exclude_1700-000</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="e3e5a4ea-f49c-45f3-b039-c11b4647872c">
+      <ID>Complaint Closed By</ID>
+      <Name>Complaint Closed By</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="36cffb34-1d90-4211-bc62-62e731d9701f">
+          <DataType>WChar</DataType>
+          <DataSize>1016</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="2737ace0-0234-4e28-a67b-cc99f4ca2e2c">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>Complaint_Closed_By</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="97840670-2e95-4b00-9756-c4ac7866e027">
+      <ID>Complaint Created By</ID>
+      <Name>Complaint Created By</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="c2269d3d-7e2d-477c-b9d8-cc4b2b6a53e3">
+          <DataType>WChar</DataType>
+          <DataSize>1016</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="56f4b1fb-41bc-4935-ad5a-c33b7c1fabf1">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>Complaint_Created_By</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="b39ac2ab-01df-4224-96be-a514f9000a2d">
+      <ID>Decision Trees Completed By</ID>
+      <Name>Decision Trees Completed By</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="78b5faaf-832b-4c43-b03d-56dc948b6c45">
+          <DataType>WChar</DataType>
+          <DataSize>1016</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="4ed9b681-5226-4ee2-b384-96ba939c90f2">
+            <TableID>EDW_Dim_Complaint</TableID>
+            <ColumnID>Decision_Trees_Completed_By</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <Hierarchies>
+    <Hierarchy dwd:design-time-name="d92976f7-9dd5-4241-ab70-553c8a925f1b">
+      <ID>Hierarchy</ID>
+      <Name>Open Date YM Hierarchy</Name>
+      <Levels>
+        <Level dwd:design-time-name="1f42b3c1-1165-4f43-8594-21275893f3d9">
+          <ID>H-Open Date Year</ID>
+          <Name>H-Open Date Year</Name>
+          <SourceAttributeID>Open Date Year</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="58a8162f-0d1f-4269-970c-452d255fa1dc">
+          <ID>H-Open Date Month</ID>
+          <Name>H-Open Date Month</Name>
+          <SourceAttributeID>Open Date Month</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+    <Hierarchy dwd:design-time-name="100ff52c-3cea-45e8-a0fa-a651d18cf852">
+      <ID>Hierarchy 1</ID>
+      <Name>Open Date YQM Hierarchy</Name>
+      <Levels>
+        <Level dwd:design-time-name="3968eb05-a6d3-4269-9199-13fb81207887">
+          <ID>H-Open Date Year</ID>
+          <Name>H-Open Date Year</Name>
+          <SourceAttributeID>Open Date Year</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="49c52354-47bc-46e0-a18d-9c00ba305ffc">
+          <ID>H-Open Date Quarter</ID>
+          <Name>H-Open Date Quarter</Name>
+          <SourceAttributeID>Open Date Quarter</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="eb493dad-2cfa-4d34-bb1b-92b7524c8308">
+          <ID>H-Open Date Month</ID>
+          <Name>H-Open Date Month</Name>
+          <SourceAttributeID>Open Date Month</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+    <Hierarchy dwd:design-time-name="6a2443ec-876e-4b53-8e73-8437d7c702ba">
+      <ID>Hierarchy 2</ID>
+      <Name>Closed Date YM Hierarchy</Name>
+      <Levels>
+        <Level dwd:design-time-name="52984135-1193-4d8c-9e9f-7cf6d450684d">
+          <ID>H-Closed Date Year</ID>
+          <Name>H-Closed Date Year</Name>
+          <SourceAttributeID>Closed Date Year</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="0597e243-01bd-4f80-97ec-62aedb758b2a">
+          <ID>H-Closed Date Month</ID>
+          <Name>H-Closed Date Month</Name>
+          <SourceAttributeID>Closed Date Month</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+    <Hierarchy dwd:design-time-name="3545af79-cc5b-450d-816c-82cb25e8216e">
+      <ID>Hierarchy 1 1</ID>
+      <Name>Closed Date YQM Hierarchy</Name>
+      <Levels>
+        <Level dwd:design-time-name="8103c367-25ea-472b-ad4b-137c2ef0e4e3">
+          <ID>H-Closed Date Year</ID>
+          <Name>H-Closed Date Year</Name>
+          <SourceAttributeID>Closed Date Year</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="545a193e-99db-4c10-a94b-0eb82c254a62">
+          <ID>H-Closed Date Quarter</ID>
+          <Name>H-Closed Date Quarter</Name>
+          <SourceAttributeID>Closed Date Quarter</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="b697520f-90be-4e79-b144-8670427dc111">
+          <ID>H-Closed Date Month</ID>
+          <Name>H-Closed Date Month</Name>
+          <SourceAttributeID>Closed Date Month</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+    <Hierarchy dwd:design-time-name="0f50384d-7302-44e5-99f7-5d31552eff85">
+      <ID>Hierarchy 3</ID>
+      <Name>FAR Filed On YM Hierarchy</Name>
+      <DisplayFolder>FAR</DisplayFolder>
+      <Levels>
+        <Level dwd:design-time-name="6b9dab58-75b5-4bc3-89c3-0b9cea19de55">
+          <ID>H-FAR Filed On Year</ID>
+          <Name>H-FAR Filed On Year</Name>
+          <SourceAttributeID>FAR Filed On Year</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="70ded3b7-27ff-4486-971a-09f0e2df916f">
+          <ID>H-FAR Filed On Month</ID>
+          <Name>H-FAR Filed On Month</Name>
+          <SourceAttributeID>FAR Filed On Month</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+    <Hierarchy dwd:design-time-name="d536311e-7fcb-4abb-8de3-26870ea3c537">
+      <ID>Hierarchy 4</ID>
+      <Name>FAR Filed On YQM Hierarchy</Name>
+      <DisplayFolder>FAR</DisplayFolder>
+      <Levels>
+        <Level dwd:design-time-name="f93edde3-db23-406d-8c23-003d09e97601">
+          <ID>H-FAR Filed On Year</ID>
+          <Name>H-FAR Filed On Year</Name>
+          <SourceAttributeID>FAR Filed On Year</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="9ed13b21-b61b-4c80-b8ea-fd817eb1a58d">
+          <ID>H-FAR Filed On Quarter</ID>
+          <Name>H-FAR Filed On Quarter</Name>
+          <SourceAttributeID>FAR Filed On Quarter</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="aab3d736-6726-4fb5-8774-3e776008d4f4">
+          <ID>H-FAR Filed On Month</ID>
+          <Name>H-FAR Filed On Month</Name>
+          <SourceAttributeID>FAR Filed On Month</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+    <Hierarchy dwd:design-time-name="84573af8-4009-44e8-ab51-e2c37996ce93">
+      <ID>Hierarchy 5</ID>
+      <Name>MDR Filed On YM Hierarchy</Name>
+      <DisplayFolder>MDR</DisplayFolder>
+      <Levels>
+        <Level dwd:design-time-name="f4fa7604-90f9-4d8c-a34e-c473eafa1d63">
+          <ID>H-MDR Filed On Year</ID>
+          <Name>H-MDR Filed On Year</Name>
+          <SourceAttributeID>MDR Filed On Year</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="ac383531-08a9-4071-af7f-ad7aab1c898b">
+          <ID>H-MDR Filed On Month</ID>
+          <Name>H-MDR Filed On Month</Name>
+          <SourceAttributeID>MDR Filed On Month</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+    <Hierarchy dwd:design-time-name="8f8bc2c5-0fce-48b6-b33a-a5522ef5ce2b">
+      <ID>Hierarchy 6</ID>
+      <Name>MDR Filed On YQM Hierarchy</Name>
+      <DisplayFolder>MDR</DisplayFolder>
+      <Levels>
+        <Level dwd:design-time-name="69831f7e-9825-424f-b1ae-5451a42d630d">
+          <ID>H-MDR Filed On Year</ID>
+          <Name>H-MDR Filed On Year</Name>
+          <SourceAttributeID>MDR Filed On Year</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="1912617b-ed43-4d5f-adab-b6ab238dfe08">
+          <ID>H-MDR Filed On Quarter</ID>
+          <Name>H-MDR Filed On Quarter</Name>
+          <SourceAttributeID>MDR Filed On Quarter</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="9cfcf4f3-cfc4-47b8-a656-a765fd83744f">
+          <ID>H-MDR Filed On Month</ID>
+          <Name>H-MDR Filed On Month</Name>
+          <SourceAttributeID>MDR Filed On Month</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+    <Hierarchy dwd:design-time-name="40eaa577-dbce-4845-af91-5a7fb68bab06">
+      <ID>Hierarchy 7</ID>
+      <Name>VIG Filed On YM Hierarchy</Name>
+      <DisplayFolder>VIG</DisplayFolder>
+      <Levels>
+        <Level dwd:design-time-name="56794596-7907-4a42-8510-1f5c2513fa67">
+          <ID>H-VIG Filed On Year</ID>
+          <Name>H-VIG Filed On Year</Name>
+          <SourceAttributeID>VIG Filed On Year</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="86e0a397-96d9-45db-9e5f-759ccc8dfe94">
+          <ID>H-VIG Filed On Month</ID>
+          <Name>H-VIG Filed On Month</Name>
+          <SourceAttributeID>VIG Filed On Month</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+    <Hierarchy dwd:design-time-name="410a50a3-dcc2-439c-8623-101cd801a446">
+      <ID>Hierarchy 1 2</ID>
+      <Name>VIG Filed On YQM Hierarchy</Name>
+      <DisplayFolder>VIG</DisplayFolder>
+      <Levels>
+        <Level dwd:design-time-name="256c8593-0d86-4af7-bc36-4ef3173a79e6">
+          <ID>H-VIG Filed On Year</ID>
+          <Name>H-VIG Filed On Year</Name>
+          <SourceAttributeID>VIG Filed On Year</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="6ec9128f-2cb0-46f5-8bcb-34f92730d526">
+          <ID>H-VIG Filed On Quarter</ID>
+          <Name>H-VIG Filed On Quarter</Name>
+          <SourceAttributeID>VIG Filed On Quarter</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="76a6c799-5924-45b3-a431-c046f350ee4a">
+          <ID>H-VIG Filed On Month</ID>
+          <Name>H-VIG Filed On Month</Name>
+          <SourceAttributeID>VIG Filed On Month</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+    <Hierarchy dwd:design-time-name="623cc75f-4a8d-444f-b0e7-c66ea3851111">
+      <ID>Hierarchy 8</ID>
+      <Name>Closed Date YW Hierarchy</Name>
+      <Levels>
+        <Level dwd:design-time-name="3f3374d1-2aa4-467e-a4cd-99008836468a">
+          <ID>H-Closed Date Year</ID>
+          <Name>H-Closed Date Year</Name>
+          <SourceAttributeID>Closed Date Year</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="e84afc4a-4de6-4fdb-9853-f2161a15492f">
+          <ID>H-Closed Date Week</ID>
+          <Name>H-Closed Date Week</Name>
+          <SourceAttributeID>Closed Date Week</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+    <Hierarchy dwd:design-time-name="38632bff-55e0-419b-93d8-a5ed40e7d58d">
+      <ID>Hierarchy 9</ID>
+      <Name>Open Date YW Hierarchy</Name>
+      <Levels>
+        <Level dwd:design-time-name="7e9c8a52-f7fd-4672-97cd-34e70c72d190">
+          <ID>H-Open Date Year</ID>
+          <Name>H-Open Date Year</Name>
+          <SourceAttributeID>Open Date Year</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="66637bbd-a274-4ac7-8441-891ed79a60aa">
+          <ID>H-Open Date Week</ID>
+          <Name>H-Open Date Week</Name>
+          <SourceAttributeID>Open Date Week</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+    <Hierarchy dwd:design-time-name="5f7ecd2e-6e96-4c84-b608-2a527dcb33b1">
+      <ID>Hierarchy 10</ID>
+      <Name>Manufactured Date YM Hierarchy</Name>
+      <Levels>
+        <Level dwd:design-time-name="ddbf186c-d9cf-40c4-b6de-cb099612435c">
+          <ID>H-Manufactured Date Year</ID>
+          <Name>H-Manufactured Date Year</Name>
+          <SourceAttributeID>Manufactured Date Year</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="76efb7d4-ecf2-4bb5-8d5f-5beb160fe139">
+          <ID>H-Manufactured Date Month</ID>
+          <Name>H-Manufactured Date Month</Name>
+          <SourceAttributeID>Manufactured Date Month</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+  </Hierarchies>
+  <ProactiveCaching dwd:design-time-name="3a2514ff-b4b6-45a6-8559-10c2d519834c">
+    <SilenceInterval>-PT1S</SilenceInterval>
+    <Latency>-PT1S</Latency>
+    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+    <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="8561e60e-1b78-4583-b5d9-f97ef9c8c25a" />
+  </ProactiveCaching>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>
